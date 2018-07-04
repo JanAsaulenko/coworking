@@ -1,0 +1,34 @@
+#status-header	{margin-top: -2px;}
+#seller-name	{float:right;}
+
+.check-span{
+	border: 1px solid grey;
+	border-radius: 3px;
+	margin-right: 10px;
+	padding: 5px;
+}
+
+#orders-table	{color:#333;}
+
+.status1 		{background-color: #9ff !important;}
+.status1:hover 	{background-color: #6cc !important;}
+.status2 		{background-color: #ffa !important;}
+.status2:hover 	{background-color: #cc7 !important;}
+.status3 		{background-color: #faa !important;}
+.status3:hover 	{background-color: #c77 !important;}
+.status4 		{background-color: #ccc !important;}
+.status4:hover	{background-color: #999 !important;}
+.status5 		{background-color: #cfc !important;}
+.status5:hover 	{background-color: #9c9 !important;}
+
+#detailed-order	{width: 100%;}
+
+#detailed-order td, #detailed-order th{
+	border:1px solid grey; 
+	text-align: center;
+}
+
+@keyframes flash {
+    from {color: yellow;}
+    to {color: white;}
+}

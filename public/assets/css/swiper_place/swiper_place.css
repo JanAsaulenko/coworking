@@ -1,0 +1,20 @@
+.swiper-container{
+    width: 100%;
+    background: rgb(243,243,243);
+}
+.swiper-slide{
+   display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+/*.swiper-slide img {*/
+    /*width: 400px;*/
+    /*height: 300px;*/
+/*}*/
+.swiper-elements{
+    background: #0d3625;
+    display: none;
+}
+.show-swiper-element{
+    display: block;
+}
