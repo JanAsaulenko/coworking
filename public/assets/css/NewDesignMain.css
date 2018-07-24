@@ -165,10 +165,14 @@ body{
 /*-----------------------------BLOCK ON VIDEO----------------------------------------------------*/
 
 .block-on-video {
+    padding-top: 15%;
+    padding-bottom: 15%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color:white;
+    opacity: 0.5;
 }
 .socials{
 padding-left: 40%;
@@ -185,10 +189,19 @@ padding-left: 40%;
     width: 100%;
 
 }
+/*My easy swiper*/
 
+.wrapper-in-block{
+    width: auto;
+}
+.swiper-in-block-slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title-inblock{
 
-
-
+}
 
 /*---------------------------------------------------------------------------------*/
 #row-2{
@@ -222,30 +235,12 @@ padding-left: 40%;
     margin-top:2%;
     margin-bottom:2.5%;
 }
-.header-btn div{
-    margin-left:0;
-    margin-right:0;
-    text-align: center;
-}
-.header-btn div button{
-    color: white;
-    text-decoration: none;
-    padding: 5px 50px;
-    font-size: 1.2rem;/*26px*/
-    font-weight: bolder;
-    border: none;
-    margin: auto;
-    background-color:darkgrey;
-    opacity: 0.8;
-}
-.header-btn button:hover{
-    background-color: cornflowerblue;
 
-}
-#order-btn a{
- text-decoration: none;
-color: white;
-}
+
+
+
+
+
 
 /*---------------------------------------------------------------------------------*/
 #row-4{
@@ -542,13 +537,8 @@ color: white;
 
 
 .footer{
-    /*margin: 0 auto;
-    background: url("7footer/map_new.png") no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-    font-size: 0.9rem;*//*16px*/
-    /*height: 500px;*/
-    position: absolute;
+
+
     bottom: 0;
     width: 100%;
     height:auto;
