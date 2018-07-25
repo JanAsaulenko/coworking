@@ -1,17 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Seeder;
 use App\NamePlace;
-class NamePlacePreSetA extends Migration
+
+class NamePlaceSeeder extends Seeder
 {
     /**
-     * Run the migrations.
+     * Run the database seeds.
      *
      * @return void
      */
-    public function up()
+    public function run()
     {
         $seaRoom = new NamePlace;
         $seaRoom->name = "Sea Room";
@@ -37,19 +36,6 @@ class NamePlacePreSetA extends Migration
         $squereSpace->name = "Squere Space";
         $squereSpace->place_id = "2";
         $squereSpace->save();
-    }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        NamePlace::where('name','Sea Room')->delete();
-        NamePlace::where('name','Magenta Room')->delete();
-        NamePlace::where('name','Relax Room')->delete();
-        NamePlace::where('name','Long Space')->delete();
-        NamePlace::where('name','Squere Space')->delete();
     }
 }

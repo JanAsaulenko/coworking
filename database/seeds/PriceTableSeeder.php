@@ -1,19 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
+use Illuminate\Database\Seeder;
 use App\Price;
 
-class PricePreSet extends Migration
+class PriceTableSeeder extends Seeder
 {
     /**
-     * Run the migrations.
+     * Run the database seeds.
      *
      * @return void
      */
-    public function up()
+    public function run()
     {
         $price1 = new Price;
         $price1->duration = '1 година';
@@ -44,15 +41,5 @@ class PricePreSet extends Migration
         $price1->duration = '1 місяць';
         $price1->amount = 1050.00;
         $price1->save();
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
     }
 }
