@@ -1,18 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Seeder;
 use App\DiscountType;
 
-class DiscountTypesPreSet extends Migration
+class DiscountTypeTableSeeder extends Seeder
 {
     /**
-     * Run the migrations.
+     * Run the database seeds.
      *
      * @return void
      */
-    public function up()
+    public function run()
     {
         $disc1 = new DiscountType;
         $disc1->discountname = 'Немає';
@@ -23,7 +21,7 @@ class DiscountTypesPreSet extends Migration
         $disc2->discountname = 'Студент ITA';
         $disc2->discountpercent = '10';
         $disc2->save();
-        
+
         $disc3 = new DiscountType;
         $disc3->discountname = 'Учасник АТО';
         $disc3->discountpercent = '20';
@@ -43,15 +41,5 @@ class DiscountTypesPreSet extends Migration
         $disc6->discountname = 'Промокод';
         $disc6->discountpercent = '0';
         $disc6->save();
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
     }
 }

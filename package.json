@@ -11,7 +11,12 @@
     "laravel-elixir": "^6.0.0-14",
     "laravel-elixir-vue-2": "^0.2.0",
     "laravel-elixir-webpack-official": "^1.0.2",
+<<<<<<< HEAD
     "lodash": "^4.16.2"
+=======
+    "lodash": "^4.16.2",
+    "vue-resource": "^1.0.3"
+>>>>>>> de1c87e42bfdde800a5feae95d2178ba016ef941
   },
   "dependencies": {
     "npm": "^6.1.0"

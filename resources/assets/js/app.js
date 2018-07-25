@@ -13,6 +13,10 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> de1c87e42bfdde800a5feae95d2178ba016ef941
 
 $(document).ready(function(){
     $("img.lazy").lazyload({
