@@ -17,7 +17,7 @@
                                 <li><span class="glyphicon glyphicon-ok" style="color: #337ab7;"></span> Безпечний доступ</li>
                             </ul>
                         </div>
-                        <button class="btn-success" onclick="goToOrder()"><a href="/#order-form" id="order-btn">ЗАМОВИТИ</a></button>
+                        <button class="btn-success" onclick="goToOrder()"><a href="/#order-form" class="order-btn">ЗАМОВИТИ</a></button>
                     </div>
                 </div>
             @endforeach

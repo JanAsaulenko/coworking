@@ -3,16 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Validator;
+use Illuminate\Validation\Validator;
 
 class City extends Model
 {
-	public function printCityNames(){
-		foreach($cities as $city){
-			echo $city->id;
-			echo $city->name;
-		}
-	}
+//	public function printCityNames(){
+//		foreach($cities as $city){
+//			echo $city->id;
+//			echo $city->name;
+//		}
+//	}
 
 	public function places(){
 		return $this->hasMany('App\Place', 'id_city');

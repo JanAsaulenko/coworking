@@ -16,14 +16,17 @@ class MainController extends Controller
 {   const COUNT_PICTURES = 4;
     public function index()
     {
-		$citys = City::orderBy('name', 'asc')->get();
+		$cities = City::orderBy('name', 'asc')->get();
+
         $prices = Price::orderBy('amount', 'asc')->get();
         $places = Place::orderBy('address', 'asc')->get();
 		$discountTypes = DiscountType::orderBy('id', 'asc')->get();
-        $config = new MainPageConfig();
+        $config = new MainPageConfig();//???
+
         $gallery=new Gallery();
         $pictures=$gallery->getNamePictures(self::COUNT_PICTURES);
-        return view('View_main',['config'=> new MainPageConfig(), 'prices'=> $prices, 'citys'=> $citys, 'discountTypes'=>$discountTypes, 'places' => $places,'pictures'=>$pictures]);
+
+        return view('View_main',['config'=> $config, 'prices'=> $prices, 'cities'=> $cities, 'discountTypes'=>$discountTypes, 'places' => $places,'pictures'=>$pictures]);
     }
     public function contacts(){
             return view('contacts');
