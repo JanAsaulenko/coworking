@@ -1,18 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Seeder;
 use App\Place;
 
-class PlacesPreSet extends Migration
+class PlaceTableSeeder extends Seeder
 {
     /**
-     * Run the migrations.
+     * Run the database seeds.
      *
      * @return void
      */
-    public function up()
+    public function run()
     {
         $vaschuka = new Place;
         $vaschuka->id_city = 101;
@@ -23,7 +21,7 @@ class PlacesPreSet extends Migration
         $vaschuka->end_time = "21:00:00";
         $vaschuka->number_of_seatplace = 50;
         $vaschuka->save();
-    
+
         $keletska = new Place;
         $keletska->id_city = 101;
         $keletska->address = "Келецька, 126а";
@@ -33,19 +31,7 @@ class PlacesPreSet extends Migration
         $keletska->end_time = "21:00:00";
         $keletska->number_of_seatplace = 60;
         $keletska->save();
-        
-        
-    }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Place::where('address','М.Ващука, 20')->delete();
-    
-        Place::where('address', 'Келецька, 126а')->delete();
+
     }
 }
