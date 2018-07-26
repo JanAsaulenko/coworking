@@ -16,23 +16,26 @@ class MainController extends Controller
 {   const COUNT_PICTURES = 4;
     public function index()
     {
-		$citys = City::orderBy('name', 'asc')->get();
+		$cities = City::orderBy('name', 'asc')->get();
+
         $prices = Price::orderBy('amount', 'asc')->get();
         $places = Place::orderBy('address', 'asc')->get();
 		$discountTypes = DiscountType::orderBy('id', 'asc')->get();
-        $config = new MainPageConfig();
+        $config = new MainPageConfig();//???
+
         $gallery=new Gallery();
         $pictures=$gallery->getNamePictures(self::COUNT_PICTURES);
-        return view('View_main',['config'=> new MainPageConfig(), 'prices'=> $prices, 'citys'=> $citys, 'discountTypes'=>$discountTypes, 'places' => $places,'pictures'=>$pictures]);
+
+        return view('View_main',['config'=> $config, 'prices'=> $prices, 'cities'=> $cities, 'discountTypes'=>$discountTypes, 'places' => $places,'pictures'=>$pictures]);
     }
     public function contacts(){
             return view('contacts');
     }
     public function place(){
         $place_name = NamePlace::orderBy('name','asc')->get();
-        $city_names = City::orderBy('name', 'asc')->get();
+        $cities_names = City::orderBy('name', 'asc')->get();
         $stay = Place::orderBy('address','asc')->get();
-        return view('place', ['city_names' => $city_names,'stay'=> $stay,'place_name'=> $place_name]);
+        return view('View_place', ['cities_names' => $cities_names,'stay'=> $stay,'place_name'=> $place_name]);
 
     }
     public function getPlace(Request $request)

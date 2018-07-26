@@ -6,7 +6,58 @@
 	/*html5up.net | @ajlkn*/
 	/*Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)*/
 /**!*/
+/*div.col-md-12 > img {*/
+	/*width: 370px;*/
+	/*height: 300px;*/
+/*}*/
+/*img[tabindex="0"] {*/
+	/*cursor: zoom-in;*/
+/*}*/
+/*img[tabindex="0"]:focus {*/
 
+	/*position: fixed;*/
+	/*z-index: 10;*/
+	/*top: 0;*/
+	/*left: 0;*/
+	/*bottom: 0;*/
+	/*right: 0;*/
+	/*width: auto;*/
+	/*height: auto;*/
+	/*max-width: 93%;*/
+	/*max-height: 93%;*/
+	/*margin: auto;*/
+	/*box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(59,59,59,.4);*/
+/*}*/
+/*img[tabindex="0"]:focus,*/
+/*img[tabindex="0"]:focus ~ * {*/
+	/*pointer-events: none;*/
+/*}*/
+/*.image {*/
+	/*display: inline-block;*/
+	/*outline: 0;*/
+	/*height:inherit;*/
+	/*width :inherit;*/
+
+/*}*/
+
+/*.lazy {*/
+	/*margin-top: 10px;*/
+	/*display: inline-block;*/
+	/*width: 32%;*/
+	/*!*padding:-1px;*!*/
+	/*margin: -2px*/
+/*}*/
+/*.col-md-12_test {*/
+
+	/*margin:60px;*/
+	/*padding: 0px;*/
+
+
+/*}*/
+/*div.col-md-offset-5.col-md-3 > button{*/
+	/*width: 100%;*/
+	/*margin:25px;*/
+/*}*/
 /*!* Reset *!*/
 
 	/*html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {*/
@@ -14,7 +65,6 @@
 		/*padding: 0;*/
 		/*border: 0;*/
 		/*font-size: 100%;*/
-		/*font: inherit;*/
 		/*vertical-align: baseline;*/
 	/*}*/
 
@@ -63,21 +113,21 @@
 		/*margin-right: auto;*/
 	/*}*/
 
-	/*.container.\31 25\25 {*/
+	/*.container.\31 \25\25 {*/
 		/*width: 100%;*/
 		/*max-width: 1750px;*/
 		/*min-width: 1400px;*/
 	/*}*/
 
-	/*.container.\37 5\25 {*/
+	/*.container.\37 \5\25 {*/
 		/*width: 1050px;*/
 	/*}*/
 
-	/*.container.\35 0\25 {*/
+	/*.container.\35 \0\25 {*/
 		/*width: 700px;*/
 	/*}*/
 
-	/*.container.\32 5\25 {*/
+	/*.container.\32 \5\25 {*/
 		/*width: 350px;*/
 	/*}*/
 
@@ -87,17 +137,17 @@
 
 	/*@media screen and (max-width: 1680px) {*/
 
-		/*.container.\31 25\25 {*/
+		/*.container.\31 \25\25 {*/
 			/*width: 100%;*/
 			/*max-width: 1500px;*/
 			/*min-width: 1200px;*/
 		/*}*/
 
-		/*.container.\37 5\25 {*/
+		/*.container.\37 \5\25 {*/
 			/*width: 900px;*/
 		/*}*/
 
-		/*.container.\35 0\25 {*/
+		/*.container.\35 \0\25 {*/
 			/*width: 600px;*/
 		/*}*/
 
@@ -113,7 +163,7 @@
 
 	/*@media screen and (max-width: 1280px) {*/
 
-		/*.container.\31 25\25 {*/
+		/*.container.\31 \25\25 {*/
 			/*width: 100%;*/
 			/*max-width: 1200px;*/
 			/*min-width: 960px;*/
@@ -123,11 +173,11 @@
 			/*width: 720px;*/
 		/*}*/
 
-		/*.container.\35 0\25 {*/
+		/*.container.\35 \0\25 {*/
 			/*width: 480px;*/
 		/*}*/
 
-		/*.container.\32 5\25 {*/
+		/*.container.\32 \5\25 {*/
 			/*width: 240px;*/
 		/*}*/
 
@@ -139,21 +189,21 @@
 
 	/*@media screen and (max-width: 980px) {*/
 
-		/*.container.\31 25\25 {*/
+		/*.container.\31 \25\25 {*/
 			/*width: 100%;*/
 			/*max-width: 112.5%;*/
 			/*min-width: 90%;*/
 		/*}*/
 
-		/*.container.\37 5\25 {*/
+		/*.container.\37 \5\25 {*/
 			/*width: 67.5%;*/
 		/*}*/
 
-		/*.container.\35 0\25 {*/
+		/*.container.\35 \0\25 {*/
 			/*width: 45%;*/
 		/*}*/
 
-		/*.container.\32 5\25 {*/
+		/*.container.\32 \5\25 {*/
 			/*width: 22.5%;*/
 		/*}*/
 
@@ -165,21 +215,21 @@
 
 	/*@media screen and (max-width: 736px) {*/
 
-		/*.container.\31 25\25 {*/
+		/*.container.\31 \25\25 {*/
 			/*width: 100%;*/
 			/*max-width: 125%;*/
 			/*min-width: 100%;*/
 		/*}*/
 
-		/*.container.\37 5\25 {*/
+		/*.container.\37\5\25 {*/
 			/*width: 75%;*/
 		/*}*/
 
-		/*.container.\35 0\25 {*/
+		/*.container.\35 \0\25 {*/
 			/*width: 50%;*/
 		/*}*/
 
-		/*.container.\32 5\25 {*/
+		/*.container.\32 \5\25 {*/
 			/*width: 25%;*/
 		/*}*/
 
@@ -485,11 +535,11 @@
 			/*padding: 60px 0 0 60px;*/
 		/*}*/
 
-		/*.row.\31 50\25 {*/
+		/*.row.\31 \50\25 {*/
 			/*margin: -60px 0 -1px -60px;*/
 		/*}*/
 
-		/*.row.uniform.\31 50\25 > * {*/
+		/*.row.uniform.\31 \50\25 > * {*/
 			/*padding: 60px 0 0 60px;*/
 		/*}*/
 
@@ -1327,6 +1377,7 @@
 		/*color: #696969;*/
 		/*font-weight: 300;*/
 		/*line-height: 2.25em;*/
+		/*text-decoration: none;*/
 	/*}*/
 
 		/*body.is-loading * {*/
@@ -1348,14 +1399,7 @@
 		/*line-height: 2.25em;*/
 	/*}*/
 
-	/*a {*/
-		/*color: #0090c5;*/
-		/*text-decoration: underline;*/
-	/*}*/
 
-		/*a:hover {*/
-			/*text-decoration: none;*/
-		/*}*/
 
 	/*h1, h2, h3, h4, h5, h6 {*/
 		/*color: #444;*/
@@ -1431,18 +1475,6 @@
 	/*article:last-child {*/
 		/*margin-bottom: 0;*/
 	/*}*/
-
-	/*header {*/
-		/*margin: 0 0 2em 0;*/
-	/*}*/
-
-		/*header h2, header h3 {*/
-			/*margin: 0 0 0.25em 0;*/
-		/*}*/
-
-		/*header p {*/
-			/*margin: 0;*/
-		/*}*/
 
 	/*footer {*/
 		/*margin: 2.5em 0 0 0;*/
@@ -1555,15 +1587,12 @@
 
 /*!* Image *!*/
 
-	/*.image {*/
-		/*display: inline-block;*/
-		/*outline: 0;*/
-	/*}*/
+
 
 		/*.image img {*/
 			/*display: block;*/
-			/*width: 100%;*/
-			/*border-radius: 8px;*/
+			/*!*width: 100%;*!*/
+			/*!*border-radius: 8px;*!*/
 		/*}*/
 
 		/*.image.fit {*/
@@ -1782,7 +1811,29 @@
 
 /*!* Widgets *!*/
 
+	/*.widget.thumbnails .grid {*/
+		/*margin: 0 0 3em 0;*/
+	/*}*/
 
+	/*.widget.thumbnails .image {*/
+		/*margin: 0;*/
+	/*}*/
+
+	/*.widget.contact ul {*/
+		/*overflow: hidden;*/
+		/*position: relative;*/
+		/*margin-bottom: 1.5em;*/
+	/*}*/
+
+		/*.widget.contact ul li {*/
+			/*display: inline-block;*/
+		/*}*/
+
+			/*.widget.contact ul li a {*/
+				/*display: inline-block;*/
+				/*text-align: center;*/
+				/*text-decoration: none;*/
+			/*}*/
 
 /*!* Wrappers *!*/
 
@@ -2536,5 +2587,17 @@
 			/*#copyright {*/
 				/*text-align: left;*/
 			/*}*/
+
+			/*!*Comments*!*/
+			/*.butt_cont{*/
+				/*width: 100%;*/
+				/*margin-left: 0;*/
+				/*text-align: center*/
+			/*}*/
+
+			/*#butt_cont1{*/
+				/*text-align: center; margin-left: 0;*/
+			/*}*/
+
 
 	/*}*/

@@ -29,13 +29,5 @@ class OperatorController extends Controller
 		$order->status_id = $request->status_id;
 		$order->save();
 		return "OK";
-
-	   	// if ($order->isValid($request->all())){
-	   	// 	$order->fillTest($request->all());
-	   	//  	$order->save();
-	   	//  	return "OK";
-	   	// }else{
-	   	// 	return ("ERROR");
-	   	// }
 	}
 }

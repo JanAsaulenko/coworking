@@ -38,7 +38,6 @@ class ReservationController extends Controller
     {
         $id_req = $request->getContent();
         $places = Place::all()->where('id_city', $id_req);
-
         return $places;
     }
 

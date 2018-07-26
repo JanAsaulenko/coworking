@@ -3,10 +3,6 @@
                 <div class="row">
                     <div class="col-md-offset-5 col-md-2">
                         <h3 class="text-center">ПРОСТІР</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Головна</a></li>
-                            <li class="breadcrumb-item active">Простір</li>
-                        </ol>
                     </div>
                 </div>
                 <div class="main col-md-offset-4 col-md-6" style="margin-left: 28%;">
@@ -14,7 +10,7 @@
                         <div class="form-group content-width">
                             	<legend>Місто</legend>
                                 <select id="city-select" name="city" required>
-                                    @foreach ($city_names as $city)
+                                    @foreach ($cities_names as $city)
                                         <option selected value="{{$city->id}}">{{ $city->name }}</option>
                                     @endforeach
                                 </select>
