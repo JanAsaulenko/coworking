@@ -1,4 +1,4 @@
-@extends('layouts.main_lay')
+@extends('layouts.app')
 
 @section('Header')
 	@include('/main/header')
@@ -33,8 +33,9 @@
     {{--<div class="map__wrapper">--}}
         {{--@include('/main/map')--}}
     {{--</div>--}}
-@endsection
     </div>
+@endsection
+
 @section('Footer')
 	@include('/main/footer')
 @endsection

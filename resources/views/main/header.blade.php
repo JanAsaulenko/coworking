@@ -1,7 +1,7 @@
 <header class="header ">
   <div class="logo">
     <a href={{url('/')}}>
-      <img src="{{ asset('assets/css/1header/logo.png') }}" alt="logo" class="img-logo">
+      <img src="{{asset('images/header/logo.png')}}" alt="logo" class="img-logo">
     </a>
   </div>
   <div class=" nav-dropdown" >

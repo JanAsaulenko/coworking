@@ -1,13 +1,13 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<link rel="stylesheet" href="{{ asset('/assets/css/order-block.css') }}"/>
-<script src="{{ asset('/assets/js/View_main.js') }}"></script>
-<script src="{{ asset('/assets/js/DataPickerUA.js') }}"></script>
+{{--<link rel="stylesheet" href="{{ asset('/assets/css/order-block.css') }}"/>--}}
+{{--<script src="{{ asset('/assets/js/View_main.js') }}"></script>--}}
+{{--<script src="{{ asset('/assets/js/DataPickerUA.js') }}"></script>--}}
 
 <div class="order">
   <div class="sizeof-video">
-    <video id="video" loop preload="auto" muted poster="assets/4p.png" autoplay
+    <video id="video" loop preload="auto" muted  autoplay
            style="position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -1000;  ">
-      <source src="{{ asset('/assets/video/Office.mp4') }}" type="video/webm">
+      <source src="{{ asset('video/Office.mp4') }}" type="video/webm">
     </video>
     <div class="block-on-video">
       <div class="main-titles">
@@ -61,13 +61,13 @@
           <button id="plus-btn">+</button>
         </div>
         <div>
-          <select id="discount-selector" form="first-form" name="discount" required>
-            @foreach($discountTypes as $discountType)
-              <option value="{{$discountType->id}}" @if ($discountType->id == '1') {{'selected'}} @endif>
-                {{$discountType->discountname}}
-              </option>
-            @endforeach
-          </select>
+          {{--<select id="discount-selector" form="first-form" name="discount" required>--}}
+            {{--@foreach($discountTypes as $discountType)--}}
+              {{--<option value="{{$discountType->id}}" @if ($discountType->id == '1') {{'selected'}} @endif>--}}
+                {{--{{$discountType->discountname}}--}}
+              {{--</option>--}}
+            {{--@endforeach--}}
+          {{--</select>--}}
         </div>
         <div id="promo-code-div">
           <legend>Промокод:</legend>
@@ -90,7 +90,7 @@
 
 
 <script>
-  var swiper = new Swiper('.swiper-in-block', {
+  let swiper = new Swiper('.swiper-in-block', {
     spaceBetween: 1,
     centeredSlides: true,
     speed: 3000,

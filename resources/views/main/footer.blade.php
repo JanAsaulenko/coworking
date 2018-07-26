@@ -1,7 +1,7 @@
 <footer class="footer">
 			<div class="row">
 				<div class="col-xs-6 col-sm-4 col-md-4">
-					<a href="#"><img src="{{ asset('assets/css/7footer/logo.png') }}" alt=""></a>
+					<a href="#"><img src="{{ asset('images/footer/logo.png') }}" alt=""></a>
 				</div>
 				<div class="ccol-xs-6 col-sm-4 col-md-4 footer-adress">
 					<p>
@@ -104,12 +104,12 @@
 					<ul class="partner__list">
 						<li class="partner__list">
 							<a class="partner__link" target="_blank" href="https://intita.com/">
-								<img src="{{ asset('assets/css/7footer/intitalogo.png') }}" alt="">
+								<img src="{{ asset('images/footer/intitalogo.png') }}" alt="">
 							</a>
 						</li>
 						<li class="partner__list">
 							<a class="partner__link" target="_blank" href="https://profitday.info/">
-								<img src="{{ asset('assets/css/7footer/profitdayLogo.png') }}" alt="">
+								<img src="{{ asset('images/footer/profitdayLogo.png') }}" alt="">
 							</a>
 						</li>
 					</ul>

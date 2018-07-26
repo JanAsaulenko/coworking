@@ -33,9 +33,9 @@ class MainController extends Controller
     }
     public function place(){
         $place_name = NamePlace::orderBy('name','asc')->get();
-        $city_names = City::orderBy('name', 'asc')->get();
+        $cities_names = City::orderBy('name', 'asc')->get();
         $stay = Place::orderBy('address','asc')->get();
-        return view('place', ['city_names' => $city_names,'stay'=> $stay,'place_name'=> $place_name]);
+        return view('View_place', ['cities_names' => $cities_names,'stay'=> $stay,'place_name'=> $place_name]);
 
     }
     public function getPlace(Request $request)

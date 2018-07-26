@@ -1,4 +1,9 @@
 <div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-2">
+            <h3 class="text-center">Варт1сть</h3>
+        </div>
+    </div>
     <div class="col-md-12" >
         <div class="panel-group row">
             @foreach($prices as $price)
