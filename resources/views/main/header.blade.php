@@ -4,16 +4,16 @@
       <img src="{{asset('images/header/logo.png')}}" alt="logo" class="img-logo">
     </a>
   </div>
-  <div class=" nav-dropdown" >
+  <div class="nav-dropdown">
     <div class="dropdown">
       <span class="dropbtn glyphicon glyphicon-menu-hamburger"></span>
       <div class="dropdown-content">
-        <ul>
-          <li class="current"><a href="{{ url('/') }}">ГОЛОВНА</a></li>
-          <li><a href="{{ url('/place') }}">ПРОСТІР</a></li>
-          <li><a href="{{ url('/price') }}">ВАРТІСТЬ</a></li>
-          <li><a href="/#to-order">ЗАМОВИТИ</a></li>
-          <li><a href="{{ url('/contacts') }}">КОНТАКТИ</a></li>
+        <ul class="list">
+          <li class="item"><a href="{{ url('/') }}">ГОЛОВНА</a></li>
+          <li class="item"><a href="{{ url('/place') }}">ПРОСТІР</a></li>
+          <li class="item"><a href="{{ url('/price') }}">ВАРТІСТЬ</a></li>
+          <li class="item" ><a href="/#to-order">ЗАМОВИТИ</a></li>
+          <li class="item"><a href="{{ url('/contacts') }}">КОНТАКТИ</a></li>
           {{--<li>@if (Auth::guest())--}}
               {{--<a href="{{ url('/login') }}">ВХІД</a>--}}
             {{--@else--}}
@@ -33,12 +33,12 @@
     </div>
   </div>
 
-  <div class="main-menu-list">
-    <ul>
-      <li class="current"><a href="{{ url('/') }}">ГОЛОВНА</a></li>
-      <li><a href="{{ url('/place') }}">ПРОСТІР</a></li>
-      <li><a href="{{ url('/price') }}">ВАРТІСТЬ</a></li>
-      <li><a href="{{ url('/contacts') }}">КОНТАКТИ</a></li>
+  <div class="main-menu">
+    <ul class="list">
+      <li class="item"><a href="{{ url('/') }}">ГОЛОВНА</a></li>
+      <li class="item"><a href="{{ url('/place') }}">ПРОСТІР</a></li>
+      <li class="item"><a href="{{ url('/price') }}">ВАРТІСТЬ</a></li>
+      <li class="item"><a href="{{ url('/contacts') }}">КОНТАКТИ</a></li>
     </ul>
       {{--@if (Auth::guest())--}}
         {{--<li><a href="{{ url('/login') }}">ВХІД</a></li>--}}

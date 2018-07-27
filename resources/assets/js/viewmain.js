@@ -47,6 +47,7 @@ $(document).ready(function () {
   });
 
   $(function () {
+
     $('#from').datepicker(
       {
         defaultDate: 0,
@@ -73,7 +74,7 @@ $(document).ready(function () {
 //     let dateFormat = "dd.mm.yy",
 //       from = $("#from")
 //         .datepicker({
-//           d efaultDate: 0,
+//           defaultDate: 0,
 //           changeMonth: true,
 //           numberOfMonths: 1,
 //           minDate: 0

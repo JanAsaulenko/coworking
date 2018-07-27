@@ -26,7 +26,7 @@
 
     </div>
 
-    <div class="order-block">
+    <div class="block">
       <!--block with button , witch will be slide left when button push-->
       <div class="block-with-button">
         <div class="col-offset-2 col-md-12">
@@ -36,31 +36,31 @@
       <!--block witch form Place with inputs for ordering place-->
       <div class="block-with-form">
 
-        <select title="city" class="target" id="town-select" name="town" form="first-form" required>
-          <option selected="selected"></option>
-          @foreach($cities as $city)
-            <option  value="{{$city->id}}">{{$city->name}}</option>
-          @endforeach
-        </select>
 
         <div class="calendar">
           <input type="text" id="from" class="date-pck" name="fromdate" form="first-form" placeholder="Дата з..." required>
+          <select title="city" class="target" id="town-select" name="town" form="first-form" required>
+            <option selected="selected"></option>
+            @foreach($cities as $city)
+              <option  value="{{$city->id}}">{{$city->name}}</option>
+            @endforeach
+          </select>
           <input type="text" id="to" class="date-pck" name="todate" form="first-form" placeholder="Дата по..." required>
         </div>
         <div>
-          <legend>Доступні простори:</legend> <!-- DO NOT FIX/ADD LINES HERE -->
+          <legend class="legend">Доступні простори:</legend> <!-- DO NOT FIX/ADD LINES HERE -->
           <select id="place-select" name="place" form="first-form" required>
             <option></option>
           </select>
         </div>
 
-        <legend>Кількість місць:</legend><!-- DO NOT FIX/ADD LINES HERE -->
+        <legend class="legend">Кількість місць:</legend><!-- DO NOT FIX/ADD LINES HERE -->
         <div class="count-places">
-          <button id="minus-btn">-</button>
+          <button class="button" id="minus-btn">-</button>
           <input id="num-of-places-input" type="text" form="first-form" name="places" value="1" maxlength="2" required>
-          <button id="plus-btn">+</button>
+          <button class="button" id="plus-btn">+</button>
         </div>
-        <div>
+        {{--<div>--}}
           {{--<select id="discount-selector" form="first-form" name="discount" required>--}}
             {{--@foreach($discountTypes as $discountType)--}}
               {{--<option value="{{$discountType->id}}" @if ($discountType->id == '1') {{'selected'}} @endif>--}}
@@ -68,14 +68,14 @@
               {{--</option>--}}
             {{--@endforeach--}}
           {{--</select>--}}
-        </div>
-        <div id="promo-code-div">
-          <legend>Промокод:</legend>
-          <input id="promo-code" type="text" name="pr-code" form="first-form" value="" maxlength="8">
-        </div>
+        {{--</div>--}}
+        {{--<div id="promo-code-div">--}}
+          {{--<legend>Промокод:</legend>--}}
+          {{--<input id="promo-code" type="text" name="pr-code" form="first-form" value="" maxlength="8">--}}
+        {{--</div>--}}
         <div class="arrows">
-          <button id="order-back-btn" type='button'><--</button>
-          <button id="first-form-submit" type="submit" name="OK" form="first-form">--></button>
+          <button class="way-button" id="order-back-btn" type='button'>Назад</button>
+          <button class="way-button" id="first-form-submit" type="submit" name="OK" form="first-form">Далi</button>
         </div>
       </div>
     </div>
