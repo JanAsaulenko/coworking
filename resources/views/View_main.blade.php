@@ -7,9 +7,7 @@
 @section('Content')
     <div class="main">
 	@include('/main/order')
-
-
-  {{--@include('/main/place')--}}
+  @include('/main/place')
 
     {{--<div class="taryf">--}}
         {{--<div class="col-sm-12">--}}
