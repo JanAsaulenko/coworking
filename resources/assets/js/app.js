@@ -11,8 +11,8 @@ import './movie_background/jquery.backgroundvideo.min';
 // import './ie/html5shiv';
 // import './ie/respond.min';
 // import './operator';
-import './order';
-import './reservation';
+// import './order';
+// import './reservation';
 // import './skel-layout.min';???
 // import './skel.min';????
 // import './util';
