@@ -5,7 +5,7 @@
 
 <div class="order">
   <div class="sizeof-video">
-    <video id="video" loop preload="auto" muted  autoplay
+    <video id="video" loop preload="auto" muted autoplay
            style="position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -1000;  ">
       <source src="{{ asset('video/Office.mp4') }}" type="video/webm">
     </video>
@@ -35,20 +35,18 @@
       </div>
       <!--block witch form Place with inputs for ordering place-->
       <div class="block-with-form">
-
-
         <div class="calendar">
-          <input type="text" id="from" class="date-pck" name="fromdate" form="first-form" placeholder="Дата з..." required>
+          <input type="text" id="from" class="date-pck" name="fromdate" form="first-form" placeholder="Дата з..."
+                 required>
           <select title="city" class="target" id="town-select" name="town" form="first-form" required>
-            <option selected="selected"></option>
+            <option selected="selected" style="text-align:center; align-items: center">Оберiть мiсто</option>
             @foreach($cities as $city)
-              <option  value="{{$city->id}}">{{$city->name}}</option>
+              <option value="{{$city->id}}">{{$city->name}}</option>
             @endforeach
           </select>
           <input type="text" id="to" class="date-pck" name="todate" form="first-form" placeholder="Дата по..." required>
         </div>
         <div>
-          <legend class="legend">Доступні простори:</legend> <!-- DO NOT FIX/ADD LINES HERE -->
           <select id="place-select" name="place" form="first-form" required>
             <option></option>
           </select>
@@ -60,19 +58,20 @@
           <input id="num-of-places-input" type="text" form="first-form" name="places" value="1" maxlength="2" required>
           <button class="button" id="plus-btn">+</button>
         </div>
-        {{--<div>--}}
-          {{--<select id="discount-selector" form="first-form" name="discount" required>--}}
-            {{--@foreach($discountTypes as $discountType)--}}
-              {{--<option value="{{$discountType->id}}" @if ($discountType->id == '1') {{'selected'}} @endif>--}}
-                {{--{{$discountType->discountname}}--}}
-              {{--</option>--}}
-            {{--@endforeach--}}
-          {{--</select>--}}
-        {{--</div>--}}
-        {{--<div id="promo-code-div">--}}
-          {{--<legend>Промокод:</legend>--}}
-          {{--<input id="promo-code" type="text" name="pr-code" form="first-form" value="" maxlength="8">--}}
-        {{--</div>--}}
+        <div>
+          <select id="discount-selector" form="first-form" name="discount" required>
+            @foreach($discountTypes as $discountType)
+              <option value="{{$discountType->id}}" @if ($discountType->id == '1') {{'selected'}} @endif>
+                {{$discountType->discountname}}
+              </option>
+            @endforeach
+          </select>
+        </div>
+        <div id="promo-code-div">
+        <legend>Промокод:</legend>
+        <input id="promo-code" type="text" name="pr-code" form="first-form" value="" maxlength="8">
+        </div>
+
         <div class="arrows">
           <button class="way-button" id="order-back-btn" type='button'>Назад</button>
           <button class="way-button" id="first-form-submit" type="submit" name="OK" form="first-form">Далi</button>

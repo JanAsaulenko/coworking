@@ -47,27 +47,26 @@ $(document).ready(function () {
   });
 
   $(function () {
-
-    $('#from').datepicker(
-      {
-        defaultDate: 0,
-        changeMonth: true,
-        firstDay: 1,
-        minDate: new Date(),
-      }
-    );
-  });
-  $(function () {
-    $('#to').datepicker(
+    let from = $('#from').datepicker(
       {
         defaultDate: 0,
         changeMonth: true,
         firstDay: 1,
         minDate: new Date()
-      }
-    )
-  })
+      }).on('change',()=>{
+          from.datepicker("option", "dateFormat", "dd.mm.yy");
+    });
+    let to = $('#to').datepicker(
+      {
+        defaultDate: 0,
+        changeMonth: true,
+        firstDay: 1,
+        minDate: new Date()
+      }).on('change',()=>{
+      to.datepicker("option", "dateFormat", "dd.mm.yy");
+    })
 
+  });
 //
 // //DATAPICKER
 //   $(function () {
@@ -123,7 +122,7 @@ $(document).ready(function () {
       }, 800, function () {			// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
         window.location.hash = hash;        // Add hash (#) to URL when done scrolling (default click behavior)
       });
-    } // End if
+    }
   });
 
 

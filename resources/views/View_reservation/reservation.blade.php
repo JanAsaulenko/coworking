@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="{{ asset('/assets/css/reservation.css') }}"/>
-<script src="{{ asset('/assets/js/reservation.js') }}"></script>
-<script src="{{ asset('/assets/js/DataPickerUA.js') }}"></script>
+{{--<link rel="stylesheet" href="{{ asset('/assets/css/reservation.css') }}"/>--}}
+{{--<script src="{{ asset('/assets/js/reservation.js') }}"></script>--}}
+{{--<script src="{{ asset('/assets/js/DataPickerUA.js') }}"></script>--}}
 
 <div id="banner-wrapper">
 <!-- 	<span id="order-form"></span>	this is an anchor -->

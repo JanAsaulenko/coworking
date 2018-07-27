@@ -28,7 +28,7 @@
     color: white;
   }
   &:hover {
-    background-color: cornflowerblue;
+    background-color: rgb(174,246,86);
   }
 }
 
@@ -42,6 +42,7 @@
   height: auto;
   background: #202020;
   padding: 10px;
+  border:2px solid silver;
   //for all inputes
       select{
     background: #303030;
@@ -50,10 +51,12 @@
   }
   .legend{
     border: none;
+    margin: 0;
   }
   .calendar {
     display: flex;
     justify-content: space-around;
+    margin-bottom:10px;
     .target{
       width: 300px;
     }
@@ -94,12 +97,22 @@
       margin: 0;
     }
   }
+#promo-code-div{
+  #promo-code{
+    background:#303030;
+    color:white;
+  }
+legend{
+  margin:0;
+  border: none;
+}
+}
 
   .arrows {
     display: flex;
     justify-content: space-between;
-    border: none;
     color: white;
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
     .way-button {

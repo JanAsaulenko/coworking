@@ -90,7 +90,7 @@ body {
             text-decoration: none;
             font-size: 19px;
             &:hover{
-                color: greenyellow;
+                color: rgb(174,246,86);
                 text-decoration: none;
                 opacity: 0.5;
                 font-size: 19px;
@@ -191,7 +191,8 @@ body {
 /*-----------------------------BLOCK ON VIDEO----------------------------------------------------*/
 
 .block-on-video {
-    top: 40%;
+    top: 30%;
+
     display: block;
     position: absolute;
     width: 100%;
@@ -232,7 +233,6 @@ body {
 #row-3 {
     text-transform: uppercase;
     margin: 0 auto;
-    background: url("1header/snake.png") no-repeat;
     background-position: 60% 80%;
     height: 180px;
     margin-top: 2%;
