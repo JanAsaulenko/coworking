@@ -12,7 +12,7 @@ import './movie_background/jquery.backgroundvideo.min';
 // import './ie/respond.min';
 // import './operator';
 // import './order';
-// import './reservation';
+import './reservation';
 // import './skel-layout.min';???
 // import './skel.min';????
 // import './util';

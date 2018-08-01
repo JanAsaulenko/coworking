@@ -14,12 +14,12 @@ use App\City;
 use App\DiscountType;
 
 Route::get('/', ['as' => 'index' ,'uses' => 'MainController@index']);
-Route::get('/main/getPlace', 'MainController@getPlace');
+Route::get('/main/getPlaces', 'MainController@getPlaces');
+Route::get('/main/getPlaces2', 'MainController@getPlaces2');
+Route::get('/main/getSpaces',['as'=>'reservation.getspaces','uses'=>'MainController@getSpaces']);
 Route::get('/main/getLocationPlace', 'MainController@getPlace');
-Route::get('/main/getPlaceLocation','MainController@getPlaceLocation');
 Route::get('/contacts', 'MainController@contacts');
 Route::get('/place', 'MainController@place');
-
 Auth::routes();
 
 
@@ -27,6 +27,8 @@ Route::get('/operator', 'OperatorController@index')->middleware('auth');
 
 Route::post('/reservation','ReservationController@index');
 Route::post('/reservation/getplace', 'ReservationController@getplace');
+
+
 
 Route::get('/gallery', 'GalleryController@index');
 

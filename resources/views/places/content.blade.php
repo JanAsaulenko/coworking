@@ -63,7 +63,7 @@
                         }).on('select2:select',function(e){
                             var b = $(this).val();
                                 $.ajax({
-                                        url: '/main/getPlaceLocation',
+                                        url: '/main/getSpaces',
                                         method: 'get',
                                         dataType: 'json',
                                         data: {place_id: b},
