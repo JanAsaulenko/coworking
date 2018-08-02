@@ -46,8 +46,12 @@ class MainController extends Controller
         $id_req = $request->id;
         $places = Place::all()->where('id_city', $id_req);
         return array_map(function($place){
-            return array ('id' => $place->id, 'text' => $place->address);
-        },$places->all());
+
+            $completelyReservedDays = array();
+            $completelyReservedDays[] = '12.07.2019';
+            $completelyReservedDays[] = '14.08.2019';
+            return array ('id' => $place->id, 'address' => $place->address,'completelyReservedDays' => $completelyReservedDays);
+            },$places->all());
     }
 
 
@@ -55,7 +59,10 @@ class MainController extends Controller
         $id_req = $request->id;
         $name_places = NamePlace::all()->where('place_id', $id_req);
         return array_map(function($name_places){
-            return array ('id' => $name_places->id, 'text' => $name_places->name);
+            $completelyReservedDays = array();
+            $completelyReservedDays[] = '12.07.2019';
+            $completelyReservedDays[] = '14.08.2019';
+            return array ('id' => $name_places->id, 'address' => $name_places->name,'completelyReservedDays' => $completelyReservedDays);
         },$name_places->all());
     }
 
