@@ -44,7 +44,6 @@ class MainController extends Controller
     public function getPlaces(Request $request)
     {
         $id_req = $request->id;
-        $id_date = $request->date;
         $places = Place::all()->where('id_city', $id_req);
         return array_map(function($place){
             return array ('id' => $place->id, 'text' => $place->address);
