@@ -2,7 +2,7 @@
 // import'./main.js';
 
 
-// import './DataPickerUA';
+
 import './fliplightbox.min';
 import './swiper_place/swiper.min';
 import './viewmain';

@@ -1,5 +1,4 @@
-
-
+import EventBus from './PubSub'
 class Selector {
   constructor(place, settings,spaceSelect) {
     this.placeID = place;
@@ -8,6 +7,7 @@ class Selector {
   }
 
   request(){
+
     if(this.placeID[0].tagName ==='INPUT'){
       this.requestInput()
     }
@@ -17,6 +17,7 @@ class Selector {
 
   }
 requestSelect(){
+
     let dates = {...this.settings};
     let selector = this.placeID;
     let spaceSelect = this.spaceSelect;
@@ -26,8 +27,10 @@ requestSelect(){
         url:dates.url,
         method:dates.method,
         dataType:dates.type,
-        data:{city_id:target},
+        data:{id:target},
         success: function (data) {
+
+          EventBus.publish('selector', {url:data});
           if(data==='') {
             spaceSelect.select2({
               placeholder: "Доступних місць немає",
@@ -57,7 +60,7 @@ requestSelect(){
       url: dates.url,
       method:dates.method,
       dataType: dates.type,
-      data: {place_id: placeID},
+      data: {id: placeID},
       success: function (data) {
         if(data==='') {
         spaceSelect.select2({

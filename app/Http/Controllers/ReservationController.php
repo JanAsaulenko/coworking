@@ -18,7 +18,6 @@ class ReservationController extends Controller
     public function index(Request $request)
     {
         $firstForm = $request->except(['_token', 'OK']);
-        //dd($firstForm);
         $firstForm['townName'] = City::where('id', $firstForm['town'])->first()['name'];
         $discountTypes = DiscountType::orderBy('id', 'asc')->get();
         $newReservation = new Reservation();

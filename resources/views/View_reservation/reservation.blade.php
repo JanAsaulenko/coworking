@@ -1,19 +1,20 @@
 <div id="banner-wrapper">
-  <div id="banner" class="box container no-overflow">
 
+  <form id="banner" class="box container no-overflow">
     <div class="main-block">
       <label>Мiсто</label>
       <input class="disabled-input" type="text" form="first-form" id="town" value="{{$firstForm['townName']}}" readonly>
-      <input type="hidden"  id='idTown' value="{{$firstForm['place']}}">
+      <input type="hidden"  id='idTown' value="{{$firstForm['town']}}">
     </div>
     <div class="main-block">
       <label>Мiсце</label>
-      <input class="disabled-input" type="text" form="first-form" id="place" value="{{$firstForm['placeName']}}" readonly>
-      <input type="hidden" id='idPlace' value="{{$firstForm['place']}}">
+      <select class="place-select"></select>
     </div>
     <div class="main-block">
       <label>Простiр</label>
-      <select class="space-select"></select>
+      <select class="space-select">
+        <option selected="selected" style="text-align:center; align-items: center">Оберiть простiр</option>
+      </select>
     </div>
     @if(!empty($errorMsg))
       <div class="panel-warning">
@@ -27,7 +28,13 @@
         </div>
       </div>
     @endif
-  </div>
+  </form>
+
+
+
+
+
+
   @if(count($errors)>0)
     <div class="alert alert-danger">
       <ul>

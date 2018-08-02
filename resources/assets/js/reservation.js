@@ -1,28 +1,22 @@
 import Selector from './Selector'
-
+import DataPicker from './DataPicker'
 
 $(document).ready(function () {
 
-  const place = $('#idPlace');
+
+	const idTown = $('#idTown');
+	const placeSelect = $('.place-select');
+	const place = new Selector(idTown , {url:'/main/getPlaces',method:'get', dataType:'json'},placeSelect);
+	place.request();
+
   const spaceSelect = $('.space-select');
-  let space = new Selector( place, {url: '/main/getSpaces', method: 'get', dataType: 'json',}, spaceSelect);
+  const space = new Selector( placeSelect, {url: '/main/getSpaces', method: 'get', dataType: 'json',}, spaceSelect);
   space.request();
-// //DELETE TABLE-ROW BUTTON
-	$(document).on("click", ".del-row", function(){
-		if ($(".del-row").length === 1)
-			alert("Хоча б одна строка має лишитись!");
-		else
-			console.log(this)
-			$(this).parents('tr').remove();
-		a = [];
-		clearAll();
-		getPrice();
-		return false;
-	} );
+
 
 // //DATAPICKERS
 	let rows = $("#reserv-table").attr("datarows");
-	let dateFormat = "dd.mm.yy";
+	// let dateFormat = "dd.mm.yy";
 
 	function getDate( element ) {
 		let date;
@@ -57,6 +51,9 @@ $(document).ready(function () {
 		to.parent().parent().find('.fromdate').on("change", function() {
 			to.datepicker( "option", "minDate", getDate( this ))} );
 	});
+
+
+
 
 // //ADD ROW TO TABLE
 	$(".add-row").click(function(){
@@ -105,6 +102,21 @@ $(document).ready(function () {
 		getPrice();
 		return false;
 	});
+// //DELETE TABLE-ROW BUTTON
+  $(document).on("click", ".del-row", function(){
+    if ($(".del-row").length === 1)
+      alert("Хоча б одна строка має лишитись!");
+    else
+      $(this).parents('tr').remove();
+    a = [];
+    clearAll();
+    getPrice();
+    return false;
+  } );
+
+
+
+
 
 // //PRICE AJAX
 	$.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')} });
@@ -194,6 +206,7 @@ $(document).ready(function () {
 		else
 			$(this).closest('tr').find('.promo-code-input').attr('disabled', 'true').val("").css("background","#ebebe4");
 	});
+
 
 	let a = new Array();
 
