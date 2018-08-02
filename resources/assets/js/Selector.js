@@ -7,15 +7,16 @@ class Selector {
   }
 
   request(){
-
+    console
     if(this.placeID[0].tagName ==='INPUT'){
       this.requestInput()
     }
     else if(this.placeID[0].tagName ==='SELECT'){
      this.requestSelect()
     }
-
   }
+
+
 requestSelect(){
 
     let dates = {...this.settings};
