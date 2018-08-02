@@ -36,11 +36,17 @@ class ReservationController extends Controller
 
     public function getplace(Request $request)
     {
+
         $id_req = $request->getContent();
         $places = Place::all()->where('id_city', $id_req);
         return $places;
     }
-
+public function getspace(Request $request)
+{
+$id_req = $request->getContent();
+dd($id_req);
+return $id_req;
+}
     public function showOrderGet($guid)
     {
         $order = Reservation::where('guid', $guid)->first();

@@ -38,7 +38,7 @@ class MainController extends Controller
         return view('View_place', ['cities_names' => $cities_names,'stay'=> $stay,'place_name'=> $place_name]);
 
     }
-    public function getPlace(Request $request)
+    public function getPlaces(Request $request)
     {
         $id_req = $request->city_id;
         $places = Place::all()->where('id_city', $id_req);
@@ -46,8 +46,17 @@ class MainController extends Controller
             return array ('id' => $place->id, 'text' => $place->address);
         },$places->all());
     }
+    public function getPlaces2(Request $request)
+    {
+        $id_req = $request->place_id;
 
-    public function getPlaceLocation(Request $request){
+        $places = Place::all()->where('id_city', $id_req);
+        return array_map(function($place){
+            return array ('id' => $place->id, 'text' => $place->address);
+        },$places->all());
+    }
+
+    public function getSpaces(Request $request){
         $id_req = $request->place_id;
         $name_places = NamePlace::all()->where('place_id', $id_req);
         return array_map(function($name_places){

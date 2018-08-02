@@ -1,22 +1,4 @@
-.line2 {
-	border-radius:5px;
-	font-size:20px;
-	font-weight:bold;
-	margin:0;
-	text-align: center;
-	background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url(images/bg01.png);
-    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url(images/bg01.png);
-    background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url(images/bg01.png);
-    background-image: linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url(images/bg01.png);
-	background-color: #ccc;
-}
-.line2 > div {	padding:20px 15px 15px 15px;}
 
-.line2 legend {
-	color:#888;
-	font-size:0.8em;
-	height:2em;
-}
 
 .disabled-input{
 	width:100%;
