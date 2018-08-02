@@ -28,9 +28,12 @@ class MainController extends Controller
 
         return view('View_main',['config'=> $config, 'prices'=> $prices, 'cities'=> $cities, 'discountTypes'=>$discountTypes, 'places' => $places,'pictures'=>$pictures]);
     }
+
     public function contacts(){
             return view('contacts');
     }
+
+
     public function place(){
         $place_name = NamePlace::orderBy('name','asc')->get();
         $cities_names = City::orderBy('name', 'asc')->get();
@@ -40,24 +43,17 @@ class MainController extends Controller
     }
     public function getPlaces(Request $request)
     {
-        $id_req = $request->city_id;
+        $id_req = $request->id;
+        $id_date = $request->date;
         $places = Place::all()->where('id_city', $id_req);
         return array_map(function($place){
             return array ('id' => $place->id, 'text' => $place->address);
         },$places->all());
     }
-    public function getPlaces2(Request $request)
-    {
-        $id_req = $request->place_id;
 
-        $places = Place::all()->where('id_city', $id_req);
-        return array_map(function($place){
-            return array ('id' => $place->id, 'text' => $place->address);
-        },$places->all());
-    }
 
     public function getSpaces(Request $request){
-        $id_req = $request->place_id;
+        $id_req = $request->id;
         $name_places = NamePlace::all()->where('place_id', $id_req);
         return array_map(function($name_places){
             return array ('id' => $name_places->id, 'text' => $name_places->name);

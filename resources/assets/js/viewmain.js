@@ -1,8 +1,7 @@
 import Selector from "./Selector";
-
+import DataPicker from './DataPicker';
 let $onScreen = false;
 let height_of_window;
-console.log(document.body.clientWidth)
 if (document.body.clientWidth > 768) {
   height_of_window = "400px";
 } else {
@@ -46,27 +45,13 @@ $(document).ready(function () {
     })
   });
 //DATA PICKER
-  $(function () {
-    let from = $('#from').datepicker(
-      {
-        defaultDate: 0,
-        changeMonth: true,
-        firstDay: 1,
-        minDate: new Date()
-      }).on('change', () => {
-      from.datepicker("option", "dateFormat", "dd.mm.yy");
-    });
-    let to = $('#to').datepicker(
-      {
-        defaultDate: 0,
-        changeMonth: true,
-        firstDay: 1,
-        minDate: new Date()
-      }).on('change', () => {
-      to.datepicker("option", "dateFormat", "dd.mm.yy");
-    })
+  const from = $('#fromMain');
+  const to = $('#toMain');
 
-  });
+  const datapick = new DataPicker();
+  datapick.getDate(from,to);
+
+
 
 
   $("#order-back-btn").click(function () {
