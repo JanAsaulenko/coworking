@@ -44,6 +44,8 @@ class MainController extends Controller
     public function getPlaces(Request $request)
     {
         $id_req = $request->id;
+        $start_date = $request->start_date;
+
         $places = Place::all()->where('id_city', $id_req);
         return array_map(function($place){
 
@@ -57,8 +59,11 @@ class MainController extends Controller
 
     public function getSpaces(Request $request){
         $id_req = $request->id;
+        $start_date = $request->start_date;
+
         $name_places = NamePlace::all()->where('place_id', $id_req);
         return array_map(function($name_places){
+
             $completelyReservedDays = array();
             $completelyReservedDays[] = '12.07.2019';
             $completelyReservedDays[] = '14.08.2019';
