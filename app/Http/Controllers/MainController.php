@@ -52,7 +52,7 @@ class MainController extends Controller
             $completelyReservedDays = array();
             $completelyReservedDays[] = '12.07.2019';
             $completelyReservedDays[] = '14.08.2019';
-            return array ('id' => $place->id, 'address' => $place->address,'completelyReservedDays' => $completelyReservedDays);
+            return array ('id' => $place->id, 'text' => $place->address,'completelyReservedDays' => $completelyReservedDays);
             },$places->all());
     }
 
