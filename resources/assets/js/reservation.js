@@ -3,7 +3,6 @@ import DataPicker from './DataPicker'
 
 $(document).ready(function () {
 
-
 	const idTown = $('#idTown');
 	const placeSelect = $('.place-select');
 	const place = new Selector(idTown , {url:'/main/getPlaces',method:'get', dataType:'json'},placeSelect);
@@ -13,49 +12,12 @@ $(document).ready(function () {
   const space = new Selector( placeSelect, {url: '/main/getSpaces', method: 'get', dataType: 'json',}, spaceSelect);
   space.request();
 
-
-// //DATAPICKERS
-	let rows = $("#reserv-table").attr("datarows");
-	// let dateFormat = "dd.mm.yy";
-
-	function getDate( element ) {
-		let date;
-		try {
-			date = $.datepicker.parseDate( dateFormat, element.value );
-		} catch( error ) {
-			date = null;
-		}
-		return date;
-	}
-
-	$(".fromdate").each(function(){
-		let from = $(this);
-		from.datepicker({
-			defaultDate: 0,
-			changeMonth: true,
-			numberOfMonths: 1,
-			minDate: 0
-		});
-		from.parent().parent().find('.todate').on("change", function() {
-			from.datepicker( "option", "maxDate", getDate( this ))} );
-	});
-
-	$(".todate").each(function(){
-		let to = $(this);
-		to.datepicker({
-			defaultDate: 0,
-			changeMonth: true,
-			numberOfMonths: 1,
-			minDate: 0
-		});
-		to.parent().parent().find('.fromdate').on("change", function() {
-			to.datepicker( "option", "minDate", getDate( this ))} );
-	});
-
-
+  const reservationDataPicker  = new DataPicker();
+  reservationDataPicker.getReservationDays();
 
 
 // //ADD ROW TO TABLE
+  let rows = $("#reserv-table").attr("datarows");
 	$(".add-row").click(function(){
 		rows++;
 		let testClone = $('#reserv-table').find('tr:last').clone();

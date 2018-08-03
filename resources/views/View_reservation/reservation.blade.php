@@ -8,14 +8,17 @@
     </div>
     <div class="main-block">
       <label>Мiсце</label>
-      <select class="place-select"></select>
+      <select class="place-select" required>
+        <option selected="selected"   disabled >Оберiть мiсто</option>
+      </select>
     </div>
     <div class="main-block">
       <label>Простiр</label>
-      <select class="space-select">
+      <select class="space-select" required>
         <option selected="selected" style="text-align:center; align-items: center">Оберiть простiр</option>
       </select>
     </div>
+    <div id="data"></div>
     @if(!empty($errorMsg))
       <div class="panel-warning">
         <div class="panel-heading">
@@ -142,5 +145,5 @@
     </div>
   </div>
 </div>
-	
+
 
