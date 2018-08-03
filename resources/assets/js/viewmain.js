@@ -48,8 +48,8 @@ $(document).ready(function () {
   const from = $('#fromMain');
   const to = $('#toMain');
 
-  const datapick = new DataPicker();
-  datapick.getDate(from,to);
+  const mainDataPicker = new DataPicker();
+  mainDataPicker.getDays(from,to);
 
 
 
