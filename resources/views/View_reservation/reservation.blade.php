@@ -9,13 +9,13 @@
     <div class="main-block">
       <label>Мiсце</label>
       <select class="place-select" required>
-        <option selected="selected"   disabled >Оберiть мiсто</option>
+        <option selected="selected"   disabled >Оберiть мiсце</option>
       </select>
     </div>
     <div class="main-block">
       <label>Простiр</label>
       <select class="space-select" required>
-        <option selected="selected" style="text-align:center; align-items: center">Оберiть простiр</option>
+        <option selected="selected"  disabled>Оберiть простiр</option>
       </select>
     </div>
     <div id="data"></div>

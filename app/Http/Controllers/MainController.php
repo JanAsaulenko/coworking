@@ -44,14 +44,12 @@ class MainController extends Controller
     public function getPlaces(Request $request)
     {
         $id_req = $request->id;
-        $start_date = $request->start_date;
-
         $places = Place::all()->where('id_city', $id_req);
         return array_map(function($place){
 
             $completelyReservedDays = array();
-            $completelyReservedDays[] = '12.07.2019';
-            $completelyReservedDays[] = '14.08.2019';
+            $completelyReservedDays[] = "2018-08-30";
+            $completelyReservedDays[] = "2018-08-29";
             return array ('id' => $place->id, 'text' => $place->address,'completelyReservedDays' => $completelyReservedDays);
             },$places->all());
     }
@@ -59,16 +57,40 @@ class MainController extends Controller
 
     public function getSpaces(Request $request){
         $id_req = $request->id;
-        $start_date = $request->start_date;
-
         $name_places = NamePlace::all()->where('place_id', $id_req);
         return array_map(function($name_places){
 
             $completelyReservedDays = array();
-            $completelyReservedDays[] = '12.07.2019';
-            $completelyReservedDays[] = '14.08.2019';
+            $completelyReservedDays[] = "2018-08-30";
+            $completelyReservedDays[] = "2018-08-29";
+            $completelyReservedDays[] = '2018-08-12';
+            $completelyReservedDays[] =  "2018-08-10";
             return array ('id' => $name_places->id, 'address' => $name_places->name,'completelyReservedDays' => $completelyReservedDays);
         },$name_places->all());
+    }
+
+    public function choosePlace (Request $request){
+        $space_id = $request->id;
+//          $reserv_dates = ReserveDates::all()->where('space_id',$space_id);
+
+        $completelyReservedDays = array();
+        $completelyReservedDays[] = '2018-08-12';
+        $completelyReservedDays[] =  "2018-08-10";
+        return array ( 'completelyReservedDays' => $completelyReservedDays);
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function chooseSpace (Request $request){
+            $space_id = $request->id;
+//          $reserv_dates = ReserveDates::all()->where('space_id',$space_id);
+
+            $completelyReservedDays = array();
+            $completelyReservedDays[] = '2018-08-12';
+            $completelyReservedDays[] =  "2018-08-10";
+            return array ( 'completelyReservedDays' => $completelyReservedDays);
     }
 
 

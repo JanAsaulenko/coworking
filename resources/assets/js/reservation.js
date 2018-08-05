@@ -1,16 +1,50 @@
 import Selector from './Selector'
 import DataPicker from './DataPicker'
-
+import EventBus from './PubSub'
 $(document).ready(function () {
 
 	const idTown = $('#idTown');
 	const placeSelect = $('.place-select');
-	const place = new Selector(idTown , {url:'/main/getPlaces',method:'get', dataType:'json'},placeSelect);
-	place.request();
+	const placeSelector = new Selector(idTown , {url:'/main/getPlaces',method:'get', dataType:'json'},placeSelect);
+	placeSelector.request();
+
+
+
+	placeSelect.change((event)=>{
+    let id = event.target.value;
+    $.ajax({
+      url:'/main/choosePlace',
+      method:'get',
+      dataType:'json',
+      data:{id:id},
+      success:(data)=>{
+        EventBus.publish('chooseSpace',{'holiday':data})
+      }
+    })
+	})
+
+
 
   const spaceSelect = $('.space-select');
-  const space = new Selector( placeSelect, {url: '/main/getSpaces', method: 'get', dataType: 'json',}, spaceSelect);
-  space.request();
+  const spaceSelector = new Selector( placeSelect, {url: '/main/getSpaces', method: 'get', dataType: 'json',}, spaceSelect);
+  spaceSelector.request();
+
+  spaceSelect.change((event)=>{
+  let target = event.target.value;
+  $.ajax({
+	url:'/main/chooseSpace',
+	method:'get',
+	dataType:'json',
+	data:{id:target},
+	success:(data)=>{
+ EventBus.publish('chooseSpace',{'holiday':data})
+	}
+})
+	});
+
+
+
+
 
   const reservationDataPicker  = new DataPicker();
   reservationDataPicker.getReservationDays();
