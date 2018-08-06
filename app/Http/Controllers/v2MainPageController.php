@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Place;
 use Illuminate\Http\Request;
 
 
 class v2MainPageController extends Controller
 {
     public function index(){
+        dd(Place::find(1)->spaces);
         dd( $this->getCity() );
     }
 
