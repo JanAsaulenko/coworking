@@ -13,6 +13,13 @@
 use App\City;
 use App\DiscountType;
 
+Route::group(['prefix'=>'/v2'], function () {
+    Route::get('/index','v2MainPageController@index');
+    Route::get('/city','v2MainPageController@getCity');
+});
+
+
+
 Route::get('/', ['as' => 'index' ,'uses' => 'MainController@index']);
 
 Route::get('/main/getPlaces', 'MainController@getPlaces');
