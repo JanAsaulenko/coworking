@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class v2MainPageController extends Controller
 {
     public function index(){
-        dd(Place::find(1)->spaces);
+//        dd(Place::find(1)->spaces);
         dd( $this->getCity() );
     }
 
