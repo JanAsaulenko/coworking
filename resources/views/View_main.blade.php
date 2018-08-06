@@ -7,10 +7,6 @@
 @section('Content')
     <div class="main">
 	@include('/main/order')
-
-
-  {{--@include('/main/place')--}}
-
     {{--<div class="taryf">--}}
         {{--<div class="col-sm-12">--}}
             {{--<h3>ТАРИФНІ ПЛАНИ</h3>--}}
@@ -19,8 +15,8 @@
         {{--</div>--}}
 	    {{--@include('price.priceList', ['prices' => $prices])--}}
     {{--</div>--}}
+      {{--@include('/main/place')--}}
 
-{{--@endsection--}}
 
 {{--@section('Map')--}}
     {{--<div class="map-top">--}}

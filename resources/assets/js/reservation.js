@@ -1,65 +1,31 @@
-$(document).ready(function(){
+import Selector from './Selector'
+import DataPicker from './DataPicker'
+
+$(document).ready(function () {
+
+	const idTown = $('#idTown');
+	const placeSelect = $('.place-select');
+	const place = new Selector(idTown , {url:'/main/getPlaces',method:'get', dataType:'json'},placeSelect);
+	place.request();
+
+  const spaceSelect = $('.space-select');
+  const space = new Selector( placeSelect, {url: '/main/getSpaces', method: 'get', dataType: 'json',}, spaceSelect);
+  space.request();
+
+  const reservationDataPicker  = new DataPicker();
+  reservationDataPicker.getReservationDays();
 
 
-//DELETE TABLE-ROW BUTTON
-	$(document).on("click", ".del-row", function(){
-		if ($(".del-row").length == 1)
-			alert("Хоча б одна строка має лишитись!");
-		else
-			$(this).parents('tr').remove();
-		a = new Array();
-		clearAll();
-		getPrice();
-		return false;
-	} );
-	
-//DATAPICKERS
-	var rows = $("#reserv-table").attr("datarows");
-	var dateFormat = "dd.mm.yy";
-
-	function getDate( element ) {
-		var date;
-		try {
-			date = $.datepicker.parseDate( dateFormat, element.value );
-		} catch( error ) {
-			date = null;
-		}
-		return date;
-	}
-
-	$(".fromdate").each(function(){
-		var from = $(this);
-		from.datepicker({
-			defaultDate: 0,
-			changeMonth: true,
-			numberOfMonths: 1,
-			minDate: 0
-		});
-		from.parent().parent().find('.todate').on("change", function() {
-			from.datepicker( "option", "maxDate", getDate( this ))} );
-	});
-
-	$(".todate").each(function(){
-		var to = $(this);
-		to.datepicker({
-			defaultDate: 0,
-			changeMonth: true,
-			numberOfMonths: 1,
-			minDate: 0
-		});
-		to.parent().parent().find('.fromdate').on("change", function() {
-			to.datepicker( "option", "minDate", getDate( this ))} );
-	});
-
-//ADD ROW TO TABLE
+// //ADD ROW TO TABLE
+  let rows = $("#reserv-table").attr("datarows");
 	$(".add-row").click(function(){
 		rows++;
-		var testClone = $('#reserv-table tr:last').clone();
+		let testClone = $('#reserv-table').find('tr:last').clone();
 		testClone.find('td:first').text(rows);				//change row number
 		testClone.find('input:first').attr("placeholder", "Введіть ім'я клієнта №"+rows);	//change placeholder
-	
+
 		function changeNumber (i, old){		// change input and selectors names	and id's
-			if (old != undefined)
+			if (old !== undefined)
 				return old.replace( old.replace(/\D+/g,""), rows);
 			return old;
 		}
@@ -70,7 +36,7 @@ $(document).ready(function(){
 
 		//new datapickers init
 		testClone.find(".fromdate").each(function(){
-			var from = $(this);
+			let from = $(this);
 			from.datepicker({
 				defaultDate: 0,
 				changeMonth: true,
@@ -82,7 +48,7 @@ $(document).ready(function(){
 		});
 		testClone.addClass('promo-code-input');
 		testClone.find(".todate").each(function(){
-			var to = $(this);
+			let to = $(this);
 			to.datepicker({
 				defaultDate: 0,
 				changeMonth: true,
@@ -98,22 +64,37 @@ $(document).ready(function(){
 		getPrice();
 		return false;
 	});
+// //DELETE TABLE-ROW BUTTON
+  $(document).on("click", ".del-row", function(){
+    if ($(".del-row").length === 1)
+      alert("Хоча б одна строка має лишитись!");
+    else
+      $(this).parents('tr').remove();
+    a = [];
+    clearAll();
+    getPrice();
+    return false;
+  } );
 
-//PRICE AJAX
+
+
+
+
+// //PRICE AJAX
 	$.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')} });
-	var totalSumm = 0;
+	let totalSumm = 0;
 
 	function getPrice(){
-        var x = $("form").serializeArray();
+        let x = $("form").serializeArray();
         $.ajax({
 			url: 'calculate',
 			method: 'post',
 			data: x,
 			success: function(data){
 				totalSumm = 0;
-				var i = 0;
+				let i = 0;
 				$('.pricetd').each(function(){
-					var summ = data[i++];
+					let summ = data[i++];
 					totalSumm += summ;
 					$(this).text(summ);
 				});
@@ -153,17 +134,16 @@ $(document).ready(function(){
         }
 
     getPrice();
-
 	$('#reserv-table').change(function(e){
         $("select option:selected[value='6']").closest('tr').find('.promo-code-input').removeAttr('disabled');
 		getPrice();
-		var elems = $('tr .promo-code-input');
-		for (var k = 0; k < elems.length; k++) {
+		let elems = $('tr .promo-code-input');
+		for (let k = 0; k < elems.length; k++) {
 			a[k] = $(elems[k]).val();
 			isValidCodes(elems[k]);
 		}
-		for (var m = 0; m < a.length; m++){
-			for (var n = 0; n < a.length; n++){
+		for (let m = 0; m < a.length; m++){
+			for (let n = 0; n < a.length; n++){
 				if (a[m] == a[n] && a[m]!="" && m != n) {
 					clearAll();
 				}
@@ -172,15 +152,15 @@ $(document).ready(function(){
 	});
 
 	function clearAll() {
-		var elems = $('tr .promo-code-input');
-		for (var k=0; k < elems.length; k++){
+		let elems = $('tr .promo-code-input');
+		for (let k=0; k < elems.length; k++){
 			$(elems[k]).val("").css("background", "white");
 		}
 		getPrice();
 	}
 
-//PROMOCODES INPUT
-	var valuePromoCod = 6;
+ //PROMOCODES INPUT
+	let valuePromoCod = 6;
 
 	$(document).on("change", "select", function(){
 		if (this.value == valuePromoCod)
@@ -189,11 +169,12 @@ $(document).ready(function(){
 			$(this).closest('tr').find('.promo-code-input').attr('disabled', 'true').val("").css("background","#ebebe4");
 	});
 
-	var a = new Array();
+
+	let a = new Array();
 
 	$('#reserv-done-btn').click(function(){
-        var elements = $('tr .promo-code-input');
-        for(var i = 0; i < elements.length; i++){
+        let elements = $('tr .promo-code-input');
+        for(let i = 0; i < elements.length; i++){
         	if ( !$(elements[i]).prop("disabled")  ) {
 				function reject(){
                     $('form').submit()

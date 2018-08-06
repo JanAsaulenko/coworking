@@ -28,9 +28,12 @@ class MainController extends Controller
 
         return view('View_main',['config'=> $config, 'prices'=> $prices, 'cities'=> $cities, 'discountTypes'=>$discountTypes, 'places' => $places,'pictures'=>$pictures]);
     }
+
     public function contacts(){
             return view('contacts');
     }
+
+
     public function place(){
         $place_name = NamePlace::orderBy('name','asc')->get();
         $cities_names = City::orderBy('name', 'asc')->get();
@@ -38,20 +41,33 @@ class MainController extends Controller
         return view('View_place', ['cities_names' => $cities_names,'stay'=> $stay,'place_name'=> $place_name]);
 
     }
-    public function getPlace(Request $request)
+    public function getPlaces(Request $request)
     {
-        $id_req = $request->city_id;
+        $id_req = $request->id;
+        $start_date = $request->start_date;
+
         $places = Place::all()->where('id_city', $id_req);
         return array_map(function($place){
-            return array ('id' => $place->id, 'text' => $place->address);
-        },$places->all());
+
+            $completelyReservedDays = array();
+            $completelyReservedDays[] = '12.07.2019';
+            $completelyReservedDays[] = '14.08.2019';
+            return array ('id' => $place->id, 'text' => $place->address,'completelyReservedDays' => $completelyReservedDays);
+            },$places->all());
     }
 
-    public function getPlaceLocation(Request $request){
-        $id_req = $request->place_id;
+
+    public function getSpaces(Request $request){
+        $id_req = $request->id;
+        $start_date = $request->start_date;
+
         $name_places = NamePlace::all()->where('place_id', $id_req);
         return array_map(function($name_places){
-            return array ('id' => $name_places->id, 'text' => $name_places->name);
+
+            $completelyReservedDays = array();
+            $completelyReservedDays[] = '12.07.2019';
+            $completelyReservedDays[] = '14.08.2019';
+            return array ('id' => $name_places->id, 'address' => $name_places->name,'completelyReservedDays' => $completelyReservedDays);
         },$name_places->all());
     }
 

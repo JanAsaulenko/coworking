@@ -1,9 +1,8 @@
-
-
+import Selector from "./Selector";
+import DataPicker from './DataPicker';
 let $onScreen = false;
 let height_of_window;
-console.log(document.body.clientWidth)
-if (document.body.clientWidth>768){
+if (document.body.clientWidth > 768) {
   height_of_window = "400px";
 } else {
   height_of_window = "600px";
@@ -45,61 +44,14 @@ $(document).ready(function () {
       formBlock.animate({left: '0%'}, 1000);
     })
   });
+//DATA PICKER
+  const from = $('#fromMain');
+  const to = $('#toMain');
 
-  $(function () {
-    let from = $('#from').datepicker(
-      {
-        defaultDate: 0,
-        changeMonth: true,
-        firstDay: 1,
-        minDate: new Date()
-      }).on('change',()=>{
-          from.datepicker("option", "dateFormat", "dd.mm.yy");
-    });
-    let to = $('#to').datepicker(
-      {
-        defaultDate: 0,
-        changeMonth: true,
-        firstDay: 1,
-        minDate: new Date()
-      }).on('change',()=>{
-      to.datepicker("option", "dateFormat", "dd.mm.yy");
-    })
+  const mainDataPicker = new DataPicker();
+  mainDataPicker.getDays(from,to);
 
-  });
-//
-// //DATAPICKER
-//   $(function () {
-//     let dateFormat = "dd.mm.yy",
-//       from = $("#from")
-//         .datepicker({
-//           defaultDate: 0,
-//           changeMonth: true,
-//           numberOfMonths: 1,
-//           minDate: 0
-//         })
-//         .on("change", function () {
-//           to.datepicker("option", "minDate", getDate(this));
-//         }),
-//       to = $("#to").datepicker({
-//         defaultDate: 0,
-//         changeMonth: true,
-//         numberOfMonths: 1,
-//         minDate: 0
-//       })
-//         .on("change", function () {
-//           from.datepicker("option", "maxDate", getDate(this));
-//         });
 
-  // function getDate(element) {
-  //   let date;
-  //   try {
-  //     date = $.datepicker.parseDate(dateFormat, element.value);
-  //   } catch (error) {
-  //     date = null;
-  //   }
-  //   return date;
-  // }
 
 
   $("#order-back-btn").click(function () {
@@ -128,50 +80,12 @@ $(document).ready(function () {
 
 // //SELECT TOWN (JQUERY SELECT2)
   const selectTown = $('#town-select');
-// selectTown.change(function (ev) {
-//  console.log(ev.target.value)
-// })
-  selectTown.select({
-    placeholder: "Оберіть місто...",
-    language: {
-      noResults: function () {
-        return "Співпадінь, не знайдено";
-      }
-    },
-    width: "100%"
-  });
-
-  $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
-
-  selectTown.change(function (event) {
-    let targetValue = event.target.value;
-    $.ajax({
-      url: 'reservation/getplace',
-      method: 'post',
-      data: targetValue,
-      success: function (data) {
-        if (data === "") {
-          $("#place-select").empty().select2({
-            placeholder: "Доступних місць немає",
-            width: "100%"
-          });
-        } else {
-          $("#place-select").empty().select2({
-            placeholder: "Оберіть простір...",
-            width: "100%"
-          }).append("<option></option>");
-          $.each(data, function (index) {
-            $("#place-select").append("<option value='" + data[index].id + "'>" + data[index].address + "</option>");
-          })
-        }
-      }
-    })
-  });
-
-
+  const showPlaces = $('#place-select');
+  const cities = new Selector(selectTown, {url: '/main/getPlaces', method: 'get', dataType: 'json'}, showPlaces);
+  cities.request();
 //SELECT PLACE (JQUERY SELECT2)
-  $("#place-select").select2({
-    placeholder: "Оберіть простір...",
+  showPlaces.select2({
+    placeholder: "Оберіть простірs...",
     language: {
       noResults: function () {
         return "Співпадінь, не знайдено";
@@ -180,21 +94,22 @@ $(document).ready(function () {
     width: "100%"
   });
 
-// // //SELECT DISCOUNT (JQUERY SELECT2)
-//   $("#discount-selector").select2({
-//     minimumResultsForSearch: Infinity,
-//     width: "100%"
-//   });
-//
-// // //PROMO-CODE-DIV APPEARANCE
-//   $("#discount-selector").on("change", function () {
-//     if ($(this).val() == "6")
-//       $("#promo-code-div").show();
-//     else
-//       $("#promo-code-div").hide();
-//   });
-//
-//
+// //SELECT DISCOUNT (JQUERY SELECT2)
+  $("#discount-selector").select2({
+    minimumResultsForSearch: Infinity,
+    width: "100%"
+  });
+
+// //PROMO-CODE-DIV APPEARANCE
+  $("#discount-selector").on("change", function () {
+    if ($(this).val() === "6")
+      $("#promo-code-div").show();
+    else
+      $("#promo-code-div").hide();
+  });
+
+
+
 //NUM-OF-PLACES-SELECTOR
   $("#plus-btn").click(function () {
     let value = $("#num-of-places-input").val();

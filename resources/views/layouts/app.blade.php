@@ -10,6 +10,7 @@
 
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="csrf-token" content="{{csrf_token()}}">
   <!--JQUERY BASE FULL VESION -->
   <script src="https://code.jquery.com/jquery-3.1.0.js"
           integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="

@@ -36,7 +36,7 @@
       <!--block witch form Place with inputs for ordering place-->
       <div class="block-with-form">
         <div class="calendar">
-          <input type="text" id="from" class="date-pck" name="fromdate" form="first-form" placeholder="Дата з..."
+          <input type="text" id="fromMain" class="date-pck" name="fromdate" form="first-form" placeholder="Дата з..."
                  required>
           <select title="city" class="target" id="town-select" name="town" form="first-form" required>
             <option selected="selected" style="text-align:center; align-items: center">Оберiть мiсто</option>
@@ -44,7 +44,7 @@
               <option value="{{$city->id}}">{{$city->name}}</option>
             @endforeach
           </select>
-          <input type="text" id="to" class="date-pck" name="todate" form="first-form" placeholder="Дата по..." required>
+          <input type="text" id="toMain" class="date-pck" name="todate" form="first-form" placeholder="Дата по..." required>
         </div>
         <div>
           <select id="place-select" name="place" form="first-form" required>
@@ -52,14 +52,14 @@
           </select>
         </div>
 
-        <legend class="legend">Кількість місць:</legend><!-- DO NOT FIX/ADD LINES HERE -->
+        <label class="legend">Кількість місць:</label><!-- DO NOT FIX/ADD LINES HERE -->
         <div class="count-places">
           <button class="button" id="minus-btn">-</button>
           <input id="num-of-places-input" type="text" form="first-form" name="places" value="1" maxlength="2" required>
           <button class="button" id="plus-btn">+</button>
         </div>
         <div>
-          <select id="discount-selector" form="first-form" name="discount" required>
+          <label for="discount-selector">Знижки</label><select id="discount-selector" form="first-form" name="discount" required>
             @foreach($discountTypes as $discountType)
               <option value="{{$discountType->id}}" @if ($discountType->id == '1') {{'selected'}} @endif>
                 {{$discountType->discountname}}
@@ -68,8 +68,7 @@
           </select>
         </div>
         <div id="promo-code-div">
-        <legend>Промокод:</legend>
-        <input id="promo-code" type="text" name="pr-code" form="first-form" value="" maxlength="8">
+          <label for="promo-code">Промокод:</label><input id="promo-code" type="text" name="pr-code" form="first-form" value="" maxlength="8">
         </div>
 
         <div class="arrows">
