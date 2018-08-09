@@ -16,8 +16,11 @@ class CreateBookingfactsTable extends Migration
         Schema::create('bookingfacts', function (Blueprint $table) {
             $table->increments('id');
 			$table->softDeletes();
+            $table->string('name');
 			$table->string('email')->nullable();
 			$table->string('phone')->nullable();
+            $table->unsignedInteger('id_place');
+            $table->foreign('id_place')->references('id')->on('places');
             $table->timestamps();
         });
     }

@@ -1,9 +1,8 @@
 <?php
-
-use Illuminate\Database\Seeder;
 use App\NamePlace;
+use Illuminate\Database\Seeder;
 
-class NamePlaceSeeder extends Seeder
+class NamePlaceTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
