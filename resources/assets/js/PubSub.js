@@ -1,11 +1,13 @@
-const EventBus = {
-  channels: {},
+class EventBus{
+  constructor(){
+    this.channels={};
+  }
   subscribe(channelName, listener) {
     if (!this.channels[channelName]) {
       this.channels[channelName] = [];
     }
-      this.channels[channelName].push(listener);
-  },
+    this.channels[channelName].push(listener);
+  }
   publish(channelName, data) {
     const channel = this.channels[channelName];
     if (!channel || !channel.length) {
@@ -15,7 +17,7 @@ const EventBus = {
       listener(data);
     })
   }
-};
+}
 
-export default  EventBus
+export default new EventBus();
 

@@ -1,12 +1,6 @@
 import EventBus from './PubSub'
 
-/**
- * Represents class Selector
- * @constructor
- * @param {array} place  -  where  we take dates for ajax request
- * @param {array} setting - configs for ajax
- * @param {array} spaceSelect - in this array we will  mount  our options
- */
+
 class Selector {
   constructor(place, settings, spaceSelect) {
     this.placeID = place;
@@ -14,6 +8,27 @@ class Selector {
     this.spaceSelect = spaceSelect;
   }
 
+  choose(){
+    let selector  = this.placeID;
+    let {url,type,dataType} = this.settings;
+    selector.change((event)=>{
+      let target = event.target.value;
+      $.ajax({
+        url:url,
+        type:type,
+        dataType:dataType,
+        data:{id:target},
+        success:(data)=> {
+          if(data.spaces){
+            EventBus.publish('chooseSpace',{'holiday': data.completelyReservedDays});
+            EventBus.publish('count/seats',{'seats':data.spaces})
+          }
+        EventBus.publish('chooseSpace', {'holiday': data.completelyReservedDays});
+
+        }
+      })
+    })
+  }
   request() {
     if (this.placeID[0] === undefined) {
       return 0
@@ -45,7 +60,7 @@ class Selector {
               spaceSelect
                 .append("<option></option>");
               $.each(data, function (index) {
-                spaceSelect.append("<option value='" + data[index].id + "'>" + data[index].text + "</option>");
+            spaceSelect.append("<option value='" + data[index].id + "'>" + data[index].text + "</option>");
               })
             }
           }
@@ -59,6 +74,7 @@ class Selector {
       requestSelect();
 
       function requestSelect() {
+        spaceSelect.append().empty();
         spaceSelect.select2({
           placeholder: "Оберіть простір...",
           width: "100%"
@@ -78,17 +94,10 @@ class Selector {
                 })
               }
               else {
-                spaceSelect
-                  .append("<option></option>").empty();
+                  spaceSelect.append(`<option></option>`).empty();
+                  spaceSelect.append(`<option  selected="selected" disabled>Оберіть простір...</option>`);
                 $.each(data, function (index) {
-                  if (data[index].address !== undefined) {
-                    EventBus.publish('selector', {holidays: data[index].completelyReservedDays});
-                    spaceSelect.append("<option value='" + data[index].id + "'>" + data[index].address + "</option>");
-                  }
-                  else {
-                    EventBus.publish('selector', {holidays: data[index].completelyReservedDays});
-                    spaceSelect.append("<option value='" + data[index].id + "'>" + data[index].text + "</option>");
-                  }
+                  spaceSelect.append(`<option value=${data[index].id}>${data[index].text}</option>`);
                 })
               }
             }

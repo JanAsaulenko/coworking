@@ -8,6 +8,9 @@ use DateTime;
 
 class Place extends Model
 {
+    public function spaces(){
+        $this->hasMany('App\Space', 'id_place','id');
+    }
 	protected $fillable = [
 	   'id_city', 'address', 'start_time','end_time','number_of_seatplace'
 	   ];
@@ -51,11 +54,11 @@ class Place extends Model
 	public function getCityName(){
 		return $this->city->name;
 	}
-
-	public function spaces(){
-
-        return $this->hasMany('App\NamePlace');
-    }
+/// We comment this 2018.08.11
+//	public function spaces(){
+//
+//        return $this->hasMany('App\NamePlace');
+//    }
 
 	public function getPlaceName()
 	{

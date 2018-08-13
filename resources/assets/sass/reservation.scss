@@ -2,6 +2,45 @@
 .markholiday .ui-state-default{
 	color:red;
 }
+.seats-block{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.seat{
+	color:blue;
+	width: 60px;
+	height: 20px;
+	background:blue;
+	border: 3px solid white;
+}
+
+.seat-clicked {
+	color:green;
+	background: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .disabled-input{
 	width:100%;
 	height:50px;
