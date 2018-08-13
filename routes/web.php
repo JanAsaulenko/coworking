@@ -21,11 +21,20 @@ Route::group(['prefix'=>'/v2'], function () {
 
 
 Route::get('/', ['as' => 'index' ,'uses' => 'MainController@index']);
-
-Route::get('/main/getPlaces', 'MainController@getPlaces');
-Route::get('/main/getSpaces',['as'=>'reservation.getspaces','uses'=>'MainController@getSpaces']);
-
 Route::get('/main/getLocationPlace', 'MainController@getPlace');
+
+
+
+
+Route::post('/reservation','ReservationController@index'); // method which open reservation window and get  datas(city end etc)
+Route::get('/reservation/getPlaces', 'ReservationController@getPlaces');
+Route::get('/reservation/getSpaces','ReservationController@getSpaces');
+Route::get('/reservation/choosePlace', 'ReservationController@choosePlace');
+Route::get('/reservation/chooseSpace', 'ReservationController@chooseSpace');
+
+
+
+
 Route::get('/contacts', 'MainController@contacts');
 Route::get('/place', 'MainController@place');
 Auth::routes();
@@ -33,7 +42,11 @@ Auth::routes();
 
 Route::get('/operator', 'OperatorController@index')->middleware('auth');
 
-Route::post('/reservation','ReservationController@index');
+
+
+
+
+
 Route::post('/reservation/getplace', 'ReservationController@getplace');
 
 

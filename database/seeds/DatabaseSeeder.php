@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PriceTableSeeder::class);
         $this->call(RoleTableSeeder::class);
         $this->call(StatusTableSeeder::class);
-
-
+        $this->call(SpaceTableSeeder::class);
+        $this->call(Status2TableSeeder::class);
     }
 }

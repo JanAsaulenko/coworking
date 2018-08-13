@@ -1,0 +1,1 @@
+export const COUNT_OF_ROWS = 5;
