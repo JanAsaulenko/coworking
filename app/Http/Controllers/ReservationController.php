@@ -21,9 +21,10 @@ use App\Lib\Gallery;
 
 class ReservationController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $cities = City::orderBy('name', 'asc')->get();
-        return view('View_reservation',['cities'=> $cities]);
+        return view('View_reservation', ['cities' => $cities]);
     }
 
     public function getPlaces(Request $request)
@@ -71,15 +72,13 @@ class ReservationController extends Controller
         $space_id = $request->id;
         $spaces = Space::all()->where('id', $space_id);
 
-            $completelyReservedDays = array();
-            $completelyReservedDays[] = '2018-08-15';
-            $completelyReservedDays[] = "2018-08-16";
-            return array('completelyReservedDays'=>$completelyReservedDays , 'spaces'=>$spaces);
+        $completelyReservedDays = array();
+        $completelyReservedDays[] = '2018-08-15';
+        $completelyReservedDays[] = "2018-08-16";
+        return array('completelyReservedDays' => $completelyReservedDays, 'spaces' => $spaces);
     }
 
-
-
-
+}
 
 
 
@@ -158,43 +157,43 @@ class ReservationController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-    public function getplace(Request $request)
-    {
-
-        $id_req = $request->getContent();
-        $places = Place::all()->where('id_city', $id_req);
-        return $places;
-    }
-public function getspace(Request $request)
-{
-$id_req = $request->getContent();
-return $id_req;
-}
-    public function showOrderGet($guid)
-    {
-        $order = Reservation::where('guid', $guid)->first();
-        $date_from = DateTime::createFromFormat('Y-m-d', $order->date_from);
-        $time_from = DateTime::createFromFormat('H:i:s', $order->time_from);
-        $date_to = DateTime::createFromFormat('Y-m-d', $order->date_to);
-        $time_to = DateTime::createFromFormat('H:i:s', $order->time_to);
-        $dateTime = [
-            'date_from' => $date_from->format('d.m.Y'),
-            'time_from' => $time_from->format('H:i'),
-            'date_to'   => $date_to->format('d.m.Y'),
-            'time_to'   => $time_to->format('H:i'),
-        ];
-
-
-        $discountTypes = DiscountType::orderBy('id', 'asc')->get();
-
-        return view('View_orderGet', ['arr' => $order->toArray(), 'discountTypes' => $discountTypes, 'dateTime' => $dateTime]);
-    }
-}
+//
+//
+//
+//
+//
+//
+//
+//
+//    public function getplace(Request $request)
+//    {
+//
+//        $id_req = $request->getContent();
+//        $places = Place::all()->where('id_city', $id_req);
+//        return $places;
+//    }
+//public function getspace(Request $request)
+//{
+//$id_req = $request->getContent();
+//return $id_req;
+//}
+//    public function showOrderGet($guid)
+//    {
+//        $order = Reservation::where('guid', $guid)->first();
+//        $date_from = DateTime::createFromFormat('Y-m-d', $order->date_from);
+//        $time_from = DateTime::createFromFormat('H:i:s', $order->time_from);
+//        $date_to = DateTime::createFromFormat('Y-m-d', $order->date_to);
+//        $time_to = DateTime::createFromFormat('H:i:s', $order->time_to);
+//        $dateTime = [
+//            'date_from' => $date_from->format('d.m.Y'),
+//            'time_from' => $time_from->format('H:i'),
+//            'date_to'   => $date_to->format('d.m.Y'),
+//            'time_to'   => $time_to->format('H:i'),
+//        ];
+//
+//
+//        $discountTypes = DiscountType::orderBy('id', 'asc')->get();
+//
+//        return view('View_orderGet', ['arr' => $order->toArray(), 'discountTypes' => $discountTypes, 'dateTime' => $dateTime]);
+//    }
+//}

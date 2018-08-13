@@ -1,38 +1,44 @@
 <div id="banner-wrapper">
-  <form id="banner" class="box container no-overflow">
-    <div class="main-block">
+  <form id="banner" class="form">
+    <div class="form__select-block">
       <label>Мiсто</label>
       <select class="city-select" required>
-        <option selected="selected" disabled style="text-align:center; align-items: center">Оберiть мiсто</option>
+        <option selected="selected" disabled">Оберiть мiсто</option>
         @foreach($cities as $city)
           <option value="{{$city->id}}">{{$city->name}}</option>
         @endforeach
       </select>
     </div>
 
-    <div class="main-block">
+    <div class="form__select-block">
       <label>Мiсце</label>
       <select class="place-select" required>
         <option selected="selected" disabled >Оберiть мiсце</option>
       </select>
     </div>
-    <div class="main-block">
+    <div class="form__select-block">
       <label>Простiр</label>
       <select class="space-select" required>
         <option selected="selected" disabled>Оберiть простiр</option>
       </select>
     </div>
-
+ <div class="select-block__datapicker-block">
+   <div class="datapicker-block">
     <div class="date-pck fromdate" form="second-form" required>
     </div>
-
+    <input class="turn from">
+   </div>
+   <div class="datapicker-block">
     <div class="date-pck todate" form="second-form" required>
+    </div>
+     <input class="turn to">
+   </div>
+ </div>
+    {{--place were seats will be rendered--}}
+    <div class="seats-block">
     </div>
   </form>
 
-  <div class="seats-block">
-
-  </div>
 
 
   {{--<div id="data"></div>--}}

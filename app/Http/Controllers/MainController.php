@@ -21,7 +21,6 @@ class MainController extends Controller
 
     public function index()
     {
-
         $cities = City::orderBy('name', 'asc')->get();
         $prices = Price::orderBy('amount', 'asc')->get();
         $places = Place::orderBy('address', 'asc')->get();

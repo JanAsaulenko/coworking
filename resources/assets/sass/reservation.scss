@@ -1,3 +1,31 @@
+#banner-wrapper{
+	width: 1270px;
+	min-width: 1270px;
+	height: 100%;
+	min-height: 100vh;
+	margin: 0 auto;
+}
+.form{
+	width: 500px;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.select-block__datapicker-block{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.datapicker-block{
+	display: flex;
+	flex-direction: column;
+}
+.turn{
+	width: inherit;
+}
+
 /*style for datapicker*/
 .markholiday .ui-state-default{
 	color:red;
@@ -6,6 +34,7 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	width: inherit;
 }
 .seat{
 	color:blue;
@@ -13,6 +42,10 @@
 	height: 20px;
 	background:blue;
 	border: 3px solid white;
+	/*/TODO-johny later add class to the table!!/*/
+	table{
+		width: inherit;
+	}
 }
 
 .seat-clicked {

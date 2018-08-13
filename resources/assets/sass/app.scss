@@ -1,14 +1,22 @@
-//@import'./admin.scss';
-@import './font-awesome.min.scss';
+@import './fonts/fonts';
+/*TODO for johny  create one style for each page and include parts like order block into them*/
+@import "common/layout";
+//MainPage
+@import './NewDesignMain.scss';
+@import './order-block.scss';  // our button
+@import './swiper-place/swiper.min.scss';
+@import './swiper-place/swiper_place.scss';
+//ReservationPage
+@import './reservation.scss';
+
+
+
+
+// /@import'./admin.scss';
 //@import './GalleryMain.css';
 //@import'./ie8.css';
 //@import './main.css';
-@import './NewDesignMain.scss';
-@import './order-block.scss';
 //@import "./pricepage.css";
-@import './reservation.scss';
-@import './swiper-place/swiper.min.scss';
-@import './swiper-place/swiper_place.scss';
 //@import './operator';
 
 

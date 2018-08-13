@@ -111,7 +111,7 @@ class Reservation extends Model
 
     public function calculatePrices($reservations)
     {
-        // ToDo DD
+
         //dd($reservations);
         $count = 0;
         foreach ($reservations as &$reservation) {

@@ -8,6 +8,6 @@ class User2 extends Model
 {
     protected $table = 'usersv2';
     public function order(){
-        $this->hasMany("App\Order2", 'user_id','id');
+      return  $this->hasMany("App\Order2", 'user_id','id');
     }
 }

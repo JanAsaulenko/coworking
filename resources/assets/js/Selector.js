@@ -20,8 +20,9 @@ class Selector {
         data:{id:target},
         success:(data)=> {
           if(data.spaces){
-            EventBus.publish('chooseSpace',{'holiday': data.completelyReservedDays});
-            EventBus.publish('count/seats',{'seats':data.spaces})
+            EventBus.publish('chooseSpace',{'holiday': data.completelyReservedDays,'id_place':data.spaces });
+            EventBus.publish('count/seats',{'seats':data.spaces});
+            return
           }
         EventBus.publish('chooseSpace', {'holiday': data.completelyReservedDays});
 
