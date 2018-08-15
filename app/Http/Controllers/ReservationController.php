@@ -51,7 +51,6 @@ class ReservationController extends Controller
     {
         $completelyReservedDays = Occupancy::getCompletelyReservedDaysByPlace($request->id);
         return array('completelyReservedDays' => $completelyReservedDays);
-
     }
 
     /**
@@ -63,34 +62,36 @@ class ReservationController extends Controller
         $space_id = $request->id;
         $spaces = Space::all()->where('id', $space_id);
         $completelyReservedDays = Occupancy::getCompletelyReservedDaysBySpace($space_id);
-        return array('completelyReservedDays'=>$completelyReservedDays , 'spaces'=>$spaces);
-
-<<<<<<< HEAD
-        $completelyReservedDays = array();
-        $completelyReservedDays[] = '2018-08-15';
-        $completelyReservedDays[] = "2018-08-16";
         return array('completelyReservedDays' => $completelyReservedDays, 'spaces' => $spaces);
     }
 
-    public function  showReserveSeats(Request $request){
-            $id = $request->id;
-            $data = $request->date;
+    public function showReserveSeats(Request $request)
+    {
+        $id = $request->id;
+        $data = $request->date;
 
         $reservedSeats = array();
         $reservedSeats[] = '0 1';
         $reservedSeats[] = '1 1';
-        return array('reservedSeats' => $reservedSeats, );
+        return array('reservedSeats' => $reservedSeats);
     }
 
-}
-=======
+
+    public function showReserve(Request $request)
+    {
+        // get
+        // Найти всы зайнняты стула наайді кабінета і даті вертути масів цих сіденій
+        $id = $request->id;
+        $data = $request->date;
+
+        $reservedSeats = array();
+        $reservedSeats[] = '0 1';
+        $reservedSeats[] = '1 1';
+        return array('reservedSeats' => $reservedSeats);
     }
-//
-//    public function showReserve( Request $request){
-//        $data = $request->date;// get
-//        $id = $request->id;// Найти всы зайнняты стула наайді кабінета і даті вертути масів цих сіденій
-//
-//    }
+}
+
+
 //
 //    public function reserveSeat(Request $request){//вертаэ масыв ошибок якшо вони э??? якшо ъх нема  bookingfact_id
 //        $spade_id = $request->id;
@@ -99,48 +100,6 @@ class ReservationController extends Controller
 //        $email = $request->email;
 //
 //    }
-
->>>>>>> 83c8992d3da47f46bb9bb2e214b12443c7788e8f
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //    public function index(Request $request)
@@ -160,23 +119,6 @@ class ReservationController extends Controller
 //            'validationError' => $validationError,
 //            'errorMsg'        => $errorMsg]);
 //    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //

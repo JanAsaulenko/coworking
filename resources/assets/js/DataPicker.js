@@ -50,22 +50,26 @@ class DataPicker {
 
   getChoseReserve(params) {
     let holidays = params.holiday;
-    $('.fromdate').datepicker("destroy");
-    $('.fromdate').datepicker({
+    let from = $('.fromdate');
+    from.datepicker("destroy");
+   from.datepicker({
       firstDay:1,
       minDate:new Date(),
       onSelect:function (event) {
-          let id = params.id_place[0].id;
+        $.each(params.id_place, (index)=>{
+          let id = params.id_place[index].id;
+          $('.from').val(event);
           $.ajax({
-            url:'/reservation/showReserveSeats',
+            url:'/reservation/showReserve',
             method:'get',
             dataType: 'json',
             data: {'date': event, 'id': id },
             success:(props)=>{
-              EventBus.publish('showReserveSeats', {'seats': props.reservedSeats, 'space':params.id_place})
+              EventBus.publish('showReserveSeats', {'seats': props.reservedSeats, 'space':params.id_place, 'date':event})
             }
           });
           EventBus.publish('/reservation/showReserveSeats',{'date':event, 'id_space':params.id_place});
+        })
       },
       beforeShowDay:function (date) {
         let day = date.getDay();
