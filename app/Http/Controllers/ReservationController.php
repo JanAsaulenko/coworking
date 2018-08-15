@@ -63,6 +63,7 @@ class ReservationController extends Controller
         $spaces = Space::all()->where('id', $space_id);
         $completelyReservedDays = Occupancy::getCompletelyReservedDaysBySpace($space_id);
         return array('completelyReservedDays'=>$completelyReservedDays , 'spaces'=>$spaces);
+
     }
 //
 //    public function showReserve( Request $request){
