@@ -61,8 +61,9 @@ class ReservationController extends Controller
     {
         $space_id = $request->id;
         $spaces = Space::all()->where('id', $space_id);
+        $price = Price::all();
         $completelyReservedDays = Occupancy::getCompletelyReservedDaysBySpace($space_id);
-        return array('completelyReservedDays' => $completelyReservedDays, 'spaces' => $spaces);
+        return array('completelyReservedDays' => $completelyReservedDays, 'spaces' => $spaces, 'price'=>$price);
     }
 
     public function showReserveSeats(Request $request)
