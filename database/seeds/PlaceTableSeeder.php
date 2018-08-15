@@ -13,7 +13,8 @@ class PlaceTableSeeder extends Seeder
     public function run()
     {
         $vaschuka = new Place;
-        $vaschuka->id_city = 101;
+        $vaschuka->id = '1';
+        $vaschuka->city_id = 101;
         $vaschuka->address = "М.Ващука, 20";
         $vaschuka->longitude = "28.3964071";
         $vaschuka->latitude = "49.2308045";
@@ -23,7 +24,8 @@ class PlaceTableSeeder extends Seeder
         $vaschuka->save();
 
         $keletska = new Place;
-        $keletska->id_city = 101;
+        $keletska->id = '2';
+        $keletska->city_id = 101;
         $keletska->address = "Келецька, 126а";
         $keletska->longitude = "28.3947603";
         $keletska->latitude = "49.2297332";
@@ -31,7 +33,6 @@ class PlaceTableSeeder extends Seeder
         $keletska->end_time = "21:00:00";
         $keletska->number_of_seatplace = 60;
         $keletska->save();
-
 
     }
 }

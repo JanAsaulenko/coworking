@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DropPlacesTable extends Migration
+class CreteBookingfactStatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,12 @@ class DropPlacesTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('places');
+        //
+        Schema::create('bookingfact_statuses', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,7 @@ class DropPlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('places');
+        //
+        Schema::dropIfExists('bookingfact_statuses');
     }
 }

@@ -15,7 +15,7 @@ class CreateSpacesTable extends Migration
     {
         Schema::create('spaces', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_place');
+            $table->integer('place_id');
             $table->string('name_space');
             $table->integer('number_of_seats')->default(0);
             $table->timestamps();

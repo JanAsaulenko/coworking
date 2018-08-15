@@ -4,9 +4,11 @@ namespace App\Lib;
 use App\Place;
 use App\Reservation;
 use App\Bookingfact;
+use App\Space;
 use DateTime;
 use DatePeriod;
 use DateInterval;
+use function GuzzleHttp\Psr7\mimetype_from_extension;
 use Mockery\CountValidator\Exception;
 
 class Occupancy{
@@ -115,6 +117,94 @@ class Occupancy{
         return $arrayOfDates;
     }
 
+
+
+
+
+
+
+
+
+
+
+    public static function GetArrayOfWorkingDates($startDay, $endDay){
+        $startDay = new DateTime($startDay);
+        $endDay = new DateTime($endDay);
+        $endDay = $endDay->modify('+1 day');
+        $period = new DatePeriod($startDay, new DateInterval('P1D'), $endDay);
+        $result = array();
+        foreach (iterator_to_array($period) as $item){
+            $result[$item->format('Y-m-d')] = array();
+        }
+        return $result;
+    }
+
+
+    public static function getCompletelyReservedDaysBySpace($space_id){
+        $allReserve = Reservation::all()->where('status_id',1)->where('space_id',$space_id);
+        $lastReserveDate = $allReserve->max('date_to');
+        $dateNow = date('Y-m-d');
+        $reservations = Reservation::where('status_id','1')->where('space_id',$space_id)->whereBetween('date_to', [$dateNow, $lastReserveDate])->get()->all();
+
+        $workingDays = self::GetArrayOfWorkingDates($dateNow,$lastReserveDate);
+        $compleatReservedDetes = array();
+        foreach ($workingDays as $key => $item){
+            $reserveFoDate  = array();
+            foreach ($reservations as $res){
+                if (($res->date_to >= $key)&&($key >= $res->date_from)){
+                    $reserveFoDate[] = $res->id;
+                }
+            }
+            $count = count($reserveFoDate);
+            if ($count == Space::find($space_id)->number_of_seats){
+                $compleatReservedDetes[] = $key;
+            }
+        }
+        return  $compleatReservedDetes;
+    }
+
+
+    public static function getCompletelyReservedDaysByPlace($place_id){
+
+        $countOfSeatPlaces = Place::find($place_id)->countOfSeatPlaces();
+
+        $allReserve = Place::find(1)->reservations()->where('status_id',1)->get();
+        $lastReserveDate = $allReserve->max('date_to');
+        $dateNow = date('Y-m-d');
+        $reservations =  Place::find(1)->reservations()->where('status_id',1)->whereBetween('date_to', [$dateNow, $lastReserveDate])->get()->all();
+        $workingDays = self::GetArrayOfWorkingDates($dateNow,$lastReserveDate);
+        $compleatReservedDetes = array();
+        foreach ($workingDays as $key => &$item){
+            $reserveFoDate  = array();
+            foreach ($reservations as $res){
+                if (($res->date_to >= $key)&&($key >= $res->date_from)){
+                    $reserveFoDate[] = $res->id;
+                }
+            }
+            $item = $reserveFoDate;
+            $count = count($reserveFoDate);
+            if ($count == $countOfSeatPlaces){
+                $compleatReservedDetes[] = $key;
+            }
+        }
+
+//        $temp = array();
+//        $temp['palce_id'] = $place_id;
+//        $temp['$countOfSeatPlaces'] = $countOfSeatPlaces;
+//        $temp['$lastReserveDate'] = $lastReserveDate;
+//        $temp['$dateNow'] = $dateNow;
+//        $temp['$allReserve'] = $allReserve;
+//        $temp['$reservations'] = $reservations ;
+//        $temp['$workingDays'] = $workingDays;
+//        $temp['$compleatReservedDetes'] = $compleatReservedDetes;
+//
+        return $compleatReservedDetes;
+        return $temp;
+    }
+
+
+
 }
+
 
 ?>
