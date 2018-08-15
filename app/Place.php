@@ -9,11 +9,12 @@ use DateTime;
 class Place extends Model
 {
     public function spaces(){
-        $this->hasMany('App\Space', 'id_place','id');
+        return $this->hasMany('App\Space','place_id', 'id');
     }
-	protected $fillable = [
-	   'id_city', 'address', 'start_time','end_time','number_of_seatplace'
-	   ];
+
+    //	protected $fillable = [
+//	   'id_city', 'address', 'start_time','end_time','number_of_seatplace'
+//	   ];
 
 	public function isValid($place){
 		$validatorPlace = Validator::make($place,  [
@@ -30,44 +31,53 @@ class Place extends Model
 		return true;
 	}
 
-
-    public function users(){
-        return $this->belongsToMany('App\User', 'workers', 'place_id', 'user_id');
+    public function city(){
+        return $this->belongsTo('App\City','city_id','id');
     }
 
-    public function roles(){
-        return $this->belongsToMany('App\Role', 'workers', 'place_id', 'role_id');
+    public function reservations(){
+        return $this->hasManyThrough('App\Reservation','App\Space');
     }
 
-    public function workers(){
-        return $this->hasMany('App\Worker');
+    public function countOfSeatPlaces(){
+        return $this->spaces()->sum('number_of_seats');
     }
 
-    public function images(){
-        return $this->hasMany('App\Image');
-    }
+//
+//    public function users(){
+//        return $this->belongsToMany('App\User', 'workers', 'place_id', 'user_id');
+//    }
+//
+//    public function roles(){
+//        return $this->belongsToMany('App\Role', 'workers', 'place_id', 'role_id');
+//    }
+//
+//    public function workers(){
+//        return $this->hasMany('App\Worker');
+//    }
+//
+//    public function images(){
+//        return $this->hasMany('App\Image');
+//    }
 
-	public function city(){
-		return $this->belongsTo('App\City', 'id_city');
-	}
-
-	public function getCityName(){
-		return $this->city->name;
-	}
+//
+//	public function getCityName(){
+//		return $this->city->name;
+//	}
 /// We comment this 2018.08.11
 //	public function spaces(){
 //
 //        return $this->hasMany('App\NamePlace');
 //    }
-
-	public function getPlaceName()
-	{
-		if ( $this->spaces->first()) {
-			return $this->spaces->first()->name;
-		}
-		else {
-				return 'Place does not exist';
-		}
-	}
+//
+//	public function getPlaceName()
+//	{
+//		if ( $this->spaces->first()) {
+//			return $this->spaces->first()->name;
+//		}
+//		else {
+//				return 'Place does not exist';
+//		}
+//	}
 
 }

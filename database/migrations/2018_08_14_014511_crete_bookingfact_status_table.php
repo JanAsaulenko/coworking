@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-
-class CreateUsersv2Table extends Migration
+class CreteBookingfactStatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +13,10 @@ class CreateUsersv2Table extends Migration
      */
     public function up()
     {
-        Schema::create('usersv2', function (Blueprint $table) {
+        //
+        Schema::create('bookingfact_statuses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email');
-            $table->string('phone_number');
             $table->timestamps();
         });
     }
@@ -30,6 +28,7 @@ class CreateUsersv2Table extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usersv2');
+        //
+        Schema::dropIfExists('bookingfact_statuses');
     }
 }

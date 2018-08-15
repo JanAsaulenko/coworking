@@ -3,25 +3,44 @@
 namespace App\Http\Controllers;
 
 use App\Place;
-use App\Reservation2;
-use App\User2;
+use App\Space;
 use Illuminate\Http\Request;
 use App\MainPageConfig;
 use App\City;
 use App\Price;
 use App\DiscountType;
 use App\NamePlace;
-use App\Order2;
 use App\Lib\Gallery;
+use App\Lib\Occupancy;
 
 
 class MainController extends Controller
 {
     const COUNT_PICTURES = 4;
 
+    public function choosePlace($id)
+    {
+        $place_id  = $id;
+        $spaces = Space::all()->where('place_id',$place_id);
+        foreach ($spaces as $space){
+
+        }
+
+
+        return $spaces;
+        return array('completelyReservedDays' => $completelyReservedDays);
+
+    }
+
+
+
+
+
     public function index()
     {
-
+//        dd(Place::find(1)->countOfSeatPlaces());
+//        dd( Occupancy::getCompletelyReservedDaysByPlace(1));
+//        dd( $this->choosePlace(1));
         $cities = City::orderBy('name', 'asc')->get();
         $prices = Price::orderBy('amount', 'asc')->get();
         $places = Place::orderBy('address', 'asc')->get();
@@ -29,7 +48,6 @@ class MainController extends Controller
         $config = new MainPageConfig();//???
         $gallery = new Gallery();
         $pictures = $gallery->getNamePictures(self::COUNT_PICTURES);
-
         return view('View_main', ['config' => $config, 'prices' => $prices, 'cities' => $cities, 'discountTypes' => $discountTypes, 'places' => $places, 'pictures' => $pictures]);
     }
 

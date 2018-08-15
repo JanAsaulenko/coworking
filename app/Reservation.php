@@ -20,22 +20,31 @@ class Reservation extends Model
 
     public function bookingfacts()
     {
-        return $this->belongsTo('App\Bookingfact');
+        return $this->belongsTo('App\Bookingfact','id','id');
     }
 
-    public function discountType(){
+    public function space(){
+        return $this->belongsTo('App\Space','space_id','id');
+    }
+
+    public function city(){
+        return $this->space->place->city;
+    }
+
+    public function discountType()
+    {
         return $this->belongsTo('App\DiscountType', 'discount_type_id', 'id');
     }
 
-    public function statuses()
-    {
-        return $this->belongsToMany('App\Status', 'reservation_id', 'status_id');
-    }
+//    public function statuses()
+//    {
+//        return $this->belongsToMany('App\Status', 'reservation_id', 'status_id');
+//    }
 
-    public function orders()
-    {
-        return $this->hasMany('App\Order');
-    }
+//    public function orders()
+//    {
+//        return $this->hasMany('App\Order');
+//    }
 
     public function validate($reservations)
     {

@@ -8,12 +8,14 @@ use Validator;
 class Bookingfact extends Model
 {
 	public $errorMessages;
-	protected $fillable = ['name', 'email', 'phone', 'id_place'];
+//	protected $fillable = ['name', 'email', 'phone', 'id_place'];
+
 
     public function reservations()
     {
-        return $this->hasMany('App\Reservation', 'bookingfacts_id');
+        return $this->hasMany('App\Reservation', 'bookingfact_id');
     }
+
 
 	public function place(){
 		return $this->hasOne('App\Place', 'id', 'id_place');

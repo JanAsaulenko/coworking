@@ -18,6 +18,7 @@ use App\Price;
 use App\NamePlace;
 
 use App\Lib\Gallery;
+use SimpleSoftwareIO\QrCode\DataTypes\Email;
 
 class ReservationController extends Controller
 {
@@ -29,7 +30,7 @@ class ReservationController extends Controller
     public function getPlaces(Request $request)
     {
         $id_req = $request->id;
-        $places = Place::all()->where('id_city', $id_req);
+        $places = Place::all()->where('city_id', $id_req);
         return array_map(function ($place) {
             return array('id' => $place->id, 'text' => $place->address);
         }, $places->all());
@@ -39,7 +40,7 @@ class ReservationController extends Controller
     public function getSpaces(Request $request)
     {
         $id_req = $request->id;
-        $name_places = Space::all()->where('id_place', $id_req);
+        $name_places = Space::all()->where('place_id', $id_req);
         return array_map(function ($name_places) {
             return array('id' => $name_places->id, 'text' => $name_places->name_space);
         }, $name_places->all());
@@ -47,19 +48,9 @@ class ReservationController extends Controller
 
     public function choosePlace(Request $request)
     {
-        $space_id = $request->id;
-        if ($space_id == '2') {
-            $completelyReservedDays = array();
-            $completelyReservedDays[] = '2018-08-15';
-            $completelyReservedDays[] = "2018-08-16";
-            $completelyReservedDays[] = "2018-08-27";
-            return array('completelyReservedDays' => $completelyReservedDays);
-        } else {
-            $completelyReservedDays = array();
-            $completelyReservedDays[] = '2018-08-13';
-            $completelyReservedDays[] = "2018-08-30";
-            return array('completelyReservedDays' => $completelyReservedDays);
-        }
+        $completelyReservedDays = Occupancy::getCompletelyReservedDaysByPlace($request->id);
+        return array('completelyReservedDays' => $completelyReservedDays);
+
     }
 
     /**
@@ -70,15 +61,23 @@ class ReservationController extends Controller
     {
         $space_id = $request->id;
         $spaces = Space::all()->where('id', $space_id);
-
-            $completelyReservedDays = array();
-            $completelyReservedDays[] = '2018-08-15';
-            $completelyReservedDays[] = "2018-08-16";
-            return array('completelyReservedDays'=>$completelyReservedDays , 'spaces'=>$spaces);
+        $completelyReservedDays = Occupancy::getCompletelyReservedDaysBySpace($space_id);
+        return array('completelyReservedDays'=>$completelyReservedDays , 'spaces'=>$spaces);
     }
-
-
-
+//
+//    public function showReserve( Request $request){
+//        $data = $request->date;// get
+//        $id = $request->id;// Найти всы зайнняты стула наайді кабінета і даті вертути масів цих сіденій
+//
+//    }
+//
+//    public function reserveSeat(Request $request){//вертаэ масыв ошибок якшо вони э??? якшо ъх нема  bookingfact_id
+//        $spade_id = $request->id;
+//        $date = $request->date;
+//        $seat = $request->seat;
+//        $email = $request->email;
+//
+//    }
 
 
 
