@@ -23,6 +23,24 @@ class SpaceTableSeeder extends Seeder
         $LongSpace->number_of_seats = 30;
         $LongSpace->save();
 
+        $SeaRoom = new Space;
+        $SeaRoom->id_place = 2;
+        $SeaRoom->name_space = "Sea Room";
+        $SeaRoom->number_of_seats = 15;
+        $SeaRoom->save();
+
+        $MagentaRoom = new Space;
+        $MagentaRoom->id_place = 2;
+        $MagentaRoom->name_space = "Magenta Room";
+        $MagentaRoom->number_of_seats = 20;
+        $MagentaRoom->save();
+
+        $RelaxRoom = new Space;
+        $RelaxRoom->id_place = "2";
+        $RelaxRoom->name_space = "Relax Room";
+        $RelaxRoom->number_of_seats = 10;
+        $RelaxRoom->save();
+
     }
 }
 

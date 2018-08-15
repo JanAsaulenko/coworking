@@ -4,27 +4,82 @@ class Space {
   constructor() {
     EventBus.subscribe('count/seats', this.drawSeats);
     EventBus.subscribe('reserve/seats', this.reserveSeats);
+    EventBus.subscribe('showReserveSeats', this.showReserveSeats);
   }
 
+
+  showReserveSeats(dates) {
+
+      let number_of_seats = dates.space[index].number_of_seats;
+      let seatsArray = dates.seats;
+      let table = document.createElement('table');
+    $.each(seatsArray[index], (index)=>{
+      for (let i = 0; i < number_of_seats / 5; i++) {
+        let col = document.createElement('tr');
+        for (let j = 0; j < 5; j++) {
+          let row = document.createElement('td');
+          row.innerText = `${j} ${i}`;
+          // $.each(seatsArray, (index) => {
+          //   if (seatsArray[index] === row.innerText)
+          //     row.className = "seat-reserved";
+          //   console.log('lisdf')
+          // });
+          row.className = `seat`;
+          col.appendChild(row)
+        }
+
+        table.appendChild(col)
+      }
+      $('.seats-block').empty();
+      // document.getElementsByClassName('seats-block')[0].empty().appendChild(table);
+      document.getElementsByClassName('seats-block')[0].appendChild(table);
+      const form_with_seats = $('.block_with_form');
+      $('.seats-block').click((event) => {
+        event.target.className = 'seat-clicked';
+        if (form_with_seats.is(':visible')) return;
+        form_with_seats.css({'display': 'flex', 'flex-direction': 'column', 'position': 'relative', "left": '-140%'});
+        form_with_seats.animate({left: '0%'}, 1000);
+        let input = $("<input>").val(event.target.innerText);
+        let a = 1;
+
+
+        form_with_seats.append(input);
+        $('td').click((data) => {
+          if (data.target.className === 'seat-clicked') {
+            console.log('уже занимали');
+            return
+          }
+
+          a++;
+          let input = $(`<input class='block_with_form__input' id="${a}">`).val(data.target.innerText);
+          form_with_seats.append(input);
+          $(`#${a}`).fadeIn();
+        })
+      })
+    })
+  }
+
+
+
   reserveSeats(data) {
-    let date = data.date;
-    let i = function () {
+
+    let helper = function () {
       let dates = data;
       return {
-        date:function () {
-          console.log(dates.date)
+        date: function () {
+          // console.log(dates.date)
         },
-        id:function () {
-          $.each(dates.id_space, (index)=>{
-            console.log(dates.id_space[index].id)
+        id: function () {
+          $.each(dates.id_space, (index) => {
+            // console.log(dates.id_space[index].id)
           })
 
         }
       }
     };
-   let m  = i();
-m.date();
-m.id();
+    let seats = helper();
+    seats.date();
+    seats.id();
 // $.ajax({
 //   url:'',
 //   method:'get',
@@ -52,13 +107,33 @@ m.id();
         table.appendChild(col)
       }
       document.getElementsByClassName('seats-block')[0].appendChild(table);
-
-      $('.seats-block').click((event) => {
-        event.target.className = 'seat-clicked';
-      })
     })
-
-
+    //     const form_with_seats = $('.block_with_form');
+    //     $('.seats-block').click((event) => {
+    //       event.target.className = 'seat-clicked';
+    //       if(form_with_seats.is(':visible')) return ;
+    //       form_with_seats.css({'display': 'flex',  'flex-direction':'column', 'position': 'relative', "left": '-140%'});
+    //     form_with_seats.animate({left: '0%'}, 1000);
+    //     let input =$("<input>").val(event.target.innerText);
+    //       let a =1;
+    //
+    //
+    //     form_with_seats.append(input);
+    //     $('td').click((data)=>{
+    //       if(data.target.className === 'seat-clicked'){
+    //             console.log('уже занимали')
+    //         return
+    //       }
+    //
+    //       a++;
+    //       let input =$(`<input class='block_with_form__input' id="${a}">`).val(data.target.innerText);
+    //       form_with_seats.append(input);
+    //       $(`#${a}`).fadeIn();
+    //     })
+    //     })
+    //   })
+    //
+    //
   }
 }
 

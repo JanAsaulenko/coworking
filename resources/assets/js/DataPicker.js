@@ -55,7 +55,17 @@ class DataPicker {
       firstDay:1,
       minDate:new Date(),
       onSelect:function (event) {
-          EventBus.publish('reserve/seats',{'date':event, 'id_space':params.id_place});
+          let id = params.id_place[0].id;
+          $.ajax({
+            url:'/reservation/showReserveSeats',
+            method:'get',
+            dataType: 'json',
+            data: {'date': event, 'id': id },
+            success:(props)=>{
+              EventBus.publish('showReserveSeats', {'seats': props.reservedSeats, 'space':params.id_place})
+            }
+          });
+          EventBus.publish('/reservation/showReserveSeats',{'date':event, 'id_space':params.id_place});
       },
       beforeShowDay:function (date) {
         let day = date.getDay();

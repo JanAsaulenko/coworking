@@ -3,7 +3,7 @@
     <div class="form__select-block">
       <label>Мiсто</label>
       <select class="city-select" required>
-        <option selected="selected" disabled">Оберiть мiсто</option>
+        <option selected="selected" disabled>Оберiть мiсто</option>
         @foreach($cities as $city)
           <option value="{{$city->id}}">{{$city->name}}</option>
         @endforeach
@@ -24,13 +24,11 @@
     </div>
  <div class="select-block__datapicker-block">
    <div class="datapicker-block">
-    <div class="date-pck fromdate" form="second-form" required>
-    </div>
+    <div class="date-pck fromdate" form="second-form" required></div>
     <input class="turn from">
    </div>
    <div class="datapicker-block">
-    <div class="date-pck todate" form="second-form" required>
-    </div>
+    <div class="date-pck todate" form="second-form" required></div>
      <input class="turn to">
    </div>
  </div>
@@ -39,37 +37,14 @@
     </div>
   </form>
 
-
-
-  {{--<div id="data"></div>--}}
-  {{--@if(!empty($errorMsg))--}}
-  {{--<div class="panel-warning">--}}
-  {{--<div class="panel-heading">--}}
-  {{--Зверніть увагу!!!--}}
-  {{--</div>--}}
-  {{--<div class="panel-footer">--}}
-  {{--@foreach($errorMsg as $item)--}}
-  {{--<p>{{$item}}</p>--}}
-  {{--@endforeach--}}
-  {{--</div>--}}
-  {{--</div>--}}
-  {{--@endif--}}
-  {{--</form>--}}
+  <form class="block_with_form">
+    <span class="block_with_form__title">Обранi мiсця</span>
+    <button class="block_with_form__button" type="submit">Замовити</button>
+  </form>
 
 
 
 
-
-
-  {{--@if(count($errors)>0)--}}
-  {{--<div class="alert alert-danger">--}}
-  {{--<ul>--}}
-  {{--@foreach($errors->all() as $error)--}}
-  {{--<li>{{$error}}</li>--}}
-  {{--@endforeach--}}
-  {{--</ul>--}}
-  {{--</div>--}}
-  {{--@endif--}}
 
 
   {{--<table id="reserv-table" datarows="{{count($reservations)}}">--}}

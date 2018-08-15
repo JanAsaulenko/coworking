@@ -1,0 +1,15 @@
+.block_with_form{
+  display: none;
+  position: relative;
+  top:-500px;
+  width:min-content;
+  height: min-content;
+  background: #323232;
+  align-items: center;
+  padding: 5px 5px 20px;
+  border-radius: 0 0 5px 5px ;
+}
+.block_with_form__input{
+  display: none;
+  border: none;
+}

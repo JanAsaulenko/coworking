@@ -24,7 +24,7 @@ Route::get('/reservation/getPlaces', 'ReservationController@getPlaces');
 Route::get('/reservation/getSpaces','ReservationController@getSpaces');
 Route::get('/reservation/choosePlace', 'ReservationController@choosePlace');
 Route::get('/reservation/chooseSpace', 'ReservationController@chooseSpace');
-
+Route::get('/reservation/showReserveSeats', 'ReservationController@showReserveSeats');
 
 
 

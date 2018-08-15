@@ -1,5 +1,4 @@
-import Selector from "./Selector";
-import DataPicker from './DataPicker';
+
 let $onScreen = false;
 let height_of_window;
 if (document.body.clientWidth > 768) {
@@ -31,27 +30,7 @@ window.onresize = function () {
 };
 //
 // $(document).ready(function () {
-//
-// //SHOW FORM
-//   let formBlock = $(".block-with-form");
-//   let buttonBlock = $(".block-with-button");
-//   buttonBlock.animate({left: '0%'}, 1000);
-//   $("[href='#order-form'],#order-btn").click(function () {
-//     if (formBlock.is(':visible')) return;
-//     buttonBlock.animate({top: '-140%'}, 500, function () {
-//       buttonBlock.hide();
-//       formBlock.css({'display': 'block', 'position': 'relative', "left": '140%'});
-//       formBlock.animate({left: '0%'}, 1000);
-//     })
-//   });
-// //DATA PICKER
-//   const from = $('#fromMain');
-//   const to = $('#toMain');
-//
-//   const mainDataPicker = new DataPicker();
-//   mainDataPicker.getDays(from,to);
-//
-//
+
 //
 //
 //   $("#order-back-btn").click(function () {
@@ -78,22 +57,7 @@ window.onresize = function () {
 //   });
 //
 // //
-// // // //SELECT TOWN (JQUERY SELECT2)
-// //   const selectTown = $('#town-select');
-// //   const showPlaces = $('#place-select');
-// //   const cities = new Selector(selectTown, {url: '/main/getPlaces', method: 'get', dataType: 'json'}, showPlaces);
-// //   cities.request();
-// // //SELECT PLACE (JQUERY SELECT2)
-// //   showPlaces.select2({
-// //     placeholder: "Оберіть простірs...",
-// //     language: {
-// //       noResults: function () {
-// //         return "Співпадінь, не знайдено";
-// //       }
-// //     },
-// //     width: "100%"
-// //   });
-//
+
 // // //SELECT DISCOUNT (JQUERY SELECT2)
 //   $("#discount-selector").select2({
 //     minimumResultsForSearch: Infinity,
@@ -111,29 +75,3 @@ window.onresize = function () {
 //
 //
 // //NUM-OF-PLACES-SELECTOR
-//   $("#plus-btn").click(function () {
-//     let value = $("#num-of-places-input").val();
-//     value = parseInt(value);
-//     if (!isNaN(value) && value >= 1)
-//       $("#num-of-places-input").val(++value);
-//     else
-//       $("#num-of-places-input").val(1);
-//   });
-//   $("#minus-btn").click(function () {
-//     let value = $("#num-of-places-input").val();
-//     value = parseInt(value);
-//     if (!isNaN(value) && value >= 2)
-//       $("#num-of-places-input").val(--value);
-//     else
-//       $("#num-of-places-input").val(1);
-//   });
-// //   $("#num-of-places-input").on("change", function () {
-// //     let value = $("#num-of-places-input").val();
-// //     value = parseInt(value);
-// //     if (isNaN(value) || value < 1)
-// //       $("#num-of-places-input").val(1);
-// //     else
-// //       $("#num-of-places-input").val(value);
-// //   })
-// });
-//

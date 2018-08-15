@@ -78,6 +78,16 @@ class ReservationController extends Controller
         return array('completelyReservedDays' => $completelyReservedDays, 'spaces' => $spaces);
     }
 
+    public function  showReserveSeats(Request $request){
+            $id = $request->id;
+            $data = $request->date;
+
+        $reservedSeats = array();
+        $reservedSeats[] = '0 1';
+        $reservedSeats[] = '1 1';
+        return array('reservedSeats' => $reservedSeats, );
+    }
+
 }
 
 
