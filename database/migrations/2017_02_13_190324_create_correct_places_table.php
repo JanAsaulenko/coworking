@@ -17,6 +17,7 @@ class CreateCorrectPlacesTable extends Migration
             $table->increments('id');
 			$table->integer('city_id');
 			$table->string('address');
+			$table->string('name')->nullable();
 			$table->string('longitude')->nullable();
 			$table->string('latitude')->nullable();
 			$table->time('start_time');

@@ -35,6 +35,7 @@
 					<td>Місто</td>
 					<td>Адреса</td>
 					<td>Назва простору</td>
+					<td>Spaces</td>
 					<td>Час початку</td>
 					<td>Час закінчення</td>
 					<td>Кількість місць</td>
@@ -49,9 +50,14 @@
 							<td>{{ $city->name }}</td>
 							<td>{{ $place->address }}</td>
 							<td>{{ $place->getPlaceName() }}</td>
+							<td>
+								@foreach ($place->spaces as $space)
+									{{$space->name_space}}<br>
+								@endforeach
+							</td>
 							<td>{{ $place->start_time }}</td>
 							<td>{{ $place->end_time }}</td>
-							<td id="place-setplace">{{ $place->number_of_seatplace }}</td>
+							<td id="place-setplace">{{ $place->countOfSeatPlaces() }}</td>
 							<td><button type="submit" class="btn btn-success">
 							{{Html::link( route('place.show', ['id' => $place->id]), 'Переглянути')}}</button>
 							</td>
