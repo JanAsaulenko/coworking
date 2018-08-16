@@ -70,7 +70,6 @@ class ReservationController extends Controller
     {
         $id = $request->id;
         $data = $request->date;
-
         $reservedSeats = array();
         $reservedSeats[] = '0 1';
         $reservedSeats[] = '1 1';
@@ -80,14 +79,10 @@ class ReservationController extends Controller
 
     public function showReserve(Request $request)
     {
-        // get
-        // Найти всы зайнняты стула наайді кабінета і даті вертути масів цих сіденій
-        $id = $request->id;
+        $space_id = $request->id;
         $data = $request->date;
 
-        $reservedSeats = array();
-        $reservedSeats[] = '0 1';
-        $reservedSeats[] = '1 1';
+        $reservedSeats = Occupancy::getReservedSeatPlace($space_id, $data);
         return array('reservedSeats' => $reservedSeats);
     }
 }

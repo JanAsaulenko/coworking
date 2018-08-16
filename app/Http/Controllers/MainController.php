@@ -18,26 +18,7 @@ class MainController extends Controller
 {
     const COUNT_PICTURES = 4;
 
-//    public function choosePlace($id)
-//    {
-//<<<<<<< HEAD
-//=======
-//        $place_id  = $id;
-//        $spaces = Space::all()->where('place_id',$place_id);
-//        foreach ($spaces as $space){
-//
-//        }
-//
-//
-//        return $spaces;
-//        return array('completelyReservedDays' => $completelyReservedDays);
-//
-//    }
-//
-//
-//
-//
-//
+
     public function index()
     {
         $cities = City::orderBy('name', 'asc')->get();
