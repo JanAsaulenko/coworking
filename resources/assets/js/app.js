@@ -14,6 +14,7 @@ import './movie_background/jquery.backgroundvideo.min';
 // import './order';
 import './reservation';
 import './Space';
+import './Seets';
 // import './skel-layout.min';???
 // import './skel.min';????
 // import './util';

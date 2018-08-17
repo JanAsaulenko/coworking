@@ -65,17 +65,6 @@ class ReservationController extends Controller
         return array('completelyReservedDays' => $completelyReservedDays, 'spaces' => $spaces);
     }
 
-    public function showReserveSeats(Request $request)
-    {
-        $id = $request->id;
-        $data = $request->date;
-
-        $reservedSeats = array();
-        $reservedSeats[] = '0 1';
-        $reservedSeats[] = '1 1';
-        return array('reservedSeats' => $reservedSeats);
-    }
-
 
     public function showReserve(Request $request)
     {
@@ -87,6 +76,7 @@ class ReservationController extends Controller
         $reservedSeats = array();
         $reservedSeats[] = '0 1';
         $reservedSeats[] = '1 1';
+        $reservedSeats[] = '0 2';
         return array('reservedSeats' => $reservedSeats);
     }
 }
@@ -129,18 +119,8 @@ class ReservationController extends Controller
 //
 //
 //
-//    public function getplace(Request $request)
-//    {
-//
-//        $id_req = $request->getContent();
-//        $places = Place::all()->where('id_city', $id_req);
-//        return $places;
-//    }
-//public function getspace(Request $request)
-//{
-//$id_req = $request->getContent();
-//return $id_req;
-//}
+
+
 //    public function showOrderGet($guid)
 //    {
 //        $order = Reservation::where('guid', $guid)->first();

@@ -58,20 +58,3 @@ window.onresize = function () {
 //
 // //
 
-// // //SELECT DISCOUNT (JQUERY SELECT2)
-//   $("#discount-selector").select2({
-//     minimumResultsForSearch: Infinity,
-//     width: "100%"
-//   });
-//
-// // //PROMO-CODE-DIV APPEARANCE
-//   $("#discount-selector").on("change", function () {
-//     if ($(this).val() === "6")
-//       $("#promo-code-div").show();
-//     else
-//       $("#promo-code-div").hide();
-//   });
-//
-//
-//
-// //NUM-OF-PLACES-SELECTOR
