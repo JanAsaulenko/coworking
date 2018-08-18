@@ -14,8 +14,8 @@ use App\City;
 use App\DiscountType;
 
 Route::group(['prefix'=>'/v2'], function () {
-    Route::get('/index','v2MainPageController@index');
-    Route::get('/city','v2MainPageController@getCity');
+    Route::get('/test','v2MainPageController@test');// temp and test route fo debug
+    Route::get('/getallplaces','v2MainPageController@getAllPlaces');
 });
 
 
