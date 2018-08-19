@@ -9,7 +9,21 @@
   padding: 5px 5px 20px;
   border-radius: 0 0 5px 5px ;
 }
-.block_with_form__input{
-  display: none;
-  border: none;
+.block_with_form__nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.block_with_form__title{
+  text-align: center;
+  color:white;
+  font-size: 18px;
+}
+.block_with_form__button{
+  width: 100%;
+}
+.sum{
+  display: block;
+  color:white;
+  text-align: center;
 }

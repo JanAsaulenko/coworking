@@ -24,7 +24,7 @@ class DataPicker {
       }
     })
       .on('change', () => {
-        from.datepicker("option", "dateFormat", "dd.mm.yy")
+        from.datepicker("option", "dateFormat", "yy-mm-dd")
       });
     to.datepicker({
       firstDay: 1,
@@ -44,31 +44,48 @@ class DataPicker {
       }
     })
       .on('change', () => {
-        to.datepicker("option", "dateFormat", "dd.mm.yy")
+        to.datepicker("option", "dateFormat", "yy-mm-dd")
       })
   }
 
   getChoseReserve(params) {
+    function parseDate(date){
+      let newDate = date.split("/");
+      for(let i=0;i<newDate.length; i++){
+        let temp = newDate[0];
+        newDate[0]= newDate[2];
+        newDate[2]=temp;
+      }
+let result = newDate.join('-');
+return result
+    }
     let holidays = params.holiday;
     let from = $('.fromdate');
     from.datepicker("destroy");
+    // from.on('change',() => {
+    //   from.datepicker("option", "dateFormat", "yy-mm-dd")
+    // });
+    from.datepicker("option",'dateFormat',"yy-mm-dd");
    from.datepicker({
       firstDay:1,
       minDate:new Date(),
       onSelect:function (event) {
+           let targetDate = parseDate(event);
         $.each(params.id_place, (index)=>{
           let id = params.id_place[index].id;
-          $('.from').val(event);
+          id = Number(id); //??
+          $('.from').val(targetDate);
           $.ajax({
             url:'/reservation/showReserve',
             method:'get',
             dataType: 'json',
-            data: {'date': event, 'id': id },
+            data: {'date': targetDate, 'id': id },
             success:(props)=>{
-              EventBus.publish('showReserveSeats', {'seats': props.reservedSeats, 'space':params.id_place, 'date':event})
+              EventBus.publish('reservation/showReserveSeats', {'seats': props.reservedSeats, 'price':props.price, 'space':params.id_place, 'date':targetDate})
             }
           });
-          EventBus.publish('/reservation/showReserveSeats',{'date':event, 'id_space':params.id_place});
+
+          // EventBus.publish('/reservation/showReserveSeats',{'date':event, 'id_space':params.id_place});
         })
       },
       beforeShowDay:function (date) {
@@ -87,34 +104,6 @@ class DataPicker {
         }
       }
     });
-
-
-
-      // $('.fromdate').datepicker({
-      //   firstDay: 1,
-      //   minDate: new Date(),
-      //   onSelect: function (event) {
-      //     console.log(event);
-      //     EventBus.publish('reserve/seats', {'data': event, 'id': id_space});
-      //     $('.from').val(event)
-      //   },
-      //   beforeShowDay: function (date) {
-      //     let day = date.getDay();
-      //     if (day === 0 || day === 6) {
-      //       return [false, 'markholiday']
-      //     }
-      //     else {
-      //       let formattedDays = jQuery.datepicker.formatDate('yy-mm-dd', date);
-      //       if (holidays.indexOf(formattedDays) === -1) {
-      //         return [true, '']
-      //       }
-      //       else {
-      //         return [false, 'markholiday']
-      //       }
-      //     }
-      //   }
-      // });
-
   }
 
 }

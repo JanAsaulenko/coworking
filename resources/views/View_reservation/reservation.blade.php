@@ -37,10 +37,16 @@
     </div>
   </form>
 
-  <form class="block_with_form">
-    <span class="block_with_form__title">Обранi мiсця</span>
+  <div class="block_with_form">
+    <div class="block_with_form__nav">
+      <span class="block_with_form__title">Обранi мiсця</span>
+      <button class="close">X</button>
+    </div>
+  <form class="form-reserve">
     <button class="block_with_form__button" type="submit">Замовити</button>
   </form>
+    <span class="sum"></span>
+</div>
 
 
 

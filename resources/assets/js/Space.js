@@ -2,70 +2,59 @@ import EventBus from './PubSub';
 
 class Space {
   constructor() {
-    EventBus.subscribe('count/seats', this.drawSeats);
+    EventBus.subscribe('reservation/drawSeats', this.drawSeats);
     EventBus.subscribe('reserve/seats', this.reserveSeats);
-    EventBus.subscribe('showReserveSeats', this.showReserveSeats);
+    EventBus.subscribe('reservation/showReserveSeats', this.showReserveSeats);
   }
 
 
   showReserveSeats(dates) {
-    $.each(dates.space, (index)=> {
+    $.each(dates.space, (index) => {
       let number_of_seats = dates.space[index].number_of_seats;
-      console.log(dates)
-      let seatsArray = dates.seats;
+      let seatsReserve = dates.seats;
       let target_date = dates.date;
+      let arrOfPrices = dates.price;
+ 
+
       let table = document.createElement('table');
-      for (let i = 0; i < number_of_seats / 5; i++) {
-        let col = document.createElement('tr');
-        for (let j = 0; j < 5; j++) {
-          let row = document.createElement('td');
-          row.innerText = `${j} ${i}`;
-         for(let i=0;i<seatsArray.length;i++){
-            if(seatsArray[i] !==row.innerText){
-              row.className = `seat`;
-            }
-            else {
-              row.className = 'seat-reserved';
-            }
-          col.appendChild(row)
-          }
+
+      let arrOfSeats = $('.seat');
+      for(let i=0;i<arrOfSeats.length;i++){
+        for(let j=0;j<seatsReserve.length;j++){
+              if(arrOfSeats[i].innerText ===seatsReserve[j]){
+                arrOfSeats[i].className = 'seat-reserved';
+              }
+
         }
-        table.appendChild(col)
       }
+      // for (let i = 0; i < number_of_seats / 5; i++) {
+      //   let col = document.createElement('tr');
+      //   for (let j = 0; j < 5; j++) {
+      //     let row = document.createElement('td');
+      //     row.innerText = `${count++}`;
+      //     for (let i = 0; i < seatsArray.length; i++) {
+      //        console.log(seatsArray[i] , )
+      //       col.appendChild(row)
+      //     }
+      //   }
+      //   table.appendChild(col)
+      // }
 
-      $('.seats-block').empty();
-      document.getElementsByClassName('seats-block')[0].appendChild(table);
-      // const form_with_seats = $('.block_with_form');
+      // $('.seats-block').empty();
+    $('.seats-block').append(table);
       $('.seats-block').click((event) => {
-
-        // EventBus.publish('seat/block',{'data':dates.space,'seat':event, 'date':target_date});
-        event.target.className = 'seat-clicked';
-        let form_with_seats = $('.block_with_form');
-        if (form_with_seats.is(':visible')) return;
-        form_with_seats.css({'display': 'flex', 'flex-direction': 'column', 'position': 'relative', "left": '-140%'});
-        form_with_seats.animate({left: '0%'}, 1000);
-        let input = $("<input>").val(event.target.innerText);
-        let a = 1; //counter for input stylish
-
-        form_with_seats.append(input);
-        $('td').click((data) => {
-          if (data.target.className === 'seat-clicked') {
-            console.log('уже занимали');
-            return
-          }
-          a++;
-          let input = $(`<input class='block_with_form__input' id="${a}">`).val(data.target.innerText);
-          form_with_seats.append(input);
-          $(`#${a}`).fadeIn();
-        })
+        EventBus.publish('seat/block', {
+          'data': dates.space,
+          'seat': event,
+          'date': target_date,
+          'prices': arrOfPrices
+        });
       })
     });
   }
 
 
-
   reserveSeats(data) {
-
     let helper = function () {
       let dates = data;
       return {
@@ -97,13 +86,13 @@ class Space {
         $('.seats-block').empty();
       });
       let number_of_seats = data.seats[index].number_of_seats;
-
+      let count = 1;
       let table = document.createElement('table');
       for (let i = 0; i < number_of_seats / 5; i++) {
         let col = document.createElement('tr');
         for (let j = 0; j < 5; j++) {
           let row = document.createElement('td');
-          row.innerText = `${j} ${i}`;
+          row.innerText = `${count++}`;
           row.className = `seat`;
           col.appendChild(row)
         }
@@ -111,32 +100,6 @@ class Space {
       }
       document.getElementsByClassName('seats-block')[0].appendChild(table);
     })
-    //     const form_with_seats = $('.block_with_form');
-    //     $('.seats-block').click((event) => {
-    //       event.target.className = 'seat-clicked';
-    //       if(form_with_seats.is(':visible')) return ;
-    //       form_with_seats.css({'display': 'flex',  'flex-direction':'column', 'position': 'relative', "left": '-140%'});
-    //     form_with_seats.animate({left: '0%'}, 1000);
-    //     let input =$("<input>").val(event.target.innerText);
-    //       let a =1;
-    //
-    //
-    //     form_with_seats.append(input);
-    //     $('td').click((data)=>{
-    //       if(data.target.className === 'seat-clicked'){
-    //             console.log('уже занимали')
-    //         return
-    //       }
-    //
-    //       a++;
-    //       let input =$(`<input class='block_with_form__input' id="${a}">`).val(data.target.innerText);
-    //       form_with_seats.append(input);
-    //       $(`#${a}`).fadeIn();
-    //     })
-    //     })
-    //   })
-    //
-    //
   }
 }
 

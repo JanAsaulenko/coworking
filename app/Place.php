@@ -60,24 +60,24 @@ class Place extends Model
 //        return $this->hasMany('App\Image');
 //    }
 
-//
-//	public function getCityName(){
-//		return $this->city->name;
-//	}
+
+	public function getCityName(){
+		return $this->city->name;
+	}
 /// We comment this 2018.08.11
 //	public function spaces(){
 //
 //        return $this->hasMany('App\NamePlace');
 //    }
-//
-//	public function getPlaceName()
-//	{
-//		if ( $this->spaces->first()) {
-//			return $this->spaces->first()->name;
-//		}
-//		else {
-//				return 'Place does not exist';
-//		}
-//	}
+
+	public function getPlaceName()
+	{
+		if ( $this->name) {
+			return $this->name;
+		}
+		else {
+				return 'No name';
+		}
+	}
 
 }

@@ -199,8 +199,33 @@ class Occupancy{
 //        $temp['$compleatReservedDetes'] = $compleatReservedDetes;
 //
         return $compleatReservedDetes;
+    }
+
+
+    public static function getReservedSeatPlace($space_id, $date){
+
+        $temp = array();
+        $temp['$space_id']= $space_id;
+        $temp['$date'] = $date;
+
+        $reservations = Reservation::all()->where('space_id',$space_id)->where('status_id',1)
+            ->where('date_from','<=',$date)->where('date_to','>=', $date);
+        $reserverSeatPlaces = $reservations->map(function($item){
+            return $item->seat_number;
+        })->all();
+
+        $temp['$reservations'] = $reservations;
+        $temp['$reserverSeatPlaces'] = $reserverSeatPlaces;
         return $temp;
     }
+
+
+
+
+
+
+
+
 
 
 

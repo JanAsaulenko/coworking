@@ -1,6 +1,7 @@
 import Selector from './Selector'
 import DataPicker from './DataPicker'
 import Space from './Space'
+import Seet from  './Seet'
 import {COUNT_OF_ROWS} from './Constants';
 $(document).ready(function () {
 
@@ -38,7 +39,7 @@ $(document).ready(function () {
   reservationDataPicker.getDays(from,to);
 
   const space = new Space();
-
+  const seet = new Seet();
 
 
 

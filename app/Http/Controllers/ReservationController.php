@@ -61,23 +61,26 @@ class ReservationController extends Controller
     {
         $space_id = $request->id;
         $spaces = Space::all()->where('id', $space_id);
+
         $completelyReservedDays = Occupancy::getCompletelyReservedDaysBySpace($space_id);
         return array('completelyReservedDays' => $completelyReservedDays, 'spaces' => $spaces);
     }
 
 
+
+
     public function showReserve(Request $request)
     {
-        // get
-        // Найти всы зайнняты стула наайді кабінета і даті вертути масів цих сіденій
-        $id = $request->id;
+        $space_id = $request->id;
         $data = $request->date;
 
         $reservedSeats = array();
-        $reservedSeats[] = '0 1';
-        $reservedSeats[] = '1 1';
-        $reservedSeats[] = '0 2';
-        return array('reservedSeats' => $reservedSeats);
+        $reservedSeats[] = '1';
+        $reservedSeats[] = '5';
+        $reservedSeats[] = '12';
+        $price = Price::all();
+//        $reservedSeats = Occupancy::getReservedSeatPlace($space_id, $data);
+        return array('reservedSeats' => $reservedSeats,'price'=>$price);
     }
 }
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use Validator;
 use App\City;
+use App\Space;
 use App\Place;
 use App\Image;
 
@@ -17,6 +18,9 @@ class PlaceController extends Controller
         $cities = City::all();
         return view('admin.place.index', ['cities'=>$cities]);
     }
+
+
+
     public function create(Request $request)
     {
         $cities = City::all();
@@ -42,7 +46,9 @@ class PlaceController extends Controller
     {
         $images = Image::where('place_id', $id)->get();
         $places = Place::find($id);
-        return view('admin.place.show', ['place' => $places, 'images' => $images]);
+        $spaces = Space::all()->where('place_id',$id);
+
+        return view('admin.place.show', ['place' => $places, 'images' => $images, 'spaces' => $spaces]);
 
     }
     public function edit($id)
