@@ -93,10 +93,7 @@ class Seet {
       let arrOfReservedSeats = $('.form-reserve__input').val();
       let fullSum = $('.sum').innerText;
       console.log(name,email,password , arrOfReservedSeats, fullSum);
-
     })
-
-
     })
   }
 }
