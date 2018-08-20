@@ -39,11 +39,16 @@
 
   <div class="block_with_form">
     <div class="block_with_form__nav">
-      <span class="block_with_form__title">Обранi мiсця</span>
-      <button class="close">X</button>
+      <button class="nav_button nav_button-hide">—</button>
+      <button class="nav_button nav_button-close">X</button>
     </div>
+    <div class="form__title">Контактнi даннi</div>
   <form class="form-reserve">
-    <button class="block_with_form__button" type="submit">Замовити</button>
+    <input type="text" class="input" name="name" placeholder="Iмя">
+    <input type="email" class="input" name="email" placeholder="email">
+    <input type="text" class="input" name="telephone" placeholder="телефон">
+    <div class="form__title">Обранi мiсця</div>
+    <button class="form__button" type="button">Замовити</button>
   </form>
     <span class="sum"></span>
 </div>

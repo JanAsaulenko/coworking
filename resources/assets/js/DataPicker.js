@@ -49,15 +49,18 @@ class DataPicker {
   }
 
   getChoseReserve(params) {
-    function parseDate(date){
+    function parseDate(date) {
       let newDate = date.split("/");
-      for(let i=0;i<newDate.length; i++){
-        let temp = newDate[0];
-        newDate[0]= newDate[2];
-        newDate[2]=temp;
-      }
-let result = newDate.join('-');
-return result
+      for (let i = 0; i < newDate.length; i++)
+        console.log(newDate[i])
+      let day = newDate[0];
+      let month = newDate[1];
+      newDate[0] = newDate[2];
+      newDate[2] = newDate[1];
+      newDate[1] = day
+
+      let result = newDate.join('-');
+      return result
     }
     let holidays = params.holiday;
     let from = $('.fromdate');

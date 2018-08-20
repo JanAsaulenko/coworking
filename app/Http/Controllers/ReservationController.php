@@ -73,11 +73,6 @@ class ReservationController extends Controller
     {
         $space_id = $request->id;
         $data = $request->date;
-
-//        $reservedSeats = array();
-//        $reservedSeats[] = '1';
-//        $reservedSeats[] = '5';
-//        $reservedSeats[] = '12';
         $price = Price::all();
         $reservedSeats = Occupancy::getReservedSeatPlace($space_id, $data);
         return array('reservedSeats' => $reservedSeats,'price'=>$price);
