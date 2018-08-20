@@ -3,8 +3,8 @@ import EventBus from './PubSub';
 class Space {
   constructor() {
     EventBus.subscribe('reservation/drawSeats', this.drawSeats);
-    EventBus.subscribe('reserve/seats', this.reserveSeats);
     EventBus.subscribe('reservation/showReserveSeats', this.showReserveSeats);
+    // EventBus.subscribe('reserve/seats', this.reserveSeats);
   }
 
 
@@ -27,20 +27,7 @@ class Space {
 
         }
       }
-      // for (let i = 0; i < number_of_seats / 5; i++) {
-      //   let col = document.createElement('tr');
-      //   for (let j = 0; j < 5; j++) {
-      //     let row = document.createElement('td');
-      //     row.innerText = `${count++}`;
-      //     for (let i = 0; i < seatsArray.length; i++) {
-      //        console.log(seatsArray[i] , )
-      //       col.appendChild(row)
-      //     }
-      //   }
-      //   table.appendChild(col)
-      // }
 
-      // $('.seats-block').empty();
     $('.seats-block').append(table);
       $('.seats-block').click((event) => {
         EventBus.publish('seat/block', {
@@ -54,31 +41,31 @@ class Space {
   }
 
 
-  reserveSeats(data) {
-    let helper = function () {
-      let dates = data;
-      return {
-        date: function () {
-          // console.log(dates.date)
-        },
-        id: function () {
-          $.each(dates.id_space, (index) => {
-            // console.log(dates.id_space[index].id)
-          })
-
-        }
-      }
-    };
-    let seats = helper();
-    seats.date();
-    seats.id();
+  // reserveSeats(data) {
+  //   let helper = function () {
+  //     let dates = data;
+  //     return {
+  //       date: function () {
+  //         // console.log(dates.date)
+  //       },
+  //       id: function () {
+  //         $.each(dates.id_space, (index) => {
+  //           // console.log(dates.id_space[index].id)
+  //         })
+  //
+  //       }
+  //     }
+  //   };
+  //   let seats = helper();
+  //   seats.date();
+  //   seats.id();
 // $.ajax({
 //   url:'',
 //   method:'get',
 //   dataType:'json',
 //   data:{'date':date}
 // })
-  }
+//   }
 
   drawSeats(data) {
     $.each(data.seats, (index) => {

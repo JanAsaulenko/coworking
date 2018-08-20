@@ -6,7 +6,12 @@ class Seet {
   }
 
   createForm(props) {
-    const priceforDay = props.prices[1].amount;
+    console.log(props)
+    $.each(props.data, (index)=>{
+      const priceForDay = props.prices[1].amount;
+      const choseData = props.date;
+      const placeID = props.data[index].place_id;
+
     let block_with_form = $('.block_with_form');
     let form_with_seats = $('.form-reserve');
 
@@ -21,15 +26,15 @@ class Seet {
     }
 
 
-    $('.close').on('click', () => {
+    $('.nav_button-hide').on('click', () => {
       block_with_form.css({'display': 'none', 'flex-direction': 'column', 'position': 'relative', "left": '140%'});
       block_with_form.animate({left: '0%'}, 1000);
     });
     $('.seats-block').on('click', () => {
-      $('.sum')[0].innerHTML = calculator(priceforDay);
+      $('.sum')[0].innerHTML = calculator(priceForDay);
     });
     form_with_seats.on('click', () => {
-      $('.sum')[0].innerHTML =  calculator(priceforDay);
+      $('.sum')[0].innerHTML =  calculator(priceForDay);
     });
 
     props.seat.target.className = 'seat-clicked';
@@ -71,6 +76,28 @@ class Seet {
         }
       })
     });
+
+    $('.form__button').on('click',()=>{
+
+      let authInfo = $("input[name]");
+      console.log(authInfo)
+        for(let i=0;i<authInfo.length;i++){
+          if(!authInfo[i].value){
+           alert(`Пропущено ${authInfo[i].placeholder}`);
+          }
+        }
+      const name = $("input[name |='name']").val();
+      const email = $("input[name |='email']").val();
+      const password = $("input[name |='telephone']").val();
+
+      let arrOfReservedSeats = $('.form-reserve__input').val();
+      let fullSum = $('.sum').innerText;
+      console.log(name,email,password , arrOfReservedSeats, fullSum);
+
+    })
+
+
+    })
   }
 }
 
