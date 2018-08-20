@@ -40,10 +40,16 @@ class TestSeed extends Seeder
 
     public function run()
     {
-        $this->addTestReservation('1','2018-08-20','2018-08-23',10);
-        $this->addTestReservation('1','2018-08-21','2018-08-29',10);
+        $this->addTestReservation('1','2018-08-20','2018-08-24',10);
+        $this->addTestReservation('1','2018-08-27','2018-08-29',10);
+        $this->addTestReservation('1','2018-08-30','2018-08-30',20);
 
-        $this->addTestReservation('1','2018-08-23','2018-08-30',20);
+        $this->addTestReservation('2','2018-08-20','2018-08-27',10);
+        $this->addTestReservation('2','2018-08-29','2018-08-29',20);
+
+        $this->addTestReservation('3','2018-08-22','2018-08-24',10);
+        $this->addTestReservation('3','2018-08-25','2018-08-30',5);
+
 
 
 
