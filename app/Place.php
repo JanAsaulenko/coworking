@@ -12,17 +12,17 @@ class Place extends Model
         return $this->hasMany('App\Space','place_id', 'id');
     }
 
-    //	protected $fillable = [
-//	   'id_city', 'address', 'start_time','end_time','number_of_seatplace'
-//	   ];
+    protected $fillable = [
+	   'city_id', 'address', 'name', 'start_time','end_time','number_of_seatplace'
+	   ];
 
 	public function isValid($place){
 		$validatorPlace = Validator::make($place,  [
-			'id_city' => 'required|max:255',
+			'city_id' => 'required|max:255',
 			'address' =>     'required|max:255',
 			'start_time' => ['required', 'regex:^(([0-1][0-9]|2[0-3]):[0-5][0-9]?)$^'],
 			'end_time' => ['required', 'regex:^(([0-1][0-9]|2[0-3]):[0-5][0-9]?)$^'],
-			'number_of_seatplace' => 'required|max:255'
+            'name' => 'max:255'
         ]);
 
 		if ($validatorPlace->fails()){

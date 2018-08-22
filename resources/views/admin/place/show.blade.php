@@ -19,6 +19,7 @@
 					<td>Час початку</td>
 					<td>Час закінчення</td>
 					<td>Кількість місць</td>
+					<td>Опції</td>
 				</tr>
 				</thead>
 				<tbody>
@@ -28,7 +29,9 @@
 					<td>{{ $place->getPlaceName() }}</td>
 					<td>{{ $place->start_time }}</td>
 					<td>{{ $place->end_time }}</td>
-					<td id="place-setplace">{{ $place-> countOfSeatPlaces() }}</td>
+					<td>{{ $place-> countOfSeatPlaces() }}</td>
+					<td>{{Html::link( route('place.edit', ['id' => $place->id]), 'Редагувати',['class' => 'btn btn-primary btn-xs '])}}</td>
+
 				</tr>
 				</tbody>
 			</table>
