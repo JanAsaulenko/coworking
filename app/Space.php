@@ -15,4 +15,20 @@ class Space extends Model
         return $this->hasMany('App\Reservation','space_id','id');
     }
 
+    public function getCity(){// return null or Model City....
+        $place = $this->place;
+        if($place){
+            $city = $place->city;
+            if($city){
+                return $city;
+            }
+        }
+        return null;
+    }
+
+
+
+
+
+
 }

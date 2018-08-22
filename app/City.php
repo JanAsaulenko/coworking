@@ -12,6 +12,10 @@ class City extends Model
 		return $this->hasMany('App\Place', 'city_id','id');
 	}
 
+	public function spaces(){
+	    return $this->hasManyThrough('App\Space','App\Place');
+    }
+
 //	public function isValid($city){
 //		$validatorCity = Validator::make($city,  [
 //			'name' => 'required|max:255'

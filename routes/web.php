@@ -79,6 +79,7 @@ Route::group(['prefix'=>'/admin','middleware'=>'auth'], function (){
     Route::resource('discount', 'DiscountController');
     Route::resource('permissions', 'PermissionsController');
 	Route::resource('image', 'ImageController');
+    Route::resource('space', 'SpaceController');
 });
 
 Route::get('/getcode', 'DiscountController@show');
