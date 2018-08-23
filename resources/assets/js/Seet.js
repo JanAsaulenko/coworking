@@ -6,11 +6,9 @@ class Seet {
   }
 
   createForm(props) {
-    console.log(props)
     $.each(props.data, (index)=>{
       const priceForDay = props.prices[1].amount;
-      const choseData = props.date;
-      const placeID = props.data[index].place_id;
+      const spaceID = props.data[index].place_id;
 
     let block_with_form = $('.block_with_form');
     let form_with_seats = $('.form-reserve');
@@ -45,7 +43,7 @@ class Seet {
     let inputCounter = 0; //counter for input stylish
     let input = $(`<input class="form-reserve__input form-reserve__input--${inputCounter}">`).val(event.target.innerText);
     let inputClose = $(`<button class="form-reserve__button-close form-reserve__button__close--${inputCounter}">X</button>`);
-    let inputButtonBlock = $(`<div class="form-reserve__input-button-block ${inputCounter}"></div>`).append(input, inputClose);
+    let inputButtonBlock = $(`<div class="form-reserve__input-button-block form-reserve__input-button-block--${inputCounter}"></div>`).append(input, inputClose);
     inputButtonBlock.css({'display': 'flex', 'flex-direction': 'row'});
     form_with_seats.append(inputButtonBlock);
     inputButtonBlock.fadeIn();
@@ -78,9 +76,7 @@ class Seet {
     });
 
     $('.form__button').on('click',()=>{
-
       let authInfo = $("input[name]");
-      console.log(authInfo)
         for(let i=0;i<authInfo.length;i++){
           if(!authInfo[i].value){
            alert(`Пропущено ${authInfo[i].placeholder}`);
@@ -88,11 +84,30 @@ class Seet {
         }
       const name = $("input[name |='name']").val();
       const email = $("input[name |='email']").val();
-      const password = $("input[name |='telephone']").val();
-
-      let arrOfReservedSeats = $('.form-reserve__input').val();
-      let fullSum = $('.sum').innerText;
-      console.log(name,email,password , arrOfReservedSeats, fullSum);
+      const telephone = $("input[name |='telephone']").val();
+      const dateFrom = $('.from').val();
+      let arrOfReservedSeats = $('.form-reserve__input-button-block');
+      let reserveSeetsArray = [];
+        let sumOrder = $('.sum');
+      $.each(sumOrder, (index)=>{
+        let fullSumString = sumOrder[index].innerHTML;
+        let fullSum  = ()=>{
+          let strArray = fullSumString.split('');
+          let value = "";
+          for(let i=0;i<strArray.length;i++){
+            if($.isNumeric(strArray[i])){
+              value+=strArray[i]
+            }
+          }
+          return value
+        };
+      $.each(arrOfReservedSeats, (index)=>{
+        reserveSeetsArray.push(arrOfReservedSeats[index].childNodes[0].value);
+      });
+      if(reserveSeetsArray && spaceID && name && email && telephone && dateFrom && fullSum()) {
+        EventBus.publish('reservation/reserveSeats',{'spaceId':spaceID, 'reserveSeetsArray':reserveSeetsArray,'dateFrom':dateFrom, 'fullSum':fullSum(), userInfo:{'name':name,'email':email, 'telephone':telephone} })
+      }
+      });
     })
     })
   }

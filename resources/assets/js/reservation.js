@@ -2,7 +2,7 @@ import Selector from './Selector'
 import DataPicker from './DataPicker'
 import Space from './Space'
 import Seet from  './Seet'
-import {COUNT_OF_ROWS} from './Constants';
+import ReserveSeats from './ReserveSeats';
 $(document).ready(function () {
 
   const city = $('.city-select');
@@ -40,7 +40,7 @@ $(document).ready(function () {
 
   const space = new Space();
   const seet = new Seet();
-
+  const reserve = new ReserveSeats();
 
 
 

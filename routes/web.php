@@ -32,7 +32,7 @@ Route::get('/reservation/getSpaces','ReservationController@getSpaces');
 Route::get('/reservation/choosePlace', 'ReservationController@choosePlace');
 Route::get('/reservation/chooseSpace', 'ReservationController@chooseSpace');
 Route::get('/reservation/showReserve', 'ReservationController@showReserve');
-
+Route::post('/reservation/reserveSeats','ReservationController@reserveSeats');
 
 
 Route::get('/contacts', 'MainController@contacts');

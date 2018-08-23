@@ -51,23 +51,17 @@ class DataPicker {
   getChoseReserve(params) {
     function parseDate(date) {
       let newDate = date.split("/");
-      for (let i = 0; i < newDate.length; i++)
-        console.log(newDate[i])
-      let day = newDate[0];
-      let month = newDate[1];
-      newDate[0] = newDate[2];
-      newDate[2] = newDate[1];
-      newDate[1] = day
-
+        let month = newDate[0];
+        let day = newDate[1];
+        newDate[0] = newDate[2];
+        newDate[2] = day;
+        newDate[1] = month;
       let result = newDate.join('-');
       return result
     }
     let holidays = params.holiday;
     let from = $('.fromdate');
     from.datepicker("destroy");
-    // from.on('change',() => {
-    //   from.datepicker("option", "dateFormat", "yy-mm-dd")
-    // });
     from.datepicker("option",'dateFormat',"yy-mm-dd");
    from.datepicker({
       firstDay:1,

@@ -14,17 +14,14 @@ class Space {
       let seatsReserve = dates.seats;
       let target_date = dates.date;
       let arrOfPrices = dates.price;
- 
-
       let table = document.createElement('table');
 
       let arrOfSeats = $('.seat');
-      for(let i=0;i<arrOfSeats.length;i++){
-        for(let j=0;j<seatsReserve.length;j++){
-              if(arrOfSeats[i].innerText ===seatsReserve[j]){
-                arrOfSeats[i].className = 'seat-reserved';
-              }
-
+      for (let i = 0; i < arrOfSeats.length; i++) {
+        for (let j = 0; j < seatsReserve.length; j++) {
+          if (Number(arrOfSeats[i].innerText) === seatsReserve[j]) {
+            arrOfSeats[i].className = 'seat-reserved';
+          }
         }
       }
 
@@ -36,6 +33,7 @@ class Space {
           'date': target_date,
           'prices': arrOfPrices
         });
+
       })
     });
   }
