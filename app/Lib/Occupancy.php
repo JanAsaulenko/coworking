@@ -206,10 +206,12 @@ class Occupancy{
         $reservations = Reservation::all()->where('space_id',$space_id)->where('status_id',1)
             ->where('date_from','<=',$date)->where('date_to','>=', $date);
 
+        $reservedSeats = array();
+
         foreach ($reservations as $item ){
-            $reserverSeatPlaces[] = $item->seat_number;
+            $reservedSeats[] = $item->seat_number;
         }
-        return  $reserverSeatPlaces;
+        return  $reservedSeats;
 //        $temp = array();
 //        $temp['$space_id']= $space_id;
 //        $temp['$date'] = $date;
