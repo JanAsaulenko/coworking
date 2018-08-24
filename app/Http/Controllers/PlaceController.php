@@ -30,7 +30,7 @@ class PlaceController extends Controller
     {
         $place = new Place;
         if ($place->isValid($request->all())){
-            $place->fill($request->except('_token')); //todo (author Panda ) Fix Problem with filing
+            $place->fill($request->except('_token'));
             $place->save();
         }
         else{

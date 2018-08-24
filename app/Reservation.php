@@ -118,6 +118,9 @@ class Reservation extends Model
         }
     }
 
+
+
+
     public function calculatePrices($reservations)
     {
 

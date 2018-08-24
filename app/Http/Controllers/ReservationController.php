@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bookingfact;
 use BaconQrCode\Encoder\QrCode;
 use Illuminate\Http\Request;
 use App\City;
@@ -19,6 +20,7 @@ use App\NamePlace;
 
 use App\Lib\Gallery;
 use SimpleSoftwareIO\QrCode\DataTypes\Email;
+use Symfony\Component\Routing\Route;
 
 class ReservationController extends Controller
 {
@@ -78,13 +80,30 @@ class ReservationController extends Controller
 
 
     public function reserveSeats(Request $request)
-    {//вертаэ масыв ошибок якшо вони э??? якшо ъх нема  bookingfact_id
-//        $spade_id = $request->id;
-//        $date = $request->date;
-//        $seat = $request->seat;
-//        $email = $request->email;
-dd($request);
-        return array('reservedSeats'=>'allgoood');
+    {
+        $requestArguments = $request->all();
+        $bookingfact = new Bookingfact();
+        $details = array();
+        $details[ $requestArguments['date']['dateFrom'] ] = [
+            "time_from" => null,
+            "time_to" => null,
+            'seat_numbers' => $requestArguments['date']['reserveSeetsArray']
+        ];
+        $booking['name'] = $requestArguments['date']['userInfo']['name'];
+        $booking['email'] = $requestArguments['date']['userInfo']['email'];
+        $booking['phone'] = $requestArguments['date']['userInfo']['telephone'];
+        $booking['space_id'] = $requestArguments['date']['spaceId'];
+        $booking['date_from'] = $requestArguments['date']['dateFrom'];
+        $booking['date_to'] = $requestArguments['date']['dateFrom']; /// todo (author Panda) I expect an adequate request
+        $booking['bookingfact_statuses_id'] = 1; // Booking not confirm
+        $booking['json_details'] = json_encode($details);
+        if($bookingfact->isValid($booking)){
+            $bookingfact->fill($booking);
+            $bookingfact->save();
+        }
+        $result = ["bokingUrl" => "/booking/ID/hardkon/shit/get", "errors" => $bookingfact->errorMessages];
+//        dd($result);
+        return array($result);
     }
 }
 
