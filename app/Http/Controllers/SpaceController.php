@@ -1,12 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
+
+
+
 
 use App\Place;
 use App\Space;
 use App\City;
 use Doctrine\DBAL\Types\SimpleArrayType;
-use Illuminate\Http\Request;
+
 
 class SpaceController extends Controller
 {
@@ -62,6 +67,11 @@ class SpaceController extends Controller
     public function edit($id)
     {
         //
+        $places = Place::all()->pluck('address', 'id');
+        $places[0] = ' ---  ';
+//                dd($places);
+        $space = Space::find($id);
+        return view('admin.space.edit',['space' => $space,'places' => $places]);
     }
 
     /**
@@ -74,6 +84,17 @@ class SpaceController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $space = Space::find($id)->fill($request->except('_token','_method'));
+        if($space->isValid($request->except('_token','_method'))){
+            $space->fill($request->except('_token','_method'));
+            $space->save();
+            Session::flash('flash_message', 'Красава... Всьоо Чотко');
+            return redirect()->route('space.index');
+        }
+        else{
+            Session::flash('flash_message', 'Помилка, введіть коректні дані!');
+            return redirect()->route('space.edit',$id);
+        }
     }
 
     /**

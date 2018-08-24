@@ -25,7 +25,6 @@ class PlaceController extends Controller
     {
         $cities = City::all();
         return view('admin.place.create', ['cities'=>$cities]);
-
     }
     public function store(Request $request)
     {
