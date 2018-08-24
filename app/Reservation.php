@@ -136,23 +136,23 @@ class Reservation extends Model
         return $reservations;
     }
 
-    public function getGuid($reservation)
-    {   $dataString = '';
-        $dataString .= $reservation['name']
-            . $reservation['discount']
-            . $reservation['fromdate']
-            . $reservation['fromtime']
-            . $reservation['todate']
-            . $reservation['totime'];
-        $hash = strtoupper(md5($this->getRandomString($dataString)));
-        $hyphen = chr(45);
-        $uuid = substr($hash, 0, 8) . $hyphen
-            . substr($hash, 8, 4) . $hyphen
-            . substr($hash, 12, 4) . $hyphen
-            . substr($hash, 16, 4) . $hyphen
-            . substr($hash, 20, 12);
-        return $uuid;
-    }
+//    public function getGuid($reservation)
+//    {   $dataString = '';
+//        $dataString .= $reservation['name']
+//            . $reservation['discount']
+//            . $reservation['fromdate']
+//            . $reservation['fromtime']
+//            . $reservation['todate']
+//            . $reservation['totime'];
+//        $hash = strtoupper(md5($this->getRandomString($dataString)));
+//        $hyphen = chr(45);
+//        $uuid = substr($hash, 0, 8) . $hyphen
+//            . substr($hash, 8, 4) . $hyphen
+//            . substr($hash, 12, 4) . $hyphen
+//            . substr($hash, 16, 4) . $hyphen
+//            . substr($hash, 20, 12);
+//        return $uuid;
+//    }
 
     private function getRandomString($dataString)
     {

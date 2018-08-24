@@ -97,11 +97,13 @@ class ReservationController extends Controller
         $booking['date_to'] = $requestArguments['date']['dateFrom']; /// todo (author Panda) I expect an adequate request
         $booking['bookingfact_statuses_id'] = 1; // Booking not confirm
         $booking['json_details'] = json_encode($details);
+
         if($bookingfact->isValid($booking)){
             $bookingfact->fill($booking);
+            $bookingfact->getUuuid();
             $bookingfact->save();
         }
-        $result = ["bokingUrl" => "/booking/ID/hardkon/shit/get", "errors" => $bookingfact->errorMessages];
+        $result = ["bokingUrl" => "/booking/ID/hardkon/shit/get", "errors" => $bookingfact->errorMessages,$bookingfact->uuid];
 //        dd($result);
         return array($result);
     }

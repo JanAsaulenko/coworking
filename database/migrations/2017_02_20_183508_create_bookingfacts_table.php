@@ -24,6 +24,7 @@ class CreateBookingfactsTable extends Migration
             $table->time('time_to')->nullable();
 			$table->unsignedInteger('bookingfact_statuses_id')->default('1');
             $table->unsignedInteger('space_id');
+            $table->string('uuid')->nullable();
             $table->string('json_details',1500)->nullable();
 			$table->softDeletes();
             $table->timestamps();
