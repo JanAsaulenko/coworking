@@ -67,28 +67,26 @@ class ReservationController extends Controller
     }
 
 
-
-
     public function showReserve(Request $request)
     {
         $space_id = $request->id;
         $data = $request->date;
         $price = Price::all();
         $reservedSeats = Occupancy::getReservedSeatPlace($space_id, $data);
-        return array('reservedSeats' => $reservedSeats,'price'=>$price);
+        return array('reservedSeats' => $reservedSeats, 'price' => $price);
     }
-}
 
 
-//
-//    public function reserveSeat(Request $request){//вертаэ масыв ошибок якшо вони э??? якшо ъх нема  bookingfact_id
+    public function reserveSeats(Request $request)
+    {//вертаэ масыв ошибок якшо вони э??? якшо ъх нема  bookingfact_id
 //        $spade_id = $request->id;
 //        $date = $request->date;
 //        $seat = $request->seat;
 //        $email = $request->email;
-//
-//    }
-
+dd($request);
+        return array('reservedSeats'=>'allgoood');
+    }
+}
 
 //    public function index(Request $request)
 //    {
