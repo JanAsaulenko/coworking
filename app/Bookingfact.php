@@ -26,7 +26,7 @@ class Bookingfact extends Model
 		$validatorBookingfact = Validator::make($bookingfact, [
 			'name' => 'required|max:255',
 			'email' => 'required|email|max:255',
-			'phone' => ['regex:^([0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]?)$^'], // todo (author Panda) phone fromat ????
+//			'phone' => ['regex:^([0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]?)$^'], // todo (author Panda) phone fromat ????
 			'space_id' => 'required',
             'date_from' => ['required', 'regex:^([0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9])$^'],
             'date_to' => ['required', 'regex:^([0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9])$^'],

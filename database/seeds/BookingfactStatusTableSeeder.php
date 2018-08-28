@@ -14,19 +14,19 @@ class BookingfactStatusTableSeeder extends Seeder
     {
         //
         $status = new BookingfactStatus();
-        $status->name = 'Попередня резервація';
+        $status->name = 'Не підтвердженно';
         $status->save();
 
         $status = new BookingfactStatus();
-        $status->name = 'Резервуваня підтверджено';
+        $status->name = 'Активно';
         $status->save();
 
         $status = new BookingfactStatus();
-        $status->name = 'Резервування скасовано';
+        $status->name = 'Скасовано';
         $status->save();
 
         $status = new BookingfactStatus();
-        $status->name = 'Угода завершина';
+        $status->name = 'Завершено';
         $status->save();
 
     }

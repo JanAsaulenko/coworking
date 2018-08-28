@@ -100,10 +100,10 @@ class ReservationController extends Controller
 
         if($bookingfact->isValid($booking)){
             $bookingfact->fill($booking);
-            $bookingfact->getUuuid();
+            $bookingfact->getUuid();
             $bookingfact->save();
         }
-        $result = ["bokingUrl" => "/booking/ID/hardkon/shit/get", "errors" => $bookingfact->errorMessages,$bookingfact->uuid];
+        $result = ["bokingUrl" => "/booking/ID/hardkon/shit/get", "errors" => $bookingfact->errorMessages,"uuid" => $bookingfact->uuid];
 //        dd($result);
         return array($result);
     }

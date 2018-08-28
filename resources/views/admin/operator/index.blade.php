@@ -8,53 +8,26 @@
     @endif
     <div class="col-md-2">
         <div class="operator_text1">
-          <span class="operator_text2">Оберіть критерії пошуку:</span>
-            <form method="POST" action="#" accept-charset="UTF-8">
+          <span class="operator_text2">Фільтр замовлень:</span>
+            <form method="POST" action="{{route('operator.find')}}" accept-charset="UTF-8">
+
+                @foreach($bookingfactStatuses as $bookingStatus)
                 <div class="checkbox">
                     <label>
                         <div class="icheckbox_flat-green pos_rel">
-                            <input type="checkbox" id="opened" checked name="1" class="flat" checked="checked" style="position: absolute; opacity: 0;">
-                            <ins class="iCheck-helper operator_checkbox"></ins>
+                            {!! Form::token() !!}
+                            @if(array_key_exists($bookingStatus->id, $checked))
+                            <input type="checkbox" id="booking-status-{{$bookingStatus->id}}"  name="{{$bookingStatus->id}}" class="flat" checked="checked" style="position: absolute; opacity: 0;">
+                            @else
+                                <input type="checkbox" id="booking-status-{{$bookingStatus->id}}"  name="{{$bookingStatus->id}}" class="flat"  style="position: absolute; opacity: 0;">
+                            @endif
                         </div>
-                        <span class="operator_text2">відкриті</span>
+                        <span class="operator_text2">{{$bookingStatus->name}}</span>
                     </label>
                 </div>
-                <div class="checkbox">
-                    <label>
-                        <div class="icheckbox_flat-green pos_rel">
-                            <input type="checkbox" id="stop" checked name="2" class="flat" checked="checked" style="position: absolute; opacity: 0;">
-                            <ins class="iCheck-helper operator_checkbox"></ins>
-                        </div>
-                        <span class="operator_text2">призупинені</span>
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <div class="icheckbox_flat-green pos_rel">
-                            <input type="checkbox" id="absence" checked name="3" class="flat" checked="checked" style="position: absolute; opacity: 0;">
-                            <ins class="iCheck-helper operator_checkbox"></ins>
-                        </div>
-                        <span class="operator_text2">неявки</span>
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <div class="icheckbox_flat-green pos_rel">
-                            <input type="checkbox" id="canceled" checked name="4" class="flat" checked="checked" style="position: absolute; opacity: 0;">
-                            <ins class="iCheck-helper operator_checkbox"></ins>
-                        </div>
-                        <span class="operator_text2">скасовані</span>
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <div class="icheckbox_flat-green pos_rel">
-                            <input type="checkbox" id="sold" checked name="5" class="flat" checked="checked" style="position: absolute; opacity: 0;">
-                            <ins class="iCheck-helper operator_checkbox"></ins>
-                        </div>
-                        <span class="operator_text2">завершені</span>
-                    </label>
-                </div>
+                @endforeach
+
+
                 <div style="margin-top: 30px; margin-left: 30px;">
                     <button type="submit" class="btn btn-success">Шукати</button>
                 </div>
@@ -75,41 +48,42 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <table class="table cell-border hover hidden" id="orders-table"
-                           data-last-id="{{$orderPresenters->max('id')}}">
+                    {{--{{dd($bookingPresenters)}}--}}
+                    {{--<table class="table cell-border hover hidden" id="orders-table" data-last-id="{{$bookingPresenters->max('id')}}">--}}
+                    <table class="table table-bordered" style="text-align:center">
+
                         <thead>
                         <tr class="oper_table">
                             <th>№</th>
                             <th>Клієнт</th>
+                            <th>Статус замовлення</th>
                             <th>Дата початку</th>
                             <th>Час початку</th>
                             <th>Дата закінчення</th>
                             <th>Час закінчення</th>
-                            <th>Вид знижки</th>
                             <th>Сума</th>
-                            <th>Ід замовника</th>
-                            <th>Status ID</th>
-                            <th>Статус замовлення</th>
+
                             <th>Час замовлення</th>
+                            <th>Опції</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($orderPresenters as $orderPresenter)
-                            <tr class="{{'status'.$orderPresenter->getStatusId()}}">
-
-                                <td>{{$orderPresenter->getReservationId()}}</td>
-                                <td>{{$orderPresenter->getReservationName()}}</td>
-
-                                <td>{{$orderPresenter->getReservationDateForm()}}</td>
-                                <td>{{$orderPresenter->getReservationTimeForm()}}</td>
-                                <td>{{$orderPresenter->getReservationDateTo()}}</td>
-                                <td>{{$orderPresenter->getReservationTimeTo()}}</td>
-                                <td>{{$orderPresenter->getDiscountType()}}</td>
-                                <td>{{$orderPresenter->getReservationPrice()}}</td>
-                                <td>{{$orderPresenter->getBookingfactsId()}}</td>
-                                <td>{{$orderPresenter->getStatusId()}}</td>
-                                <td>{{$orderPresenter->getStatusName()}}</td>
-                                <td>{{$orderPresenter->getReservationCreatedAt()}}</td>
+                        @foreach($bookingPresenters as $bookingPresenter)
+                            <tr class="@if($bookingPresenter->getStatusId()==1) danger @endif {{'status'.$bookingPresenter->getStatusId()}}">
+                                <td>{{$bookingPresenter->getBookingFactId()}}</td>
+                                <td>{{$bookingPresenter->getBookingFactClientData()}}</td>
+                                <td>{{$bookingPresenter->getBookingFactStatusName()}}</td>
+                                <td>{{$bookingPresenter->getBookingFactDateFrom()}}</td>
+                                <td>{{$bookingPresenter->getBookingFactTimeFrom()}}</td>
+                                <td>{{$bookingPresenter->getBookingFactDateTo()}}</td>
+                                <td>{{$bookingPresenter->getBookingFactTimeTo()}}</td>
+                                <td>Not Implement</td>
+                                <td>{{$bookingPresenter->getBookingFactCreatedAt()}}</td>
+                                <td>
+                                    <form method="GET" action="{{action('OperatorController@showBooking',$bookingPresenter->getBookingFactId())}}">
+                                    <button class="btn xs btn-primary" type="submit">Show</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -154,6 +128,8 @@
                         <button value="5" type="button" class="btn btn-default status5">Завершити</button>
                         <!--                 <button value="print" type="button" class="btn btn-default">Друк накладної</button> -->
                     </div>
+
                 </div>
             </div>
+        </div>
 @endsection

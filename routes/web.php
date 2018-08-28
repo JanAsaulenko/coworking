@@ -35,9 +35,29 @@ Route::get('/reservation/showReserve', 'ReservationController@showReserve');
 Route::post('/reservation/reserveSeats','ReservationController@reserveSeats');
 
 
+//Route::get('/booking/{guid}', ['as' => 'booking.show.guid' ,'uses' => 'ReservationController@showOrderGet']); // todo (author Panda) Need repair
+//Route::get('/booking/{guid}/edit', ['as' => 'booking.edit.guid' ,'uses' => 'ReservationController@showOrderGet']); // todo (author Panda) Need repair
+//Route::get('/booking/{guid}/update', ['as' => 'show.guid' ,'uses' => 'ReservationController@showOrderGet']); // todo (author Panda) Need repair
+
+
+
+
 Route::get('/contacts', 'MainController@contacts');
 Route::get('/place', 'MainController@place');
 Auth::routes();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Route::get('/operator', 'OperatorController@index')->middleware('auth');
@@ -61,7 +81,7 @@ Route::post('/send_message', 'SendContactsController@send_form');
 
 Route::post('/booking','BookingController@confirm');
 Route::post('/booking/save',['as' => 'booking.save' ,'uses' => 'BookingController@save']);
-Route::get('/booking/{guid}', ['as' => 'show.guid' ,'uses' => 'ReservationController@showOrderGet']);
+Route::get('/booking/{guid}', ['as' => 'booking.show.guid' ,'uses' => 'ReservationController@showOrderGet']);
 Route::get('/print/{guid}', ['as' => 'print.guid' ,'uses' => 'PrintOrderController@printOrder']);
 Route::post('/booking/update/{guid}',['as' => 'update.reservation' ,'uses' =>'UpdateDatabaseReservation@updateDatabase']);
 Route::post('/calculate','CalculatorController@calculatePrice');
@@ -92,6 +112,8 @@ Route::get('/getPDF', ['as'=>'getPDF','uses' => 'PDFController@getPDF']);
 
 Route::group(['prefix'=>'/admin','middleware'=>'auth'], function () {
     Route::get('/operator', ['as' => 'operator', 'uses' => 'OperatorController@index']);
-    Route::post('/operator/showorder', ['as' => 'operator.read', 'uses' => 'OperatorController@read']);
-    Route::post('/operator/updateorder', ['as' => 'operator.update', 'uses' => 'OperatorController@update']);
+
+    Route::post('/operator/find', ['as' => 'operator.find', 'uses' => 'OperatorController@find']);
+    Route::get('/operator/booking/{id}/show', ['as' => 'operator.bookingfact.show', 'uses' => 'OperatorController@showBooking']);
+
 });
