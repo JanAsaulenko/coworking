@@ -19,6 +19,7 @@ class CreateReservationsTable extends Migration
 			$table->dateTime('datetime_from');
 			$table->dateTime('datetime_to');
 			$table->unsignedInteger('discount_type_id');
+            $table->string('pr_code');
 			$table->unsignedInteger('price');
 			$table->unsignedInteger('bookingfacts_id');
 			$table->string('guid');
@@ -27,7 +28,6 @@ class CreateReservationsTable extends Migration
 			$table->softDeletes();
 			$table->foreign('discount_type_id')->references('id')->on('discount_types');
 			$table->foreign('bookingfacts_id')->references('id')->on('bookingfacts');
-			
         });
     }
 

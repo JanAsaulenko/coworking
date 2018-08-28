@@ -13,21 +13,38 @@
 use App\City;
 use App\DiscountType;
 
+Route::group(['prefix'=>'/v2'], function () {
+    Route::get('/test','v2MainPageController@test');// temp and test route fo debug
+    Route::get('/getallplaces','v2MainPageController@getAllPlaces');
+});
+
+
+
 Route::get('/', ['as' => 'index' ,'uses' => 'MainController@index']);
 
+Route::get('/main/getPlaces', 'MainController@getPlaces');
+Route::get('/main/getSpaces',['as'=>'reservation.getspaces','uses'=>'MainController@getSpaces']);
+
+Route::get('/main/getLocationPlace', 'MainController@getPlace');
+Route::get('/contacts', 'MainController@contacts');
+Route::get('/place', 'MainController@place');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+
 Route::get('/operator', 'OperatorController@index')->middleware('auth');
 
 Route::post('/reservation','ReservationController@index');
-//Route::post('/booking','BookingController@debug');
+Route::post('/reservation/getplace', 'ReservationController@getplace');
+
+
 
 Route::get('/gallery', 'GalleryController@index');
+
+
 Route::get('/price', 'PriceController@index2');
-Route::get('/contacts', 'MainController@contacts');
+
 Route::post('/send_message', 'SendContactsController@send_form');
-Route::get('/place', 'MainController@place');
+
 
 Route::post('/booking','BookingController@confirm');
 Route::post('/booking/save',['as' => 'booking.save' ,'uses' => 'BookingController@save']);
@@ -35,13 +52,10 @@ Route::get('/booking/{guid}', ['as' => 'show.guid' ,'uses' => 'ReservationContro
 Route::get('/print/{guid}', ['as' => 'print.guid' ,'uses' => 'PrintOrderController@printOrder']);
 Route::post('/booking/update/{guid}',['as' => 'update.reservation' ,'uses' =>'UpdateDatabaseReservation@updateDatabase']);
 Route::post('/calculate','CalculatorController@calculatePrice');
-Route::post('/reservation/getplace', 'ReservationController@getplace');
+
 
 Route::post('/city','CityController@store');
 
-Route::get('/main/getPlace', 'MainController@getPlace');
-Route::get('/main/getLocationPlace', 'MainController@getPlace');
-Route::get('/main/getPlaceLocation','MainController@getPlaceLocation');
 
 Route::get('/ajax/getCoordinates', 'Ajax\ContactsPageController@getCoordinates');
 
@@ -53,12 +67,15 @@ Route::group(['prefix'=>'/admin','middleware'=>'auth'], function (){
     Route::resource('permissions', 'PermissionsController');
 	Route::resource('image', 'ImageController');
 });
-Route::get('/getPDF', ['as'=>'getPDF','uses' => 'PDFController@getPDF']);
+
 Route::get('/getcode', 'DiscountController@show');
 Route::get('/checkCode', 'DiscountController@checkCode');
-Route::get('/getAllPDF', ['as'=>'getAllPDF','uses' => 'PDFController@getAllPDF']);
 
+
+Route::get('/getAllPDF', ['as'=>'getAllPDF','uses' => 'PDFController@getAllPDF']);
 Route::get('/getPDF/all', ['as'=>'getPDF.all','uses' => 'PDFController@getAllPDF']);
+Route::get('/getPDF', ['as'=>'getPDF','uses' => 'PDFController@getPDF']);
+
 Route::group(['prefix'=>'/admin','middleware'=>'auth'], function () {
     Route::get('/operator', ['as' => 'operator', 'uses' => 'OperatorController@index']);
     Route::post('/operator/showorder', ['as' => 'operator.read', 'uses' => 'OperatorController@read']);

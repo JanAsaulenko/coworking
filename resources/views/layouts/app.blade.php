@@ -1,87 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<!--
+	Verti by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CoWorking</title>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="csrf-token" content="{{csrf_token()}}">
+  <!--JQUERY BASE FULL VESION -->
+  <script src="https://code.jquery.com/jquery-3.1.0.js"
+          integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="
+          crossorigin="anonymous"></script>
 
-    <title>TimeOn</title>
+  <!--SELECT2 PLUGIN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
-    <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+  <!-- UI JQUERY for DataPicker -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+
+{{--<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->--}}
+{{--<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />--}}
+{{--<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->--}}
+
+<!--Swiper -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+
+
+{{--<!---->--}}
+{{--<!-- Scripts -->--}}
+{{--<script src="{{ asset('assets/js/jquery.min.js') }}"></script>--}}
+{{--<script src="{{ asset('assets/js/jquery.mask.js') }}"></script>--}}
+{{--<script src="{{ asset('assets/js/jquery.dropotron.min.js') }}"></script>--}}
+{{--<script src="{{ asset('assets/js/skel.min.js') }}"></script>--}}
+{{--<script src="{{ asset('assets/js/skel-layout.min.js') }}"></script>--}}
+{{--<script src="{{ asset('assets/js/util.js') }}"></script>--}}
+{{--<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->--}}
+{{--<script src="{{ asset('assets/js/main.js') }}"></script>--}}
+
+{{--<!--Swiper -->--}}
+{{--<script src="{{ asset('assets/js/swiper_place/swiper.min.js') }}"></script>--}}
+
+<!---->
+
+  <!--Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          crossorigin="anonymous"></script>
+
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+  {{--<link rel="stylesheet" href="{{ asset('assets/css/NewDesignMain.css') }}" />--}}
+  {{--<link rel="stylesheet" href="{{ asset('/assets/css/pricepage.css') }}"/>--}}
+  {{--<link rel="stylesheet" href="{{ asset('/assets/css/pricepage.css') }}"/>--}}
+  {{--<link rel="stylesheet" href="{{ asset('/assets/css/pricepage.css') }}"/>--}}
+
+
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        TimeON
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Увійти</a></li>
-                            <li><a href="{{ url('/register') }}">Зареєструватись</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        @yield('content')
-    </div>
-
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
+<body class="homepage">
+@yield('Header')
+@yield('Content')
+@yield('Map')
+@yield('Footer')
+<script src= {{ asset("js/app.js") }}></script>
 </body>
 </html>
