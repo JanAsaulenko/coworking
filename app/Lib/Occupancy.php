@@ -141,10 +141,18 @@ class Occupancy{
 
 
     public static function getCompletelyReservedDaysBySpace($space_id){
-        $allReserve = Reservation::all()->where('status_id',1)->where('space_id',$space_id);
+        $allReserve = Reservation::all()
+            ->whereIn('status_id',[1,2])
+            ->where('space_id',$space_id);
+
         $lastReserveDate = $allReserve->max('date_to');
         $dateNow = date('Y-m-d');
-        $reservations = Reservation::where('status_id','1')->where('space_id',$space_id)->whereBetween('date_to', [$dateNow, $lastReserveDate])->get()->all();
+
+        $reservations = Reservation::whereIn('status_id',[1,2])
+            ->where('space_id',$space_id)
+            ->whereBetween('date_to', [$dateNow, $lastReserveDate])
+            ->get()
+            ->all();
 
         $workingDays = self::GetArrayOfWorkingDates($dateNow,$lastReserveDate);
         $compleatReservedDetes = array();
@@ -168,10 +176,18 @@ class Occupancy{
 
         $countOfSeatPlaces = Place::find($place_id)->countOfSeatPlaces();
 
-        $allReserve = Place::find(1)->reservations()->where('status_id',1)->get();
+        $allReserve = Place::find(1)
+            ->reservations()
+            ->whereIn('status_id',[1,2])
+            ->get();
         $lastReserveDate = $allReserve->max('date_to');
         $dateNow = date('Y-m-d');
-        $reservations =  Place::find(1)->reservations()->where('status_id',1)->whereBetween('date_to', [$dateNow, $lastReserveDate])->get()->all();
+        $reservations =  Place::find($place_id)
+            ->reservations()
+            ->whereIn('status_id',[1,2])
+            ->whereBetween('date_to', [$dateNow, $lastReserveDate])
+            ->get()
+            ->all();
         $workingDays = self::GetArrayOfWorkingDates($dateNow,$lastReserveDate);
         $compleatReservedDetes = array();
         foreach ($workingDays as $key => &$item){
@@ -203,8 +219,11 @@ class Occupancy{
 
 
     public static function getReservedSeatPlace($space_id, $date){
-        $reservations = Reservation::all()->where('space_id',$space_id)->where('status_id',1)
-            ->where('date_from','<=',$date)->where('date_to','>=', $date);
+        $reservations = Reservation::all()
+            ->where('space_id',$space_id)
+            ->whereIn('status_id',[1,2])
+            ->where('date_from','<=',$date)
+            ->where('date_to','>=', $date);
 
         $reservedSeats = array();
 

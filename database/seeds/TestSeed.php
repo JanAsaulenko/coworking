@@ -13,9 +13,10 @@ class TestSeed extends Seeder
      */
 
 
-    function addTestReservation($space_id, $date_from, $date_to, $count_seat_place){
+    function addTestReservation($space_id, $date_from, $date_to, $status,  $count_seat_place){
 
         $bookingfact = new Bookingfact();
+        $bookingfact->bookingfact_statuses_id = $status;
         $bookingfact->space_id = $space_id;
         $bookingfact->name = 'test';
         $bookingfact->date_to = $date_to;
@@ -25,6 +26,7 @@ class TestSeed extends Seeder
         for ($n = 1; $n <= $count_seat_place; $n++){
 
             $reservation  = new Reservation();
+            $reservation->status_id = $status;
             $reservation->bookingfact_id = $bookingfact->id;
             $reservation->name = 'test guest'.$n;
             $reservation->date_from = $date_from;
@@ -40,9 +42,9 @@ class TestSeed extends Seeder
 
     public function run()
     {
-        $this->addTestReservation('1','2018-08-27','2018-08-28',10);
-        $this->addTestReservation('4','2018-08-22','2018-08-24',5);
-        $this->addTestReservation('3','2018-08-22','2018-08-24',3);
-        $this->addTestReservation('3','2018-08-25','2018-08-30',5);
+        $this->addTestReservation('1','2018-08-29','2018-08-30',1, 20);
+//        $this->addTestReservation('1','2018-08-29','2018-08-31',2, 5);
+        $this->addTestReservation('4','2018-08-29','2018-08-30',2, 30);
+        $this->addTestReservation('5','2018-08-29','2018-08-30',2, 40);
     }
 }
