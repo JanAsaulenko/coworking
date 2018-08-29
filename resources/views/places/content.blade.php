@@ -104,19 +104,19 @@
                     </div>
                     <div class="col-md-12">
                           <img src="{{ asset('assets/css/placephoto/img (1).jpg') }}"  tabindex="0" class="lazy">
-                        <!-- <span style="color: white; border-bottom: 2px solid white">Sea Room</span>
-                        <a href="#" style="color: white; border: 2px solid white; padding: 5px;"> Переглянути </a> -->
-                          <img src="{{ asset('assets/css/placephoto/img (9).jpg') }}"  tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (15).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (14).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (4).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (3).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (2).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (5).jpg') }}" tabindex="0"class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (6).jpg') }}" tabindex="0"class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (17).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (18).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (41).png') }}" tabindex="0"class="lazy">
+                        <span style="color: white; border-bottom: 2px solid white">Sea Room</span>
+                        <a href="#" style="color: white; border: 2px solid white; padding: 5px;"> Переглянути </a>
+                          <img src="{{ asset('images/placephoto/img (9).jpg') }}"  tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (15).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (14).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (4).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (3).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (2).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (5).jpg') }}" tabindex="0"class="lazy">
+                          <img src="{{ asset('images/placephoto/img (6).jpg') }}" tabindex="0"class="lazy">
+                          <img src="{{ asset('images/placephoto/img (17).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (18).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (41).png') }}" tabindex="0"class="lazy">
                     </div>
             </div>
 

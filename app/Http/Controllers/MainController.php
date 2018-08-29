@@ -30,7 +30,7 @@ class MainController extends Controller
         $pictures = $gallery->getNamePictures(self::COUNT_PICTURES);
         return view('View_main', ['config' => $config, 'prices' => $prices, 'cities' => $cities, 'discountTypes' => $discountTypes, 'places' => $places, 'pictures' => $pictures]);
     }
-}
+
 //
 //    public function contacts()
 //    {
@@ -38,14 +38,13 @@ class MainController extends Controller
 //    }
 //
 //
-//    public function place()
-//    {
-//        $place_name = NamePlace::orderBy('name', 'asc')->get();
-//        $cities_names = City::orderBy('name', 'asc')->get();
-//        $stay = Place::orderBy('address', 'asc')->get();
-//        return view('View_place', ['cities_names' => $cities_names, 'stay' => $stay, 'place_name' => $place_name]);
-//
-//    }
+    public function place()
+    {
+        $place_name = NamePlace::orderBy('name', 'asc')->get();
+        $cities_names = City::orderBy('name', 'asc')->get();
+        $stay = Place::orderBy('address', 'asc')->get();
+        return view('View_place', ['cities_names' => $cities_names, 'stay' => $stay, 'place_name' => $place_name]);
+    }
 //}
 //
 //
@@ -58,6 +57,7 @@ class MainController extends Controller
 ////    {
 ////        $id_req = $request->id;
 ////        $places = Place::all()->where('id_city', $id_req);
+
 ////        return array_map(function ($place) {
 ////            return array('id' => $place->id, 'text' => $place->address);
 ////        }, $places->all());
@@ -102,3 +102,5 @@ class MainController extends Controller
 ////        return array('completelyReservedDays' => $completelyReservedDays);
 ////    }
 ////}
+
+}
