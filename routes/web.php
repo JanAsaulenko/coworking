@@ -112,8 +112,11 @@ Route::get('/getPDF', ['as'=>'getPDF','uses' => 'PDFController@getPDF']);
 
 Route::group(['prefix'=>'/admin','middleware'=>'auth'], function () {
     Route::get('/operator', ['as' => 'operator', 'uses' => 'OperatorController@index']);
-
     Route::post('/operator/find', ['as' => 'operator.find', 'uses' => 'OperatorController@find']);
     Route::get('/operator/booking/{id}/show', ['as' => 'operator.bookingfact.show', 'uses' => 'OperatorController@showBooking']);
+    Route::post('/operator/booking/{id}/confirm', ['uses' => 'OperatorController@confirmBooking']);
+    Route::post('/operator/booking/{id}/cancell', ['uses' => 'OperatorController@cancellBooking']);
+    Route::post('/operator/reservation/{id}/confirm', ['uses' => 'OperatorController@confirmReservation']);
+    Route::post('/operator/reservation/{id}/cancell', ['uses' => 'OperatorController@cancellReservation']);
 
 });

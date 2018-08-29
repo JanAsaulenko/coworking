@@ -54,6 +54,28 @@ class BookingFactPresenter{
         }
     }
 
+    public function getBookingFactDateTimeFrom(){
+        $str = $this->BookingModel->date_from;
+        $str .='  '.$this->BookingModel->time_from;
+        if($str){
+            return $str;
+        }
+        return 'Не призначено';
+    }
+
+    public function getBookingFactDateTimeTo(){
+        $str = $this->BookingModel->date_to;
+        $str .='  '.$this->BookingModel->time_to;
+        if($str){
+            return $str;
+        }
+        return 'Не призначено';
+    }
+
+
+
+
+
     public function getBookingFactTimeFrom(){
         if($this->BookingModel->time_from){
             return $this->BookingModel->time_from;

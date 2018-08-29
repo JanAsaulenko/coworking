@@ -63,7 +63,6 @@ class ReservationController extends Controller
     {
         $space_id = $request->id;
         $spaces = Space::all()->where('id', $space_id);
-
         $completelyReservedDays = Occupancy::getCompletelyReservedDaysBySpace($space_id);
         return array('completelyReservedDays' => $completelyReservedDays, 'spaces' => $spaces);
     }
@@ -84,7 +83,8 @@ class ReservationController extends Controller
         $requestArguments = $request->all();
         $bookingfact = new Bookingfact();
         $details = array();
-        $details[ $requestArguments['date']['dateFrom'] ] = [
+        $details[] = [
+            "date" => $requestArguments['date']['dateFrom'],
             "time_from" => null,
             "time_to" => null,
             'seat_numbers' => $requestArguments['date']['reserveSeetsArray']
@@ -102,59 +102,11 @@ class ReservationController extends Controller
             $bookingfact->fill($booking);
             $bookingfact->getUuid();
             $bookingfact->save();
+            $bookingfact->createReservation();// Create and save mas of reservation with data from bookingfact
         }
+
         $result = ["bokingUrl" => "/booking/ID/hardkon/shit/get", "errors" => $bookingfact->errorMessages,"uuid" => $bookingfact->uuid];
-//        dd($result);
         return array($result);
     }
 }
 
-//    public function index(Request $request)
-//    {
-//        $firstForm = $request->except(['_token', 'OK']);
-//        $firstForm['townName'] = City::where('id', $firstForm['town'])->first()['name'];
-//        $discountTypes = DiscountType::orderBy('id', 'asc')->get();
-//        $newReservation = new Reservation();
-//        $reservations = $newReservation->preparationsArrayFirstForm($firstForm);
-//        $validationError = [0];
-//        $firstForm['placeName'] = Place::find($firstForm['place'])->address;
-//        $errorMsg = Occupancy::GetOccupancy($firstForm['place'], $firstForm['fromdate'], $firstForm['todate'], $firstForm['places']);
-//        return view('View_reservation', [
-//            'firstForm'       => $firstForm,
-//            'discountTypes'   => $discountTypes,
-//            'reservations'    => $reservations,
-//            'validationError' => $validationError,
-//            'errorMsg'        => $errorMsg]);
-//    }
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-//    public function showOrderGet($guid)
-//    {
-//        $order = Reservation::where('guid', $guid)->first();
-//        $date_from = DateTime::createFromFormat('Y-m-d', $order->date_from);
-//        $time_from = DateTime::createFromFormat('H:i:s', $order->time_from);
-//        $date_to = DateTime::createFromFormat('Y-m-d', $order->date_to);
-//        $time_to = DateTime::createFromFormat('H:i:s', $order->time_to);
-//        $dateTime = [
-//            'date_from' => $date_from->format('d.m.Y'),
-//            'time_from' => $time_from->format('H:i'),
-//            'date_to'   => $date_to->format('d.m.Y'),
-//            'time_to'   => $time_to->format('H:i'),
-//        ];
-//
-//
-//        $discountTypes = DiscountType::orderBy('id', 'asc')->get();
-//
-//        return view('View_orderGet', ['arr' => $order->toArray(), 'discountTypes' => $discountTypes, 'dateTime' => $dateTime]);
-//    }
-//}

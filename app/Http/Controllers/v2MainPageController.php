@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Bookingfact;
+use App\BookingfactStatus;
 use App\City;
 use App\Place;
 use App\Reservation;
@@ -13,7 +15,7 @@ class v2MainPageController extends Controller
     public function index(){
 //        dd(Place::find(1)->spaces);
 //        dd( $this->getCity() );
-
+    dd( Reservation::find(10)->bookingfacts()->get())  ;
 
 
     }

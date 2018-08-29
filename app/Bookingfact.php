@@ -86,21 +86,50 @@ class Bookingfact extends Model
         return $randomString;
     }
 
+    public function getErrorsMessages()
+    {
+        return $this->errorMessages;
+    }
 
+    public function createReservation(){
+        $details = json_decode($this->json_details);
+        $result = array();
 
+        foreach ($details as $reservDate ){
+            foreach ( $reservDate->seat_numbers as $seat_number ){
+                $reservation = new Reservation();
+                $reservation->space_id = $this->space_id;
+                $reservation->status_id = 1;
+                $reservation->seat_number = $seat_number;
+                $reservation->bookingfact_id = $this->id;
 
-
-
-
-
-//        private function saveInDatabase($bookingfact){
-//            $newBookingFact = new Bookingfact($bookingfact);
-//        	$newBookingFact->save();
-//        }
-
-        public function getErrorsMessages()
-        {
-            return $this->errorMessages;
+                $reservation->date_from = $reservDate->date;
+                $reservation->date_to = $reservDate->date;
+                $reservation->time_from = null;
+                $reservation->time_to = null;
+                $reservation->save();
+            }
         }
+        return true;
+    }
+
+    public function confirm(){
+        $this->bookingfact_statuses_id = 2;
+        $this->save();
+        $reservations = $this->reservations()->get();
+        foreach ( $reservations as $reservation ){
+            $reservation->confirm();
+        }
+    }
+
+    public function cancell(){
+        $this->bookingfact_statuses_id = 3;
+        $this->save();
+        $reservations = $this->reservations()->get();
+        foreach ( $reservations as $reservation ){
+            $reservation->cancell();
+        }
+    }
+
 
 }
