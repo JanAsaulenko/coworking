@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-5 col-md-2">
+      <h3 class="text-center">Вартість</h3>
+    </div>
+  </div>
+  <div class="col-md-12" >
+    <div class="panel-group row" >
+      <!--foreach here -->
+      <div class="rate-panel col-md-3" *ngFor='let bill of priceDay'>
+        <div class="panel-primary">
+          <div class="panel-heading">
+            {{bill.amount}}
+            <!--{{ $price->duration }} -->
+          </div>
+          <div class="panel-body">
+            {{bill.price}}
+
+            <!--{{ $price->amount }} грн. -->
+          </div>
+          <div class="panel-footer">
+            <ul>
+              <li><span class="glyphicon glyphicon-ok" style="color: #337ab7;"></span> Доступ до усіх функцій</li>
+              <li><span class="glyphicon glyphicon-ok" style="color: #337ab7;"></span> Підтримка chat/on-line</li>
+              <li><span class="glyphicon glyphicon-ok" style="color: #337ab7;"></span> Безпечний доступ</li>
+            </ul>
+          </div>
+          <button class="btn-success" onclick="goToOrder()"><a href="/#order-form" class="order-btn">ЗАМОВИТИ</a></button>
+        </div>
+      </div>
+      <!--endforeach here -->
+    </div>
+  </div>
+</div>
