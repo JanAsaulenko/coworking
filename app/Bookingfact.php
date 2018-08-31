@@ -18,8 +18,8 @@ class Bookingfact extends Model
     }
 
 
-	public function place(){
-		return $this->hasOne('App\Place', 'id', 'id_place');
+	public function space(){
+		return $this->hasOne('App\Space', 'id', 'space_id');
 	}
 
 	public function isValid($bookingfact){

@@ -25,13 +25,47 @@ class BookingFactPresenter{
         return $this->BookingModel->id;
     }
 
-    public function getBookingFactClientData(){
+    public function getBookingFactClientData(){//by Admin Page
         $resultString = '';
         $resultString.=$this->BookingModel->name.' ';
         $resultString.=$this->BookingModel->email.' ';
         $resultString.=$this->BookingModel->phone;
         return $resultString;
     }
+
+    public function getBookingClientData(){//by Order pages
+        $resultString = '';
+        if($this->BookingModel->name){
+            $resultString.=$this->BookingModel->name.'<br>';
+        }
+        if($this->BookingModel->email){
+            $resultString.=$this->BookingModel->email.'<br>';
+        }
+        if($this->BookingModel->phone){
+            $resultString.=$this->BookingModel->phone;
+        }
+        return $resultString;
+    }
+
+    public  function getBookingReservationFullAddressWithoutBreak(){
+        $address = '';
+        if ($this->BookingModel->space->place->city){
+            $address.='м.'.$this->BookingModel->space->place->city->name.' ';
+        }
+        if ($this->BookingModel->space->place){
+            $address.=$this->BookingModel->space->place->address.' ';
+        }
+       return $address;
+    }
+
+    public function getBookingSpaceName(){
+        return $this->BookingModel->space->name_space;
+    }
+
+    public function getBookingUuid(){
+        return $this->BookingModel->uuid;
+    }
+
 
     public function getBookingFactStatusName(){
         if($this->getStatusId()){
@@ -45,14 +79,12 @@ class BookingFactPresenter{
     }
 
 
-    public function getBookingFactDateFrom(){
-        if($this->BookingModel->date_from){
-            return $this->BookingModel->date_from;
-        }
-        else{
-            return 'DateFrom does not exist';
-        }
-    }
+
+
+
+
+
+
 
     public function getBookingFactDateTimeFrom(){
         $str = $this->BookingModel->date_from;
@@ -62,7 +94,6 @@ class BookingFactPresenter{
         }
         return 'Не призначено';
     }
-
     public function getBookingFactDateTimeTo(){
         $str = $this->BookingModel->date_to;
         $str .='  '.$this->BookingModel->time_to;
@@ -75,6 +106,14 @@ class BookingFactPresenter{
 
 
 
+    public function getBookingFactDateFrom(){
+        if($this->BookingModel->date_from){
+            return $this->BookingModel->date_from;
+        }
+        else{
+            return 'DateFrom does not exist';
+        }
+    }
 
     public function getBookingFactTimeFrom(){
         if($this->BookingModel->time_from){

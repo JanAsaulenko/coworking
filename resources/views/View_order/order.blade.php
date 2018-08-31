@@ -3,7 +3,21 @@
 <div id="banner-wrapper">
     <!-- 	<span id="order-form"></span>	this is an anchor -->
     <div id="banner" class="box container no-overflow">
-        <h1>Ваше замовлення №14325678908765432 збережено.</h1>
+
+        @if($bookingPresenter->getStatusId()==1)
+        <h1>Ваше замовлення збережено.</h1>
+        <h3>Очікуйте двінка від нашого менеджера</h3>
+        @elseif($bookingPresenter->getStatusId()==2)
+            <h1>Ваше замовлення підтверджено.</h1>
+            @elseif($bookingPresenter->getStatusId()==3)
+                <h1>Ваше замовлення скасовано.</h1>
+        @endif
+
+
+
+
+
+
 
         <table id="order-table" datarows="">
         <tr>
@@ -26,21 +40,20 @@
             </tr>
 
             <tr>
-                <td>
-                    Іванов Віктор Іванови <br> ivanovVI@gmail.com <br> 096-999-44-55
-                </td>
-                <td>1233</td>
-                <td>234</td>
-                <td>1233</td>
-                <td>234</td>
-                <td>м.</td>
-                <td></td>
-                <td>5435243-2435-53-2-542-5-2354</td>
+                <td>{!! $bookingPresenter->getBookingClientData() !!}</td>
+                <td>{{$bookingPresenter->getBookingFactDateFrom()}}</td>
+                <td>{{$bookingPresenter->getBookingFactTimeFrom()}}</td>
+                <td>{{$bookingPresenter->getBookingFactDateTo()}}</td>
+                <td>{{$bookingPresenter->getBookingFactTimeTo()}}</td>
+                <td>{{$bookingPresenter->getBookingReservationFullAddressWithoutBreak()}}</td>
+                <td>{{$bookingPresenter->getBookingSpaceName()}}</td>
+                <td>{{$bookingPresenter->getBookingUuid()}}</td>
                 <td>QR code</td>
-                <td>2345 </td>
+                <td>Default data</td>
             </tr>
 
         </table>
+
 
 
         <table id="order-table" datarows="">
@@ -54,22 +67,17 @@
                 {{--<th rowspan="2" class="save">Скасувати</th>--}}
             </tr>
 
+            @foreach($reservationPresenters as $reservationPresenter)
 
-            <tr>
-                <td>22-08-2018</td>
-                <td>10:00</td>
-                <td>19:00</td>
-                <td> 1,3,5</td>
-                <td>124</td>
-            </tr>
+                <tr>
+                    <td>{{$reservationPresenter->getReservationDateFrom()}}</td>
+                    <td>{{$reservationPresenter->getReservationTimeFrom()}}</td>
+                    <td>{{$reservationPresenter->getReservationTImeTo()}}</td>
+                    <td>{{$reservationPresenter->getReservationSeatNumber()}}</td>
+                    <td>------</td>
+                </tr>
 
-            <tr>
-                <td>22-08-2018</td>
-                <td>10:00</td>
-                <td>19:00</td>
-                <td> 1,3,5</td>
-                <td>124</td>
-            </tr>
+            @endforeach
 
 
 
