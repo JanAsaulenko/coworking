@@ -105,7 +105,7 @@ class ReservationController extends Controller
             $bookingfact->createReservation();// Create and save mas of reservation with data from bookingfact
         }
 
-        $result = ["bokingUrl" => "/booking/ID/hardkon/shit/get", "errors" => $bookingfact->errorMessages,"uuid" => $bookingfact->uuid];
+        $result = ["orderUrl" => action('OrderController@show', $bookingfact->uuid), "errors" => $bookingfact->errorMessages];
         return array($result);
     }
 }
