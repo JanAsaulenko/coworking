@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class PricesComponent {
   title: string = 'Вартість';
-  priceDay: sum [] = [{
+  priceDay: any[] = [{
     "priceId":1,
     "amount": 1 +'день',
     "price": 90 +'грн',

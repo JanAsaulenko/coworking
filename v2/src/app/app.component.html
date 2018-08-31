@@ -30,18 +30,21 @@
 
 </div>
 =========================================== -->
-<nav class='navbar navbar-expand navbar-light bg-light'>
-  <a class='navbar-brand'> CoWorking </a>
-  <ul class='nav nav-pills'>
-    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
-    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/prices']">Prices</a></li>
-    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['']">About</a></li>
-  </ul>
+<div class="app-container">
+<nav class="navbar navbar-dark bg-inverse">
+  <div class="container">
+    <a class='navbar-brand'> CoWorking </a>
+    <ul class="nav navbar-nav" routerLinkActive="active">
+      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
+      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/prices']">Prices</a></li>
+      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">About</a></li>
+    </ul>
+  </div>
 </nav>
 
-<div class="app-container">
+<!--<div class="app-container">-->
   <router-outlet></router-outlet>
-  <prices></prices>
+
 </div>
 
 
