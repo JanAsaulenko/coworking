@@ -35,7 +35,7 @@ Route::get('/reservation/showReserve', 'ReservationController@showReserve');
 Route::post('/reservation/reserveSeats','ReservationController@reserveSeats');
 
 
-//Route::get('/booking/{guid}', ['as' => 'booking.show.guid' ,'uses' => 'ReservationController@showOrderGet']); // todo (author Panda) Need repair
+Route::get('/order/{guid}', ['as' => 'booking.show' ,'uses' => 'OrderController@show']);
 //Route::get('/booking/{guid}/edit', ['as' => 'booking.edit.guid' ,'uses' => 'ReservationController@showOrderGet']); // todo (author Panda) Need repair
 //Route::get('/booking/{guid}/update', ['as' => 'show.guid' ,'uses' => 'ReservationController@showOrderGet']); // todo (author Panda) Need repair
 
@@ -60,7 +60,7 @@ Auth::routes();
 
 
 
-Route::get('/operator', 'OperatorController@index')->middleware('auth');
+//Route::get('/operator', 'OperatorController@index')->middleware('auth');
 
 
 
@@ -78,13 +78,13 @@ Route::get('/price', 'PriceController@index2');
 
 Route::post('/send_message', 'SendContactsController@send_form');
 
-
-Route::post('/booking','BookingController@confirm');
-Route::post('/booking/save',['as' => 'booking.save' ,'uses' => 'BookingController@save']);
-Route::get('/booking/{guid}', ['as' => 'booking.show.guid' ,'uses' => 'ReservationController@showOrderGet']);
-Route::get('/print/{guid}', ['as' => 'print.guid' ,'uses' => 'PrintOrderController@printOrder']);
-Route::post('/booking/update/{guid}',['as' => 'update.reservation' ,'uses' =>'UpdateDatabaseReservation@updateDatabase']);
-Route::post('/calculate','CalculatorController@calculatePrice');
+//
+//Route::post('/booking','BookingController@confirm');
+//Route::post('/booking/save',['as' => 'booking.save' ,'uses' => 'BookingController@save']);
+//Route::get('/booking/{guid}', ['as' => 'booking.show.guid' ,'uses' => 'ReservationController@showOrderGet']);
+//Route::get('/print/{guid}', ['as' => 'print.guid' ,'uses' => 'PrintOrderController@printOrder']);
+//Route::post('/booking/update/{guid}',['as' => 'update.reservation' ,'uses' =>'UpdateDatabaseReservation@updateDatabase']);
+//Route::post('/calculate','CalculatorController@calculatePrice');
 
 
 Route::post('/city','CityController@store');
