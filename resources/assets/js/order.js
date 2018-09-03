@@ -11,11 +11,11 @@ $(document).ready(function(){
     } );
 
 //DATAPICKERS
-    var rows = $("#reserv-table").attr("datarows");
-    var dateFormat = "dd.mm.yy";
+    let rows = $("#reserv-table").attr("datarows");
+    let dateFormat = "dd.mm.yy";
 
     function getDate( element ) {
-        var date;
+        let date;
         try {
             date = $.datepicker.parseDate( dateFormat, element.value );
         } catch( error ) {
@@ -25,7 +25,7 @@ $(document).ready(function(){
     }
 
     $(".fromdate").each(function(){
-        var from = $(this);
+        let from = $(this);
         from.datepicker({
             defaultDate: 0,
             changeMonth: true,
@@ -37,7 +37,7 @@ $(document).ready(function(){
     });
 
     $(".todate").each(function(){
-        var to = $(this);
+        let to = $(this);
         to.datepicker({
             defaultDate: 0,
             changeMonth: true,
@@ -51,7 +51,7 @@ $(document).ready(function(){
 //ADD ROW TO TABLE
     $(".add-row").click(function(){
         rows++;
-        var testClone = $('#reserv-table tr:last').clone();
+        let testClone = $('#reserv-table tr:last').clone();
         testClone.find('td:first').text(rows);				//change row number
         testClone.find('input:first').attr("placeholder", "Введіть ім'я клієнта №"+rows);	//change placeholder
 
@@ -66,7 +66,7 @@ $(document).ready(function(){
 
         //new datapickers init
         testClone.find(".fromdate").each(function(){
-            var from = $(this);
+            let from = $(this);
             from.datepicker({
                 defaultDate: 0,
                 changeMonth: true,
@@ -78,7 +78,7 @@ $(document).ready(function(){
         });
 
         testClone.find(".todate").each(function(){
-            var to = $(this);
+            let to = $(this);
             to.datepicker({
                 defaultDate: 0,
                 changeMonth: true,
@@ -96,10 +96,10 @@ $(document).ready(function(){
 
 //PRICE AJAX
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')} });
-    var totalSumm = 0;
+    let totalSumm = 0;
 
     function getPrice(){
-        var x = $("form").serializeArray();
+        let x = $("form").serializeArray();
 
         $.ajax({
             url: '/calculate',
@@ -107,10 +107,10 @@ $(document).ready(function(){
             data: x,
             success: function(data){
                 totalSumm = 0;
-                var i = 0;
+                let i = 0;
                 $('.pricetd').each(function(){
                     console.log(data);
-                    var summ = data[i++];
+                    let summ = data[i++];
                     totalSumm += summ;
                     $(this).text(summ);
                 });

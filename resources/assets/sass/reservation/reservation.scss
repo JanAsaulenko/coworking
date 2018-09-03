@@ -1,7 +1,87 @@
+@import './block_with_form';
+
+#banner-wrapper{
+	width: 1270px;
+	min-width: 1270px;
+	display: block;
+	height: 100%;
+	min-height: 100vh;
+	padding-top: 20px;
+	margin: 0 auto;
+}
+.form{
+	width: 500px;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.select-block__datapicker-block{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.datapicker-block{
+	display: flex;
+	flex-direction: column;
+}
+.turn{
+	width: inherit;
+}
+
 /*style for datapicker*/
 .markholiday .ui-state-default{
 	color:red;
 }
+.seats-block{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	/*/TODO-johny later add class to the table!!/*/
+	table{
+		width: 100%;
+	}
+}
+.seat{
+	color:blue;
+	width: 60px;
+	height: 20px;
+	background:blue;
+	border: 3px solid white;
+}
+
+.seat-reserved{
+	color:red;
+	background: red;
+}
+
+.seat-clicked {
+	color:white;
+	background: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .disabled-input{
 	width:100%;
 	height:50px;

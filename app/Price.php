@@ -10,7 +10,7 @@ class Price extends Model
 {
     public function isValid($price){
 		$validatorPrice = Validator::make($price,  [
-			'duration' => 'required|max:5',
+			'duration' => 'required|max:2555',
 			'amount' => 'required|max:255'
         ]);
 
