@@ -16,7 +16,22 @@ use App\DiscountType;
 Route::group(['prefix'=>'/v2'], function () {
     Route::get('/test','v2MainPageController@test');// temp and test route fo debug
     Route::get('/getallplaces','v2MainPageController@getAllPlaces');
+
+
+    Route::post('/reservation','ReservationController@index'); // method which open reservation window and get  datas(city end etc)
+    Route::get('/reservation/getPlaces', 'ReservationController@getPlaces');
+    Route::get('/reservation/getSpaces','ReservationController@getSpaces');
+    Route::get('/reservation/choosePlace', 'ReservationController@choosePlace');
+    Route::get('/reservation/chooseSpace', 'ReservationController@chooseSpace');
+    Route::get('/reservation/showReserve', 'ReservationController@showReserve');
+    Route::post('/reservation/reserveSeats','ReservationController@reserveSeats');
+
+
+
 });
+
+
+
 
 
 
@@ -36,8 +51,6 @@ Route::post('/reservation/reserveSeats','ReservationController@reserveSeats');
 
 
 Route::get('/order/{guid}', ['as' => 'booking.show' ,'uses' => 'OrderController@show']);
-//Route::get('/booking/{guid}/edit', ['as' => 'booking.edit.guid' ,'uses' => 'ReservationController@showOrderGet']); // todo (author Panda) Need repair
-//Route::get('/booking/{guid}/update', ['as' => 'show.guid' ,'uses' => 'ReservationController@showOrderGet']); // todo (author Panda) Need repair
 
 
 

@@ -20,6 +20,7 @@ class v2MainPageController extends Controller
 //        dd(Place::find(1)->spaces);
 
         dd( $this->getAllPlaces() );
+        return 'test';
     }
 
     public function getAllPlaces(){
