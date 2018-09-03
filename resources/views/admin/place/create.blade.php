@@ -19,8 +19,8 @@
 				{!! csrf_field() !!}
 				<div class="x_content">
 					<div class="form-group operator_text2">
-				    	<label for="city" class="operator_text2">Місто</label>
-			    		<select id="city" name="id_city" class="form-control" required>
+				    	<label for="city_id" class="operator_text2">Місто</label>
+			    		<select id="city" name="city_id" class="form-control" required>
 							<option></option>
 							@foreach($cities as $city)
 								<option value="{{$city->id}}">{{$city->name}}</option>

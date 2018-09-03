@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Bookingfact;
+use App\BookingfactStatus;
 use App\City;
 use App\Place;
+use App\Reservation;
 use Illuminate\Http\Request;
 
 
@@ -15,7 +18,9 @@ class v2MainPageController extends Controller
 
     public function test(){
 //        dd(Place::find(1)->spaces);
+
         dd( $this->getAllPlaces() );
+        return 'test';
     }
 
     public function getAllPlaces(){

@@ -22,6 +22,8 @@
             </li>
             <li><a href="{{ route('place.index') }}"><i class="fa fa-edit"></i>Місця для оренди</a>
             </li>
+            <li><a href="{{ route('space.index') }}"><i class="fa fa-edit"></i>Простори для оренди</a>
+            </li>
             <li><a href="{{ route('price.index') }}"><i class="fa fa-desktop"></i>Тарифи</a>
             </li>
             <li><a href="{{ route('discount.index') }}"><i class="fa fa-table"></i>Купони на знижку</a>
