@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['prefix'=>'/v2'], function () {
+    Route::get('/getallprices','v2PriceController@getAllPrices');
     Route::get('/getplaces','v2ReservationController@getPlaces');
     Route::get('/getspaces','v2ReservationController@getSpaces');
     Route::get('/chooseplace','v2ReservationController@choosePlace');
