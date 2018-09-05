@@ -11,7 +11,8 @@ $(document).ready(function(){
 // TABLE FILTER VIA CHECKBOX STATUS
 	var regStr = "[12345]";	//regular expression to filter table via checkbox status
      $("input[type='checkbox']").click(function() {			
-		var regArr = regStr.split('');	//convert regString to regArray
+		alert('sdfsdfsdf');
+     	var regArr = regStr.split('');	//convert regString to regArray
 		if (this.checked) {
 			regArr[this.name] = this.name;	//changing regular epression in array
 		} 

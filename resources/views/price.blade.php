@@ -5,7 +5,6 @@
 @endsection
 
 @section('Content')
-
     @include('/price/priceList')
 
     {{--<div class="empty__block"></div>--}}
