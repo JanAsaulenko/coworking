@@ -13,12 +13,11 @@ use Illuminate\Http\Request;
 class v2MainPageController extends Controller
 {
     public function index(){
-        dd(Place::find(1)->spaces);
         return '<h1>Empty Page</h1>';
     }
 
     public function test(){
-       dd(Place::find(1)->spaces);
+//        dd(Place::find(1)->spaces);
 
         dd( $this->getAllPlaces() );
         return 'test';

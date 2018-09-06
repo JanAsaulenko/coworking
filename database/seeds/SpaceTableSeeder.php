@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use App\Space;
-
 class SpaceTableSeeder extends Seeder
 {
     /**
