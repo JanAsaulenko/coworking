@@ -13,7 +13,7 @@
 }
 .panel-heading{
   background-color: cornflowerblue;;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .btn-success{
   background: rgb(174,246,86);
@@ -32,6 +32,7 @@
 .rate-panel .panel-primary .panel-heading{
   text-align: center;
   text-transform: uppercase;
+  font-size: 20px;
 }
 
 .rate-panel .panel-primary .btn-success {
@@ -43,7 +44,7 @@
 
 .rate-panel .panel-primary .panel-body{
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 #banner{

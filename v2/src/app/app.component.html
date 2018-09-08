@@ -1,18 +1,96 @@
+
+<!--========================================== -->
+
+<div class="app-container">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <ul class="nav navbar-nav">
+      <li class="logo">
+        <a href="#"> <img src='images/logo.png' alt="logo" ></a>
+      </li>
+        <li> <a class="navbar-brand" href="#">CoWorking</a></li>
+      </ul>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Головна</a></li>
+      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/prices']">Вартість</a></li>
+      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">Контакти</a></li>
+      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">Про Нас</a></li>
+    </ul>
+  </div>
+</nav>
+</div>
+
+<!--=================================
 <div class="app-container">
 <nav class="navbar navbar-dark bg-inverse">
   <div class="container">
     <a class='navbar-brand'> CoWorking </a>
     <ul class="nav navbar-nav" routerLinkActive="active">
-      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
-      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/prices']">Prices</a></li>
-      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">About</a></li>
+      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Головна</a></li>
+      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/prices']">Вартість</a></li>
+      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">Контакти</a></li>
+      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">Про Нас</a></li>
     </ul>
   </div>
 </nav>
-
-<!--<div class="app-container">-->
+========================== -->
+<div class="app-container">
   <router-outlet></router-outlet>
-
 </div>
 
+<div class="container-fluid" id="bg3">
+  <footer class="container ">
+    <div class="row foot">
+      <div id="foot1" class="col-md-3 col-sm-3">
+        <h3>Logo</h3>
+        <h5 id="firstchild">
+          <span class="glyphicon glyphicon-chevron-right"></span><a href="#"><img src="images/logo.png" alt=""></a></h5>
+      </div>
 
+      <div id="foot2" class="col-md-3 col-sm-3">
+        <h3>Наші партнери:</h3>
+        <ul class="partner__list">
+          <li class="partner__list">
+            <a class="partner__link" target="_blank" href="https://intita.com/">
+              <img src="images/intitalogo.png" alt="">
+            </a>
+          </li>
+          <li class="partner__list">
+            <a class="partner__link" target="_blank" href="https://profitday.info/">
+              <img src="images/profitdayLogo.png" alt="">
+            </a>
+          </li>
+        </ul>
+
+        <h5 id="firstchild"><span class="glyphicon glyphicon-chevron-right"></span><a href="#" class="text-muted"> <b>Support</b></a></h5>
+        <h5 style="border-bottom:0px;"><span class="glyphicon glyphicon-chevron-right"></span><a href="#" class="text-muted"><b> Conatct Us</b></a></h5>
+      </div>
+
+      <div id="foot3" class="col-md-3 col-sm-3">
+        <h3>Адреса</h3>
+        <h4 class="text-muted">м. Вінниця, вул. М.Ващука, 12а <br>
+          тел.: +38 0432 52 82 67 <br>
+          e-mail: intita.hr@gmail.com <br>
+          skype: int.ita <br>
+        </h4>
+      </div>
+
+      <div id="foot4" class="col-md-3 col-sm-3">
+        <h3>Долучайтесь</h3><br>
+        <ul class="social-network social-circle">
+          <li><a href="https://www.facebook.com/intita.it.academy/" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+          <li><a  href="https://www.instagram.com" class="icoInstagram" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+</div>
+<section class="container-fluid" id="foot5">
+  <h4 class="text-center text-muted">Copyrights © 2018 CoWorking Team</h4>
+</section>
