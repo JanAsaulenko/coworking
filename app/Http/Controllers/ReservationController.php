@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Bookingfact;
 use BaconQrCode\Encoder\QrCode;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\City;
 use App\Place;
@@ -81,12 +82,13 @@ class ReservationController extends Controller
     public function reserveSeats(Request $request)
     {
         $requestArguments = $request->all();
+
         $bookingfact = new Bookingfact();
         $details = array();
         $details[] = [
             "date" => $requestArguments['date']['dateFrom'],
-            "time_from" => null,
-            "time_to" => null,
+            "time_from" => Space::find($requestArguments['date']['spaceId'])->place->start_time,
+            "time_to" => Space::find($requestArguments['date']['spaceId'])->place->end_time,
             'seat_numbers' => $requestArguments['date']['reserveSeetsArray']
         ];
         $booking['name'] = $requestArguments['date']['userInfo']['name'];
@@ -95,18 +97,25 @@ class ReservationController extends Controller
         $booking['space_id'] = $requestArguments['date']['spaceId'];
         $booking['date_from'] = $requestArguments['date']['dateFrom'];
         $booking['date_to'] = $requestArguments['date']['dateFrom']; /// todo (author Panda) I expect an adequate request
+
+        $booking['time_from'] =  Space::find($requestArguments['date']['spaceId'])->place->start_time;
+        $booking['time_to'] =  Space::find($requestArguments['date']['spaceId'])->place->end_time;
+
         $booking['bookingfact_statuses_id'] = 1; // Booking not confirm
         $booking['json_details'] = json_encode($details);
 
+//        return json_decode( $booking['json_details'],true )[0]['date'];
         if($bookingfact->isValid($booking)){
             $bookingfact->fill($booking);
             $bookingfact->getUuid();
             $bookingfact->save();
             $bookingfact->createReservation();// Create and save mas of reservation with data from bookingfact
+
+            return response()->json(["orderUrl" => action('OrderController@show', $bookingfact->uuid)],200);
+        }else{
+            return response()->json([ "errors" => $bookingfact->errorMessages],400);
         }
 
-        $result = ["orderUrl" => action('OrderController@show', $bookingfact->uuid), "errors" => $bookingfact->errorMessages];
-        return array($result);
     }
 }
 

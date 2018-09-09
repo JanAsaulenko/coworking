@@ -38,7 +38,8 @@ class Bookingfact extends Model
 
             $errors = array();
             $reservedDates = json_decode($bookingfact['json_details'],true);
-            foreach ($reservedDates as $reserveDate => $reserveValue ){
+            foreach ($reservedDates as  $reserveValue ){
+                $reserveDate =  $reserveValue['date'];
                 $alreadyReservedSeats = Occupancy::getReservedSeatPlace($bookingfact['space_id'],$reserveDate );
                 foreach ($reserveValue['seat_numbers'] as $testSeatPlace ){
                     foreach ( $alreadyReservedSeats as  $reservedSeatPlace) {
@@ -105,8 +106,8 @@ class Bookingfact extends Model
 
                 $reservation->date_from = $reservDate->date;
                 $reservation->date_to = $reservDate->date;
-                $reservation->time_from = null;
-                $reservation->time_to = null;
+                $reservation->time_from = $reservDate->time_from;
+                $reservation->time_to = $reservDate->time_to;
                 $reservation->save();
             }
         }

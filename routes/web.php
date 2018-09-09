@@ -25,8 +25,7 @@ Route::group(['prefix'=>'/v2'], function () {
     Route::get('/reservation/chooseSpace', 'ReservationController@chooseSpace');
     Route::get('/reservation/showReserve', 'ReservationController@showReserve');
     Route::post('/reservation/reserveSeats','ReservationController@reserveSeats');
-
-
+    Route::get('/order/{guid}', ['as' => 'booking.show' ,'uses' => 'OrderController@show']);
 
 });
 
