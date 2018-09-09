@@ -3,30 +3,28 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Validator;
+//use Illuminate\Validation\Validator;
 
 class City extends Model
 {
-	public function printCityNames(){
-		foreach($cities as $city){
-			echo $city->id;
-			echo $city->name;
-		}
-	}
 
 	public function places(){
-		return $this->hasMany('App\Place', 'id_city');
+		return $this->hasMany('App\Place', 'city_id','id');
 	}
 
-	public function isValid($city){
-		$validatorCity = Validator::make($city,  [
-			'name' => 'required|max:255'
-        ]);
+	public function spaces(){
+	    return $this->hasManyThrough('App\Space','App\Place');
+    }
 
-		if ($validatorCity->fails()){
-            return false;
-        }
-		return true;
-	}
+//	public function isValid($city){
+//		$validatorCity = Validator::make($city,  [
+//			'name' => 'required|max:255'
+//        ]);
+//
+//		if ($validatorCity->fails()){
+//            return false;
+//        }
+//		return true;
+//	}
 
 }

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Public API Spec</h2>
+    <h3>Headers</h3>
+        <p>Required for all requests with JSON body. Content-Type: application/json</p>
+
+    <h3>Routes</h3>
+
+    <h4>getPlaces</h4>
+        Request:
+        <p>GET /api/v2/getplaces?city_id=:query (query is number)</p>
+        Response: 200 <br>
+        <pre>
+[
+    {
+        "palce_id": 1,
+        "address": "М.Ващука, 20"
+    },
+    {
+        "palce_id": 2,
+        "address": "Келецька, 126а"
+    },
+    {
+        "palce_id": 3,
+        "address": "qwer"
+    }
+]
+        </pre>
+
+
+
+
+    <h4>getSpaces</h4>
+    Request:
+    <p>GET /api/v2/getspaces?place_id=:query (query is number)</p>
+    Response: 200 <br>
+    <pre>
+[
+    {
+        "space_id": 1,
+        "name": "SeaRoom"
+    },
+    {
+        "space_id": 2,
+        "name": "Magenta"
+    },
+    {
+        "space_id": 3,
+        "name": "RestRoom"
+    }
+]
+        </pre>
+
+
+
+
+    <h4>choosePlace</h4>
+    Request:
+    <p>GET /api/v2/chooseplace?place_id=:query (query is number)</p>
+    Response: 200 <br>
+    <pre>
+{
+    "completelyReservedDays": []
+}
+        </pre>
+
+
+
+    <h4>chooseSpace</h4>
+    Request:
+    <p>GET /api/v2/choosespace?space_id=:query (query is number)</p>
+    Response: 200 <br>
+    <pre>
+{
+    "completelyReservedDays": [
+        "2018-09-03"
+    ],
+    "space": {
+        "id": 1,
+        "place_id": 1,
+        "name_space": "SeaRoom",
+        "number_of_seats": 20,
+        "created_at": "2018-08-29 14:47:17",
+        "updated_at": "2018-08-29 14:47:17"
+    }
+}
+        </pre>
+
+
+
+    <h4>showReserve</h4>
+    Request:
+    <p>GET / /api/v2/showreserve?space_id=1&date=2018-09-03</p>
+    Response: 200 <br>
+    <pre>
+{
+    "reserved_seats": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        15,
+        20,
+        19,
+        14,
+        9,
+        8,
+        13,
+        18,
+        17,
+        12,
+        7,
+        6,
+        11,
+        16
+    ],
+    "price": [
+        {
+            "id": 1,
+            "duration": "1 година",
+            "amount": 20,
+            "created_at": "2018-08-29 14:47:17",
+            "updated_at": "2018-08-29 14:47:17"
+        },
+        {
+            "id": 2,
+            "duration": "1 день",
+            "amount": 90,
+            "created_at": "2018-08-29 14:47:17",
+            "updated_at": "2018-08-29 14:47:17"
+        },
+        {
+            "id": 3,
+            "duration": "5 днів",
+            "amount": 320,
+            "created_at": "2018-08-29 14:47:17",
+            "updated_at": "2018-08-29 14:47:17"
+        },
+        {
+            "id": 4,
+            "duration": "10 днів",
+            "amount": 600,
+            "created_at": "2018-08-29 14:47:17",
+            "updated_at": "2018-08-29 14:47:17"
+        },
+        {
+            "id": 5,
+            "duration": "2 тижні",
+            "amount": 800,
+            "created_at": "2018-08-29 14:47:17",
+            "updated_at": "2018-08-29 14:47:17"
+        },
+        {
+            "id": 6,
+            "duration": "1 місяць",
+            "amount": 1050,
+            "created_at": "2018-08-29 14:47:17",
+            "updated_at": "2018-08-29 14:47:17"
+        }
+    ]
+}
+        </pre>
+
+
+
+
+
+</body>
+</html>

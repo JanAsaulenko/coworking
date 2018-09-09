@@ -3,10 +3,6 @@
                 <div class="row">
                     <div class="col-md-offset-5 col-md-2">
                         <h3 class="text-center">ПРОСТІР</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Головна</a></li>
-                            <li class="breadcrumb-item active">Простір</li>
-                        </ol>
                     </div>
                 </div>
                 <div class="main col-md-offset-4 col-md-6" style="margin-left: 28%;">
@@ -14,7 +10,7 @@
                         <div class="form-group content-width">
                             	<legend>Місто</legend>
                                 <select id="city-select" name="city" required>
-                                    @foreach ($city_names as $city)
+                                    @foreach ($cities_names as $city)
                                         <option selected value="{{$city->id}}">{{ $city->name }}</option>
                                     @endforeach
                                 </select>
@@ -67,7 +63,7 @@
                         }).on('select2:select',function(e){
                             var b = $(this).val();
                                 $.ajax({
-                                        url: '/main/getPlaceLocation',
+                                        url: '/main/getSpaces',
                                         method: 'get',
                                         dataType: 'json',
                                         data: {place_id: b},
@@ -108,19 +104,19 @@
                     </div>
                     <div class="col-md-12">
                           <img src="{{ asset('assets/css/placephoto/img (1).jpg') }}"  tabindex="0" class="lazy">
-                        <!-- <span style="color: white; border-bottom: 2px solid white">Sea Room</span>
-                        <a href="#" style="color: white; border: 2px solid white; padding: 5px;"> Переглянути </a> -->
-                          <img src="{{ asset('assets/css/placephoto/img (9).jpg') }}"  tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (15).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (14).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (4).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (3).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (2).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (5).jpg') }}" tabindex="0"class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (6).jpg') }}" tabindex="0"class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (17).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (18).jpg') }}" tabindex="0" class="lazy">
-                          <img src="{{ asset('assets/css/placephoto/img (41).png') }}" tabindex="0"class="lazy">
+                        <span style="color: white; border-bottom: 2px solid white">Sea Room</span>
+                        <a href="#" style="color: white; border: 2px solid white; padding: 5px;"> Переглянути </a>
+                          <img src="{{ asset('images/placephoto/img (9).jpg') }}"  tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (15).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (14).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (4).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (3).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (2).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (5).jpg') }}" tabindex="0"class="lazy">
+                          <img src="{{ asset('images/placephoto/img (6).jpg') }}" tabindex="0"class="lazy">
+                          <img src="{{ asset('images/placephoto/img (17).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (18).jpg') }}" tabindex="0" class="lazy">
+                          <img src="{{ asset('images/placephoto/img (41).png') }}" tabindex="0"class="lazy">
                     </div>
             </div>
 

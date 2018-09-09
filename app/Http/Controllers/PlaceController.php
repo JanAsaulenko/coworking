@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use Validator;
 use App\City;
+use App\Space;
 use App\Place;
 use App\Image;
 
@@ -17,18 +18,19 @@ class PlaceController extends Controller
         $cities = City::all();
         return view('admin.place.index', ['cities'=>$cities]);
     }
+
+
+
     public function create(Request $request)
     {
         $cities = City::all();
         return view('admin.place.create', ['cities'=>$cities]);
-
     }
     public function store(Request $request)
     {
         $place = new Place;
-
         if ($place->isValid($request->all())){
-            $place->fill($request->all());
+            $place->fill($request->except('_token'));
             $place->save();
         }
         else{
@@ -42,16 +44,33 @@ class PlaceController extends Controller
     {
         $images = Image::where('place_id', $id)->get();
         $places = Place::find($id);
-        return view('admin.place.show', ['place' => $places, 'images' => $images]);
+        $spaces = Space::all()->where('place_id',$id);
+
+        return view('admin.place.show', ['place' => $places, 'images' => $images, 'spaces' => $spaces]);
 
     }
     public function edit($id)
-    {
-        //
+    {   $cities = City::all()->pluck('name', 'id');
+        $images = Image::where('place_id', $id)->get();
+        $places = Place::find($id);
+        $spaces = Space::all()->where('place_id',$id);
+
+        return view('admin.place.edit', ['place' => $places, 'images' => $images, 'spaces' => $spaces, 'cities' => $cities]);
+
     }
     public function update(Request $request, $id)
     {
-        //
+        $place = Place::find($id)->fill($request->except('_token','_method'));
+        if($place->isValid($request->except('_token','_method'))){
+            $place->fill($request->except('_token','_method'));
+            $place->save();
+            Session::flash('flash_message', 'Красава... Всьоо Чотко');
+            return redirect()->route('place.show',$id);
+        }
+        else{
+            Session::flash('flash_message', 'Помилка, введіть коректні дані!');
+            return redirect()->route('place.show',$id);
+        }
     }
 
     public function destroy($id)

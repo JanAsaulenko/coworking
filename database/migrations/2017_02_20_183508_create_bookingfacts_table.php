@@ -15,9 +15,18 @@ class CreateBookingfactsTable extends Migration
     {
         Schema::create('bookingfacts', function (Blueprint $table) {
             $table->increments('id');
-			$table->softDeletes();
+            $table->string('name');
 			$table->string('email')->nullable();
 			$table->string('phone')->nullable();
+            $table->date('date_from');
+            $table->time('time_from')->nullable();
+            $table->date('date_to');
+            $table->time('time_to')->nullable();
+			$table->unsignedInteger('bookingfact_statuses_id')->default('1');
+            $table->unsignedInteger('space_id');
+            $table->string('uuid')->nullable();
+            $table->string('json_details',1500)->nullable();
+			$table->softDeletes();
             $table->timestamps();
         });
     }
