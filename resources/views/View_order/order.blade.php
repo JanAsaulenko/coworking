@@ -4,20 +4,26 @@
     <!-- 	<span id="order-form"></span>	this is an anchor -->
     <div id="banner" class="box container no-overflow">
 
-        @if($bookingPresenter->getStatusId()==1)
-        <h1>Ваше замовлення збережено.</h1>
-        <h3>Очікуйте двінка від нашого менеджера</h3>
-        @elseif($bookingPresenter->getStatusId()==2)
-            <h1>Ваше замовлення підтверджено.</h1>
-            @elseif($bookingPresenter->getStatusId()==3)
-                <h1>Ваше замовлення скасовано.</h1>
-        @endif
 
 
 
 
 
 
+        <div class="row">
+
+
+                @if($bookingPresenter->getStatusId()==1)
+                    <h1>Ваше замовлення збережено.</h1>
+                    <h3>Очікуйте дзінка від нашого менеджера</h3>
+                @elseif($bookingPresenter->getStatusId()==2)
+                    <h1>Ваше замовлення підтверджено.</h1>
+                @elseif($bookingPresenter->getStatusId()==3)
+                    <h1>Ваше замовлення скасовано.</h1>
+                @endif
+            </div>
+
+        </div>
 
         <table id="order-table" datarows="">
         <tr>
@@ -26,7 +32,7 @@
             <th colspan="2">Кінець періоду</th>
             <th colspan="2">Місце</th>
             <th rowspan="2">Унікальний код</th>
-            <th rowspan="2" class="img-code">Qr code</th>
+            {{--<th rowspan="2" class="img-code">Qr code</th>--}}
             <th rowspan="2">Загальна вартість </th>
             {{--<th rowspan="2" class="save">Скасувати все</th>--}}
         </tr>
@@ -47,8 +53,11 @@
                 <td>{{$bookingPresenter->getBookingFactTimeTo()}}</td>
                 <td>{{$bookingPresenter->getBookingReservationFullAddressWithoutBreak()}}</td>
                 <td>{{$bookingPresenter->getBookingSpaceName()}}</td>
-                <td>{{$bookingPresenter->getBookingUuid()}}</td>
-                <td>QR code</td>
+                <td>
+                {{$bookingPresenter->getBookingUuid()}}<br>
+                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->generate(route('booking.show',$bookingPresenter->getBookingUuid()))) !!} ">
+                </td>
+
                 <td>Default data</td>
             </tr>
 
@@ -78,12 +87,6 @@
                 </tr>
 
             @endforeach
-
-
-
-
-
-
 
 
             {{--@foreach ($orders as $order)--}}
