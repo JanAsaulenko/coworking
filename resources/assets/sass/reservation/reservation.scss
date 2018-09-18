@@ -1,0 +1,298 @@
+@import './block_with_form';
+
+#banner-wrapper{
+	width: 1270px;
+	min-width: 1270px;
+	display: block;
+	height: 100%;
+	min-height: 100vh;
+	padding-top: 20px;
+	margin: 0 auto;
+}
+.form{
+	width: 500px;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.select-block__datapicker-block{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.datapicker-block{
+	display: flex;
+	flex-direction: column;
+}
+.turn{
+	width: inherit;
+}
+
+/*style for datapicker*/
+.markholiday .ui-state-default{
+	color:red;
+}
+.seats-block{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	/*/TODO-johny later add class to the table!!/*/
+	table{
+		width: 100%;
+	}
+}
+.seat{
+	color:blue;
+	width: 60px;
+	height: 20px;
+	background:blue;
+	border: 3px solid white;
+}
+
+.seat-reserved{
+	color:red;
+	background: red;
+}
+
+.seat-clicked {
+	color:white;
+	background: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.disabled-input{
+	width:100%;
+	height:50px;
+	font:inherit;
+	color: #696969;
+	border: 1px solid #aaa;
+	border-radius:4px;
+	text-align: center;
+	vertical-align:middle;
+}
+
+/*ORDER FORM BUTTONS*/
+.text-left {
+	text-align: left;
+	padding: 0px;
+}
+#reserv-back-btn , #reserv-frw-btn{
+	height:50px; 
+	width:50px !important;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height:30px;
+	text-align: center;
+	vertical-align:middle;
+	padding:0.4em 0.5em  !important;
+}
+#reserv-frw-btn{
+	float:right;
+}
+#reserv-done-btn {
+	width: 100%; 
+	height: 50px; 
+	line-height: 0;
+	padding: 0px;
+	/*margin-top: 1em;*/
+}
+
+/*RESERVATION TABLE*/
+#reserv-table, #order-table {
+	width:100%;
+	margin-top:2em;
+	margin-bottom:0;
+	color:#333;
+}
+#reserv-table th, #reserv-table td , #order-table th, #order-table td{
+    border: 1px solid #555;
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: middle;
+}
+#reserv-table th, #order-table th{
+	font-weight:bold;
+}
+
+#reserv-table input, #reserv-table select {
+	border:none; 
+	height:2.25em; 
+	width:100% 
+}
+
+
+.del-row {
+	display: block; 
+	height:100%; 
+	width:100%;
+	color:red;
+}
+
+.add-row {
+	color:green;
+	float: right;
+	text-decoration: none;
+}
+
+.total-sum-container{
+	padding: 0px;
+	margin: 0px;
+}
+
+.text-total-sum{
+	padding: 0px;
+	margin: 0px;
+	margin-top: 25px;
+	text-align: right;
+	color: #10a0d5;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.total-sum{
+	float: right;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 25px;
+	text-align: right;
+	font: inherit;
+	font-size: 20px;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	text-align: center;
+	vertical-align: middle;
+	color: #10a0d5;
+	font-weight: bold;
+}
+
+.rate-btn{
+	margin-bottom: 15px;
+	vertical-align: middle;
+	padding: 5px;
+	height: 50px;
+	font: inherit;
+	font-size: 20px;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	text-align: center;
+	background: white;
+}
+
+.rate-btn:hover{
+	transition: 200ms;
+	background-color: #f4f4f4;
+	cursor: pointer;
+}
+
+.done-btn{
+	padding: 0px;
+}
+
+.sumbit-rate-btn-container{
+	margin-top: 1em;
+	padding-left: 15px;
+}
+
+/*BOOKING*/
+
+.booking-input {
+	border: 1px solid #555 !important;
+	color:#000;
+}
+
+h1 {font-size: 24px;}
+
+form label {
+	margin: 1em 0 0 0;
+	font-size: 1em;
+}
+
+#booking-no-btn, #booking-done-btn {
+	width: 100%;
+	height: 50px; 
+	text-align: center;
+	line-height: normal;
+	margin: 0 !important;
+}
+
+.valid-error{
+	border:2px solid red !important;
+}
+.index-page{
+	margin-top:20px;
+}
+
+@media print {
+	#header,footer, .save,#header-wrapper{
+		display: none;
+	}
+
+	#order-table{
+		width: 78%;
+		border-collapse: collapse;
+
+	}
+	#banner{
+		margin:0;
+	}
+	td img {
+		padding: 2px;
+
+	}
+	.fig{
+		text-align: center;
+	}
+	.img-code{
+		padding: 5px;
+		padding-right: 10px;
+		border: 1px solid black;
+
+	}
+	td {
+		padding: 5px;
+	}
+	body{
+		font-size: 14pt
+	}
+	a[href]:after {
+		content: "";
+	}
+	h1{
+		padding-left: 300px;
+	}
+}
+@page {
+	margin: 0cm;
+}
+
+.panel-footer p{
+	font-family: Arial;
+	text-align: left;
+	font-size: 18px !important;
+	color: red;
+}

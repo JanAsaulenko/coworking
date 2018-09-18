@@ -15,19 +15,19 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->increments('id');
-			$table->string('name');
-			$table->dateTime('datetime_from');
-			$table->dateTime('datetime_to');
-			$table->unsignedInteger('discount_type_id');
-			$table->unsignedInteger('price');
-			$table->unsignedInteger('bookingfacts_id');
-			$table->string('guid');
-			$table->dateTime('used_at')->nullable();
+			$table->string('name')->nullable();
+            $table->date('date_from');
+            $table->time('time_from')->nullable();
+            $table->date('date_to');
+            $table->time('time_to')->nullable();
+            $table->unsignedInteger('space_id');
+            $table->unsignedInteger('seat_number')->nullable();
+            $table->unsignedInteger('status_id')->default('1');
+			$table->unsignedInteger('price')->nullable();
+			$table->unsignedInteger('bookingfact_id');
             $table->timestamps();
 			$table->softDeletes();
-			$table->foreign('discount_type_id')->references('id')->on('discount_types');
-			$table->foreign('bookingfacts_id')->references('id')->on('bookingfacts');
-			
+
         });
     }
 
