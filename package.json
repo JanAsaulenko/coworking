@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "prod": "gulp --production",
-    "dev": "gulp watch"
+    "dev": "gulp watch --hot"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
@@ -13,8 +13,9 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
+    "jquery": "^3.1.0",
     "npm": "^6.1.0",
     "react": "^16.4.2",
-    "jquery": "^3.1.0"
+    "redux": "^4.0.0"
   }
 }

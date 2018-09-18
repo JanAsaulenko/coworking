@@ -23,11 +23,11 @@ class Seet {
       return `Сума Вашого замовлення:${result}грн`;
     }
 
-
     $('.nav_button-hide').on('click', () => {
       block_with_form.css({'display': 'none', 'flex-direction': 'column', 'position': 'relative', "left": '140%'});
       block_with_form.animate({left: '0%'}, 1000);
     });
+
     $('.seats-block').on('click', () => {
       $('.sum')[0].innerHTML = calculator(priceForDay);
     });
@@ -35,20 +35,18 @@ class Seet {
       $('.sum')[0].innerHTML =  calculator(priceForDay);
     });
 
+
+
+
     props.seat.target.className = 'seat-clicked';
-    if (block_with_form.is(':visible')) return;
-    block_with_form.css({'display': 'flex', 'flex-direction': 'column', 'position': 'relative', "left": '-140%'});
-    block_with_form.animate({left: '0%'}, 1000);
+      if (block_with_form.is(':visible')) return;
+      block_with_form.css({'display': 'flex', 'flex-direction': 'column', 'position': 'relative', "top":'14px'});
+      block_with_form.animate({left: '0%'}, 1000);
 
-    let inputCounter = 0; //counter for input stylish
-    let input = $(`<input class="form-reserve__input form-reserve__input--${inputCounter}">`).val(event.target.innerText);
-    let inputClose = $(`<button class="form-reserve__button-close form-reserve__button__close--${inputCounter}">X</button>`);
-    let inputButtonBlock = $(`<div class="form-reserve__input-button-block form-reserve__input-button-block--${inputCounter}"></div>`).append(input, inputClose);
-    inputButtonBlock.css({'display': 'flex', 'flex-direction': 'row'});
-    form_with_seats.append(inputButtonBlock);
-    inputButtonBlock.fadeIn();
+    let inputCounter = 0;
 
-    $('td').click((data) => {
+    $('.seat').click((data) => {
+console.log('кликнул по тдшке');
       if(data.target.className === 'seat-reserved'){
         console.log('уже зарезервировано');
         return
@@ -57,14 +55,16 @@ class Seet {
         console.log('уже занимали');
         return
       }
-      inputCounter++;
+
       let input = $(`<input class='form-reserve__input form-reserve__input--${inputCounter}'>`).val(data.target.innerText);
       let inputClose = $(`<button class="form-reserve__button-close form-reserve__button-close--${inputCounter}" type="button">X</button>`);
       let inputButtonBlock = $(`<div class="form-reserve__input-button-block form-reserve__input-button-block--${inputCounter}"></div>`).append(input, inputClose);
       inputButtonBlock.css({'display': 'flex', 'flex-direction': 'row'});
       form_with_seats.append(inputButtonBlock);
       inputButtonBlock.fadeIn();
+
       $(`.form-reserve__button-close--${inputCounter}`).on('click', (event) => {
+
         let clickedSeat = $('.seat-clicked');
         for (let i = 0; i < clickedSeat.length; i++) {
           if (clickedSeat[i].innerHTML === event.target.previousSibling.value) {
@@ -72,7 +72,8 @@ class Seet {
             event.target.parentElement.remove();
           }
         }
-      })
+      });
+      inputCounter++;
     });
 
     $('.form__button').on('click',()=>{
@@ -86,6 +87,7 @@ class Seet {
       const email = $("input[name |='email']").val();
       const telephone = $("input[name |='telephone']").val();
       const dateFrom = $('.from').val();
+      const dateTo = $('.to').val();
       let arrOfReservedSeats = $('.form-reserve__input-button-block');
       let reserveSeetsArray = [];
         let sumOrder = $('.sum');
@@ -105,10 +107,23 @@ class Seet {
         reserveSeetsArray.push(arrOfReservedSeats[index].childNodes[0].value);
       });
       if(reserveSeetsArray && spaceID && name && email && telephone && dateFrom && fullSum()) {
-        EventBus.publish('reservation/reserveSeats',{'spaceId':spaceID, 'reserveSeetsArray':reserveSeetsArray,'dateFrom':dateFrom, 'fullSum':fullSum(), userInfo:{'name':name,'email':email, 'telephone':telephone} })
+        EventBus.publish('reservation/reserveSeats',{'spaceId':spaceID, 'reserveSeetsArray':reserveSeetsArray,'dateFrom':dateFrom, 'dateTo':dateTo, 'fullSum':fullSum(), userInfo:{'name':name,'email':email, 'telephone':telephone} })
       }
       });
-    })
+    });
+
+      $('.nav_button-close').on('click',(event)=>{
+        if (!block_with_form.is(':visible')) return;
+        block_with_form.css({'display': 'none', 'flex-direction': 'column', 'position': 'relative', "left": '140%'});
+        block_with_form.animate({left: '0%'}, 1000);
+        $('.form-reserve__input-button-block').remove();
+        let clickedSeat = $('.seat-clicked');
+        $('.sum').empty();
+        for (let i = 0; i < clickedSeat.length; i++) {
+          clickedSeat[i].className = 'seat';
+          inputCounter=0;
+        }
+      });
     })
   }
 }

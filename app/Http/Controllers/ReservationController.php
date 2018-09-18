@@ -16,7 +16,7 @@ use DateTime;
 use App\Lib\Occupancy;
 use App\Price;
 use App\NamePlace;
-
+use PDF;
 use App\Lib\Gallery;
 use SimpleSoftwareIO\QrCode\DataTypes\Email;
 
@@ -82,39 +82,23 @@ class ReservationController extends Controller
 //        $spade_id = $request->id;
 //        $date = $request->date;
 //        $seat = $request->seat;
-//        $email = $request->email;
 dd($request);
-        return array('reservedSeats'=>'allgoood');
+
+//dd($request);
+//        $reservation=new Reservation();
+//        $order=$reservation->getOrders($guid);
+//        $discountTypes = DiscountType::orderBy('id', 'asc')->get();
+
+        $response = array(
+            'html' => // Returned HTML
+                '<html><head><title>AJAX Loaded Title</title></head><body>It works!</body></html>',
+
+        );
+return json_encode($response);
+//        return array('reservedSeats'=>'allgoood');
     }
 }
 
-//    public function index(Request $request)
-//    {
-//        $firstForm = $request->except(['_token', 'OK']);
-//        $firstForm['townName'] = City::where('id', $firstForm['town'])->first()['name'];
-//        $discountTypes = DiscountType::orderBy('id', 'asc')->get();
-//        $newReservation = new Reservation();
-//        $reservations = $newReservation->preparationsArrayFirstForm($firstForm);
-//        $validationError = [0];
-//        $firstForm['placeName'] = Place::find($firstForm['place'])->address;
-//        $errorMsg = Occupancy::GetOccupancy($firstForm['place'], $firstForm['fromdate'], $firstForm['todate'], $firstForm['places']);
-//        return view('View_reservation', [
-//            'firstForm'       => $firstForm,
-//            'discountTypes'   => $discountTypes,
-//            'reservations'    => $reservations,
-//            'validationError' => $validationError,
-//            'errorMsg'        => $errorMsg]);
-//    }
-
-
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 //    public function showOrderGet($guid)

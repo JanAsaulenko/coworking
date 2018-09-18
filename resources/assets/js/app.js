@@ -12,10 +12,13 @@ import './movie_background/jquery.backgroundvideo.min';
 // import './ie/respond.min';
 // import './operator';
 // import './order';
-import './reservation';
-import './Space';
+import "./reservation";
+import "./Space";
 import "./Seet";
 import "./ReserveSeats"
+import "./API"
+import "./DateRange";
+
 // import './skel-layout.min';???
 // import './skel.min';????
 // import './util';

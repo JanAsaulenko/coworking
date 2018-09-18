@@ -3,6 +3,8 @@ import DataPicker from './DataPicker'
 import Space from './Space'
 import Seet from  './Seet'
 import ReserveSeats from './ReserveSeats';
+import DateRange from './DateRange';
+import API from './API';
 $(document).ready(function () {
 
   const city = $('.city-select');
@@ -15,7 +17,8 @@ $(document).ready(function () {
   placeSelector.request();
 
 
-    const choosePlace = new Selector(places, { url: '/reservation/choosePlace',
+    const choosePlace = new Selector(places,
+      { url: '/reservation/choosePlace',
       method: 'get',
       dataType: 'json'});
     choosePlace.choose();
@@ -29,7 +32,10 @@ $(document).ready(function () {
   }, spaces);
   spaceSelector.request();
 
-  const chooseSpace = new Selector(spaces,  {url:'/reservation/chooseSpace',method: 'get', dataType: 'json',});
+  const chooseSpace = new Selector(spaces, {
+      url:'/reservation/chooseSpace',
+      method: 'get',
+      dataType: 'json',});
   chooseSpace.choose();
 
 
@@ -41,9 +47,8 @@ $(document).ready(function () {
   const space = new Space();
   const seet = new Seet();
   const reserve = new ReserveSeats();
-
-
-
+  const range  = new DateRange()
+  const logic = new API();
 });
 
 

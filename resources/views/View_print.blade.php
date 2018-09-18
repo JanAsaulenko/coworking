@@ -1,11 +1,12 @@
-@extends('layouts.main_lay')
+
+@extends('layouts.app')
 
 @section('Header')
     @include('/main/header')
 @endsection
 
 @section('Content')
-    @include('/order/print')
+    @include('/View_order/print')
 @endsection
 
 @section('Footer')

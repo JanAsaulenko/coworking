@@ -205,17 +205,11 @@ class Occupancy{
     public static function getReservedSeatPlace($space_id, $date){
         $reservations = Reservation::all()->where('space_id',$space_id)->where('status_id',1)
             ->where('date_from','<=',$date)->where('date_to','>=', $date);
-
+        $reservedSeatPlaces = [];
         foreach ($reservations as $item ){
-            $reserverSeatPlaces[] = $item->seat_number;
+            $reservedSeatPlaces[] = $item->seat_number;
         }
-        return  $reserverSeatPlaces;
-//        $temp = array();
-//        $temp['$space_id']= $space_id;
-//        $temp['$date'] = $date;
-//        $temp['$reservations'] = $reservations;
-//        $temp['$reserverSeatPlaces'] = $reserverSeatPlaces;
-
+        return  $reservedSeatPlaces;
     }
 
 
