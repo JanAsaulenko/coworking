@@ -13,23 +13,16 @@ class StatusTableSeeder extends Seeder
     public function run()
     {
         $open = new Status;
-        $open->name = 'відкриті';
+        $open->name = 'Не підтвердженно';
         $open->save();
 
         $paused = new Status;
-        $paused->name = 'призупинені';
+        $paused->name = 'Активно';
         $paused->save();
 
         $notCame = new Status;
-        $notCame->name = 'неявки';
+        $notCame->name = 'Скасовано';
         $notCame->save();
 
-        $canceled = new Status;
-        $canceled->name = 'скасовані';
-        $canceled->save();
-
-        $completed = new Status;
-        $completed->name = 'завершені';
-        $completed->save();
     }
 }

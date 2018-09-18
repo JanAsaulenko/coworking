@@ -12,27 +12,55 @@
 	    <div class="x_content" style="margin-top: 20px;">
 			<table class="table table-bordered" style="text-align:center">
 				<thead>
-					<tr class="oper_table">
-						<td>Місто</td>
-						<td>Адреса</td>
-						<td>Назва простору</td>
-						<td>Час початку</td>
-						<td>Час закінчення</td>
-						<td>Кількість місць</td>
-					</tr>
+				<tr class="oper_table">
+					<td>Місто</td>
+					<td>Адреса</td>
+					<td>Назва закладу</td>
+					<td>Час початку</td>
+					<td>Час закінчення</td>
+					<td>Кількість місць</td>
+					<td>Опції</td>
+				</tr>
 				</thead>
 				<tbody>
-					<tr class="test">
-						<td>{{ $place->getCityName() }}</td>
-						<td>{{ $place->address }}</td>
-						<td>{{ $place->getPlaceName() }}</td>
-						<td>{{ $place->start_time }}</td>
-						<td>{{ $place->end_time }}</td>
-						<td id="place-setplace">{{ $place->number_of_seatplace }}</td>
-					</tr>
+				<tr class="test">
+					<td>{{ $place->getCityName() }}</td>
+					<td>{{ $place->address }}</td>
+					<td>{{ $place->getPlaceName() }}</td>
+					<td>{{ $place->start_time }}</td>
+					<td>{{ $place->end_time }}</td>
+					<td>{{ $place-> countOfSeatPlaces() }}</td>
+					<td>{{Html::link( route('place.edit', ['id' => $place->id]), 'Редагувати',['class' => 'btn btn-primary btn-xs '])}}</td>
+
+				</tr>
 				</tbody>
 			</table>
-	 		<div class="operator_text2" style="margin-bottom: 20px;">Додаткові функції:</div>
+
+			<table class="table table-bordered" style="text-align:center">
+				<thead>
+				<tr class="oper_table">
+
+					<td>Назва простору</td>
+					<td>Час початку</td>
+					<td>Час закінчення</td>
+					<td>Кількість місць</td>
+				</tr>
+				</thead>
+				<tbody>
+
+				@foreach( $spaces as $space )
+				<tr class="test">
+					<td>{{ $space->name_space }}</td>
+					<td> 08:00:00</td>
+					<td> 20:00:00</td>
+					<td id="place-setplace">{{ $space->number_of_seats }}</td>
+				</tr>
+				@endforeach
+
+				</tbody>
+			</table>
+
+			<div class="operator_text2" style="margin-bottom: 20px;">Додаткові функції:</div>
 	 		<button type="submit" class="btn btn-success btn-lg">
 	 			{{ Html::link( route('permissions.index'), 'Привілегії користувачів') }}
 	 		</button>

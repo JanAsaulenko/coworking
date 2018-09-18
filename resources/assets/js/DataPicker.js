@@ -2,112 +2,106 @@ import EventBus from './PubSub'
 
 class DataPicker {
   constructor() {
-    EventBus.subscribe('selector', this.getReservationDays)
+    EventBus.subscribe('chooseSpace', this.getChoseReserve);
   }
-getDays(from,to){
+
+  getDays(from, to) {
     from.datepicker({
-      firstDay:1,
+      firstDay: 1,
       defaultDate: 0,
       changeMonth: true,
       showAnim: 'slideDown',
-      showButtonPanel:true,
+      showButtonPanel: true,
       minDate: new Date(),
-      beforeShowDay:function (date) {
+      beforeShowDay: function (date) {
         let day = date.getDay();
-        if(day === 0 || day ===6){
+        if (day === 0 || day === 6) {
           return [false, 'markholiday']
         }
         else {
-        return [true,'']
+          return [true, '']
         }
       }
     })
-      .on('change',() => {
-        from.datepicker("option", "dateFormat", "dd.mm.yy")
+      .on('change', () => {
+        from.datepicker("option", "dateFormat", "yy-mm-dd")
       });
-  to.datepicker({
-    firstDay:1,
-    defaultDate: 0,
-    changeMonth: true,
-    showAnim: 'slideDown',
-    showButtonPanel:true,
-    minDate: new Date(),
-    beforeShowDay:function (date) {
-      let day = date.getDay();
-      if(day === 0 || day ===6){
-        return [false, 'markholiday']
+    to.datepicker({
+      firstDay: 1,
+      defaultDate: 0,
+      changeMonth: true,
+      showAnim: 'slideDown',
+      showButtonPanel: true,
+      minDate: new Date(),
+      beforeShowDay: function (date) {
+        let day = date.getDay();
+        if (day === 0 || day === 6) {
+          return [false, 'markholiday']
+        }
+        else {
+          return [true, '']
+        }
       }
-      else {
-        return [true,'']
-      }
-    }
-  })
-    .on('change',() => {
-      to.datepicker("option", "dateFormat", "dd.mm.yy")
-    });
-}
-
-
-getReservationDays(params) {
-    let holidays = params.holidays;
-    if (!holidays || holidays === undefined) {
-      return
-    }
-    else
-      $('.fromdate').datepicker(
-        {
-          firstDay:1,
-          defaultDate: 0,
-          changeMonth: true,
-          showAnim: 'slideDown',
-          showButtonPanel: true,
-          minDate: new Date(),
-          beforeShowDay: function (date) {
-            let day = date.getDay();
-            if (day === 0 || day === 6) { // mark red and block if  it is sunday or saturday
-              return [false, 'markholiday']
-            }
-            else {
-              let formattedDate = jQuery.datepicker.formatDate('yy-mm-dd', date);   // convert  date  into  type -> (yy-mm-dd)
-              if (holidays.indexOf(formattedDate) === -1) { // find   them in array . if (-1) - return [true] else return false and with style.
-                return [true, ''];
-              }
-              else {
-                return [false, 'markholiday'];
-              }
-            }
-          }
-        }).on('change', () => {
-        $('.fromdate').datepicker("option", "dateFormat", "dd.mm.yy"); //setter
-
-          $('.todate').datepicker(
-            {
-              defaultDate: 0,
-              changeMonth: true,
-              firstDay: 1,
-              minDate: new Date(),
-              beforeShowDay: function (date) {
-                let day = date.getDay();
-                if (day === 0 || day === 6) {
-                  return [false, 'markholiday'];
-                }
-                else {
-                  let formateDate = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                  if (holidays.indexOf(formateDate) === -1) {
-                    return [true,'']
-                  }
-                  else {
-                    return [false, 'markholiday'];
-                  }
-                }
-
-              }
-            }).on('change', () => {
-            $('.todate').datepicker("option", "dateFormat", "dd.mm.yy");
-          })
-        });
+    })
+      .on('change', () => {
+        to.datepicker("option", "dateFormat", "yy-mm-dd")
+      })
   }
+
+  getChoseReserve(params) {
+    function parseDate(date) {
+      let newDate = date.split("/");
+        let month = newDate[0];
+        let day = newDate[1];
+        newDate[0] = newDate[2];
+        newDate[2] = day;
+        newDate[1] = month;
+      let result = newDate.join('-');
+      return result
+    }
+    let holidays = params.holiday;
+    let from = $('.fromdate');
+    from.datepicker("destroy");
+    from.datepicker("option",'dateFormat',"yy-mm-dd");
+   from.datepicker({
+      firstDay:1,
+      minDate:new Date(),
+      onSelect:function (event) {
+           let targetDate = parseDate(event);
+        $.each(params.id_place, (index)=>{
+          let id = params.id_place[index].id;
+          id = Number(id); //??
+          $('.from').val(targetDate);
+          $.ajax({
+            url:'/reservation/showReserve',
+            method:'get',
+            dataType: 'json',
+            data: {'date': targetDate, 'id': id },
+            success:(props)=>{
+              EventBus.publish('reservation/showReserveSeats', {'seats': props.reservedSeats, 'price':props.price, 'space':params.id_place, 'date':targetDate})
+            }
+          });
+
+          // EventBus.publish('/reservation/showReserveSeats',{'date':event, 'id_space':params.id_place});
+        })
+      },
+      beforeShowDay:function (date) {
+        let day = date.getDay();
+        if(day === 0 || day === 6 ){
+          return [false , 'markholiday']
+        }
+        else{
+          let formattedDays = jQuery.datepicker.formatDate('yy-mm-dd',date);
+          if(holidays.indexOf(formattedDays) === -1){
+            return [true, '']
+          }
+          else{
+            return [false, 'markholiday']
+          }
+        }
+      }
+    });
+  }
+
 }
-
-
 export default DataPicker
