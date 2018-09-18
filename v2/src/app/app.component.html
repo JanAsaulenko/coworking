@@ -1,13 +1,13 @@
+<div class="app-container">
+    <router-outlet></router-outlet>
+</div>
+
 <nav class='navbar navbar-expand navbar-light bg-light'>
-  <a class='navbar-brand'> CoWorking </a>
   <ul class='nav nav-pills'>
     <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
-    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['']">Prices</a></li>
-    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['']">About</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/price']">Prices</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/contact']">About</a></li>
   </ul>
 </nav>
 
-<div class="app-container">
-  <router-outlet></router-outlet>
-</div>
 
