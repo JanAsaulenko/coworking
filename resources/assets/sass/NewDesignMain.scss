@@ -223,13 +223,7 @@ body {
 }
 
 /*---------------------------------------------------------------------------------*/
-/*#row-2{*/
-/*text-align: center;*/
-/*margin: 0 auto;*/
-/*padding: 2% 0 0 20%;*/
-/*height: auto;*/
-/*bottom: 0;*/
-/*}*/
+
 #row-3 {
     text-transform: uppercase;
     margin: 0 auto;
@@ -265,9 +259,6 @@ body {
 }
 
 @media (max-width: 1300px) {
-    /*.bottom ul li{*/
-    /*display: none;*/
-    /*}*/
     .bottom {
         display: none;
     }
@@ -546,44 +537,14 @@ body {
 }
 
 .footer {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     bottom: 0;
     width: 100%;
     height: auto;
-    background-color: rgba(37, 37, 37, 0.5);
 }
-
-/*---------------------------------------------------------------------------------*/
-.footer-btn {
-    padding: 12% 5% 0 25%;
-    width: 70%;
-}
-
-.footer-btn button {
-    color: white;
-    background-color: dodgerblue;
-    border: 1px solid black;
-    border-radius: 15px;
-    font-size: 1.1rem; /*16*/
-    padding: 10px 90px;
-}
-
-/*---------------------------------------------------------------------------------*/
-
-.footer-row-wraper {
-    /*border: 1px solid salmon;*/
-    width: 75%;
-    margin: 0 auto;
-}
-
-/*---------------------------------------------------------------------------------*/
-#bottom-row-1 {
-    padding: 10px;
-    margin: 0;
-
-}
-
-/*---------------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------*/
 .footer-adress {
@@ -592,21 +553,32 @@ body {
 }
 
 /*---------------------------------------------------------------------------------*/
-.footer-socials ul {
-
-    padding-left: 25%;
-    padding-right: 25%;
-    padding-top: 3%;
-    list-style: none;
-    display: inline-block;
-    width: 165px;
+.sochial-block_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-.footer-socials ul li {
-    padding: 10px;
-    display: inline-block;
-    margin-right: 6px;
-    margin-bottom: 6px;
+.sochial-block_item{
+   list-style: none;
+}
+
+.footer_partners-block{
+    display:flex;
+    flex-direction: row;
+}
+.partners-block_title{
+        align-self: center;
+    font-size: 18px;
+}
+.partners-block_list{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    list-style: none;
+}
+.partners-block_item{
+
 }
 
 @media (max-width: 618px) {
@@ -630,8 +602,8 @@ body {
 }
 
 .footer__social-link svg {
-    width: 46px;
-    height: 46px;
+    width: 20px;
+    height: 20px;
 }
 
 .tw:hover path {

@@ -31,6 +31,16 @@
   font-size: 18px;
 }
 
+.form-reserve__input-button-close{
+  background: rgb(50,50,50);
+  border: none;
+  color: red;
+  font-size: 11px;
+}
+
+
+
+
 .form__button {
   width: 100%;
   background: rgb(174, 246, 86);
@@ -39,7 +49,21 @@
   font-family: sans-serif;
   border: none;
 }
+.result{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  ul{
+    color: white;
+    padding: 0;
+  }
+}
 
+.form_data-list{
+ color:white;
+  list-style: none;
+}
 .input {
   width: 100%
 }

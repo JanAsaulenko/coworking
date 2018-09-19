@@ -9,8 +9,6 @@ class Space {
 
   showReserveSeats(dates) {
 
-    $.each(dates.space, (index) => {
-      let number_of_seats = dates.space[index].number_of_seats;
       let seatsReserve = dates.seats;
       let target_date = dates.date;
       let arrOfPrices = dates.price;
@@ -33,15 +31,14 @@ class Space {
           'prices': arrOfPrices
         });
       })
-    });
   }
+
+
 
   drawSeats(data) {
     $.each(data.seats, (index) => {
       ($('.space-select') || $('.place-select') || $('.city-select')).change(() => {
         $('.seats-block').empty();
-
-
       });
       let number_of_seats = data.seats[index].number_of_seats;
       let count = 1;

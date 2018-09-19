@@ -9,7 +9,7 @@ npm run prepublish
 
 ./node_modules/.bin/webpack
 ./node_modules/.bin/webpack -p
-./node_modules/.bin/webpack --config extension/webpack.config.js
-./node_modules/.bin/webpack --config extension/webpack.config.js -p
+./node_modules/.bin/webpack --config extension/webpack.index.js
+./node_modules/.bin/webpack --config extension/webpack.index.js -p
 
 
