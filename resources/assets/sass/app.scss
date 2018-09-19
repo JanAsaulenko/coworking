@@ -1,9 +1,22 @@
+@import './fonts/fonts';
+/*TODO for johny  create one style for each page and include parts like order block into them*/
+@import "common/layout";
+//MainPage
+@import './NewDesignMain.scss';
+@import './order-block.scss';  // our button
+@import './swiper-place/swiper.min.scss';
+@import './swiper-place/swiper_place.scss';
+//ReservationPage
+@import './reservation/reservation.scss';
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
-// Variables
-@import "variables";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// /@import'./admin.scss';
+//@import './GalleryMain.css';
+//@import'./ie8.css';
+//@import './main.css';
+//@import "./pricepage.css";
+//@import './operator';
+
+

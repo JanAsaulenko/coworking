@@ -1,0 +1,76 @@
+/*Footer*/
+@import "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css";
+@import "http://fonts.googleapis.com/css?family=Roboto:400,500";
+#bg3{background-color:#353535;}
+#bg3 .foot{padding-top: 5px;}
+footer{background-color:#353535; color: white; padding-bottom:35px;}
+#foot1,#foot2,#foot3,#foot4 a{color:white;padding-left: 5px;}
+
+#foot5{background-color:black;}
+
+#foot1 a:hover{
+  text-decoration: none;
+  color:#FFC831;
+}
+
+#foot2 a:hover{
+  text-decoration: none;
+  color:#FFC831;
+}
+h5#firstchild{padding-top:15px;}
+
+#foot1,#foot2,#foot3,#foot4 h3{color:#AEF656;}
+#foot3 h4{padding-top: 15px;line-height: 1.4}
+
+ul.social-network {
+  list-style: none;
+  display: inline;
+  margin-left:0 !important;
+  padding: 0;
+
+}
+ul.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+
+.social-network a.icoRss {
+  background-color: #F56505;
+  color:#fff;
+}
+.social-network a.icoFacebook {
+  background-color:#3B5998;
+  color:#fff;
+}
+.social-network a.icoTwitter{
+  background-color:#33ccff; color:#fff;
+}
+.social-network a.icoInstagram {
+  background-color:#007bb7; color:#fff;
+}
+.social-network a.icoLinkedin {
+  background-color:#3B5998; color:#fff;
+}
+
+a.socialIcon:hover, .socialHoverClass {
+  color:#44BCDD;
+}
+
+.social-circle li a {
+  display:inline-block;
+  position:relative;
+  margin:0 auto 0 auto;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  border-radius:50%;
+  text-align:center;
+  width: 50px;
+  height: 50px;
+  font-size:20px;
+
+}
+.social-circle li i {
+  margin:0;
+  line-height:50px;
+  text-align: center;
+}

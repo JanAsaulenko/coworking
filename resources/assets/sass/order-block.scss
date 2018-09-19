@@ -1,0 +1,203 @@
+.order{
+  display: block;
+  .block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top:55%;
+    text-align: center;
+    height: 45%
+  }
+}
+//--------------------------------------------------------------------------------------------------
+#order-btn {
+  width: 400px;
+  height: 50px;
+  color: white;
+  text-decoration: none;
+  padding: 5px 50px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  margin: auto;
+  background-color: darkgrey;
+  opacity: 0.8;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  &:hover {
+    background-color: rgb(174,246,86);
+  }
+}
+
+//------------------------------------------------------------------------------------
+.block-with-form {
+  width: 900px;
+  display: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  height: auto;
+  background: #202020;
+  padding: 10px;
+  border:2px solid silver;
+  //for all inputes
+      select{
+    background: #303030;
+    border: none;
+    color: white;
+  }
+  .legend{
+    border: none;
+    margin: 0;
+  }
+  .calendar {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom:10px;
+    .target{
+      width: 300px;
+    }
+    #from, #to {
+      background: #303030;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 4px;
+      border: none;
+      height: 50px;
+      color: white;
+    }
+  }
+  #num-of-places-input{
+    width:40%;
+    height:50px;
+    font:inherit;
+    text-align: center;
+    vertical-align:middle;
+    display:inline;
+    border-radius: 0;
+    background: #303030;
+    border: none;
+    color: white;
+  }
+  .count-places {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    .button {
+      width: 6%;
+      height: 50px;
+      background: #303030;
+      border: none;
+      color: white;
+      margin: 0;
+    }
+  }
+#promo-code-div{
+  #promo-code{
+    background:#303030;
+    color:white;
+  }
+legend{
+  margin:0;
+  border: none;
+}
+}
+
+  .arrows {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    .way-button {
+      width:30% ;
+      height: 50px;
+      padding: 0;
+      text-align: center;
+      background: #303030;
+      border: none;
+      color: white;
+      border-radius: 4px;
+    }
+  }
+}
+
+//------------------------------------------------------------------------------------------------
+
+
+
+.no-overflow {overflow:hidden;}
+
+/*DATAPICKER*/
+
+.ui-state-disabled, .ui-widget-content, .ui-widget-header, .ui-datepicker td a {
+  line-height:1.5em;
+  text-align: center;
+}
+
+/*SELECT2 	*/
+
+#select2-place-select-container{
+  background: #303030;
+  border: none;
+  color: white;
+}
+.select2-container .select2-selection--single {
+  background: #303030;
+  height: 40px;
+  text-align:center;
+  border: none;
+
+}
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+  background: #303030;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+  height:2.5em;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+  background: #303030;
+}
+
+
+
+
+/*NUM-OF-PLACES-INPUT*/
+//.block-with-form .button {	padding:0.4em 0.5em !important;}
+//.block-with-form button  {
+//  height:50px;
+//  width:30%;
+//  color: #696969;
+//  border: 1px solid #aaa;
+//  border-radius: 0;
+//  text-align: center;
+//  vertical-align:middle;
+//  background-color:#eee;
+//}
+
+
+//
+//.block-with-form legend {
+//  color:#888;
+//  font-size:0.8em;
+//  height:2em;
+//}
+
+/*PROMOCODE INPUT*/
+//#promo-code-div{	display:none;}
+//#promo-code{
+//  width:100%;
+//  height:50px;
+//  font:inherit;
+//  color: #696969;
+//  border: 1px solid #aaa;
+//  border-radius:4px;
+//  text-align: center;
+//  vertical-align:middle;
+//}
