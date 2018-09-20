@@ -11,4 +11,4 @@ function Strategy() {
   }
 }
 
-export default Strategy
+export default  new Strategy()

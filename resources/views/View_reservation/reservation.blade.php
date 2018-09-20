@@ -52,7 +52,7 @@
             <input type="text" class="input" name="telephone" placeholder="телефон">
             <button class="form__button" type="button">Замовити</button>
         </form>
-        <span class="sum">CУМА</span>
+        <div class="sum"></div>
         <span class="form__title">Обранi мiсця</span>
         <div class="result">
 

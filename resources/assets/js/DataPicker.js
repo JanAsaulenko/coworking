@@ -67,7 +67,6 @@ class DataPicker {
       firstDay:1,
       minDate:new Date(),
       onSelect:function (event) {
-        console.log(parseDate(event))
         $('.from').val(parseDate(event));
         // let arrOfSeats = $('.seat-reserved');
         // for(let i=0;i<arrOfSeats.length;i++){
