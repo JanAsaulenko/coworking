@@ -68,28 +68,6 @@ class DataPicker {
       minDate:new Date(),
       onSelect:function (event) {
         $('.from').val(parseDate(event));
-        // let arrOfSeats = $('.seat-reserved');
-        // for(let i=0;i<arrOfSeats.length;i++){
-        //   arrOfSeats[i].className ='seat';
-        // }
-        // $.each(params.id_place, (index)=>{
-        //   let id = params.id_place[index].id;
-        //   id = Number(id); //??
-        //   let promise = $.ajax({
-        //     url:'/reservation/showReserve',
-        //     method:'get',
-        //     dataType: 'json',
-        //     data: {'date': targetDate, 'id': id },
-        //   }).done((props)=> {
-        //     console.log(props)
-        //     EventBus.publish('reservation/showReserveSeats', {'seats': props.reservedSeats, 'price':props.price, 'space':params.id_place, 'date':targetDate})
-        //   })
-        //     .fail((error)=> {
-        //       console.log(error)
-        //     });
-        // })
-        //
-
       },
       beforeShowDay:function (date) {
         let day = date.getDay();

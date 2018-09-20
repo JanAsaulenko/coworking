@@ -1,7 +1,6 @@
 <div id="banner-wrapper">
     <form id="banner" class="form">
         <div class="form__select-block form__select-block-first">
-            {{--<label>Мiсто</label>--}}
             <select class="city-select" required>
                 <option class="selected" selected="selected" disabled>Оберiть мiсто...</option>
                 @foreach($cities as $city)
@@ -54,16 +53,8 @@
         </form>
         <div class="sum"></div>
         <span class="form__title">Обранi мiсця</span>
-        <div class="result">
-
-        </div>
-
+        <div class="result"></div>
     </div>
-
-
-    {{--<div class="result">--}}
-
-    {{--</div>--}}
 </div>
 
 
