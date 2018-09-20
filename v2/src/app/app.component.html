@@ -1,16 +1,31 @@
 <div class="app-container">
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
 
-    <div class="navbar-header">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li class="logo">
+            <a href="#"> <img src='images/logo.png' alt="logo" ></a>
+          </li>
+          <li> <a class="navbar-brand" href="#">CoWorking</a></li>
+        </ul>
+      </div>
       <ul class="nav navbar-nav">
-      <li class="logo">
-        <a href="#"> <img src='images/logo.png' alt="logo" ></a>
-      </li>
-        <li> <a class="navbar-brand" href="#">CoWorking</a></li>
+        <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Головна</a></li>
+        <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/prices']">Вартість</a></li>
+        <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">Контакти</a></li>
+        <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">Про Нас</a></li>
       </ul>
     </div>
-    <ul class="nav navbar-nav">
+  </nav>
+</div>
+
+<!--=================================
+<div class="app-container">
+<nav class="navbar navbar-dark bg-inverse">
+  <div class="container">
+    <a class='navbar-brand'> CoWorking </a>
+    <ul class="nav navbar-nav" routerLinkActive="active">
       <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Головна</a></li>
       <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/prices']">Вартість</a></li>
       <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">Контакти</a></li>
@@ -18,8 +33,7 @@
     </ul>
   </div>
 </nav>
-</div>
-
+========================== -->
 <div class="app-container">
   <router-outlet></router-outlet>
 </div>
