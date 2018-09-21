@@ -37,7 +37,6 @@ class TestSeed extends Seeder
         return null;
     }
 
-
     public function run()
     {
         $this->addTestReservation('1','2018-09-17','2018-09-21',10);

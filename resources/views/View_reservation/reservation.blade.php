@@ -31,13 +31,21 @@
                 <input class="turn to">
             </div>
         </div>
+        <div class="datepicker__error-block">
+
+        </div>
+        <div class="seats-block_buttons">
+
+        </div>
         {{--place were seats will be rendered--}}
         <div class="seats-block">
-            <div class="seats-block_buttons">
 
-            </div>
         </div>
     </form>
+
+
+
+
  {{--import block into  another layout  --}}
     <div class="block_with_form">
         <div class="block_with_form__nav">

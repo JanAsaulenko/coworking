@@ -1,6 +1,6 @@
 import EventBus from './PubSub';
 import db from './firebase/index'
-import isObject from "../../../public/gentelella_m/vendors/moment/src/lib/utils/is-object";
+
 
 class Space {
     constructor() {
@@ -10,6 +10,7 @@ class Space {
 
 
     showReserveSeats(dates) {
+        console.log(dates);
         let seatsReserve = dates.seats;
         let fireDate = dates.fireDate;
         let target_date = dates.date;

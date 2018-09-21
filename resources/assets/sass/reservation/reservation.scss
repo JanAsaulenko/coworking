@@ -45,6 +45,35 @@
 	flex-direction: row;
 	justify-content: space-around;
 }
+.datepicker__error-block{
+	display:flex;
+	min-height: 50px;
+	height: auto;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+.error-block__message{
+	animation-name: datepicker__error-block--blink;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	font-size: 18px;
+}
+
+@keyframes datepicker__error-block--blink {
+	from {
+		background: white;
+		color: red;
+		font-size: 18px
+	}
+	to {
+		background: red;
+		color: white;
+		font-size: 18px
+	}
+}
+
+
 .datapicker-block{
 	display: flex;
 	flex-direction: column;
@@ -56,6 +85,20 @@
 /*style for datapicker*/
 .markholiday .ui-state-default{
 	color:red;
+}
+.seats-block_buttons{
+	display: flex;
+	flex-direction: row;
+	min-height: 50px;
+	height: auto;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: center;
+}
+
+ button .seats-block_button{
+	 background: #0b97c4;
+	height: 20px;
 }
 
 .seats-block{
@@ -160,18 +203,6 @@
 }
 
 
-.del-row {
-	display: block; 
-	height:100%; 
-	width:100%;
-	color:red;
-}
-
-.add-row {
-	color:green;
-	float: right;
-	text-decoration: none;
-}
 
 .total-sum-container{
 	padding: 0px;

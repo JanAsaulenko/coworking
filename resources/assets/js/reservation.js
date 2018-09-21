@@ -4,7 +4,6 @@ import Space from './Space'
 import Seet from  './Seet'
 import ReserveSeats from './ReserveSeats';
 import DateRange from './DateRange';
-import API from './API';
 $(document).ready(function () {
 
   const city = $('.city-select');
@@ -50,7 +49,6 @@ $(".ui-state-default ui-state-active").on('change' , ()=>{
   const seet = new Seet();
   const reserve = new ReserveSeats();
   const range  = new DateRange()
-  const logic = new API();
 });
 
 
