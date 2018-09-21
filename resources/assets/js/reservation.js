@@ -43,7 +43,9 @@ $(document).ready(function () {
   const to = $('.todate');
   const reservationDataPicker = new DataPicker();
   reservationDataPicker.getDays(from,to);
-
+$(".ui-state-default ui-state-active").on('change' , ()=>{
+    console.log('sdfsdf')
+})
   const space = new Space();
   const seet = new Seet();
   const reserve = new ReserveSeats();

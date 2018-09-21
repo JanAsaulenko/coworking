@@ -38,7 +38,7 @@
             </div>
         </div>
     </form>
-
+ {{--import block into  another layout  --}}
     <div class="block_with_form">
         <div class="block_with_form__nav">
             <button class="nav_button nav_button-hide">—</button>

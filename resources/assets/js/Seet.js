@@ -14,12 +14,6 @@ class Seet {
         let targetDate = props.date.toString();
         let targetList = document.getElementById(targetDate);
 
-        function splitDate(date) {
-            date = date.split('.');
-            let arr = date.join('');
-            return arr
-        }
-
 
         function calculator(price) {
             let seatArray = $('.seat-clicked');
