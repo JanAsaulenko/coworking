@@ -1,0 +1,38 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div    class="box-1">
+    <agm-map [latitude]="mapConfig.lat"
+             [longitude]="mapConfig.long"
+             >
+      <agm-marker *ngFor="let contact of markers" [latitude]="contact.marker.lat" [longitude]="contact.marker.long"></agm-marker>
+    </agm-map>
+  </div>
+  <div class="box-2">
+    <br>
+    <div class="aside-heading"><h3>КОНТАКТНА ІНФОРМАЦІЯ</h3>
+    </div>
+
+    <div class="content_text">При винникненні будь-яких запитаннь
+      чи пропозицій, <br>
+      Ви можете звернутись по вказаним контактним <br>
+      даним, або заповнити відповідну форму
+    </div>
+    <div >
+      <p> <span class="address_input"></span></p>
+    </div>
+    <div class="content_earphone">
+      <p class="aside-heading">+38 0432 52 82 67</p>
+    </div>
+    <div class="content_envelope">
+      <p class="aside-heading"> e-mail:intita.hr@gmail.com</p>
+    </div>
+    <form  class="feedback" >
+      <input name="name" placeholder="Вкажіть ваше ім'я!" class="textbox" required />
+      <input name="email" placeholder="Вкажіть ваш Email!" class="textbox" type="email" required />
+      <input name="theme" placeholder="Вкажіть тему" class="textbox" required />
+      <textarea rows="4" cols="50" name="subject" placeholder="Введіть ваше повідомлення:" class="message" required></textarea>
+      <input name="submit" class="button" type="submit" value="Отправить" />
+    </form>
+  </div>
+</div>
