@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "http://coworking",
+    "secure": false
+  }
+}
