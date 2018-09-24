@@ -33,7 +33,6 @@ class DateRange {
         let range = diapasone(from, to); // divide into array dates
 
 
-
         //     function CreateForm() {
         //         this.notify = function (range) {
         //             let block_with_form = $('.block_with_form');
@@ -117,9 +116,14 @@ class DateRange {
         Observable.sendData(range);
 
 
-            $('.seats-block-button').on('click', (event) => {
-                LogicBackRequest.requestReserveSeats(event.target.innerText, space)
-            })
+        $('.seats-block-button').on('click', (event) => {
+            let seatsArray = $('.seat-block-table td');
+            console.log('baam', seatsArray);
+            for (let i = 0; i < seatsArray.length; i++) {
+                seatsArray[i].className = 'seat'
+            }
+            LogicBackRequest.requestReserveSeats(event.target.innerText, space)
+        })
     }
 }
 

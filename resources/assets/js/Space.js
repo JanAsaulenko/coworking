@@ -1,6 +1,7 @@
 import EventBus from './PubSub';
-import db from './firebase/index'
-import splitDate from './functionHelpers/splitDate'
+import splitDate from './functionHelpers/splitDate';
+import drawSeats from './actions/drawSeats'
+import SeatClick from './actions/SeatClick'
 
 class Space {
     constructor() {
@@ -10,51 +11,22 @@ class Space {
 
 
     showReserveSeats(dates) {
-        let seatsReserve = dates.seats;
+        let seatsArray = dates.seats;
         let fireDate = dates.fireDate;
         let target_date = dates.date;
         let arrOfPrices = dates.price;
         let table = $(".seat-block-table");
         let arrOfSeats = $('.seat');
-        //
-        // db.ref('days').child(fireDate).child('checked').once('value').then((el) => {
-        //     let checkedArray = el.val();
-        //     if (checkedArray === null) {
-        //         console.log('yek')
-        //     }
-        //     else {
-        //         console.log(checkedArray)
-        //         for(let i=0;i<arrOfSeats.length;i++) {
-        //             Object.keys(checkedArray).map(el => {
-        //                 if(arrOfSeats[i].innerText == el)
-        //                 {
-        //                     arrOfSeats[i].className = 'seat-clicked'
-        //                 }
-        //             })
-        //         }
-        //
-        //     }
-        //
-        //
-        // });
-        //
-        //
-        // let tdArray = $('.seat-block-table td');
-        // for (let i = 0; i < tdArray.length; i++) {
-        //
-        //     tdArray[i].className = 'seat'
-        // }
-        //
-        //
-        for (let i = 0; i < arrOfSeats.length; i++) {
-            for (let j = 0; j < seatsReserve.length; j++) {
-                if (Number(arrOfSeats[i].innerText) === seatsReserve[j]) {
-                    arrOfSeats[i].className = 'seat-reserved';
-                    let reserveDate = splitDate(arrOfSeats[i].innerText);
-                    db.ref('days').child(fireDate).child('seatReserve').child(reserveDate).set(Number(arrOfSeats[i].innerText));
-                }
-            }
-        }
+        drawSeats(fireDate,seatsArray);
+
+        arrOfSeats.unbind('click');
+        arrOfSeats.on('click', (event) => {
+            SeatClick.action(event, fireDate);
+            drawSeats(fireDate, arrOfSeats)
+        })
+
+
+
         //
         // $('.seats-block').append(table);
         // table.click((event) => {
@@ -82,9 +54,10 @@ class Space {
                 let col = document.createElement('tr');
                 for (let j = 0; j < 5; j++) {
                     let row = document.createElement('td');
-                    row.innerText = `${count++}`;
                     row.className = `seat`;
-                    col.appendChild(row)
+                    row.innerText = count.toString();
+                    col.appendChild(row);
+                    count++;
                 }
                 table.appendChild(col)
             }
