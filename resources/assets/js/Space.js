@@ -1,6 +1,6 @@
 import EventBus from './PubSub';
 import db from './firebase/index'
-
+import splitDate from './functionHelpers/splitDate'
 
 class Space {
     constructor() {
@@ -10,64 +10,62 @@ class Space {
 
 
     showReserveSeats(dates) {
-        console.log(dates);
         let seatsReserve = dates.seats;
         let fireDate = dates.fireDate;
         let target_date = dates.date;
         let arrOfPrices = dates.price;
         let table = $(".seat-block-table");
         let arrOfSeats = $('.seat');
-
-        db.ref('days').child(fireDate).child('checked').once('value').then((el) => {
-            let checkedArray = el.val();
-            if (checkedArray === null) {
-                console.log('yek')
-            }
-            else {
-                console.log(checkedArray)
-                for(let i=0;i<arrOfSeats.length;i++) {
-                    Object.keys(checkedArray).map(el => {
-                        if(arrOfSeats[i].innerText == el)
-                        {
-                            arrOfSeats[i].className = 'seat-clicked'
-                        }
-                    })
-                }
-
-            }
-
-
-        });
-
-
-        let tdArray = $('.seat-block-table td');
-        for (let i = 0; i < tdArray.length; i++) {
-
-            tdArray[i].className = 'seat'
-        }
-
-
+        //
+        // db.ref('days').child(fireDate).child('checked').once('value').then((el) => {
+        //     let checkedArray = el.val();
+        //     if (checkedArray === null) {
+        //         console.log('yek')
+        //     }
+        //     else {
+        //         console.log(checkedArray)
+        //         for(let i=0;i<arrOfSeats.length;i++) {
+        //             Object.keys(checkedArray).map(el => {
+        //                 if(arrOfSeats[i].innerText == el)
+        //                 {
+        //                     arrOfSeats[i].className = 'seat-clicked'
+        //                 }
+        //             })
+        //         }
+        //
+        //     }
+        //
+        //
+        // });
+        //
+        //
+        // let tdArray = $('.seat-block-table td');
+        // for (let i = 0; i < tdArray.length; i++) {
+        //
+        //     tdArray[i].className = 'seat'
+        // }
+        //
+        //
         for (let i = 0; i < arrOfSeats.length; i++) {
             for (let j = 0; j < seatsReserve.length; j++) {
                 if (Number(arrOfSeats[i].innerText) === seatsReserve[j]) {
                     arrOfSeats[i].className = 'seat-reserved';
-                    let id = db.ref().push().key;
-
-                    db.ref('days').child(fireDate).child('reserve').child(id).set(Number(arrOfSeats[i].innerText));
+                    let reserveDate = splitDate(arrOfSeats[i].innerText);
+                    db.ref('days').child(fireDate).child('seatReserve').child(reserveDate).set(Number(arrOfSeats[i].innerText));
                 }
             }
         }
-
-        $('.seats-block').append(table);
-        table.click((event) => {
-            EventBus.publish('seat/block', {
-                'data': dates.space,
-                'seat': event,
-                'date': target_date,
-                'prices': arrOfPrices,
-                'fireDate': fireDate
-            });
-        })
+        //
+        // $('.seats-block').append(table);
+        // table.click((event) => {
+        //     EventBus.publish('seat/block', {
+        //         'data': dates.space,
+        //         'seat': event,
+        //         'date': target_date,
+        //         'prices': arrOfPrices,
+        //         'fireDate': fireDate
+        //     });
+        // })
     }
 
 
