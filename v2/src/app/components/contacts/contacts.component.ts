@@ -21,7 +21,6 @@ export class ContactsComponent implements OnInit {
     this.contactsService.getContacts().subscribe(
         (res) => {
             this.markers = res;
-            debugger
         },
         (err) => {
 
