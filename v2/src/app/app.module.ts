@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import {PricesComponent} from './components/prices/prices.component';
 import { WelcomeComponent } from './components/main/welcome.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
-import { LogoComponent } from './components/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,6 @@ import { LogoComponent } from './components/logo/logo.component';
     PricesComponent,
     ContactsComponent,
     WelcomeComponent,
-    LogoComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +26,6 @@ import { LogoComponent } from './components/logo/logo.component';
       { path: 'welcome', component: WelcomeComponent },
       { path: 'prices', component: PricesComponent },
       { path: 'contacts', component: ContactsComponent },
-      { path: 'logo', component: LogoComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
 ]),
