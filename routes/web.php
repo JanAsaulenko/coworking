@@ -15,7 +15,7 @@ use App\DiscountType;
 
 Route::group(['prefix'=>'/v2'], function () {
     Route::get('/test','v2MainPageController@test');// temp and test route fo debug
-    Route::get('/getallplaces','v2MainPageController@getAllPlaces');
+    Route::get('getallplaces','v2MainPageController@getAllPlaces');
 
 
     Route::post('/reservation','ReservationController@index'); // method which open reservation window and get  datas(city end etc)
@@ -25,8 +25,7 @@ Route::group(['prefix'=>'/v2'], function () {
     Route::get('/reservation/chooseSpace', 'ReservationController@chooseSpace');
     Route::get('/reservation/showReserve', 'ReservationController@showReserve');
     Route::post('/reservation/reserveSeats','ReservationController@reserveSeats');
-
-
+    Route::get('/order/{guid}', ['as' => 'booking.show' ,'uses' => 'OrderController@show']);
 
 });
 
