@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {IPrices} from "./prices";
 
 @Component({
     selector: 'prices',
@@ -7,20 +8,20 @@ import { Component } from '@angular/core';
 })
 export class PricesComponent {
   title: string = 'Вартість';
-  priceDay: any[] = [{
+  priceDay: IPrices[] = [{
     "priceId":1,
-    "amount": 1 +'день',
-    "price": 90 +'грн',
+    "duration": 1 +'день',
+    "amount": 90 +'грн',
   },
     {
       "priceId":2,
-      "amount": 5 +'днів',
-      "price": 320 +'грн',
+      "duration": 5 +'днів',
+      "amount": 320 +'грн',
     },
     {
       "priceId":3,
-      "amount": 10 +'днів',
-      "price": 600 +'грн',
+      "duration": 10 +'днів',
+      "amount": 600 +'грн',
     }
   ];
 }
