@@ -15,7 +15,6 @@
                            aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                {{Html::link(route('price.create'), 'Додати',['class' => 'btn btn-success btn-sm'])}}
                             </li>
                         </ul>
                     </li>
@@ -57,7 +56,7 @@
                     @endforeach
                     </tbody>
                 </table>
-
+                {{Html::link(route('price.create'), 'Створити новий тариф',['class' => 'btn btn-success btn-sm'])}}
             </div>
         </div>
     </div>
