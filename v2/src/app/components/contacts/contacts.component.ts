@@ -19,8 +19,15 @@ export class ContactsComponent implements OnInit {
 
   ngOnInit() {
     this.contactsService.getContacts().subscribe(
-        (res) => {
-            this.markers = res;
+        (res: any) => {
+            this.markers = res.map((place)=>{
+                return {
+                    ...place,
+                    latitude: Number(place.latitude),
+                    longitude: Number(place.longitude)
+                }
+            });
+
         },
         (err) => {
 

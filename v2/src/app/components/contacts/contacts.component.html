@@ -2,9 +2,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <div    class="box-1">
-    <agm-map [latitude]="mapConfig.lat"
-             [longitude]="mapConfig.long">
-      <agm-marker *ngFor="let contact of markers" [latitude]="contact.marker.latitude" [longitude]="contact.marker.longitude" ></agm-marker>
+    <agm-map [latitude]="mapConfig.lat" [longitude]="mapConfig.long">
+    <agm-marker [latitude]="49.2308045" [longitude]="28.3964071"></agm-marker>
+    <agm-marker *ngFor="let contact of markers; let i=index" [latitude]="contact.latitude" [longitude]="contact.longitude" ></agm-marker>
 
     </agm-map>
   </div>
@@ -12,7 +12,6 @@
     <br>
     <div class="aside-heading"><h3>КОНТАКТНА ІНФОРМАЦІЯ</h3>
     </div>
-    <div><h4 *ngFor="let contact of markers "> {{contact.marker.address }}</h4></div>
 
     <div class="content_text">При винникненні будь-яких запитаннь
       чи пропозицій, <br>
