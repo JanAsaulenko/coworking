@@ -11,6 +11,92 @@
 
     <h3>Routes</h3>
 
+    <h4>getAllPlaces</h4>
+        Request:
+        <p>GET /api/v2/getallplaces</p>
+        Response: 200 <br>
+        <pre>
+[
+    {
+        "id": 1,
+        "city_id": 101,
+        "address": "М.Ващука, 20",
+        "name": null,
+        "longitude": "28.3964071",
+        "latitude": "49.2308045",
+        "start_time": "08:00:00",
+        "end_time": "21:00:00",
+        "number_of_seatplace": 50,
+        "created_at": "2018-09-08 23:44:04",
+        "updated_at": "2018-09-08 23:44:04"
+    },
+    {
+        "id": 2,
+        "city_id": 101,
+        "address": "Келецька, 126а",
+        "name": null,
+        "longitude": "28.3947603",
+        "latitude": "49.2297332",
+        "start_time": "08:00:00",
+        "end_time": "21:00:00",
+        "number_of_seatplace": 60,
+        "created_at": "2018-09-08 23:44:04",
+        "updated_at": "2018-09-08 23:44:04"
+    },
+    {
+        "id": 3,
+        "city_id": 101,
+        "address": "qwer",
+        "name": null,
+        "longitude": "28.3947603",
+        "latitude": "49.2297332",
+        "start_time": "08:00:00",
+        "end_time": "21:00:00",
+        "number_of_seatplace": 0,
+        "created_at": "2018-09-08 23:44:04",
+        "updated_at": "2018-09-08 23:44:04"
+    }
+]
+        </pre>
+
+
+    <h4>getAllPrices</h4>
+    Request:
+    <p>GET /api/v2/getallprices</p>
+    Response: 200 <br>
+    <pre>
+        [
+    {
+        "duration": "1 година",
+        "amount": 20
+    },
+    {
+        "duration": "1 день",
+        "amount": 90
+    },
+    {
+        "duration": "5 днів",
+        "amount": 320
+    },
+    {
+        "duration": "10 днів",
+        "amount": 600
+    },
+    {
+        "duration": "2 тижні",
+        "amount": 800
+    },
+    {
+        "duration": "1 місяць",
+        "amount": 1050
+    }
+]
+    </pre>
+
+
+
+
+
     <h4>getPlaces</h4>
         Request:
         <p>GET /api/v2/getplaces?city_id=:query (query is number)</p>
