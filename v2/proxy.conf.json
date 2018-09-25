@@ -1,6 +1,10 @@
+
 {
-  "/api": {
+  "/api/*": {
     "target": "http://coworking",
-    "secure": false
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {"^/api" : "http://coworking/api/v2"}
   }
 }
