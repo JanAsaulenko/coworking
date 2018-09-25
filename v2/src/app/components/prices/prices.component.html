@@ -7,26 +7,26 @@
   <div class="col-md-12" >
     <div class="panel-group row" >
       <!--foreach here -->
-      <div class="rate-panel col-md-3" *ngFor='let bill of priceDay'>
-        <div class="panel-primary">
-          <div class="panel-heading">
-            {{bill.duration}}
-            <!--{{ $price->duration }} -->
-          </div>
-          <div class="panel-body">
-            {{bill.amount}}
-            <!--{{ $price->amount }} грн. -->
-          </div>
-          <div class="panel-footer">
-            <ul>
-              <li><span class="glyphicon glyphicon-minus"></span> Доступ до усіх функцій</li>
-              <li><span class="glyphicon glyphicon-minus"></span> Підтримка chat/on-line</li>
-              <li><span class="glyphicon glyphicon-minus"></span> Безпечний доступ</li>
-            </ul>
-          </div>
-          <button class=" btn btn-success" onclick="goToOrder()"><a href="#" class="order-btn">ЗАМОВИТИ</a></button>
-        </div>
-      </div>
+      <!--<div class="rate-panel col-md-3" *ngFor='let bill of priceDay'>-->
+        <!--<div class="panel-primary">-->
+          <!--<div class="panel-heading">-->
+            <!--{{bill.duration}}-->
+            <!--&lt;!&ndash;{{ $price->duration }} &ndash;&gt;-->
+          <!--</div>-->
+          <!--<div class="panel-body">-->
+            <!--{{bill.amount}}-->
+            <!--&lt;!&ndash;{{ $price->amount }} грн. &ndash;&gt;-->
+          <!--</div>-->
+          <!--<div class="panel-footer">-->
+            <!--<ul>-->
+              <!--<li><span class="glyphicon glyphicon-minus"></span> Доступ до усіх функцій</li>-->
+              <!--<li><span class="glyphicon glyphicon-minus"></span> Підтримка chat/on-line</li>-->
+              <!--<li><span class="glyphicon glyphicon-minus"></span> Безпечний доступ</li>-->
+            <!--</ul>-->
+          <!--</div>-->
+          <!--<button class=" btn btn-success" onclick="goToOrder()"><a href="#" class="order-btn">ЗАМОВИТИ</a></button>-->
+        <!--</div>-->
+      <!--</div>-->
       <!--endforeach here -->
     </div>
   </div>
