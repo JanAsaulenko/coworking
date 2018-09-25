@@ -1,8 +1,8 @@
 .block_with_form {
   display: none;
+  width: 200px;
   position: relative;
   top: -500px;
-  width: min-content;
   height: min-content;
   background: #323232;
   align-items: center;
@@ -10,36 +10,48 @@
   border-radius: 0 0 5px 5px;
 }
 
+.block_with_form-users_info {
+  text-align: center;
+}
+
+.db_info-downpad_block {
+  background: #00d6b2;
+}
+
+.db_info-downpad_block-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.block-list_item {
+  color: white;
+}
+
 .block_with_form__nav {
   display: block;
   padding-left: 145px;
 }
-.nav_button{
+
+.nav_button {
   border: none;
   background: inherit;
   line-height: 14px;
 }
+
 .nav_button-close {
   color: red;
 }
+
 .nav_button-hide {
   color: green;
 }
+
 .form__title {
   text-align: center;
   color: white;
   font-size: 18px;
 }
-
-.form-reserve__input-button-close{
-  background: rgb(50,50,50);
-  border: none;
-  color: red;
-  font-size: 11px;
-}
-
-
-
 
 .form__button {
   width: 100%;
@@ -49,21 +61,23 @@
   font-family: sans-serif;
   border: none;
 }
-.result{
+
+.result {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  ul{
+  ul {
     color: white;
     padding: 0;
   }
 }
 
-.form_data-list{
- color:white;
+.form_data-list {
+  color: white;
   list-style: none;
 }
+
 .input {
   width: 100%
 }

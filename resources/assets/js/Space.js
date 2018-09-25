@@ -1,7 +1,9 @@
 import EventBus from './PubSub';
 import splitDate from './functionHelpers/splitDate';
-import drawSeats from './actions/drawSeats'
-import SeatClick from './actions/SeatClick'
+import drawSeats from './actions/drawSeats';
+import SeatClick from './actions/SeatClick';
+import findChooseSeats from './actions/findChooseSeats';
+
 
 class Space {
     constructor() {
@@ -17,27 +19,14 @@ class Space {
         let arrOfPrices = dates.price;
         let table = $(".seat-block-table");
         let arrOfSeats = $('.seat');
-        drawSeats(fireDate,seatsArray);
+        drawSeats(fireDate, seatsArray);
 
         arrOfSeats.unbind('click');
         arrOfSeats.on('click', (event) => {
             SeatClick.action(event, fireDate);
-            drawSeats(fireDate, arrOfSeats)
+            drawSeats(fireDate, arrOfSeats);
+            findChooseSeats(splitDate(fireDate))
         })
-
-
-
-        //
-        // $('.seats-block').append(table);
-        // table.click((event) => {
-        //     EventBus.publish('seat/block', {
-        //         'data': dates.space,
-        //         'seat': event,
-        //         'date': target_date,
-        //         'prices': arrOfPrices,
-        //         'fireDate': fireDate
-        //     });
-        // })
     }
 
 

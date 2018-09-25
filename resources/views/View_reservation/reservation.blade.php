@@ -42,26 +42,21 @@
 
         </div>
     </form>
-
-
-
-
- {{--import block into  another layout  --}}
+    {{--import block into  another layout  --}}
     <div class="block_with_form">
-        <div class="block_with_form__nav">
-            <button class="nav_button nav_button-hide">—</button>
-            <button class="nav_button nav_button-close">X</button>
+        <div class="block_with_form-users_info">
+            <span class="form__title">Контактнi даннi</span>
+            <form class="form-reserve">
+                <input type="text" class="input" name="name" placeholder="Iмя">
+                <input type="email" class="input" name="email" placeholder="email">
+                <input type="text" class="input" name="telephone" placeholder="телефон">
+                <button class="form__button" type="button">Замовити</button>
+            </form>
         </div>
-        <div class="form__title">Контактнi даннi</div>
-        <form class="form-reserve">
-            <input type="text" class="input" name="name" placeholder="Iмя">
-            <input type="email" class="input" name="email" placeholder="email">
-            <input type="text" class="input" name="telephone" placeholder="телефон">
-            <button class="form__button" type="button">Замовити</button>
-        </form>
-        <div class="sum"></div>
-        <span class="form__title">Обранi мiсця</span>
-        <div class="result"></div>
+        <div class="block_with_form-db_info">
+            <span class="form__title">Обранi мiсця</span>
+            <div class="sum"></div>
+        </div>
     </div>
 </div>
 

@@ -3,9 +3,9 @@ import Observable from './Observer';
 import Parser from './functionHelpers/parseDate';
 import splitDate from './functionHelpers/splitDate';
 import LogicBackRequest from './logicBackRequest';
-
-
+import drawForm from './actions/drawForm'
 import db from './firebase/index'
+import findChooseDates from './actions/findChooseDates'
 
 class DateRange {
     constructor() {
@@ -33,66 +33,11 @@ class DateRange {
         let range = diapasone(from, to); // divide into array dates
 
 
-        //     function CreateForm() {
-        //         this.notify = function (range) {
-        //             let block_with_form = $('.block_with_form');
-        //             let resultBlock = $('.result');
-        //             if (block_with_form.is(':visible')) return;
-        //
-        //             for (let i = 0; i < range.length; i++) {
-        //                 let dropDown = $(`<div class="dropDown"></div>`);
-        //                 let dropDownLink = $(`<a href="#">${range[i]}</a>`);
-        //                 dropDown.append(dropDownLink)
-        //
-        //                 let dataList = document.createElement('ul');
-        //                 dataList.setAttribute("id", range[i]);
-        //                 dataList.setAttribute("class", "form_data-list");
-        //                 dropDown.append(dataList);
-        //                 resultBlock.append(dropDown);
-        //                 block_with_form.append(resultBlock);
-        //             }
-        //
-        //             block_with_form.css({
-        //                 'display': 'flex',
-        //                 'flex-direction': 'column',
-        //                 'position': 'relative',
-        //                 "top": '14px'
-        //             });
-        //             block_with_form.animate({left: '0%'}, 1000);
-        //
-        //             /*TODO Check  hide button for form window*/
-        //             $('.nav_button-hide').on('click', () => {
-        //                 block_with_form.css({
-        //                     'display': 'none',
-        //                     'flex-direction': 'column',
-        //                     'position': 'relative',
-        //                     "left": '140%'
-        //                 });
-        //                 block_with_form.animate({left: '0%'}, 1000);
-        //             });
-        //
-        //             /*TODO Check  close button for  form window*/
-        //
-        //             $('.nav_button-close').on('click', (event) => {
-        //                 if (!block_with_form.is(':visible')) return;
-        //                 block_with_form.css({
-        //                     'display': 'none',
-        //                     'flex-direction': 'column',
-        //                     'position': 'relative',
-        //                     "left": '140%'
-        //                 });
-        //                 block_with_form.animate({left: '0%'}, 1000);
-        //                 $('.form-reserve__input-button-block').remove();
-        //                 let clickedSeat = $('.seat-clicked');
-        //                 $('.sum').empty();
-        //                 for (let i = 0; i < clickedSeat.length; i++) {
-        //                     clickedSeat[i].className = 'seat';
-        //                     inputCounter = 0;
-        //                 }
-        //             });
-        //
-        //         };
-        //     }
+            function CreateForm() {
+                this.notify = function (range) {
+                            drawForm(range)
+                }
+            }
 
 
         function MakeButtons() {
@@ -112,11 +57,12 @@ class DateRange {
                         }
                     let button = $(`<button type="button" class='seats-block-button'>${range[i]}</button>`);
                     buttonTable.append(button);
+                    findChooseDates(range);
                 }
-            }
+            };
         }
 
-        // Observable.addObserver(new CreateForm());
+        Observable.addObserver(new CreateForm());
         Observable.addObserver(new MakeButtons());
         Observable.sendData(range);
 
@@ -126,6 +72,7 @@ class DateRange {
             for (let i = 0; i < seatsArray.length; i++) {
                 seatsArray[i].className = 'seat';
             }
+
             LogicBackRequest.requestReserveSeats(event.target.innerText, space)
         })
     }
