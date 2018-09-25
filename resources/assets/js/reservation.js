@@ -4,6 +4,7 @@ import Space from './Space'
 import Seet from  './Seet'
 import ReserveSeats from './ReserveSeats';
 import DateRange from './DateRange';
+
 $(document).ready(function () {
 
   const city = $('.city-select');

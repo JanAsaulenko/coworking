@@ -97,6 +97,7 @@ class DateRange {
 
         function MakeButtons() {
             this.notify = function (range) {
+                let seatsAll = $('.seats-block td')
                 db.ref('days').remove(); //clear dates  when  dates (from || to) are changing
                 const buttonTable = $('.seats-block_buttons');
                 buttonTable.empty();
@@ -105,6 +106,10 @@ class DateRange {
                     let dateId = splitDate(range[i]);
                     ref = ref.child(dateId);
                     ref.set(range[i]);
+                        for (let i = 0; i < seatsAll.length; i++) {
+                            seatsAll[i].className= 'seat'
+                            db.ref('days').child(dateId).child(seatsAll[i].innerText).set(seatsAll[i].className)
+                        }
                     let button = $(`<button type="button" class='seats-block-button'>${range[i]}</button>`);
                     buttonTable.append(button);
                 }
@@ -118,9 +123,8 @@ class DateRange {
 
         $('.seats-block-button').on('click', (event) => {
             let seatsArray = $('.seat-block-table td');
-            console.log('baam', seatsArray);
             for (let i = 0; i < seatsArray.length; i++) {
-                seatsArray[i].className = 'seat'
+                seatsArray[i].className = 'seat';
             }
             LogicBackRequest.requestReserveSeats(event.target.innerText, space)
         })

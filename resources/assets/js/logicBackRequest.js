@@ -8,8 +8,11 @@ class LogicBackRequest {
         let arrOfSeats = $('.seat-reserved');
         let targetDate = Parser.parseDateForBack(date);
         let fireDate = splitDate(date);
+        let allSeats  = $('.seats-block td');
+
         $.each(space, (index) => {
             let id = Number(space[index].id);
+
             for (let i = 0; i < arrOfSeats.length; i++) {
                 arrOfSeats[i].className = 'seat';      // make all unreserve
             }
@@ -22,12 +25,12 @@ class LogicBackRequest {
 
 
             function pushReserveSeats(props) {
+
                 let seatsArray = $('.seat');
                 let reservedArray = props.reservedSeats;
                 for (let i = 0; i < seatsArray.length; i++) {
                     for (let j = 0; j < reservedArray.length; j++) {
                         if (Number(seatsArray[i].innerText) === reservedArray[j]) {
-                            // arrOfSeats[i].className = 'seat-reserved';
                             db.ref('days').child(fireDate).child(reservedArray[j]).set('seat-reserved');
                         }
                     }

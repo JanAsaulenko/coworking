@@ -26,6 +26,7 @@ class Selector {
                             'holiday': data.completelyReservedDays,
                             'id_place': data.spaces
                         });
+                        console.log('i ma here')
                         EventBus.publish('reservation/drawSeats', {'seats': data.spaces});
                         return
                     }
