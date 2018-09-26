@@ -23,17 +23,14 @@ export class PricesComponent implements OnInit {
       (res: any) => {
         this.prices = res.map((price)=>{
           return {
-            ...price
-            // ,
-            // latitude: Number(place.latitude),
-            // longitude: Number(place.longitude)
+            // ...price, // WTF ????? //todo Should ask Aleksandr
+            amount: String(price.amount),
+            duration: String(price.duration)
           }
         });
-        console.log(this.prices);
-
+        // console.log(this.prices); //todo Should remove before production
       },
       (err) => {
-
       }
     );
   }

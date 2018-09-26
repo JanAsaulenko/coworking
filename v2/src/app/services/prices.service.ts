@@ -2,21 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
-
-
-
-
 export class PricesService {
-
   private pricesUrl = '/api/getallprices';
 
   constructor(
     private http: HttpClient
   ) { }
-
 
   getPrices() {
     return this.http.get(this.pricesUrl)
