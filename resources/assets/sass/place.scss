@@ -1,0 +1,49 @@
+
+.place_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.place_block-info_block{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-container{
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: white;
+}
+.swiper-container-coverflow{
+  background-color: white;
+}
+
+
+.swiper-slide{
+  display: block;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  background: white;
+}
+
+.swiper-slide-active{
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  background-color: white;
+}
+.swiper-image{
+  width: 600px;
+  height: 400px;
+}
+
+

@@ -1,23 +1,45 @@
 {
   "private": true,
   "scripts": {
-    "prod": "gulp --production",
-    "dev": "gulp watch --hot"
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "cross-env": "^5.2.0",
     "gulp": "^3.9.1",
     "laravel-elixir": "^6.0.0-14",
     "laravel-elixir-vue-2": "^0.2.0",
     "laravel-elixir-webpack-official": "^1.0.2",
-    "webpack": "^4.16.2"
+    "laravel-mix": "^2.1.14",
+    "modernizr": "^3.6.0",
+    "modernizr-loader": "^1.0.1",
+    "webpack": "^3.4.1",
+    "webpack-cli": "^3.1.1"
   },
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "bootstrap-sass": "^3.3.7",
-    "d3-tree": "^1.0.20",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
     "firebase": "^5.5.0",
     "jquery": "^3.1.0",
     "npm": "^6.1.0",
     "react": "^16.4.2",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "sass-loader": "^7.1.0",
+    "swiper": "^4.4.1",
+    "webpack-dev-server": "^3.1.9"
   }
 }

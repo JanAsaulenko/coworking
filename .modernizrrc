@@ -1,0 +1,25 @@
+{
+  "minify": true,
+  "options": [
+    "setClasses",
+    "addTest"
+  ],
+  "feature-detects": [
+    "css/flexbox",
+    "css/flexboxlegacy",
+    "css/flexwrap",
+    "css/animations",
+    "css/calc",
+    "css/transforms",
+    "css/transitions",
+    "css/vwunit",
+    "css/rgba",
+    "img/srcset",
+    "svg",
+    "svg/inline",
+    "svg/clippaths",
+    "touchevents",
+    "storage/localstorage",
+    "storage/sessionstorage"
+  ]
+}

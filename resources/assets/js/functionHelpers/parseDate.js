@@ -1,5 +1,4 @@
-export default class Parser {
-
+ class Parser {
     parseDate(date) {
         let newDate = date.split("/");
         let month = newDate[0];

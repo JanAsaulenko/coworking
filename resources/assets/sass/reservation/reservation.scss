@@ -7,7 +7,8 @@
 	min-height: 100vh;
 	padding-top: 20px;
 	margin: 0 auto;
-	background:url('../../../../images/reservation/back.jpg') no-repeat; ;
+	//background:url('../../../../images/reservation/back.jpg') no-repeat;
+	background:url('../../images/reservation/back.jpg') no-repeat;
 }
 .form{
 	width: 500px;
@@ -73,7 +74,6 @@
 	}
 }
 
-
 .datapicker-block{
 	display: flex;
 	flex-direction: column;
@@ -118,7 +118,7 @@
 .seat{
 	width: 60px;
 	height: 60px;
-	background:url('../../../../images/reservation/place.png') no-repeat;
+	background:url('../../images/reservation/place.png') no-repeat;
 	border: 3px solid white;
 }
 
@@ -127,7 +127,7 @@
 	height: 60px;
 	border: 3px solid white;
 	color:red;
-	background:url('../../../../images/reservation/place-reserve.png') no-repeat;
+	background:url('../../images/reservation/place-reserve.png') no-repeat;
 }
 
 .seat-clicked {
@@ -135,7 +135,7 @@
 	height: 60px;
 	border: 3px solid white;
 	color:green;
-	background:url('../../../../images/reservation/place-choose.png') no-repeat;
+	background:url('../../images/reservation/place-choose.png') no-repeat;
 }
 
 
