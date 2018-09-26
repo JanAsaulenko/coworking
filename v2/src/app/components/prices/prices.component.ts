@@ -1,26 +1,39 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {IPrices} from "./prices";
+import {PricesService} from "../../services/prices.service";
 
 @Component({
     selector: 'prices',
     templateUrl: './prices.component.html',
      styleUrls: ['./prices.component.css']
 })
-export class PricesComponent {
+export class PricesComponent implements OnInit {
   title: string = 'Вартість';
-  priceDay: any[] = [{
-    "priceId":1,
-    "amount": 1 +'день',
-    "price": 90 +'грн',
-  },
-    {
-      "priceId":2,
-      "amount": 5 +'днів',
-      "price": 320 +'грн',
-    },
-    {
-      "priceId":3,
-      "amount": 10 +'днів',
-      "price": 600 +'грн',
-    }
-  ];
+  prices = [];
+
+
+
+  constructor(
+    private pricesService: PricesService) {
+
+  }
+
+  ngOnInit() {
+    this.pricesService.getPrices().subscribe(
+      (res: any) => {
+        this.prices = res.map((price)=>{
+          return {
+            // ...price, // WTF ????? //todo Should ask Aleksandr
+            amount: String(price.amount),
+            duration: String(price.duration)
+          }
+        });
+        // console.log(this.prices); //todo Should remove before production
+      },
+      (err) => {
+      }
+    );
+  }
+
+
 }
