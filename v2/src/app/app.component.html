@@ -1,27 +1,26 @@
-<nav class='navbar navbar-expand navbar-light bg-light'>
-  <a class='navbar-brand' routerLinkActive='active' [routerLink]="['/welcome']"> CoWorking </a>
-  <ul class='nav nav-pills'>
-    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/prices']">Прайс</a></li>
-    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/places']">Галерея</a></li>
-    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/contacts']">Контакти</a></li>
-    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['']">About</a></li>
-  </ul>
-</nav>
-
-<!--=================================
 <div class="app-container">
-<nav class="navbar navbar-dark bg-inverse">
-  <div class="container">
-    <a class='navbar-brand'> CoWorking </a>
-    <ul class="nav navbar-nav" routerLinkActive="active">
-      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Головна</a></li>
-      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/prices']">Вартість</a></li>
-      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">Контакти</a></li>
-      <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">Про Нас</a></li>
-    </ul>
-  </div>
-</nav>
-========================== -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li class="logo">
+            <a href="#"> <img src='assets/images/logo.png' alt="logo" ></a>
+          </li>
+          <li> <a class="navbar-brand" href="#">CoWorking</a></li>
+        </ul>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Головна</a></li>
+        <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/prices']">Вартість</a></li>
+        <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['/contacts']">Контакти</a></li>
+        <li class="nav-item"><a class='nav-link' routerLinkActive='active' [routerLink]="['']">Про Нас</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
 <div class="app-container">
   <router-outlet></router-outlet>
 </div>
@@ -32,7 +31,7 @@
       <div id="foot1" class="col-md-3 col-sm-3">
         <h4>Logo</h4>
         <h5 id="firstchild">
-          <span class="glyphicon glyphicon-chevron-right"></span><a href="#"><img src="images/logo.png" alt=""></a></h5>
+          <span class="glyphicon glyphicon-chevron-right"></span><a href="#"><img src="assets/images/logo.png" alt=""></a></h5>
       </div>
 
       <div id="foot2" class="col-md-3 col-sm-3">
@@ -40,18 +39,17 @@
         <ul class="partner__list">
           <li class="partner__list">
             <a class="partner__link" target="_blank" href="https://intita.com/">
-              <img src="images/intitalogo.png" alt="">
+              <img src="assets/images/intitalogo.png" alt="">
             </a>
           </li>
           <li class="partner__list">
             <a class="partner__link" target="_blank" href="https://profitday.info/">
-              <img src="images/profitdayLogo.png" alt="">
+              <img src="assest/images/profitdayLogo.png" alt="">
             </a>
           </li>
         </ul>
 
-        <h5 id="firstchild"><span class="glyphicon glyphicon-chevron-right"></span><a href="#" class="text-muted"> <b>Support</b></a></h5>
-        <h5 style="border-bottom:0px;"><span class="glyphicon glyphicon-chevron-right"></span><a href="#" class="text-muted"><b> Conatct Us</b></a></h5>
+
       </div>
 
       <div id="foot3" class="col-md-3 col-sm-3">
