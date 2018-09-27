@@ -42,6 +42,32 @@ html {
     }
 }
 
+
+
+@media (max-height: 1024px) {
+    .sizeof-video{
+        height: 79vh;
+    }
+    .main-titles {
+        font-size: 30px;
+    }
+    .title-inblock{
+        margin-top: 55px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 82px) {
+    .main-titles {
+        font-size: 18px;
+    }
+    .title-inblock{
+        margin-top: 55px;
+        font-size: 14px;
+    }
+}
+
+
 body {
     font-family: pageFont, Arial, sans-serif;
     position: relative;
@@ -52,7 +78,7 @@ body {
     align-items: center;
     background-color: black;
     width: 100%;
-    height: 100px;
+    height: 60px;
     background-size: cover;
 }
 
@@ -100,12 +126,6 @@ body {
 }
 
 
-
-
-//
-//.main-menu-list .list .item a:hover {
-//
-//}
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
@@ -182,10 +202,11 @@ body {
     position: relative;
 }
 
+
 /*-----------------------------BLOCK ON VIDEO----------------------------------------------------*/
 
 .block-on-video {
-    top: 30%;
+    top: 40%;
     display: block;
     position: absolute;
     width: 100%;
@@ -195,8 +216,19 @@ body {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
+    font-size: 60px;
+    line-height: .91667;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    color: white;
+    opacity: 0.5;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
 
+.title-inblock{
+    margin-top: 40px;
+    font-size: 30px;
+}
 /*My easy swiper*/
 
 .wrapper-in-block {
@@ -213,267 +245,6 @@ body {
     display: block;
     margin: 0 auto;
 
-}
-
-/*---------------------------------------------------------------------------------*/
-
-#row-3 {
-    text-transform: uppercase;
-    margin: 0 auto;
-    background-position: 60% 80%;
-    height: 180px;
-    margin-top: 2%;
-    margin-bottom: 2.5%;
-}
-
-/*---------------------------------------------------------------------------------*/
-#row-4 {
-    /*background-size: cover;*/
-    margin-top: 193px;;
-    width: 100%;
-    margin-left: 0;
-}
-
-.bottom {
-    background-color: rgba(84, 84, 84, 0.75);
-    height: 110px;
-    word-spacing: 100px;
-    text-align: center;
-    filter: opacity(100%);
-}
-
-.bottom ul {
-    list-style: none;
-}
-
-.bottom ul li {
-    display: inline;
-    padding: 0 0;
-}
-
-@media (max-width: 1300px) {
-    .bottom {
-        display: none;
-    }
-}
-
-
-
-
-
-.taryf .col-sm-12 {
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-
-.taryf div p {
-    text-align: center;
-    font-size: 1rem; /*18px*/
-}
-
-.taryf div h3 {
-    text-align: center;
-    margin: 0 auto;
-    font-size: 1.2rem; /*18px*/
-}
-
-.taryf div {
-    margin: 0 auto;
-    top: 20%;
-}
-
-/*/%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
-.card {
-    margin: 0 auto;
-    background: white;
-    /*height: 500px;*/
-    height: auto;
-}
-
-.inner-card-row {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 19%;
-}
-
-.col-12 {
-    /*margin: 0 auto;*/
-    text-align: center;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    font-size: 1rem; /*14*/
-}
-
-.col-3 {
-    border: 1px solid #bfbfbf;
-    margin: 0 10px;
-    margin-top: 2%;
-    width: 18%;
-}
-
-@media (max-width: 770px ) {
-    .col-12 {
-        padding-left: 5%;
-        /*width: auto;*/
-    }
-
-    .col-3 {
-        width: auto;
-    }
-
-    .inner-card-row {
-        padding-left: 5%;
-    }
-}
-
-/*---------------------------------------------------------------------------------*/
-.first {
-    background: #557dc7;
-    padding: 25px 15px;
-    color: white;
-    font-size: 1rem; /*20*/
-    /*margin-top:1%;*/
-    height: 77px;
-    vertical-align: middle;
-}
-
-/*---------------------------------------------------------------------------------*/
-.second {
-    padding: 25px 15px;
-    font-size: 1.5rem; /*26*/
-    font-style: italic;
-    height: 80px;
-}
-
-/*---------------------------------------------------------------------------------*/
-.third {
-    padding: 13px 25px;
-    background: lightgray;
-    font-size: 0.9rem; /*20*/
-    color: cornflowerblue;
-    font-weight: 400;
-    height: 70px;
-}
-
-/*---------------------------------------------------------------------------------*/
-.fourth {
-    text-align: left;
-    padding: 10px 10px;
-    height: auto;
-    font-size: 0.7rem;
-}
-
-/*---------------------------------------------------------------------------------*/
-.fifth a div {
-    /*width: 100%;*/
-    padding: 10px 0;
-    font-weight: bold;
-    background: rgb(197, 246, 100);
-    color: black;
-    text-decoration: none;
-    border: 0 solid white;
-    font-size: 0.8rem;
-}
-
-.fifth a div:hover {
-    background: #1abf17;
-    text-decoration: none;
-}
-
-/*---------------------------------------------------------------------------------*/
-.glyphicon-ok {
-    color: cornflowerblue;
-}
-
-/*---------------------------------------------------------------------------------*/
-.more {
-    display: block;
-    float: right;
-    color: cornflowerblue;
-    text-decoration: dotted;
-    padding: 1% 10% 2% 2%;
-    /*margin-top: 2%;*/
-    /*margin-left: 78%;*/
-}
-
-#col_4_row_2 {
-    padding-top: 50px;
-    font-size: 1.5rem;
-}
-
-#col_4_row_4 {
-    padding-top: 80px;
-}
-
-#card_top_1 {
-    opacity: 0.4;
-}
-
-#card_top_2 {
-    opacity: 0.5;
-}
-
-#card_top_3 {
-    opacity: 0.7;
-}
-
-/*/%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
-.wemap {
-    margin: 0 auto;
-    /*background: url("../src/6mynakarti/bgMyNaKarti.png");*/
-    background-size: cover;
-    background-position-x: 50%;
-    height: 150px;
-}
-
-.wemap .col-12-sm {
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-
-.wemap div h3 {
-    text-align: center;
-    font-size: 1.2rem;
-    /*padding: 50% 0 ;*/
-}
-
-.wemap div {
-    margin: 0 auto;
-    /*position: absolute;*/
-    text-align: center;
-    top: 20%;
-}
-
-.gm-style-iw {
-    background: blue;
-    overflow: visible !important;
-}
-
-.gm-style-iw div {
-    overflow: visible !important;
-    color: white;
-    position: absolute;
-    width: 250px;
-    font-size: 16px;
-    text-align: center;
-}
-
-.gm-style-iw + div {
-    position: absolute;
-    left: 315px;
-    top: -21px !important;
-}
-
-.gm-style-iw::before {
-    content: '';
-    width: 350px;
-    height: 70px;
-    position: absolute;
-    top: -25px;
-    border-radius: 30px;
-    left: -40px;
-    text-align: center;
-    background: blue;
 }
 
 .map-top {

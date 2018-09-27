@@ -9,6 +9,7 @@ class Space {
     constructor() {
         EventBus.subscribe('reservation/drawSeats', this.drawSeats);
         EventBus.subscribe('reservation/showReserveSeats', this.showReserveSeats);
+        this.findChooseSeats = findChooseSeats.bind(this)
     }
 
 
@@ -25,7 +26,7 @@ class Space {
         arrOfSeats.on('click', (event) => {
             SeatClick.action(event, fireDate);
             drawSeats(fireDate, arrOfSeats);
-            findChooseSeats(splitDate(fireDate))
+            findChooseSeats(splitDate(fireDate));
         })
     }
 

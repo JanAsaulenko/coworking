@@ -10,13 +10,11 @@
         </div>
 
         <div class="form__select-block">
-            <label>Мiсце</label>
             <select class="place-select" required>
                 <option selected="selected" disabled>Оберiть мiсце</option>
             </select>
         </div>
         <div class="form__select-block">
-            <label>Простiр</label>
             <select class="space-select" required>
                 <option selected="selected" disabled>Оберiть простiр</option>
             </select>

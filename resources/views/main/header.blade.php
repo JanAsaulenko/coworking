@@ -14,25 +14,10 @@
           <li class="item"><a href="{{ url('/price') }}">ВАРТІСТЬ</a></li>
           <li class="item" ><a href="/#to-order">ЗАМОВИТИ</a></li>
           <li class="item"><a href="{{ url('/contacts') }}">КОНТАКТИ</a></li>
-          {{--<li>@if (Auth::guest())--}}
-              {{--<a href="{{ url('/login') }}">ВХІД</a>--}}
-            {{--@else--}}
-              {{--<a href="{{ url('/logout') }}"--}}
-                 {{--onclick="event.preventDefault();--}}
-                 {{--document.getElementById('logout-form').submit();">--}}
-                {{--ВИХІД--}}
-              {{--</a>--}}
-
-              {{--<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">--}}
-                {{--{{ csrf_field() }}--}}
-              {{--</form>--}}
-        {{--</ul>--}}
-        {{--@endif</li>--}}
         </ul>
       </div>
     </div>
   </div>
-
   <div class="main-menu">
     <ul class="list">
       <li class="item"><a href="{{ url('/') }}">ГОЛОВНА</a></li>
@@ -40,22 +25,5 @@
       <li class="item"><a href="{{ url('/price') }}">ВАРТІСТЬ</a></li>
       <li class="item"><a href="{{ url('/contacts') }}">КОНТАКТИ</a></li>
     </ul>
-      {{--@if (Auth::guest())--}}
-        {{--<li><a href="{{ url('/login') }}">ВХІД</a></li>--}}
-      {{--@else--}}
-        {{--<li>--}}
-          {{--<a href="{{ url('/logout') }}"--}}
-             {{--onclick="event.preventDefault();--}}
-             {{--document.getElementById('logout-form').submit();">--}}
-            {{--ВИХІД--}}
-          {{--</a>--}}
-
-          {{--<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">--}}
-            {{--{{ csrf_field() }}--}}
-          {{--</form>--}}
-        {{--</li>--}}
-
-    {{--</ul>--}}
-    {{--@endif--}}
-  </div>
+    </div>
 </header>

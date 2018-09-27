@@ -8,11 +8,9 @@
         </video>
         <div class="block-on-video">
             <div class="main-titles">
-                <h1>РОБОЧІ ТА НАВЧАЛЬНІ ПРОСТОРИ</h1>
-
-                <div class="title-inblock"> Створеннн1 на эвропейському досв1д1</div>
+             Робочі та навчальні простори
+                <div class="title-inblock"> Створеннні на эвропейському досвіді</div>
             </div>
-
         </div>
 
         <div class="block">
