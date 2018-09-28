@@ -23,7 +23,7 @@ export class PricesComponent implements OnInit {
       (res: any) => {
         this.prices = res.map((price)=>{
           return {
-            // ...price, // WTF ????? //todo Should ask Aleksandr
+            // ...price, //todo Should ask Aleksandr
             amount: String(price.amount),
             duration: String(price.duration)
           }
