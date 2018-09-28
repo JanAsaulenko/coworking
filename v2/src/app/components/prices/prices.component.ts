@@ -28,8 +28,7 @@ export class PricesComponent implements OnInit {
             duration: String(price.duration)
           }
         });
-        // console.log(this.prices); //todo Should remove before production
-      },
+        },
       (err) => {
       }
     );
