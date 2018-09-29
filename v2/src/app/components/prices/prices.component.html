@@ -6,16 +6,16 @@
   </div>
   <div class="col-md-12" >
     <div class="panel-group row" >
-      <!--foreach here -->
-      <div class="rate-panel col-md-3" *ngFor='let bill of priceDay'>
+
+      <div class="rate-panel col-md-3" *ngFor='let price of prices'>
         <div class="panel-primary">
           <div class="panel-heading">
-            {{bill.amount}}
-            <!--{{ $price->duration }} -->
+            {{price.duration}}
+
           </div>
           <div class="panel-body">
-            {{bill.price}}
-            <!--{{ $price->amount }} грн. -->
+            {{price.amount}}
+
           </div>
           <div class="panel-footer">
             <ul>
@@ -24,10 +24,10 @@
               <li><span class="glyphicon glyphicon-minus"></span> Безпечний доступ</li>
             </ul>
           </div>
-          <button class=" btn btn-success" onclick="goToOrder()"><a href="#" class="order-btn">ЗАМОВИТИ</a></button>
+          <button class=" btn btn-success"><a href="#" class="order-btn">ЗАМОВИТИ</a></button>
         </div>
       </div>
-      <!--endforeach here -->
+
     </div>
   </div>
 </div>

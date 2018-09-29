@@ -11,5 +11,4 @@ export class PlacesComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
