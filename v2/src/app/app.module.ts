@@ -28,7 +28,7 @@ import { PlacesComponent } from './components/places/places.component';
       { path: 'welcome', component: WelcomeComponent },
       { path: 'prices', component: PricesComponent },
       { path: 'contacts', component: ContactsComponent },
-        { path: 'places', component: PlacesComponent },
+      { path: 'places', component: PlacesComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
 ]),
