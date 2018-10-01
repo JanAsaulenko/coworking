@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import {PricesComponent} from './components/prices/prices.component';
 import { WelcomeComponent } from './components/main/welcome.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { HeaderComponent } from './components/header/header.component';
+
+
 
 @NgModule({
   declarations: [
@@ -15,6 +18,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     PricesComponent,
     ContactsComponent,
     WelcomeComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +30,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
       { path: 'welcome', component: WelcomeComponent },
       { path: 'prices', component: PricesComponent },
       { path: 'contacts', component: ContactsComponent },
+      { path: 'header', component: HeaderComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
 ]),
