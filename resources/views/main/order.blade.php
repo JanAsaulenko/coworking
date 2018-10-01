@@ -9,8 +9,9 @@
         <div class="block-on-video">
             <div class="main-titles">
              Робочі та навчальні простори
-                <div class="title-inblock"> Створеннні на эвропейському досвіді</div>
+                <div class="title-inblock"> Створеннні на эвропейському досвді</div>
             </div>
+
         </div>
 
         <div class="block">

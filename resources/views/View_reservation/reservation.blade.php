@@ -39,7 +39,9 @@
         <div class="seats-block">
 
         </div>
+        <button type="button" class="form_button-next">Далі</button>
     </form>
+
     {{--import block into  another layout  --}}
     <div class="block_with_form">
         <div class="block_with_form-users_info">

@@ -18,6 +18,7 @@
       </div>
     </div>
   </div>
+
   <div class="main-menu">
     <ul class="list">
       <li class="item"><a href="{{ url('/') }}">ГОЛОВНА</a></li>
@@ -25,5 +26,5 @@
       <li class="item"><a href="{{ url('/price') }}">ВАРТІСТЬ</a></li>
       <li class="item"><a href="{{ url('/contacts') }}">КОНТАКТИ</a></li>
     </ul>
-    </div>
+  </div>
 </header>
