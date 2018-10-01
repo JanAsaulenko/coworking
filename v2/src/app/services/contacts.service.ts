@@ -7,7 +7,7 @@ import { catchError, tap, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ContactsService {
- private contactUrl = 'http://coworking/v2/getallplaces';
+ private contactUrl = '/api/getallplaces';
 
   constructor(
       private http: HttpClient
