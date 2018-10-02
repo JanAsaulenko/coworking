@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="ordering-selects">
+    <div class="form-group">
+      <label for="city_select">Місто</label>
+      <select  id="city_select" (change)="onSelect($event.target.value)" [(ngModel)]="curentCity">
+        <option default disabled value=""> не обрано </option>
+        <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+      </select>
+    </div>
+
+
+
+
+  </div>
+
+</div>
