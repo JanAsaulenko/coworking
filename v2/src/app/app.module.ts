@@ -8,9 +8,7 @@ import { AppComponent } from './app.component';
 import {PricesComponent} from './components/prices/prices.component';
 import { WelcomeComponent } from './components/main/welcome.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
-import { HeaderComponent } from './components/header/header.component';
 import { PlacesComponent } from './components/places/places.component';
-
 
 @NgModule({
   declarations: [
@@ -18,9 +16,7 @@ import { PlacesComponent } from './components/places/places.component';
     PricesComponent,
     ContactsComponent,
     WelcomeComponent,
-    HeaderComponent,
     PlacesComponent
-
   ],
   imports: [
     BrowserModule,
@@ -32,7 +28,6 @@ import { PlacesComponent } from './components/places/places.component';
       { path: 'welcome', component: WelcomeComponent },
       { path: 'prices', component: PricesComponent },
       { path: 'contacts', component: ContactsComponent },
-      { path: 'header', component: HeaderComponent },
       { path: 'places', component: PlacesComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
