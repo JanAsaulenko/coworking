@@ -28,6 +28,7 @@ export class OrderingComponent implements OnInit {
   constructor( private orderingService: OrderingService) { }
 
   ngOnInit() {
+
       this.orderingService.getAllCity().subscribe(
           (cities: any) => {
               this.cities = cities;

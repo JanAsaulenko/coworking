@@ -28,7 +28,7 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     BrowserModule,FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatCheckboxModule
+    MatButtonModule, MatCheckboxModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAI4IFg_krZ3BflXLNIHCNKocu23lXGV7E'
     }),
