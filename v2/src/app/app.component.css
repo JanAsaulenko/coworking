@@ -74,3 +74,11 @@ a.socialIcon:hover, .socialHoverClass {
   line-height:50px;
   text-align: center;
 }
+
+#footer {
+  height: 50px;
+  background: #f7f7f7;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
