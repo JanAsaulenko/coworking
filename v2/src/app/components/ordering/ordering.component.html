@@ -2,12 +2,31 @@
   <div class="ordering-selects">
     <div class="form-group">
       <label for="city_select">Місто</label>
-      <select  id="city_select" (change)="onSelect($event.target.value)" [(ngModel)]="curentCity">
-        <option default disabled value=""> не обрано </option>
+      <select  id="city_select"  (change)="onSelectCity($event.target.value)" [(ngModel)]="curentCityId" >
+        <option value="0" disabled selected >Select your option</option>
         <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
       </select>
     </div>
 
+
+
+    <div class="form-group">
+      <label for="place_select">Місто</label>
+      <select  id="place_select" [(ngModel)]="curentPlaceId" (change)="onSelectPlace($event.target.value)" >
+        <option value="0" disabled selected >Select your option</option>
+        <option *ngFor="let place of places" [value]="place.id">{{place.address}}</option>
+      </select>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="space_select">Місто</label>
+      <select  id="space_select" [(ngModel)]="curentSpaceId">
+        <option value="0" disabled selected >Select your option</option>
+        <option *ngFor="let space of spaces" [value]="space.id">{{space.name}}</option>
+      </select>
+    </div>
 
 
 
