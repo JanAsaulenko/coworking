@@ -19,4 +19,9 @@ export class ContactsService {
   }
 
 
+    postUser(user ) {
+        return this.http.post( this.contactUrl,user.map(res=>res.json()));
+        // return [{ marker: { lat: 49.229065, long: 28.425729} }]
+    }
+
 }

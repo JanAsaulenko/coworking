@@ -10,6 +10,9 @@ import { WelcomeComponent } from './components/main/welcome.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PlacesComponent } from './components/places/places.component';
 
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from "./material";
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,11 +22,14 @@ import { PlacesComponent } from './components/places/places.component';
     PlacesComponent
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
+      BrowserModule,
+      BrowserAnimationsModule,
+      HttpClientModule,
+      MaterialModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAI4IFg_krZ3BflXLNIHCNKocu23lXGV7E'
     }),
+      AgmSnazzyInfoWindowModule,
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
       { path: 'prices', component: PricesComponent },

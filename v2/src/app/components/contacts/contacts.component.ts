@@ -12,6 +12,13 @@ export class ContactsComponent implements OnInit {
         long: 28.425729
     }
   markers: any =[];
+    user={
+        name:"",
+        email:"",
+        theme:"",
+        subject:""
+
+    }
 
   constructor(
       private contactsService: ContactsService
@@ -35,4 +42,7 @@ export class ContactsComponent implements OnInit {
     );
   }
 
+  onSubmit(){
+
+  }
 }

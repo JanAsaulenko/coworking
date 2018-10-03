@@ -74,7 +74,10 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "../node_modules/snazzy-info-window/dist/snazzy-info-window.css",
+              "../node_modules/snazzy-info-window/dist/snazzy-info-window.scss" // replace .css by .scss, because I set styleext to .scss. same error with .css. checked, file exists
+
             ],
             "scripts": [],
             "assets": [
