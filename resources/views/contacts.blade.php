@@ -1,4 +1,4 @@
-@extends('layouts.main_lay')
+@extends('layouts.app')
 @include('errors.errors')
 @section('Header')
     @include('/main/header')

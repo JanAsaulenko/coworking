@@ -11,6 +11,7 @@ class AdminController extends Controller
 {
     public function index()
     {
+
 		$cities = City::all();
 		$places = Place::all();
 

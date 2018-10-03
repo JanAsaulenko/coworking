@@ -13,35 +13,94 @@
 use App\City;
 use App\DiscountType;
 
-Route::get('/', ['as' => 'index' ,'uses' => 'MainController@index']);
+Route::group(['prefix'=>'/v2'], function () {
+    Route::get('/test','v2MainPageController@test');// temp and test route fo debug
+    Route::get('getallplaces','v2MainPageController@getAllPlaces');
 
+
+    Route::post('/reservation','ReservationController@index'); // method which open reservation window and get  datas(city end etc)
+    Route::get('/reservation/getPlaces', 'ReservationController@getPlaces');
+    Route::get('/reservation/getSpaces','ReservationController@getSpaces');
+    Route::get('/reservation/choosePlace', 'ReservationController@choosePlace');
+    Route::get('/reservation/chooseSpace', 'ReservationController@chooseSpace');
+    Route::get('/reservation/showReserve', 'ReservationController@showReserve');
+    Route::post('/reservation/reserveSeats','ReservationController@reserveSeats');
+    Route::get('/order/{guid}', ['as' => 'booking.show' ,'uses' => 'OrderController@show']);
+
+});
+
+
+
+
+
+
+Route::get('/', ['as' => 'index' ,'uses' => 'MainController@index']);
+Route::get('/main/getLocationPlace', 'MainController@getPlace');
+
+
+
+
+Route::post('/reservation','ReservationController@index'); // method which open reservation window and get  datas(city end etc)
+Route::get('/reservation/getPlaces', 'ReservationController@getPlaces');
+Route::get('/reservation/getSpaces','ReservationController@getSpaces');
+Route::get('/reservation/choosePlace', 'ReservationController@choosePlace');
+Route::get('/reservation/chooseSpace', 'ReservationController@chooseSpace');
+Route::get('/reservation/showReserve', 'ReservationController@showReserve');
+Route::post('/reservation/reserveSeats','ReservationController@reserveSeats');
+
+
+Route::get('/order/{guid}', ['as' => 'booking.show' ,'uses' => 'OrderController@show']);
+
+
+
+
+Route::get('/contacts', 'MainController@contacts');
+Route::get('/place', 'MainController@place');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-Route::get('/operator', 'OperatorController@index')->middleware('auth');
 
-Route::post('/reservation','ReservationController@index');
-//Route::post('/booking','BookingController@debug');
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Route::get('/operator', 'OperatorController@index')->middleware('auth');
+
+
+
+
+
+
+Route::post('/reservation/getplace', 'ReservationController@getplace');
+
+
 
 Route::get('/gallery', 'GalleryController@index');
-Route::get('/price', 'PriceController@index2');
-Route::get('/contacts', 'MainController@contacts');
-Route::post('/send_message', 'SendContactsController@send_form');
-Route::get('/place', 'MainController@place');
 
-Route::post('/booking','BookingController@confirm');
-Route::post('/booking/save',['as' => 'booking.save' ,'uses' => 'BookingController@save']);
-Route::get('/booking/{guid}', ['as' => 'show.guid' ,'uses' => 'ReservationController@showOrderGet']);
-Route::get('/print/{guid}', ['as' => 'print.guid' ,'uses' => 'PrintOrderController@printOrder']);
-Route::post('/booking/update/{guid}',['as' => 'update.reservation' ,'uses' =>'UpdateDatabaseReservation@updateDatabase']);
-Route::post('/calculate','CalculatorController@calculatePrice');
-Route::post('/reservation/getplace', 'ReservationController@getplace');
+
+Route::get('/price', 'PriceController@index2');
+
+Route::post('/send_message', 'SendContactsController@send_form');
+
+//
+//Route::post('/booking','BookingController@confirm');
+//Route::post('/booking/save',['as' => 'booking.save' ,'uses' => 'BookingController@save']);
+//Route::get('/booking/{guid}', ['as' => 'booking.show.guid' ,'uses' => 'ReservationController@showOrderGet']);
+//Route::get('/print/{guid}', ['as' => 'print.guid' ,'uses' => 'PrintOrderController@printOrder']);
+//Route::post('/booking/update/{guid}',['as' => 'update.reservation' ,'uses' =>'UpdateDatabaseReservation@updateDatabase']);
+//Route::post('/calculate','CalculatorController@calculatePrice');
+
 
 Route::post('/city','CityController@store');
 
-Route::get('/main/getPlace', 'MainController@getPlace');
-Route::get('/main/getLocationPlace', 'MainController@getPlace');
-Route::get('/main/getPlaceLocation','MainController@getPlaceLocation');
 
 Route::get('/ajax/getCoordinates', 'Ajax\ContactsPageController@getCoordinates');
 
@@ -52,15 +111,24 @@ Route::group(['prefix'=>'/admin','middleware'=>'auth'], function (){
     Route::resource('discount', 'DiscountController');
     Route::resource('permissions', 'PermissionsController');
 	Route::resource('image', 'ImageController');
+    Route::resource('space', 'SpaceController');
 });
-Route::get('/getPDF', ['as'=>'getPDF','uses' => 'PDFController@getPDF']);
+
 Route::get('/getcode', 'DiscountController@show');
 Route::get('/checkCode', 'DiscountController@checkCode');
-Route::get('/getAllPDF', ['as'=>'getAllPDF','uses' => 'PDFController@getAllPDF']);
 
+
+Route::get('/getAllPDF', ['as'=>'getAllPDF','uses' => 'PDFController@getAllPDF']);
 Route::get('/getPDF/all', ['as'=>'getPDF.all','uses' => 'PDFController@getAllPDF']);
+Route::get('/getPDF', ['as'=>'getPDF','uses' => 'PDFController@getPDF']);
+
 Route::group(['prefix'=>'/admin','middleware'=>'auth'], function () {
     Route::get('/operator', ['as' => 'operator', 'uses' => 'OperatorController@index']);
-    Route::post('/operator/showorder', ['as' => 'operator.read', 'uses' => 'OperatorController@read']);
-    Route::post('/operator/updateorder', ['as' => 'operator.update', 'uses' => 'OperatorController@update']);
+    Route::post('/operator/find', ['as' => 'operator.find', 'uses' => 'OperatorController@find']);
+    Route::get('/operator/booking/{id}/show', ['as' => 'operator.bookingfact.show', 'uses' => 'OperatorController@showBooking']);
+    Route::post('/operator/booking/{id}/confirm', ['uses' => 'OperatorController@confirmBooking']);
+    Route::post('/operator/booking/{id}/cancell', ['uses' => 'OperatorController@cancellBooking']);
+    Route::post('/operator/reservation/{id}/confirm', ['uses' => 'OperatorController@confirmReservation']);
+    Route::post('/operator/reservation/{id}/cancell', ['uses' => 'OperatorController@cancellReservation']);
+
 });

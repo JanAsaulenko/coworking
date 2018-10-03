@@ -1,4 +1,9 @@
 <div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-2">
+            <h3 class="text-center">Варт1сть</h3>
+        </div>
+    </div>
     <div class="col-md-12" >
         <div class="panel-group row">
             @foreach($prices as $price)
@@ -17,7 +22,7 @@
                                 <li><span class="glyphicon glyphicon-ok" style="color: #337ab7;"></span> Безпечний доступ</li>
                             </ul>
                         </div>
-                        <button class="btn-success" onclick="goToOrder()"><a href="/#order-form" id="order-btn">ЗАМОВИТИ</a></button>
+                        <button class="btn-success" onclick="goToOrder()"><a href="/#order-form" class="order-btn">ЗАМОВИТИ</a></button>
                     </div>
                 </div>
             @endforeach

@@ -15,10 +15,11 @@ class CreateCorrectPlacesTable extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->increments('id');
-			$table->integer('id_city');
+			$table->integer('city_id');
 			$table->string('address');
-			$table->string('longitude');
-			$table->string('latitude');
+			$table->string('name')->nullable();
+			$table->string('longitude')->nullable();
+			$table->string('latitude')->nullable();
 			$table->time('start_time');
 			$table->time('end_time');
             $table->integer('number_of_seatplace')->default(0);
