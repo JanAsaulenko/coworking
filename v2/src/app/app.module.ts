@@ -32,11 +32,11 @@ import {FormsModule} from "@angular/forms";
       { path: 'prices', component: PricesComponent },
       { path: 'contacts', component: ContactsComponent },
       { path: 'places', component: PlacesComponent },
-        { path: 'ordering', component: OrderingComponent },
-        { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: 'ordering', component: OrderingComponent },
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
-]),
-],
+    ]),
+    ],
   providers: [],
   bootstrap: [ AppComponent ]
 })
