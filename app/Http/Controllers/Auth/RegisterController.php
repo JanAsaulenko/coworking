@@ -69,7 +69,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        // ToDo Role not working!
+
 
         return $user;
     }

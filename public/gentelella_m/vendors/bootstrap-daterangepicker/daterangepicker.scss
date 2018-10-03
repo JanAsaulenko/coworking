@@ -122,7 +122,7 @@ $daterangepicker-ranges-active-border-radius: $daterangepicker-border-radius !de
   padding: $daterangepicker-padding;
   margin-top: $daterangepicker-border-size;
 
-  // TODO: Should these be parameterized??
+
   top: 100px;
   left: 20px;
 
@@ -155,12 +155,12 @@ $daterangepicker-ranges-active-border-radius: $daterangepicker-border-radius !de
 
   &.opensleft {
     &:before {
-      // TODO: Make this relative to prefix size.
+
       right: $arrow-prefix-size + 2px;
     }
 
     &:after {
-      // TODO: Make this relative to suffix size.
+
       right: $arrow-suffix-size + 4px;
     }
   }
@@ -185,12 +185,12 @@ $daterangepicker-ranges-active-border-radius: $daterangepicker-border-radius !de
 
   &.opensright {
     &:before {
-      // TODO: Make this relative to prefix size.
+
       left: $arrow-prefix-size + 2px;
     }
 
     &:after {
-      // TODO: Make this relative to suffix size.
+
       left: $arrow-suffix-size + 4px;
     }
   }
@@ -247,7 +247,6 @@ $daterangepicker-ranges-active-border-radius: $daterangepicker-border-radius !de
       white-space: nowrap;
       text-align: center;
 
-      // TODO: Should this actually be hard-coded?
       min-width: 32px;
     }
   }
@@ -303,7 +302,6 @@ $daterangepicker-ranges-active-border-radius: $daterangepicker-border-radius !de
       border-color: $daterangepicker-in-range-border-color;
       color: $daterangepicker-in-range-color;
 
-      // TODO: Should this be static or should it be parameterized?
       border-radius: 0;
     }
 
@@ -381,7 +379,6 @@ $daterangepicker-ranges-active-border-radius: $daterangepicker-border-radius !de
     display: block;
     vertical-align: middle;
 
-    // TODO: Should these all be static, too??
     margin: 0 0 5px 0;
     padding: 0 6px 0 28px;
     width: 100%;
@@ -397,8 +394,6 @@ $daterangepicker-ranges-active-border-radius: $daterangepicker-border-radius !de
 
     i {
       position: absolute;
-
-      // NOTE: These appear to be eyeballed to me...
       left: 8px;
       top: 8px;
     }

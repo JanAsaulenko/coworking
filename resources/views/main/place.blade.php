@@ -2,7 +2,7 @@
   <div class="prostir row">
     <div class="col-sm-12">
       <h3>TIME/ON ЦЕ ПРОСТІР ДЛЯ ВАШОГО РОЗВИТКУ</h3>
-      <p><img src="{{ asset('assets/css/2prostir/line.png') }}" alt=""></p>
+      <p> <img src="{{ asset('images/header/logo.png') }}"></p>
       <p> місце, де зустрічаються якість,
         можливість та пристрасть, щоб сприяти розвитку</p>
     </div>
@@ -13,21 +13,21 @@
     <div class="swiper-wrapper">
       <!-- Slides -->
       <div class="swiper-slide" id="1">
-        <img src="{{ asset('assets/css/3carousel/photo1.png') }}">
+        <img src="{{ asset('images/header/logo.png') }}">
         <div class="swiper-elements ">
           <h1>Sea Room</h1>
           <button class="cabinet-info">Read more ></button>
         </div>
       </div>
       <div class="swiper-slide" id='2'>
-        <img src="{{ asset('assets/css/3carousel/photo2.png') }}">
+        <img src="{{ asset('images/header/logo.png') }}">
         <div class="swiper-elements">
           <h1>Square space</h1>
           <button class="cabinet-info">Read more ></button>
         </div>
       </div>
       <div class="swiper-slide" id='3'>
-        <img src="{{ asset('assets/css/3carousel/photo3.png') }}">
+        <img src="{{ asset('images/header/logo.png') }}">
         <div class="swiper-elements">
           <h1> Magenta Room</h1>
           <button class="cabinet-info">Read more ></button>
@@ -56,9 +56,8 @@
     </div>
   </div>
 </div>
-</div>
 <script>
-    var swiper = new Swiper('.swiper-container', {
+    let swiper = new Swiper('.swiper-container', {
         effect: 'coverflow',
         spaceBetween: 70,
         grabCursor: true,
@@ -87,9 +86,9 @@
     });
 
     swiper.on('transitionStart', function () {
-        var activeSlide = swiper.slides[swiper.activeIndex];
-        var slidesArray = swiper.slides;
-        for (var i = 0; i < slidesArray.length; i++) {
+        let activeSlide = swiper.slides[swiper.activeIndex];
+        let slidesArray = swiper.slides;
+        for (let i = 0; i < slidesArray.length; i++) {
             console.log('slideArray= ', slidesArray[i].id);
             console.log('active= ', activeSlide.id);
             if (slidesArray[i].id === activeSlide.id) {

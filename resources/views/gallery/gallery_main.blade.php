@@ -1,4 +1,4 @@
-@extends('layouts.gallery_lay')
+@extends('layouts.app')
 
 @section('header')
 	@include('/gallery/headerGallery')
@@ -9,6 +9,6 @@
 @endsection
 
 @section('Footer')
-	@include('/View_main/footer')
+  @include('/main/footer');
 @endsection
 
