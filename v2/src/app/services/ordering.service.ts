@@ -22,8 +22,8 @@ export class OrderingService {
 
                 return city.map(res => {
                     return {
-                        id: res.id,
-                        name: res.name
+                        value: res.id,
+                    viewValue: res.name
                     }
                 })
         }));

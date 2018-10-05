@@ -9,6 +9,22 @@ export class CitySelect {
 
 
 
+export interface iSelectItem {
+    value: string;
+    viewValue: string;
+}
+export class PlaceSelect {
+    options: Array<iSelectItem> = [];
+    value: string = "";
+    disalble:boolean = true;
+}
+
+
+
+
+
+
+
 @Component({
   selector: 'app-ordering',
   templateUrl: './ordering.component.html',
@@ -17,62 +33,64 @@ export class CitySelect {
 
 
 export class OrderingComponent implements OnInit {
-    cities: any =[];
-    places: any =[];
-    spaces: any =[];
 
-    public curentCityId: any = 0;
-    public curentPlaceId: any = 0;
-    public curentSpaceId: any = 0;
+    citySelect:PlaceSelect = new PlaceSelect();
+    placeSelect:PlaceSelect = new PlaceSelect();
+    spaceSelect:PlaceSelect = new PlaceSelect();
 
   constructor( private orderingService: OrderingService) { }
-
   ngOnInit() {
-
+    this.citySelect.disalble = true;
       this.orderingService.getAllCity().subscribe(
           (cities: any) => {
-              this.cities = cities;
-          },
+              this.citySelect.options = cities;
+                  if(this.citySelect.options.length>0){
+                      this.citySelect.disalble = false;
+                  }
+              },
           (err) => {
           }
       );
   }
 
-  onSelectCity(id:any){
-    this.places = [];
-    this.curentPlaceId = 0;
-    this.spaces = [];
-    this.curentSpaceId = 0;
-
-
-        this.orderingService.getPlaces(id).subscribe(
+  onSelectCity(){
+    this.placeSelect = new PlaceSelect();
+    this.spaceSelect = new PlaceSelect();
+      this.orderingService.getPlaces( Number(this.citySelect.value) ).subscribe(
           (res: any) =>{
-                this.places = res.map((item:any )=>{
+                this.placeSelect.options = res.map((item:any )=>{
                     return{
-                        id: item.palce_id,
-                        address: item.address,
-                        name: item.name
+                        value: item.palce_id,
+                        viewValue: item.address
                     }
                 });
+                if(this.placeSelect.options.length>0){
+                    this.placeSelect.disalble = false;
+                }
                 },
             (err) =>{
           });
     }
 
-    onSelectPlace(id:any){
-        this.spaces = [];
-        this.curentSpaceId = 0;
-        this.orderingService.getSpaces(id).subscribe(
+    onSelectPlace(){
+
+        this.spaceSelect = new PlaceSelect();
+        this.orderingService.getSpaces(Number(this.placeSelect.value)).subscribe(
             (res: any) => {
-                this.spaces = res.map((item:any)=>{
+                this.spaceSelect.options = res.map((item:any)=>{
                     return{
-                        id: item.id,
-                        name: item.name
+                        value: item.space_id,
+                        viewValue: item.name
                     }
-                })
+                });
+                if (this.spaceSelect.options.length>0){
+                    this.spaceSelect.disalble = false;
+                }
             },
             (err) =>{
             });
     }
-
+    onSelectSpace(){
+      console.log(this.spaceSelect.value);
+    }
 }

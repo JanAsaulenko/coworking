@@ -1,41 +1,35 @@
 <div class="container">
   <div class="ordering-selects">
-    <div class="form-group">
-      <label for="city_select">Місто</label>
-      <select  id="city_select"  (change)="onSelectCity($event.target.value)" [(ngModel)]="curentCityId" >
-        <option value="0" disabled selected >Select your option</option>
-        <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
-      </select>
-    </div>
 
+    <mat-form-field>
+        <mat-select  placeholder="Місто" [(ngModel)]="citySelect.value" (selectionChange)="onSelectCity()"  [disabled]="citySelect.disalble"  >
+        <mat-option *ngFor="let city of citySelect.options" [value]="city.value">
+          {{city.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
+    <br>
 
-    <div class="form-group">
-      <label for="place_select">Місто</label>
-      <select  id="place_select" [(ngModel)]="curentPlaceId" (change)="onSelectPlace($event.target.value)" >
-        <option value="0" disabled selected >Select your option</option>
-        <option *ngFor="let place of places" [value]="place.id">{{place.address}}</option>
-      </select>
-    </div>
+    <mat-form-field>
+      <mat-select  placeholder="Офіс" [(ngModel)]="placeSelect.value" (selectionChange)="onSelectPlace()" [disabled]="placeSelect.disalble"  >
+        <mat-option *ngFor="let place of placeSelect.options" [value]="place.value">
+          {{place.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
+    <br>
 
-
-    <div class="form-group">
-      <label for="space_select">Місто</label>
-      <select  id="space_select" [(ngModel)]="curentSpaceId">
-        <option value="0" disabled selected >Select your option</option>
-        <option *ngFor="let space of spaces" [value]="space.id">{{space.name}}</option>
-      </select>
-    </div>
-
-
+    <mat-form-field>
+      <mat-select  placeholder="Простір" [(ngModel)]="spaceSelect.value" (selectionChange)="onSelectSpace()" [disabled]="spaceSelect.disalble">
+        <mat-option *ngFor="let space of spaceSelect.options" [value]="space.value">
+          {{space.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
   </div>
 
-  <mat-form-field>
-    <mat-select placeholder="Favorite food">
-      <mat-option value="1"> 1 </mat-option>
-    </mat-select>
-  </mat-form-field>
 
 </div>
