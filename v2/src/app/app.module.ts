@@ -9,6 +9,12 @@ import {PricesComponent} from './components/prices/prices.component';
 import { WelcomeComponent } from './components/main/welcome.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PlacesComponent } from './components/places/places.component';
+import { OrderingComponent } from './components/ordering/ordering.component';
+import {FormsModule} from "@angular/forms";
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from './material.module';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +22,14 @@ import { PlacesComponent } from './components/places/places.component';
     PricesComponent,
     ContactsComponent,
     WelcomeComponent,
-    PlacesComponent
+    PlacesComponent,
+    OrderingComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAI4IFg_krZ3BflXLNIHCNKocu23lXGV7E'
     }),
@@ -29,10 +38,11 @@ import { PlacesComponent } from './components/places/places.component';
       { path: 'prices', component: PricesComponent },
       { path: 'contacts', component: ContactsComponent },
       { path: 'places', component: PlacesComponent },
+      { path: 'ordering', component: OrderingComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
-]),
-],
+    ]),
+    ],
   providers: [],
   bootstrap: [ AppComponent ]
 })
