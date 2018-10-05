@@ -38,7 +38,7 @@ export class OrderingService {
 
     getSpaces(id:number){
         if (id != 0 ){
-            console.log('getPlaces got not null id params')
+            console.log('getPlaces got not null id params') //  I ask you to leave this slap to refactor the beggend
         }
         return this.http.get(this.getSpaceUrl,{ params:{ place_id: id.toString() }})
     }
