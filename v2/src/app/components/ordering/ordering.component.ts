@@ -47,7 +47,6 @@ export class OrderingComponent implements OnInit {
 
         this.orderingService.getPlaces(id).subscribe(
           (res: any) =>{
-                // console.log(res);
                 this.places = res.map((item:any )=>{
                     return{
                         id: item.palce_id,
