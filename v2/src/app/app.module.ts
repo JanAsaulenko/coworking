@@ -13,7 +13,8 @@ import { OrderingComponent } from './components/ordering/ordering.component';
 import {FormsModule} from "@angular/forms";
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MaterialModule} from './material.module';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     BrowserModule,FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatCheckboxModule,
+    MaterialModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAI4IFg_krZ3BflXLNIHCNKocu23lXGV7E'
     }),
