@@ -55,7 +55,6 @@ export class OrderingComponent implements OnInit {
                         name: item.name
                     }
                 });
-                // console.log(this.places);
                 },
             (err) =>{
           });
