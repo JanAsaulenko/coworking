@@ -78,7 +78,7 @@ a.socialIcon:hover, .socialHoverClass {
 #footer {
   height: 50px;
   background: #f7f7f7;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
 }
