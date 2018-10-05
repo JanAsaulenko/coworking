@@ -10,8 +10,17 @@ agm-map {
     border-radius:5px;
 
 }
+example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin:30px;
+}
 
-
+.example-full-width {
+    width: 90%;
+    margin:10px;
+}
 
 /* Стили полей ввода */
 .textbox{
@@ -71,12 +80,12 @@ agm-map {
 
 .container {
     display: flex;
-    padding: 10px;
+    padding: 3px;
     flex-flow: row;
 
 }
 .box-1{
-    margin: 2px;
+    margin: 1px;
     flex: 2;
     order: 1}
 
@@ -84,7 +93,7 @@ agm-map {
     order: 2;
     background-color:#F0FFF0;
     border-style: inset;
-    margin: 2px;
+    margin: 1px;
     flex: 1;
 }
 .aside-heading{

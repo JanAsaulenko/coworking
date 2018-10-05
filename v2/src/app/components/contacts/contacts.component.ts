@@ -5,6 +5,7 @@ import { ContactsService } from '../../services/contacts.service';
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css']
+
 })
 export class ContactsComponent implements OnInit {
     mapConfig = {
@@ -12,6 +13,13 @@ export class ContactsComponent implements OnInit {
         long: 28.425729
     }
   markers: any =[];
+    user={
+        name:"",
+        email:"",
+        theme:"",
+        subject:""
+
+    }
 
   constructor(
       private contactsService: ContactsService
@@ -34,5 +42,6 @@ export class ContactsComponent implements OnInit {
         }
     );
   }
+
 
 }
