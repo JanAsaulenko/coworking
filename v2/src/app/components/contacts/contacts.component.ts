@@ -33,7 +33,9 @@ export class ContactsComponent implements OnInit {
                     ...place,
                     latitude: Number(place.latitude),
                     longitude: Number(place.longitude)
+
                 }
+
             });
 
         },

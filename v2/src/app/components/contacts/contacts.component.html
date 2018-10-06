@@ -4,14 +4,14 @@
   <div    class="box-1">
     <agm-map [latitude]="mapConfig.lat"
              [longitude]="mapConfig.long">
-    <agm-marker [latitude]="49.2308045" [longitude]="28.3964071"></agm-marker>
+    <!--<agm-marker [latitude]="49.2308045" [longitude]="28.3964071"></agm-marker>-->
     <agm-marker *ngFor="let contact of markers; let i=index"
                 [latitude]="contact.latitude"
-                [longitude]="contact.longitude" >
+                [longitude]="contact.longitude"  >
 
-      <agm-snazzy-info-window [isOpen]="true" [latitude]="" [longitude]="" [closeWhenOthersOpen]="true">
+      <agm-snazzy-info-window [isOpen]="true" [latitude]="contact.latitude" [longitude]="contact.longitude" [closeWhenOthersOpen]="true">
         <ng-template>
-          My first Snazzy Info Window!
+          {{ contact.name}}
         </ng-template>
 
       </agm-snazzy-info-window>
