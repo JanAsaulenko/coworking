@@ -1,37 +1,41 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <div    class="box-1">
-    <agm-map [latitude]="mapConfig.lat"
-             [longitude]="mapConfig.long">
-    <agm-marker [latitude]="49.2308045" [longitude]="28.3964071"></agm-marker>
-    <agm-marker *ngFor="let contact of markers; let i=index"
-                [latitude]="contact.latitude"
-                [longitude]="contact.longitude" >
-
-      <agm-snazzy-info-window [isOpen]="true" [latitude]="" [longitude]="" [closeWhenOthersOpen]="true">
-        <ng-template>
-          My first Snazzy Info Window!
-        </ng-template>
-
-      </agm-snazzy-info-window>
-
-
-    </agm-marker>
+  <div class="box-1">
+    <agm-map
+      [latitude]="mapConfig.lat"
+      [longitude]="mapConfig.long">
+      <agm-marker
+        [latitude]="49.2308045"
+        [longitude]="28.3964071">
+      </agm-marker>
+      <agm-marker
+        *ngFor="let contact of markers; let i=index"
+        [latitude]="contact.latitude"
+        [longitude]="contact.longitude">
+        <agm-snazzy-info-window
+          [isOpen]="true"
+          [latitude]=""
+          [longitude]=""
+          [closeWhenOthersOpen]="true">
+          <ng-template>
+            My first Snazzy Info Window!
+          </ng-template>
+        </agm-snazzy-info-window>
+      </agm-marker>
     </agm-map>
   </div>
   <div class="box-2">
     <br>
-   <div *ngFor="let contact of markers "> <h4 >{{contact.latitude}}</h4></div>
-    <div class="aside-heading"><h3>КОНТАКТНА ІНФОРМАЦІЯ</h3>
+    <div class="aside-heading">
+      <h3>КОНТАКТНА ІНФОРМАЦІЯ</h3>
     </div>
-
     <div class="content_text">При винникненні будь-яких запитаннь
       чи пропозицій, <br>
       Ви можете звернутись по вказаним контактним <br>
       даним, або заповнити відповідну форму
     </div>
-    <div >
+    <div>
       <p> <span class="address_input"></span></p>
     </div>
     <div class="content_earphone">
@@ -39,28 +43,31 @@
     </div>
     <div class="content_envelope">
       <p class="aside-heading"> e-mail:intita.hr@gmail.com</p>
-
     </div>
-
-      <div >
-          <form class="example-form">
-          <mat-form-field class="example-full-width">
-          <input matInput placeholder="Вкажіть ваше ім'я!" ngModel="user.name">
-          </mat-form-field>
-          <br>
-              <mat-form-field class="example-full-width">
-              <input matInput placeholder="Вкажіть тему" ngModel="user.theme" >
-          </mat-form-field>
-          <br>
-          <mat-form-field class="example-full-width">
-              <textarea matInput placeholder="Введіть ваше повідомлення:" ngModel="user.subject"></textarea>
-
-          </mat-form-field>
-
-              <button mat-button color="primary">Відправити</button>
-
-          </form>
-      </div>
-
-
-</div>
+    <div>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Вкажіть ваше ім'я"
+            ngModel="user.name">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Вкажіть тему"
+            ngModel="user.theme">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+          <textarea
+            matInput
+            placeholder="Введіть ваше повідомлення:"
+            ngModel="user.subject">
+          </textarea>
+        </mat-form-field>
+        <button mat-button color="primary">Відправити</button>
+      </form>
+    </div>
+  </div>
