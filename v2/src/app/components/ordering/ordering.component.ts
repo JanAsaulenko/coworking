@@ -19,21 +19,13 @@ export class PlaceSelect {
     disalble:boolean = true;
 }
 
-
-
-
-
-
-
 @Component({
   selector: 'app-ordering',
   templateUrl: './ordering.component.html',
   styleUrls: ['./ordering.component.css']
 })
 
-
 export class OrderingComponent implements OnInit {
-
     citySelect:PlaceSelect = new PlaceSelect();
     placeSelect:PlaceSelect = new PlaceSelect();
     spaceSelect:PlaceSelect = new PlaceSelect();
@@ -71,9 +63,7 @@ export class OrderingComponent implements OnInit {
             (err) =>{
           });
     }
-
     onSelectPlace(){
-
         this.spaceSelect = new PlaceSelect();
         this.orderingService.getSpaces(Number(this.placeSelect.value)).subscribe(
             (res: any) => {
