@@ -2,57 +2,58 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <div    class="box-1">
-    <agm-map [latitude]="mapConfig.lat"
-             [longitude]="mapConfig.long">
+    <agm-map  [latitude]="mapConfig.lat"
+             [longitude]="mapConfig.long"
+    [zoom]="mapConfig.zoom">
+
     <!--<agm-marker [latitude]="49.2308045" [longitude]="28.3964071"></agm-marker>-->
     <agm-marker *ngFor="let contact of markers; let i=index"
                 [latitude]="contact.latitude"
                 [longitude]="contact.longitude"  >
 
-      <agm-snazzy-info-window [isOpen]="true" [latitude]="contact.latitude" [longitude]="contact.longitude" [closeWhenOthersOpen]="true">
+      <agm-snazzy-info-window [isOpen]="false"
+                              [latitude]="contact.latitude"
+                              [longitude]="contact.longitude"
+                              [closeWhenOthersOpen]="true">
         <ng-template>
-          {{ contact.name}}
+            {{ contact.address }}<p></p>
         </ng-template>
-
       </agm-snazzy-info-window>
-
-
     </agm-marker>
     </agm-map>
   </div>
   <div class="box-2">
-    <br>
-   <div *ngFor="let contact of markers "> <h4 >{{contact.latitude}}</h4></div>
-    <div class="aside-heading"><h3>КОНТАКТНА ІНФОРМАЦІЯ</h3>
-    </div>
 
-    <div class="content_text">При винникненні будь-яких запитаннь
-      чи пропозицій, <br>
-      Ви можете звернутись по вказаним контактним <br>
-      даним, або заповнити відповідну форму
-    </div>
-    <div >
-      <p> <span class="address_input"></span></p>
-    </div>
-    <div class="content_earphone">
-      <p class="aside-heading">+38 0432 52 82 67</p>
-    </div>
-    <div class="content_envelope">
-      <p class="aside-heading"> e-mail:intita.hr@gmail.com</p>
+      <mat-card class="card">
+          <div class="aside-heading"><h3>КОНТАКТНА ІНФОРМАЦІЯ</h3>
+          </div>
 
-    </div>
+          <mat-card-content>
+              <p>
+                  При винникненні будь-яких запитаннь
+                  чи пропозицій, <br>
+                  Ви можете звернутись по вказаним контактним <br>
+                  даним, або заповнити відповідну форму
+              </p>
+          </mat-card-content>
+          <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title  class="email">intita.hr@gmail.com</mat-card-title>
+              <mat-card-subtitle>+38 0432 52 82 67</mat-card-subtitle>
+          </mat-card-header>
+      </mat-card>
 
       <div >
-          <form class="example-form">
-          <mat-form-field class="example-full-width">
+          <form class="form">
+          <mat-form-field class="full-width">
           <input matInput placeholder="Вкажіть ваше ім'я!" ngModel="user.name">
           </mat-form-field>
           <br>
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="full-width">
               <input matInput placeholder="Вкажіть тему" ngModel="user.theme" >
           </mat-form-field>
           <br>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="full-width">
               <textarea matInput placeholder="Введіть ваше повідомлення:" ngModel="user.subject"></textarea>
 
           </mat-form-field>
@@ -63,4 +64,5 @@
       </div>
 
 
+</div>
 </div>

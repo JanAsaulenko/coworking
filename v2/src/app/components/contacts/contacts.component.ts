@@ -10,7 +10,8 @@ import { ContactsService } from '../../services/contacts.service';
 export class ContactsComponent implements OnInit {
     mapConfig = {
         lat: 49.229065,
-        long: 28.425729
+        long: 28.425729,
+        zoom: 13
     }
   markers: any =[];
     user={
