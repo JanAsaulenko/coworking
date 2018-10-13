@@ -11,8 +11,7 @@ import { PlacesComponent } from './components/places/places.component';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from "./material.module";
-
-
+import {MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,16 +19,14 @@ import {MaterialModule} from "./material.module";
     PricesComponent,
     ContactsComponent,
     WelcomeComponent,
-    PlacesComponent,
-
+    PlacesComponent
   ],
   imports: [
       BrowserModule,
       BrowserAnimationsModule,
       HttpClientModule,
       MaterialModule,
-
-
+      MatInputModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAI4IFg_krZ3BflXLNIHCNKocu23lXGV7E'
     }),
