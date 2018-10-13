@@ -1,19 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap, map , of} from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 
-// Temporary mock data (gallery images)
-const galleryPlaces = [
-    {
-        placeName: 'Test',
-        capacity: 40,
-        city: 'Vinnytsia',
-        address: 'Vaschuka 20',
-        img: ''
-    },
 
-]
 
 @Injectable({
   providedIn: 'root'
