@@ -37,9 +37,9 @@ class PlaceTableSeeder extends Seeder
         $keletska = new Place;
         $keletska->id = '3';
         $keletska->city_id = 101;
-        $keletska->address = "qwer";
-        $keletska->longitude = "28.3947603";
-        $keletska->latitude = "49.2297332";
+        $keletska->address = "";
+        $keletska->longitude = "";
+        $keletska->latitude = "";
         $keletska->start_time = "08:00:00";
         $keletska->end_time = "21:00:00";
         $keletska->number_of_seatplace = 0;
