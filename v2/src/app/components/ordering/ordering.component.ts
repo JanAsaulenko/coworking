@@ -1,6 +1,10 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { City } from '../../interfaces/city';
 import {OrderingService} from "../../services/ordering.service";
+import {MatDatepickerInputEvent} from "@angular/material";
+// import {moment} from 'moment/moment';
+import * as moment from 'moment'
+import DateTimeFormat = Intl.DateTimeFormat;
 
 export class CitySelect {
     cities: Array<City>;
@@ -19,8 +23,19 @@ export class PlaceSelect {
     disalble:boolean = true;
 }
 export class DateSelect {
-  disable:boolean = true;
+  fullReservedDates:Array<any> =['2018-10-20'];
+
+  disable:boolean =  false;
+
+  Filter = (d: Date): boolean => {
+    const day = d.getDay();
+    // console.log(d);
+    if (moment(d).isBefore(new Date().setHours(0, 0, 0, 0))) return false;
+
+    return day !== 0 && day !== 6;
+  }
 }
+
 
 
 @Component({
@@ -34,6 +49,7 @@ export class OrderingComponent implements OnInit {
     placeSelect:PlaceSelect = new PlaceSelect();
     spaceSelect:PlaceSelect = new PlaceSelect();
     dateSelect:DateSelect = new DateSelect();
+    // filter = new DatepickerFilterExample();
 
   constructor( private orderingService: OrderingService) { }
   ngOnInit() {
@@ -91,5 +107,10 @@ export class OrderingComponent implements OnInit {
     onSelectSpace(){
       this.dateSelect.disable = false;
       console.log(this.spaceSelect.value);
+    }
+    onSelectDate(event: MatDatepickerInputEvent<Date>){
+      console.log(event.value);
+      console.log(moment(event.value).format("YYYY-MM-DD HH:mm:ss"));
+      console.log(this.dateSelect.Filter);
     }
 }

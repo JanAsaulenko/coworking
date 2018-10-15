@@ -32,7 +32,8 @@
   </div>
 
   <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date"  [disabled] = "dateSelect.disable">
+    <input matInput [matDatepickerFilter]="dateSelect.Filter" [matDatepicker]="picker" placeholder="Choose a date"  [disabled] = "dateSelect.disable"
+           (dateInput)="onSelectDate( $event)">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
