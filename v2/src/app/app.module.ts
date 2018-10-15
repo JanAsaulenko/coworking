@@ -14,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material.module';
+import {MAT_DATE_LOCALE} from "@angular/material";
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import {MaterialModule} from './material.module';
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
     ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
