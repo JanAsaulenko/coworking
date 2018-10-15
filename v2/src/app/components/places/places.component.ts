@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlacesComponent implements OnInit {
 
+place = "галерея для перегляду ";
+
   constructor() { }
 
   ngOnInit() {

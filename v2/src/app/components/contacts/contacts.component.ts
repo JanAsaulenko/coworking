@@ -5,13 +5,22 @@ import { ContactsService } from '../../services/contacts.service';
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css']
+
 })
 export class ContactsComponent implements OnInit {
     mapConfig = {
         lat: 49.229065,
-        long: 28.425729
+        long: 28.425729,
+        zoom: 13
     }
   markers: any =[];
+    user={
+        name:"",
+        email:"",
+        theme:"",
+        subject:""
+
+    }
 
   constructor(
       private contactsService: ContactsService
@@ -25,7 +34,9 @@ export class ContactsComponent implements OnInit {
                     ...place,
                     latitude: Number(place.latitude),
                     longitude: Number(place.longitude)
+
                 }
+
             });
 
         },
@@ -34,5 +45,6 @@ export class ContactsComponent implements OnInit {
         }
     );
   }
+
 
 }
