@@ -18,6 +18,10 @@ export class PlaceSelect {
     value: string = "";
     disalble:boolean = true;
 }
+export class DateSelect {
+  disable:boolean = true;
+}
+
 
 @Component({
   selector: 'app-ordering',
@@ -29,6 +33,7 @@ export class OrderingComponent implements OnInit {
     citySelect:PlaceSelect = new PlaceSelect();
     placeSelect:PlaceSelect = new PlaceSelect();
     spaceSelect:PlaceSelect = new PlaceSelect();
+    dateSelect:DateSelect = new DateSelect();
 
   constructor( private orderingService: OrderingService) { }
   ngOnInit() {
@@ -48,6 +53,7 @@ export class OrderingComponent implements OnInit {
   onSelectCity(){
     this.placeSelect = new PlaceSelect();
     this.spaceSelect = new PlaceSelect();
+    this.dateSelect = new DateSelect();
       this.orderingService.getPlaces( Number(this.citySelect.value) ).subscribe(
           (res: any) =>{
                 this.placeSelect.options = res.map((item:any )=>{
@@ -65,7 +71,9 @@ export class OrderingComponent implements OnInit {
     }
     onSelectPlace(){
         this.spaceSelect = new PlaceSelect();
-        this.orderingService.getSpaces(Number(this.placeSelect.value)).subscribe(
+        this.dateSelect = new DateSelect();
+
+      this.orderingService.getSpaces(Number(this.placeSelect.value)).subscribe(
             (res: any) => {
                 this.spaceSelect.options = res.map((item:any)=>{
                     return{
@@ -81,6 +89,7 @@ export class OrderingComponent implements OnInit {
             });
     }
     onSelectSpace(){
+      this.dateSelect.disable = false;
       console.log(this.spaceSelect.value);
     }
 }

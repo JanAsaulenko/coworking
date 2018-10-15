@@ -44,7 +44,7 @@ import {MAT_DATE_LOCALE} from "@angular/material";
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
     ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'uk'},],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
