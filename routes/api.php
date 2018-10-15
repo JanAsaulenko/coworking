@@ -24,6 +24,9 @@ Route::group(['prefix'=>'/v2'], function () {
     Route::get('/choosespace','v2ReservationController@chooseSpace');
     Route::get('/showreserve','v2ReservationController@showReserve');
 
+
+    Route::get('/getfullreserveddatesbyspace','v2ReservationController@getFullReservedDatesBySpace');//todo ADD in Doc.html
+
 });
 
 

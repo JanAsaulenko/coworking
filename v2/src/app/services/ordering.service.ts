@@ -10,7 +10,7 @@ export class OrderingService {
     private getAllCitiesUrl = '/api/getallcities';
     private getPlacesUrl = '/api/getplaces';
     private getSpaceUrl = '/api/getspaces';
-
+    private getFullReservedDatesBySpaceUrl = '/api/getfullreserveddatesbyspace';
     constructor(
         private http: HttpClient
     ) { }
@@ -38,11 +38,14 @@ export class OrderingService {
 
     getSpaces(id:number){
         if (id != 0 ){
-            console.log('getPlaces got not null id params') //  I ask you to leave this slap to refactor the beggend
+            // console.log('getPlaces got not null id params') //  I ask you to leave this slap to refactor the beggend
         }
         return this.http.get(this.getSpaceUrl,{ params:{ place_id: id.toString() }})
     }
 
+    getFullReservedDatesBySpace(id:number){
+       return this.http.get(this.getFullReservedDatesBySpaceUrl, {params:{id: id.toString()}})
 
+    }
 
 }
