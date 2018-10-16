@@ -4,7 +4,7 @@
     <mat-tab label="Вибір приміщення, дати">
 
 
-      <div >
+      <div>
         <br>
         <h4>Оберіть місце та дату</h4>
         <div class="ordering-selects">
@@ -45,6 +45,7 @@
           <mat-form-field>
             <input matInput [matDatepickerFilter]="dateSelect.Filter" [matDatepicker]="picker" placeholder="Choose a date"
                    [disabled]="dateSelect.disable&&(!dateSelect.checkFullReservedDatesBySpace)"
+                   [(ngModel)] = "dateSelect.value"
                    (dateInput)="onSelectDate( $event)">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>

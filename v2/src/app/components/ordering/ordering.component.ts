@@ -29,6 +29,7 @@ export class DateSelect {
   fullReservedDates: Array<any> = [];
   checkFullReservedDatesBySpace: boolean = false;
   disable: boolean = true;
+  value:any = null;
 
   Filter = (d: Date): boolean => {
     const wDay = d.getDay();
@@ -81,6 +82,7 @@ export class OrderingComponent implements OnInit {
     this.placeSelect = new PlaceSelect();
     this.spaceSelect = new PlaceSelect();
     this.dateSelect = new DateSelect();
+
     this.orderingService.getPlaces(Number(this.citySelect.value)).subscribe(
       (res: any) => {
         this.placeSelect.options = res.map((item: any) => {
@@ -118,11 +120,14 @@ export class OrderingComponent implements OnInit {
   }
 
   onSelectSpace() {
-    this.dateSelect.disable = false;
+    this.dateSelect = new DateSelect();
+
+
     this.orderingService.getFullReservedDatesBySpace(Number(this.spaceSelect.value)).subscribe(
       (respons: any) => {
         this.dateSelect.fullReservedDates = respons.completelyReservedDays;
         this.dateSelect.checkFullReservedDatesBySpace = true;
+        this.dateSelect.disable = false;
       },
       (err) => {
       }
