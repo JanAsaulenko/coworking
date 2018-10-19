@@ -1,9 +1,10 @@
 import EventBus from './PubSub';
 import splitDate from './functionHelpers/splitDate';
-import drawSeats from './actions/drawSeats';
+import drawSeats from './actions/drawReserveSeats';
 import SeatClick from './actions/SeatClick';
 import findChooseSeats from './actions/findChooseSeats';
-
+import paintSeat from './actions/paintSeat';
+import db from './firebase/index'
 
 class Space {
     constructor() {
@@ -15,26 +16,61 @@ class Space {
 
     showReserveSeats(dates) {
         let seatsArray = dates.seats;
+        let seatsReserve = dates.reserveSeats;
         let fireDate = dates.fireDate;
-        let target_date = dates.date;
-        let arrOfPrices = dates.price;
-        let table = $(".seat-block-table");
-        let arrOfSeats = $('.seat');
-        drawSeats(fireDate, seatsArray);
+        let table = $('.seat-block-table');
+        let id = dates.id;
+        let hash = sessionStorage.getItem('hash');
+        drawSeats(seatsArray, seatsReserve);
+        table.unbind('click');
+        table.on('click', (event) => {
+            SeatClick.action(event, fireDate, id);
+        });
 
-        arrOfSeats.unbind('click');
-        arrOfSeats.on('click', (event) => {
-            SeatClick.action(event, fireDate);
-            drawSeats(fireDate, arrOfSeats);
-            findChooseSeats(splitDate(fireDate));
-        })
+
+
+
+        let commRef = db.ref(fireDate).child(id);
+        commRef.on('child_added', function(data) {
+             if(hash !== data.val().hash){
+                 let enemy = 'seat-reserved';
+                 paintSeat(seatsArray, data.val().seat, enemy)
+             }
+        });
+        // commRef.on('child_changed', function(data) {
+        //     for(let i =0;i<seatsArray.length;i++){
+        //         if(seatsArray[i].innerText===data.val()){
+        //             seatsArray[i].className = 'seat-clicked'
+        //         }
+        //     }
+        // });
+
+
+
+
+
+
+
+
+        // arrOfSeats.on('click', (event) => {
+        //     console.log(event)
+
+        // drawSeats(fireDate, arrOfSeats);
+        // findChooseSeats(splitDate(fireDate));
+        // })
     }
 
 
     drawSeats(data) {
+        let placeForTable = document.getElementsByClassName('seats-block')[0];
         $.each(data.seats, (index) => {
             ($('.space-select') || $('.place-select') || $('.city-select')).change(() => {
                 $('.seats-block').empty();
+                $('.seats-block_buttons').empty();
+                let sides = $('.turn');
+                for (let i = 0; i < sides.length; i++) {
+                    sides[i].value = "";
+                }
             });
             let number_of_seats = data.seats[index].number_of_seats;
             let count = 1;
@@ -51,7 +87,7 @@ class Space {
                 }
                 table.appendChild(col)
             }
-            document.getElementsByClassName('seats-block')[0].appendChild(table);
+            placeForTable.appendChild(table)
         })
     }
 }

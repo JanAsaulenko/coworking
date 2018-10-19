@@ -6,7 +6,7 @@ import showButtons from "./functionHelpers/showButtons";
 
 class DataPicker {
     constructor() {
-        EventBus.subscribe('chooseSpace', this.getChoseReserve);
+        EventBus.subscribe('datePicker', this.takeDatesFromDataPicker);
         $('.datepicker__error-block').hide()
     }
 
@@ -52,7 +52,9 @@ class DataPicker {
             })
     }
 
-    getChoseReserve(params) {
+
+
+    takeDatesFromDataPicker(params) {
         let holidays = params.holiday;
         let from = $('.fromdate');
         from.datepicker("destroy");
@@ -66,7 +68,7 @@ class DataPicker {
                 $('.from').val(from);
                 if (to) {
                     if (compareDates(from, to) > 0) {
-                        showButtons(from, to, params.id_place);
+                        // showButtons(from, to, params.id_place);
                     }
                     else {
                         errorRange('Make less date from')
@@ -105,7 +107,7 @@ class DataPicker {
                 $('.to').val(to);
                 if (from) {
                     if (compareDates(from, to) > 0) {
-                        showButtons(from, to, params.id_place);
+                        showButtons(from, to, params.id_place); //
                     }
                     else {
                         errorRange('Make more date TO')

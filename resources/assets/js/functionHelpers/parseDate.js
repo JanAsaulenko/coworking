@@ -13,7 +13,7 @@
         let newDate = date.split("-");
         let year = newDate[0];
         let month = newDate[1];
-        let day = newDate[2]
+        let day = newDate[2];
         newDate[0] = year;
         newDate[2] = month;
         newDate[1] = day;

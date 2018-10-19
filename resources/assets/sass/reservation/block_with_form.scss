@@ -1,6 +1,5 @@
 .block_with_form {
   display: none;
-  width: 200px;
   position: relative;
   top: -500px;
   height: min-content;
@@ -9,8 +8,14 @@
   padding: 5px 5px 20px;
   border-radius: 0 0 5px 5px;
 }
+.block_with_form-big{
+  width: 600px;
+  right: 500px;
+  transition: all 5s;
+}
 
 .block_with_form-users_info {
+  display: none;
   text-align: center;
 }
 
@@ -22,6 +27,11 @@
   display: flex;
   flex-direction: column;
   list-style: none;
+}
+.db_info-downpad_block-list-name{
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
 }
 
 .block-list_item {

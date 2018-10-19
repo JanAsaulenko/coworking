@@ -4,8 +4,12 @@ import Space from './Space'
 import Seet from  './Seet'
 import ReserveSeats from './ReserveSeats';
 import DateRange from './DateRange';
-
+import db from './firebase/index'
 $(document).ready(function () {
+  if(!sessionStorage.getItem('hash')){
+      let key = db.ref().push().key;
+      sessionStorage.setItem('hash',key);
+  }
 
   const city = $('.city-select');
   const places = $('.place-select');

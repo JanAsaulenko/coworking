@@ -3,7 +3,6 @@ export default function drawFunction(range) {
     if (block_with_form.is(':visible')) return;
     block_with_form.css({
         'display': 'flex',
-
         'flex-direction': 'column',
         'position': 'relative',
         "top": '14px'

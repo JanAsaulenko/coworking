@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import EventBus from "../PubSub";
 
 export default function drawListItem(target, ul) {
     ul.empty();
@@ -17,12 +18,10 @@ export default function drawListItem(target, ul) {
     if (!_.isArray(target.val().__proto__.constructor())) {
         let test = Object.keys(target.val());
         arr = test.clean(undefined);
-        console.log('arr', arr)
     }
     else {
         let test = Object.assign({}, target.val());
         arr = Object.keys(test);
-        console.log(arr)
     }
 
     arr.forEach((el) => {
@@ -36,4 +35,6 @@ export default function drawListItem(target, ul) {
     let createLiBlock = document.createElement('li');
     createLiBlock.append(`Вартість за день:${Number(count) * 90} грн`);
     ul.append(createLiBlock);
+
+    EventBus.publish()
 }

@@ -1,4 +1,5 @@
 import EventBus from './PubSub';
+import Observable from'./Observer'
 import clear from './functionHelpers/clear';
 
 class Selector {
@@ -13,7 +14,7 @@ class Selector {
         let selector = this.placeID;
         let {url, type, dataType} = this.settings;
         selector.change((event) => {
-            clear();
+
             let target = event.target.value;
             $.ajax({
                 url: url,
@@ -22,12 +23,25 @@ class Selector {
                 data: {id: target},
                 success: (data) => {
                     if (data.spaces) {
-                        EventBus.publish('chooseSpace', {
+                        EventBus.publish('datePicker', {
                             'holiday': data.completelyReservedDays,
                             'id_place': data.spaces
                         });
-                        console.log('i ma here')
                         EventBus.publish('reservation/drawSeats', {'seats': data.spaces});
+                        // function WrapperDrawSeats(){
+                        //     this.notify = function (data){
+                        //
+                                // EventBus.publish('reservation/drawSeats', {'seats': data.spaces});
+                        //     }
+                        // }
+                        // function WrapperButtonNext(){
+                        //     this.notify = function(data){
+                        //         EventBus.publish('reservation/reserveSeats', {'data':data , 'seats':data.spaces})
+                        //     }
+                        // }
+                        // // Observable.addObserver(new WrapperDrawSeats());
+                        // Observable.addObserver(new WrapperButtonNext());
+                        // Observable.sendData(data);
                         return
                     }
                     EventBus.publish('chooseSpace', {'holiday': data.completelyReservedDays});
@@ -40,40 +54,7 @@ class Selector {
         if (this.placeID[0] === undefined) {
             return 0
         }
-        else if (this.placeID[0].tagName === 'INPUT') {
-            let dates = {...this.settings};
-            let placeID = this.placeID.val();
-            let spaceSelect = this.spaceSelect;
-            requestInput();
-            $('.seats-block').empty();
-            function requestInput() {
-                spaceSelect.select2({
-                    placeholder: "Оберіть простір...",
-                    width: "100%"
-                });
-                $.ajax({
-                    url: dates.url,
-                    method: dates.method,
-                    dataType: dates.type,
-                    data: {id: placeID},
-                    success: function (data) {
-                        if (data === '') {
-                            spaceSelect.select2({
-                                placeholder: "Доступних місць немає",
-                                width: "100%",
-                            })
-                        }
-                        else {
-                            spaceSelect
-                                .append("<option></option>");
-                            $.each(data, function (index) {
-                                spaceSelect.append("<option value='" + data[index].id + "'>" + data[index].text + "</option>");
-                            })
-                        }
-                    }
-                })
-            }
-        }
+
         else if (this.placeID[0].tagName === 'SELECT') {
             let dates = {...this.settings};
             let selector = this.placeID;

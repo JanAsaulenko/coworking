@@ -1,10 +1,8 @@
 import EventBus from './PubSub';
 import Observable from './Observer';
 import Parser from './functionHelpers/parseDate';
-import splitDate from './functionHelpers/splitDate';
-import LogicBackRequest from './logicBackRequest';
+import chooseDayByButton from './ChooseDay';
 import drawForm from './actions/drawForm'
-import db from './firebase/index'
 import findChooseDates from './actions/findChooseDates'
 
 class DateRange {
@@ -14,6 +12,7 @@ class DateRange {
 
     makeRange(data) {
         let {space} = data;
+        let seatsBlock = $('.seats-block_buttons');
         let from = Parser.parseDateForRange(data.from);
         let to = Parser.parseDateForRange(data.to);
 
@@ -33,31 +32,25 @@ class DateRange {
         let range = diapasone(from, to); // divide into array dates
 
 
-            function CreateForm() {
-                this.notify = function (range) {
-                            drawForm(range)
-                }
+        function CreateForm() {
+            this.notify = function (range) {
+                drawForm(range)
             }
+        }
 
 
         function MakeButtons() {
             this.notify = function (range) {
-                let seatsAll = $('.seats-block td')
-                db.ref('days').remove(); //clear dates  when  dates (from || to) are changing
+                let seatsAll = $('.seats-block td');
                 const buttonTable = $('.seats-block_buttons');
                 buttonTable.empty();
                 for (let i = 0; i < range.length; i++) {
-                    let ref = db.ref('days');
-                    let dateId = splitDate(range[i]);
-                    ref = ref.child(dateId);
-                    ref.set(range[i]);
-                        for (let i = 0; i < seatsAll.length; i++) {
-                            seatsAll[i].className= 'seat'
-                            db.ref('days').child(dateId).child(seatsAll[i].innerText).set(seatsAll[i].className)
-                        }
-                    let button = $(`<button type="button" class='seats-block-button'>${range[i]}</button>`);
+                    for (let i = 0; i < seatsAll.length; i++) {
+                        seatsAll[i].className = 'seat'
+                    }
+                    let button = $(`<button type="button" class='seats-block-button'><span>${range[i]}</span></button>`);
                     buttonTable.append(button);
-                    findChooseDates(range);
+                    // findChooseDates(range);
                 }
             };
         }
@@ -65,15 +58,12 @@ class DateRange {
         Observable.addObserver(new CreateForm());
         Observable.addObserver(new MakeButtons());
         Observable.sendData(range);
-
-
-        $('.seats-block-button').on('click', (event) => {
-            let seatsArray = $('.seat-block-table td');
-            for (let i = 0; i < seatsArray.length; i++) {
-                seatsArray[i].className = 'seat';
+        seatsBlock.unbind();
+        seatsBlock.on('click', (event) => {
+            for (let i in space) {
+                if (!space.hasOwnProperty(i)) continue;
+                chooseDayByButton(space[i], event.target)
             }
-
-            LogicBackRequest.requestReserveSeats(event.target.innerText, space)
         })
     }
 }
