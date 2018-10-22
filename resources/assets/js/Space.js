@@ -32,10 +32,14 @@ class Space {
 
         let commRef = db.ref(fireDate).child(id);
         commRef.on('child_added', function(data) {
-             if(hash !== data.val().hash){
-                 let enemy = 'seat-reserved';
-                 paintSeat(seatsArray, data.val().seat, enemy)
-             }
+            if(data.val().hash === undefined) return 0;
+            else {
+                if(hash !== data.val().hash){
+                    let enemy = 'seat-reserved';
+                    paintSeat(seatsArray, data.val().seat, enemy)
+                }
+            }
+
         });
         // commRef.on('child_changed', function(data) {
         //     for(let i =0;i<seatsArray.length;i++){

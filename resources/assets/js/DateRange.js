@@ -12,7 +12,7 @@ class DateRange {
 
     makeRange(data) {
         let {space} = data;
-        let seatsBlock = $('.seats-block_buttons');
+        let seatsButtonsBlock = $('.seats-block_buttons');
         let from = Parser.parseDateForRange(data.from);
         let to = Parser.parseDateForRange(data.to);
 
@@ -58,8 +58,8 @@ class DateRange {
         Observable.addObserver(new CreateForm());
         Observable.addObserver(new MakeButtons());
         Observable.sendData(range);
-        seatsBlock.unbind();
-        seatsBlock.on('click', (event) => {
+        seatsButtonsBlock.unbind();
+        seatsButtonsBlock.on('click', (event) => {
             for (let i in space) {
                 if (!space.hasOwnProperty(i)) continue;
                 chooseDayByButton(space[i], event.target)
