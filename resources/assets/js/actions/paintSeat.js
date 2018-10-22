@@ -1,6 +1,6 @@
 export default function paintSeat(allSeats, target) {
     let newAllSeats = $('.seat-block-table td');
-    console.log(newAllSeats)
+    console.log(newAllSeats);git
     for (let i = 0; i < newAllSeats.length; i++) {
         let targetString=target.toString();
         console.log('newAllSeats', newAllSeats[i].innerText, '---targeet', target )
