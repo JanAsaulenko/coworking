@@ -3,7 +3,9 @@ import Observable from './Observer';
 import Parser from './functionHelpers/parseDate';
 import chooseDayByButton from './ChooseDay';
 import drawForm from './actions/drawForm'
-import findChooseDates from './actions/findChooseDates'
+import Constants from './constants/constants';
+import buttonLoading from './actions/ButtonLoading'
+import findChooseDates from "./actions/findChooseDates";
 
 class DateRange {
     constructor() {
@@ -46,11 +48,10 @@ class DateRange {
                 buttonTable.empty();
                 for (let i = 0; i < range.length; i++) {
                     for (let i = 0; i < seatsAll.length; i++) {
-                        seatsAll[i].className = 'seat'
+                        seatsAll[i].className = Constants.FREE_SEAT;
                     }
                     let button = $(`<button type="button" class='seats-block-button'><span>${range[i]}</span></button>`);
                     buttonTable.append(button);
-                    // findChooseDates(range);
                 }
             };
         }
@@ -59,10 +60,46 @@ class DateRange {
         Observable.addObserver(new MakeButtons());
         Observable.sendData(range);
         seatsButtonsBlock.unbind();
+
+
         seatsButtonsBlock.on('click', (event) => {
+
+            let counter = {
+                currentCount: 20,
+                getNext: function () {
+                    return this.currentCount += 5;
+                }
+            };
+
+            let height = 20;
+            let button = event.target.parentElement;
+            button.style.height = `${height}px`;
+
             for (let i in space) {
                 if (!space.hasOwnProperty(i)) continue;
-                chooseDayByButton(space[i], event.target)
+                chooseDayByButton(space[i], event.target);
+                let timer = setInterval(checkInaction, 5000, event.target, timer);
+
+                function checkInaction(date) {
+                    let targetDate = document.getElementsByClassName(`db_info-downpad_block-list_${date.innerText}`);
+                    if (targetDate[0].children.length === 0) {
+                        let height = counter.getNext.call(counter);
+                        let siblingHeight = date.parentElement.nextSibling.clientHeight
+                        if (height > siblingHeight) {
+                            console.log('limit');
+                            let dataForRemove = document.getElementsByClassName(`db_info-downpad_block-list_${date.innerText}`)[0];
+                            dataForRemove.remove();
+                            clearInterval(timer)
+                        }
+                        else {
+                            buttonLoading(date, height)
+                        }
+                    }
+                    else {
+                        console.log('it has children', targetDate[0].children.length)
+                        clearInterval(timer)
+                    }
+                }
             }
         })
     }

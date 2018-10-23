@@ -1,40 +1,22 @@
 import _ from 'lodash'
 import EventBus from "../PubSub";
-
-export default function drawListItem(target, ul) {
-    ul.empty();
-    let count = 0;
-    let arr = [];
-    Array.prototype.clean = function (empty) {
-        for (let i = 0; i < this.length; i++) {
-            if (this[i] == empty) {
-                this.splice(i, 1);
-                i--;
-            }
-        }
-        return this
-    };
-
-    if (!_.isArray(target.val().__proto__.constructor())) {
-        let test = Object.keys(target.val());
-        arr = test.clean(undefined);
+import Constants from '../constants/constants'
+export default function drawListItem(event, date) {
+    console.log(event.target.className);
+    switch (event.target.className) {
+        case Constants.RESERVE_BY_YOURSELF :
+            console.log('reserve');
+            $(`.right_form-item_${event.target.innerText}`).remove();
+            break;
+        case Constants.FREE_SEAT:
+            let dateUl = document.getElementsByClassName(`db_info-downpad_block-list_${date}`)[0];
+            let li = document.createElement('li');
+            li.className = `right_form-item_${event.target.innerText}`;
+            let textNode = document.createTextNode(event.target.innerText);
+            li.append(textNode);
+            console.log(li, dateUl);
+            dateUl.append(li);
+            break;
+        default:
     }
-    else {
-        let test = Object.assign({}, target.val());
-        arr = Object.keys(test);
-    }
-
-    arr.forEach((el) => {
-        count++;
-        let li = document.createElement('li');
-        li.className = ` block-list_item block-list_item-${el}`;
-        let textNode = document.createTextNode(`${el} мicце`);
-        li.append(textNode);
-        ul.append(li)
-    });
-    let createLiBlock = document.createElement('li');
-    createLiBlock.append(`Вартість за день:${Number(count) * 90} грн`);
-    ul.append(createLiBlock);
-
-    EventBus.publish()
 }

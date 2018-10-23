@@ -1,4 +1,7 @@
-export default  function constants () {
-    this.RESERVE_BY_FOREIGN = 'seat-reserved';
-    this.RESERVE_BY_YOURSELF='seat-clicked'
-}
+ const Constants =  {
+    FREE_SEAT : 'seat',
+    RESERVE_BY_FOREIGN:'seat-reserved',
+   RESERVE_BY_YOURSELF:'seat-clicked'
+};
+
+export default Constants

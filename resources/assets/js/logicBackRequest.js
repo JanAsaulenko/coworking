@@ -10,7 +10,6 @@ class LogicBackRequest {
         let fireDate = splitDate(date)
         let seatsArray = $('.seat');
         let id = spaceId;
-        const hash = sessionStorage.getItem('hash');
 
         for (let i = 0; i < arrOfreserveSeats.length; i++) {
             arrOfreserveSeats[i].className = 'seat';      // make all unreserve

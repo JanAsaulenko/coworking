@@ -1,3 +1,4 @@
+
 export default function drawFunction(range) {
     let block_with_form = $('.block_with_form');
     if (block_with_form.is(':visible')) return;
@@ -7,5 +8,7 @@ export default function drawFunction(range) {
         'position': 'relative',
         "top": '14px'
     });
+    block_with_form.show(2000);
+
     /*TODO  if you want to add logic  " How much days user reserved you can make it here"*/
 };
