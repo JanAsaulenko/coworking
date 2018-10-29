@@ -39,7 +39,8 @@
         <div class="seats-block">
 
         </div>
-        <button type="button" class="form_button-next">Далі</button>
+        <a  class="button-next"><img  name="sea_room" src={{asset('images/section2/btn-choose.png')}}> </a>
+        {{--<button type="button" class="form_button-next">Далі</button>--}}
     </form>
 
     {{--import block into  another layout  --}}

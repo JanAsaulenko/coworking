@@ -71,6 +71,9 @@ html {
 body {
     font-family: pageFont, Arial, sans-serif;
     position: relative;
+    background-size: cover;
+    background: url("../../images/section1/section1.jpg")center;
+    color:#000000;
 }
 
 .header {
@@ -78,7 +81,7 @@ body {
     align-items: center;
     background-color: black;
     width: 100%;
-    height: 60px;
+    height: 50px;
     background-size: cover;
 }
 
@@ -92,13 +95,16 @@ body {
 }
 
 .img-logo {
+    position: absolute;
+    top:2px;
     max-width: 70%;
     height: auto;
 }
 
 /*---------------------------------------------------------------------------------*/
 .main-menu {
-    width: 600px;
+    margin:0 auto;
+    width: 700px;
     .list {
         display: flex;
         flex-direction: row;
@@ -108,12 +114,12 @@ body {
         .item  a {
             color: white;
             text-decoration: none;
-            font-size: 19px;
+            font-size: 15px;
             &:hover{
                 color: rgb(174,246,86);
                 text-decoration: none;
                 opacity: 0.5;
-                font-size: 19px;
+                font-size: 15px;
             }
         }
     }
@@ -201,6 +207,49 @@ body {
     height: 100vh;
     position: relative;
 }
+.modal-content{
+    width:max-content;
+    margin: auto;
+}
+
+#relax_room {
+
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#magenta {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /*-----------------------------BLOCK ON VIDEO----------------------------------------------------*/
@@ -216,7 +265,7 @@ body {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    font-size: 60px;
+    font-size: 50px;
     line-height: .91667;
     font-weight: 600;
     letter-spacing: -.015em;

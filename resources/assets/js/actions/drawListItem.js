@@ -1,5 +1,3 @@
-import _ from 'lodash'
-import EventBus from "../PubSub";
 import Constants from '../constants/constants'
 export default function drawListItem(event, date) {
     console.log(event.target.className);

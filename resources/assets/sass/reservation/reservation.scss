@@ -8,7 +8,10 @@
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0 auto;
-  background: url('../../images/reservation/back.jpg') no-repeat;
+  background-size: cover;
+  background: url("../../images/section1/section1.jpg")center;
+  font-family: 'Geometria Light', serif;
+  color:#000000;
 }
 
 .form {
@@ -34,7 +37,9 @@
 .form__select-block {
   padding-top: 20px;
 }
-
+.button-next{
+  margin: auto;
+}
 .form__select-block-first {
   text-align: center;
   display: flex;

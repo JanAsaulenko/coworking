@@ -5,12 +5,10 @@ class Draw {
 
     drawFormList(date, blockForImplement) {
         let targetDate = document.getElementsByClassName(`db_info-downpad_block-list_${date}`)[0];
-        console.log(targetDate);
         if (!targetDate) {
             let ul = document.createElement('ul');
             ul.className = `db_info-downpad_block-list db_info-downpad_block-list_${date}`;
             let textNode = document.createTextNode(date);
-            console.log(textNode);
             ul.append(textNode);
             blockForImplement.append(ul);
         }

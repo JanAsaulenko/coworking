@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="order-link">
-    <img class="link" src="{{ asset('images/main/link.png') }}">
+        <a href="#section1"><img class="link" src="{{ asset('images/main/link.png') }}"></a>
     </div>
 </div>
 <form id="first-form" action="reservation" method="POST" name='test'>

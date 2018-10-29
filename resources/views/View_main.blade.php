@@ -7,6 +7,8 @@
 @section('Content')
     <div class="main">
 	@include('/main/order')
+        @include('/main/vidgets');
+        @include('./main/gallary');
         @include('/main/place')
     {{--<div class="taryf">--}}
         {{--<div class="col-sm-12">--}}

@@ -5,7 +5,8 @@ import chooseDayByButton from './ChooseDay';
 import drawForm from './actions/drawForm'
 import Constants from './constants/constants';
 import buttonLoading from './actions/ButtonLoading'
-import findChooseDates from "./actions/findChooseDates";
+// import findChooseDates from "./findChooseDates";
+import makeOneActiveButton from './actions/MakeOneActiveButton';
 
 class DateRange {
     constructor() {
@@ -63,7 +64,7 @@ class DateRange {
 
 
         seatsButtonsBlock.on('click', (event) => {
-
+            makeOneActiveButton(event);
             let counter = {
                 currentCount: 20,
                 getNext: function () {
@@ -84,7 +85,7 @@ class DateRange {
                     let targetDate = document.getElementsByClassName(`db_info-downpad_block-list_${date.innerText}`);
                     if (targetDate[0].children.length === 0) {
                         let height = counter.getNext.call(counter);
-                        let siblingHeight = date.parentElement.nextSibling.clientHeight
+                        let siblingHeight = (date.parentElement.nextSibling) ? date.parentElement.nextSibling.clientHeight : date.parentElement.previousSibling.clientHeight;
                         if (height > siblingHeight) {
                             console.log('limit');
                             let dataForRemove = document.getElementsByClassName(`db_info-downpad_block-list_${date.innerText}`)[0];
@@ -96,7 +97,6 @@ class DateRange {
                         }
                     }
                     else {
-                        console.log('it has children', targetDate[0].children.length)
                         clearInterval(timer)
                     }
                 }
