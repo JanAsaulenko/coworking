@@ -30,6 +30,13 @@ class v2ReservationController extends Controller
 //        return view('View_reservation', ['cities' => $cities]);
     }
 
+    public  function getFullReservedDatesBySpace(Request $request){
+        $id = $request->id;
+        $completelyReservedDays = Occupancy::getCompletelyReservedDaysBySpace($id);
+        $data = array('completelyReservedDays' => $completelyReservedDays);
+        return response()->json($data,200);
+    }
+
     public function getPlaces(Request $request)
     {
         $id_req = $request->city_id;

@@ -16,12 +16,16 @@ use Illuminate\Http\Request;
 Route::group(['prefix'=>'/v2'], function () {
     Route::get('/getallprices','v2PriceController@getAllPrices');
     Route::get('/getallplaces','v2PlaceController@getAllPlaces');
+    Route::get('/getallcities','v2CityController@getAllCities');
 
     Route::get('/getplaces','v2ReservationController@getPlaces');
     Route::get('/getspaces','v2ReservationController@getSpaces');
     Route::get('/chooseplace','v2ReservationController@choosePlace');
     Route::get('/choosespace','v2ReservationController@chooseSpace');
     Route::get('/showreserve','v2ReservationController@showReserve');
+
+
+    Route::get('/getfullreserveddatesbyspace','v2ReservationController@getFullReservedDatesBySpace');//todo ADD in Doc.html
 
 });
 
